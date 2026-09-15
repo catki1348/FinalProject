@@ -106,37 +106,6 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ss]ceneDependencyCache*
 
 # Exclude external assets folder from version control
-/[Aa]ssets/@ExternalAssets/
-/[Aa]ssets/@ExternalAssets.meta
-/[Aa]ssets/@ExternalAssets
-
-# ─── 대용량 정리 (2026-09-08) ─────────────────────────────
-# Unity 베이크 산출물: 씬을 열면 다시 만들어지므로 커밋하지 않는다.
-# 우리 씬을 Bake 하기로 하면 아래 4줄을 지워야 팀원과 조명이 같아진다.
-**/Lightmap-*.exr*
-**/ReflectionProbe-*.exr*
-**/LightingData.asset*
-**/OcclusionCullingData.asset*
-
-# 안 쓰는 데모 씬 (에셋 스토어 재임포트로 되살아나는 것 차단)
-/Assets/Versatile Studio Assets/Demo City By Versatile Studio/Scenes/
-/Assets/RPG_FPS_game_assets_industrial/Map_v1/
-
-# 에셋 팩의 원본 아트만 제외. 팀 아트 담당의 PSD 는 정상 커밋된다.
-# .tga 는 절대 넣지 말 것 — 펜스/팔레트가 .tga 를 쓴다.
-/Assets/OutPost/**/*.psd*
-/Assets/OutPost/**/*.tif*
-/Assets/Versatile Studio Assets/**/*.psd*
-/Assets/Versatile Studio Assets/**/*.tif*
-/Assets/RPG_FPS_game_assets_industrial/**/*.psd*
-/Assets/RPG_FPS_game_assets_industrial/**/*.tif*
-
-# ─── Enemy 파트 추가 (2026-09-10) ─────────────────────────
-# 외부/유료 에셋은 커밋하지 않는다. Odin(Sirenix) 과 DOTween(Demigiant) 은
-# 유료이고, @PJSAssets 는 개인 작업 폴더다. 이 규칙이 없으면 git add -A
-# 한 번에 유료 플러그인이 팀 리포로 들어간다.
-/[Aa]ssets/@PJSAssets
-/[Aa]ssets/@PJSAssets.meta
 /[Aa]ssets/Plugins/Sirenix
 /[Aa]ssets/Plugins/Sirenix.meta
 /[Aa]ssets/Plugins/Demigiant
@@ -145,3 +114,5 @@ InitTestScene*.unity*
 /[Aa]ssets/Resources.meta
 /[Aa]ssets/Resources/DOTweenSettings.asset
 /[Aa]ssets/Resources/DOTweenSettings.asset.meta
+
+
