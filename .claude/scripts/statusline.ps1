@@ -13,11 +13,6 @@ if (-not (Test-Path $claudeDir)) {
     New-Item -ItemType Directory -Path $claudeDir -Force | Out-Null
 }
 $stateFile = Join-Path $claudeDir ".usage-state.json"
-$debugLog = Join-Path $claudeDir ".statusline-debug.log"
-try {
-    $line = "$(Get-Date -Format o) invoked; inputLen=$($inputRaw.Length); hasRateLimits=$($null -ne $data.rate_limits)"
-    Add-Content -Path $debugLog -Value $line -Encoding utf8
-} catch {}
 
 $modelName = $null
 $usedPct = $null

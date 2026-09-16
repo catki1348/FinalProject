@@ -15,40 +15,43 @@ if (-not $projectDir) { $projectDir = (Get-Location).Path }
 $claudeDir = Join-Path $projectDir ".claude"
 $stateFile = Join-Path $claudeDir ".usage-state.json"
 $flagFile = Join-Path $claudeDir ".usage-handoff-flag"
-$debugLog = Join-Path $claudeDir ".stophook-debug.log"
-try {
-    $line = "$(Get-Date -Format o) invoked; stop_hook_active=$($hookInput.stop_hook_active)"
-    Add-Content -Path $debugLog -Value $line -Encoding utf8
-} catch {}
 
-if (-not (Test-Path $stateFile)) { exit 0 }
-
-$state = $null
-try { $state = Get-Content $stateFile -Raw | ConvertFrom-Json } catch {}
-if (-not $state) { exit 0 }
-
-$usedPct = $state.usedPercentage
-$resetsAt = $state.resetsAt
-
-# Once the 5-hour window has reset, clear the flag so the next low-usage period can trigger again.
-if ($resetsAt) {
+function Test-FlagStillValid($flagPath) {
+    if (-not (Test-Path $flagPath)) { return $false }
     try {
-        $resetTime = [DateTime]::Parse($resetsAt)
-        if ((Get-Date) -gt $resetTime -and (Test-Path $flagFile)) {
-            Remove-Item $flagFile -Force -ErrorAction SilentlyContinue
+        $content = (Get-Content $flagPath -Raw).Trim()
+        $resetTime = [DateTime]::Parse($content)
+        return (Get-Date) -lt $resetTime
+    } catch {
+        return $false
+    }
+}
+
+# Fast local path: only used when a statusLine command in this surface actually keeps
+# .claude/.usage-state.json fresh (confirmed not to happen in the Desktop app Code tab,
+# but kept for plain terminal/CLI sessions where statusLine does run).
+if (Test-Path $stateFile) {
+    $state = $null
+    try { $state = Get-Content $stateFile -Raw | ConvertFrom-Json } catch {}
+    if ($state) {
+        $ageMinutes = ((Get-Date) - [DateTime]::Parse($state.updatedAt)).TotalMinutes
+        if ($ageMinutes -le 20 -and $null -ne $state.usedPercentage) {
+            if ((Get-Date) -gt [DateTime]::Parse($state.resetsAt) -and (Test-Path $flagFile)) {
+                Remove-Item $flagFile -Force -ErrorAction SilentlyContinue
+            }
+            if ($state.usedPercentage -ge 90 -and -not (Test-FlagStillValid $flagFile)) {
+                Set-Content -Path $flagFile -Value $state.resetsAt -Encoding utf8
+                $remaining = [math]::Round(100 - $state.usedPercentage, 1)
+                $reason = "[Auto-notice] Only about ${remaining}% of the 5-hour usage limit remains. Before ending this turn, follow .claude/commands/handoff.md and write/update HANDOFF.md at the project root in Korean (do not run git add or git commit). Then briefly report that in Korean and finish."
+                Write-Output (@{ decision = "block"; reason = $reason } | ConvertTo-Json -Compress)
+            }
+            exit 0
         }
-    } catch {}
+    }
 }
 
-if ($null -eq $usedPct) { exit 0 }
-
-$threshold = 90
-if ($usedPct -ge $threshold -and -not (Test-Path $flagFile)) {
-    New-Item -ItemType File -Path $flagFile -Force | Out-Null
-    $remaining = [math]::Round(100 - $usedPct, 1)
-    $reason = "[Auto-notice] Only about ${remaining}% of the 5-hour usage limit remains. Before ending this turn, follow the procedure in .claude/commands/handoff.md and write/update HANDOFF.md at the project root in Korean, summarizing current progress and next steps. Do not run git add or git commit. Once HANDOFF.md is written, briefly report that in Korean and then finish."
-    $output = @{ decision = "block"; reason = $reason } | ConvertTo-Json -Compress
-    Write-Output $output
-}
-
+# Fallback path: no fresh local usage data (this surface does not invoke statusLine),
+# so ask Claude to check the account's real usage via the get_usage tool itself.
+$reason = "[Auto usage check] Call mcp__ccd_session_mgmt__get_usage. If the '5-hour limit' window's percentUsed is >= 90 AND (.claude/.usage-handoff-flag is missing, unreadable, or its stored timestamp is already in the past): follow .claude/commands/handoff.md to write/update HANDOFF.md at the project root in Korean (do not run git add or git commit), then overwrite .claude/.usage-handoff-flag with that window's resetsAt timestamp as plain text. Otherwise, do nothing extra and just finish normally."
+Write-Output (@{ decision = "block"; reason = $reason } | ConvertTo-Json -Compress)
 exit 0
