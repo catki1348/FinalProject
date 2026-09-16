@@ -6,12 +6,25 @@ using UnityEngine;
 // (원본 스프라이트의 오른손=검/왼손=방패 배치를 보존하기 위함).
 // 플레이어의 외관 상태는 "초기 상태"/"장비 상태"(갑옷 장착 여부)이며,
 // 피격 시에는 위 상태와 무관하게 일정 시간 "무장해제" 스프라이트로 덮어써진다.
-[RequireComponent(typeof(SpriteRenderer))]
+// 포즈마다 원본 이미지 안에서 캐릭터가 차지하는 위치가 달라(걷기/상자 열기가 대기보다 캔버스 아래쪽에 그려짐)
+// 콜라이더(자식 Visual과 분리되어 있음)는 고정한 채, 포즈별 보정값만큼 Visual만 위아래로 살짝 옮겨
+// 항상 발이 바닥에 붙어 보이도록 맞춘다.
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerEquipment))]
 [RequireComponent(typeof(PlayerDash))]
 public class PlayerSpriteAnimator : MonoBehaviour
 {
+    [Header("Visual 자식 오브젝트(콜라이더와 분리된 표시 전용)")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [Header("포즈별 Visual 세로 보정값(월드 유닛)")]
+    [SerializeField] private float idleVisualOffsetY = 0f;
+    [SerializeField] private float walkVisualOffsetY = 0.35f;
+    [SerializeField] private float runVisualOffsetY = 0f;
+    [SerializeField] private float jumpVisualOffsetY = 0f;
+    [SerializeField] private float boxOpenVisualOffsetY = 0.35f;
+    [SerializeField] private float dashVisualOffsetY = 0f;
+
     [Header("Dash")]
     [SerializeField] private Sprite dashRight;
     [SerializeField] private Sprite dashLeft;
@@ -83,7 +96,6 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [Header("Run 판정")]
     [SerializeField] private KeyCode runKey = KeyCode.LeftShift; // 이 키를 누르고 있으면 걷기 대신 뛰기로 판정
 
-    private SpriteRenderer spriteRenderer; // 스프라이트 표시용 컴포넌트 캐시
     private PlayerMovement movement;       // 이동 상태(입력/접지/방향) 조회용 캐시
     private PlayerEquipment equipment;     // 갑옷 장착 여부 조회용 캐시
     private PlayerDash dash;               // 대시 여부 조회용 캐시
@@ -95,7 +107,6 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         movement = GetComponent<PlayerMovement>();
         equipment = GetComponent<PlayerEquipment>();
         dash = GetComponent<PlayerDash>();
@@ -153,23 +164,25 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
         if (dash.IsDashing)
         {
-            spriteRenderer.sprite = facingRight ? dashLeft : dashRight;
+            SetVisual(facingRight ? dashLeft : dashRight, dashVisualOffsetY);
             return;
         }
 
         if (isOpeningBox)
         {
-            spriteRenderer.sprite = facingRight
+            Sprite sprite = facingRight
                 ? Pick(boxOpenLeft, boxOpenLeftEquipped, boxOpenLeftDisarmed)
                 : Pick(boxOpenRight, boxOpenRightEquipped, boxOpenRightDisarmed);
+            SetVisual(sprite, boxOpenVisualOffsetY);
             return;
         }
 
         if (!movement.IsGrounded)
         {
-            spriteRenderer.sprite = facingRight
+            Sprite sprite = facingRight
                 ? Pick(jumpLeft, jumpLeftEquipped, jumpLeftDisarmed)
                 : Pick(jumpRight, jumpRightEquipped, jumpRightDisarmed);
+            SetVisual(sprite, jumpVisualOffsetY);
             return;
         }
 
@@ -178,22 +191,33 @@ public class PlayerSpriteAnimator : MonoBehaviour
             bool isRunning = Input.GetKey(runKey);
             if (isRunning)
             {
-                spriteRenderer.sprite = facingRight
+                Sprite sprite = facingRight
                     ? Pick(runLeft, runLeftEquipped, runLeftDisarmed)
                     : Pick(runRight, runRightEquipped, runRightDisarmed);
+                SetVisual(sprite, runVisualOffsetY);
             }
             else
             {
-                spriteRenderer.sprite = facingRight
+                Sprite sprite = facingRight
                     ? Pick(walkLeft, walkLeftEquipped, walkLeftDisarmed)
                     : Pick(walkRight, walkRightEquipped, walkRightDisarmed);
+                SetVisual(sprite, walkVisualOffsetY);
             }
             return;
         }
 
-        spriteRenderer.sprite = facingRight
+        Sprite idleSprite = facingRight
             ? Pick(idleLeft, idleLeftEquipped, idleLeftDisarmed)
             : Pick(idleRight, idleRightEquipped, idleRightDisarmed);
+        SetVisual(idleSprite, idleVisualOffsetY);
+    }
+
+    private void SetVisual(Sprite sprite, float offsetY)
+    {
+        spriteRenderer.sprite = sprite;
+        Vector3 localPos = spriteRenderer.transform.localPosition;
+        localPos.y = offsetY;
+        spriteRenderer.transform.localPosition = localPos;
     }
 
     private Sprite Pick(Sprite initial, Sprite equipped, Sprite disarmed)

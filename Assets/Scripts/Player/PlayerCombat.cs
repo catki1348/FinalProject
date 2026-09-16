@@ -2,24 +2,26 @@ using UnityEngine;
 
 // 플레이어의 검 공격(근접)과 쿨다운이 있는 특수 액션을 담당하는 스크립트
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;              // 검 공격 판정의 중심점(캐릭터 자식, 정면에 배치)
     [SerializeField] private float attackRange = 0.75f;          // 검 공격 판정 반경
-    [SerializeField] private int attackDamage = 1;                // 검 공격 피해량
     [SerializeField] private LayerMask enemyLayer;                // 공격 판정에 포함될 레이어
     [SerializeField] private float attackCooldown = 0.4f;         // 검 공격 재사용 대기시간(초)
     [SerializeField] private float specialActionCooldown = 1f;    // 특수 액션 재사용 대기시간(초)
 
     private readonly Collider2D[] hitBuffer = new Collider2D[8]; // 공격 판정 결과를 담을 버퍼(매 공격마다 새로 할당하지 않기 위해 캐싱)
     private PlayerMovement movement;             // 바라보는 방향(FacingRight)을 참조하기 위한 캐시
+    private PlayerStats stats;                   // 공격력(FinalAttack, 장비 반영)을 참조하기 위한 캐시
     private float lastAttackTime = -999f;        // 마지막으로 검 공격을 사용한 시각(쿨다운 계산용)
     private float lastSpecialActionTime = -999f; // 마지막으로 특수 액션을 사용한 시각(쿨다운 계산용)
 
-    // 시작 시 PlayerMovement 컴포넌트를 미리 캐싱
+    // 시작 시 PlayerMovement/PlayerStats 컴포넌트를 미리 캐싱
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+        stats = GetComponent<PlayerStats>();
     }
 
     // 매 프레임 입력을 읽어 좌클릭은 검 공격, 우클릭은 특수 액션을 시도
@@ -57,7 +59,7 @@ public class PlayerCombat : MonoBehaviour
             if (hitBuffer[i].attachedRigidbody != null &&
                 hitBuffer[i].attachedRigidbody.TryGetComponent<IDamageable>(out var damageable))
             {
-                damageable.TakeDamage(attackDamage);
+                damageable.TakeDamage(stats.FinalAttack);
             }
         }
     }
