@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;         // 좌우 이동 속도
-    [SerializeField] private float jumpForce = 12f;        // 점프 시 가하는 상승 힘
+    [SerializeField] private float jumpForce = 6f;         // 점프 시 가하는 상승 힘
     [SerializeField] private Transform groundCheck;         // 바닥 감지 기준점(발밑에 배치)
     [SerializeField] private float groundCheckRadius = 0.1f; // 바닥 감지 원의 반지름
     [SerializeField] private LayerMask groundLayer;         // 바닥으로 인식할 레이어
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public bool FacingRight { get; private set; } = true; // 현재 캐릭터가 오른쪽을 보고 있는지 여부(외부에서 조회용)
     public float MoveInput => moveInput;   // 좌우 입력값(외부 조회용, 예: 스프라이트 상태 전환)
     public bool IsGrounded => isGrounded;  // 접지 여부(외부 조회용, 예: 스프라이트 상태 전환)
+    public bool MovementLocked { get; set; } // true인 동안 FixedUpdate의 좌우 속도 적용을 건너뜀(대시 등 다른 스크립트가 속도를 직접 제어할 때 사용)
 
     // 시작 시 Rigidbody2D 컴포넌트를 미리 캐싱(매 프레임 GetComponent 호출 방지)
     private void Awake()
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     // 물리 연산 주기에 맞춰 실제 좌우 이동 속도를 적용(수직 속도는 유지)
     private void FixedUpdate()
     {
+        if (MovementLocked) return;
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 

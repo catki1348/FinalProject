@@ -105,6 +105,11 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
 
+# Claude Code: runtime state written by .claude/scripts hooks (per-machine, not shared)
+/.claude/.usage-state.json
+/.claude/.usage-handoff-flag
+/.claude/settings.local.json
+
 # Exclude external assets folder from version control
 /[Aa]ssets/Plugins/Sirenix
 /[Aa]ssets/Plugins/Sirenix.meta
