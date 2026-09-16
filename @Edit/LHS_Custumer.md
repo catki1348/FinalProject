@@ -48,3 +48,4 @@ Rules for how work in this project must be carried out. All entries are kept in 
 44. When finishing any piece of work, write comments that explain what each function/feature does, so the user can pick it up and code by hand later without needing to ask.
 45. `_Unity /` When any file inside `Assets` exceeds 10MB, move it into the `@ExternalAssets` folder and update every reference/path pointing to it so nothing breaks.
 46. `_Unity /` Store `.md` files inside an `@Edit` folder created within the project.
+47. When the command `프로젝트 체크` is received, perform the Project.md recording task for every session in the relevant group.

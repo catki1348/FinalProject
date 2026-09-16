@@ -42,7 +42,7 @@ if (Test-Path $stateFile) {
             if ($state.usedPercentage -ge 90 -and -not (Test-FlagStillValid $flagFile)) {
                 Set-Content -Path $flagFile -Value $state.resetsAt -Encoding utf8
                 $remaining = [math]::Round(100 - $state.usedPercentage, 1)
-                $reason = "[Auto-notice] Only about ${remaining}% of the 5-hour usage limit remains. Before ending this turn, follow .claude/commands/handoff.md and write/update HANDOFF.md at the project root in Korean (do not run git add or git commit). Then briefly report that in Korean and finish."
+                $reason = "[Auto-notice] Only about ${remaining}% of the 5-hour usage limit remains. Before ending this turn, follow .claude/commands/handoff.md (this now also stages and commits the working tree automatically as its last step). Then briefly report that in Korean and finish."
                 Write-Output (@{ decision = "block"; reason = $reason } | ConvertTo-Json -Compress)
             }
             exit 0
@@ -52,6 +52,9 @@ if (Test-Path $stateFile) {
 
 # Fallback path: no fresh local usage data (this surface does not invoke statusLine),
 # so ask Claude to check the account's real usage via the get_usage tool itself.
-$reason = "[Auto usage check] Call mcp__ccd_session_mgmt__get_usage. If the '5-hour limit' window's percentUsed is >= 90 AND (.claude/.usage-handoff-flag is missing, unreadable, or its stored timestamp is already in the past): follow .claude/commands/handoff.md to write/update HANDOFF.md at the project root in Korean (do not run git add or git commit), then overwrite .claude/.usage-handoff-flag with that window's resetsAt timestamp as plain text. Otherwise, do nothing extra and just finish normally."
+# Two independent triggers share one flag/cooldown: the 5-hour rate limit running out,
+# OR this session's own context window running low (remaining tokens <=10%, i.e.
+# percentUsed >= 90) even while the 5-hour limit is nowhere close to 90.
+$reason = "[Auto usage check] Call mcp__ccd_session_mgmt__get_usage once. From its result, check BOTH: (A) the 'plan.windows' entry labeled '5-hour limit' has percentUsed >= 90, and (B) 'context.percentUsed' (this session's own context window usage) >= 90. If (A OR B) is true AND (.claude/.usage-handoff-flag is missing, unreadable, or its stored timestamp is already in the past): follow .claude/commands/handoff.md to write/update HANDOFF.md at the project root in Korean (this command now also stages and commits the working tree automatically as its last step - do not push), then overwrite .claude/.usage-handoff-flag with the '5-hour limit' window's resetsAt timestamp as plain text (use that same timestamp as the cooldown marker even if only (B) triggered). Otherwise, do nothing extra and just finish normally."
 Write-Output (@{ decision = "block"; reason = $reason } | ConvertTo-Json -Compress)
 exit 0
