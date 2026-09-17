@@ -1,7 +1,12 @@
 # 팔로우 카메라 구조 설계안
 
-> 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트 배치 등)은 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
+> 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트 배치 등)은 `LHS_Custumer.md` 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
 > **구현 준비 목적의 문서**이므로, "구현해" 지시만 받으면 6항의 파일 목록대로 바로 작업을 시작할 수 있을 만큼 구체적으로 작성합니다.
+> `LHS_Custumer.md`(작업 수칙), `MapEdit.md`(맵 제작 수칙) 참고 완료 — 관련 반영 사항:
+> - `LHS_Custumer.md` 규칙 46: `.md` 파일은 `@Edit` 폴더에 보관 → 이 문서 위치가 이미 `@Edit/CameraDesign_FollowCamera.md`로 규칙에 부합.
+> - `MapEdit.md` 규칙 2, 3: 스테이지당 1~5영역, 표기는 `스테이지-영역`(예: `1-1`~`1-5`) → 이하 본문에서 기존 `Section_n` 표현을 이 표기에 맞춰 정리.
+> - `MapEdit.md` 규칙 4: 영역 시작(★)/골인(○) 지점 통과 시 다음 영역으로 전환 → 기존 `SectionEdgeTrigger`의 경계 통과 방식과 그대로 일치, 별도 수정 불필요.
+> - `MapEdit.md` 규칙 5: 5영역(`1-5`)에는 보스존이 별도 존재 → 3.7항에 보스존 카메라 처리 방침 추가.
 
 ## 1. 요구사항 정리
 
@@ -39,7 +44,7 @@
 
 ### 3.2 CameraBoundsZone 설계
 
-새 컴포넌트, 배경 오브젝트(`Background_Forest`)와 같은 위치에 배치하거나 별도 `CameraBounds_Section{n}` 빈 오브젝트에 부착.
+새 컴포넌트, 배경 오브젝트(`Background_Forest`)와 같은 위치에 배치하거나 별도 빈 오브젝트에 부착. 오브젝트 이름은 `MapEdit.md` 규칙 3의 표기를 따라 `CameraBounds_1-1` ~ `CameraBounds_1-5`(현재 씬의 `Section_1`~`Section_5` = 1스테이지 1~5영역에 각각 대응)로 명명.
 
 ```csharp
 // 구간 배경의 실제 월드 크기(카메라가 이동 가능한 최대 범위)와, 이 구간에서 사용할 줌 값을 정의
@@ -156,6 +161,11 @@ public class SectionEdgeTrigger : MonoBehaviour
 - 카메라 이동/줌 책임은 `PlayerCameraFollow`로 이전.
 - `StageManager`는 "5구간 진행 상태 관리 + 보스 처치 시 다음 스테이지 로드"라는 **게임 진행 매니저 본연의 역할만** 남기는 것을 권장(규칙 39: Manager는 상태 관리 전담).
 
+### 3.7 보스존(1-5영역) 카메라 처리 (MapEdit.md 규칙 5 반영)
+
+- `MapEdit.md` 규칙 5에 따라 5영역(`1-5`)에는 별도 보스존이 존재. 보스존도 일반 영역과 동일하게 `CameraBoundsZone` 하나로 취급하여 팔로우+클램프가 그대로 적용되도록 설계(별도 카메라 로직 불필요).
+- 다만 보스전은 통상 플레이어가 좁은 구역 안에서 좌우로 크게 움직이므로, 보스존 배경(`CameraBoundsZone.size`)은 보스 아레나 전체 + 카메라 여유폭을 포함해 넉넉히 잡을 것을 권장. 필요 시 보스존만 `followLerpSpeed`를 낮춰(더 느긋하게 추적) 전투 중 화면 흔들림을 줄이는 옵션도 가능(현재 설계의 필드 값 조정만으로 대응, 구조 변경 불필요).
+
 ## 4. 여백 발생을 원천 차단하는 이중 안전장치
 
 1. **1차: 클램프** — `PlayerCameraFollow`가 매 프레임 `CameraBoundsZone` 범위 밖으로 못 나가게 좌표 자체를 제한.
@@ -182,7 +192,7 @@ public class SectionEdgeTrigger : MonoBehaviour
 5. `Assets/Scripts/Stage/BackgroundFitter.cs` — 5항 확인 결과에 따라 삭제 또는 역할 변경
 
 **씬 작업 (Unity, 규칙 9/11에 따라 승인 후)**
-6. `Stage1.unity`의 각 `Section_n`에 `CameraBoundsZone` 오브젝트 배치(배경 실제 크기로 설정)
+6. `Stage1.unity`의 각 영역(`Section_1`~`Section_5` = `1-1`~`1-5`)에 `CameraBoundsZone` 오브젝트 배치(배경 실제 크기로 설정, `1-5`는 3.7항의 보스존 여유폭 반영)
 7. 각 배경(`Background_Forest`) 스프라이트를 해당 구간 Zone 크기에 맞게 수동 스케일(현재의 "화면 딱 맞춤" 크기보다 확대)
 8. `Main Camera`에 `PlayerCameraFollow` 부착 및 플레이어/시작 Zone 연결
 9. `SectionEdgeTrigger` 5개의 참조를 `CameraBoundsZone`으로 교체
