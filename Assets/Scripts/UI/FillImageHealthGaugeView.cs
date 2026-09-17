@@ -15,6 +15,7 @@ public class FillImageHealthGaugeView : MonoBehaviour, IHealthGaugeView
 
     public void SetRatio(float ratio)
     {
+        if (fillImage == null) fillImage = GetComponent<Image>();
         fillImage.fillAmount = Mathf.Clamp01(ratio);
     }
 }

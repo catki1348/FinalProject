@@ -13,8 +13,18 @@ public class StatusWindowController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerHealth != null) playerHealth.OnHealthChanged += HandleHealthChanged;
-        if (playerStats != null) playerStats.OnStatsChanged += HandleStatsChanged;
+        // 구독만으로는 Awake 단계에서 이미 발행된 초기값을 놓칠 수 있어(다른 오브젝트의 Awake가 먼저 실행됨),
+        // 구독 직후 현재값을 한 번 직접 읽어와 반영한다(HealthUIController와 동일한 패턴).
+        if (playerHealth != null)
+        {
+            playerHealth.OnHealthChanged += HandleHealthChanged;
+            HandleHealthChanged(playerHealth.CurrentHealth, playerHealth.FinalMaxHealth);
+        }
+        if (playerStats != null)
+        {
+            playerStats.OnStatsChanged += HandleStatsChanged;
+            HandleStatsChanged(playerStats.FinalAttack, playerStats.FinalDefense);
+        }
     }
 
     private void OnDisable()
