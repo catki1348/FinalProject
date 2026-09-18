@@ -1,49 +1,44 @@
 # 작업 핸드오프
 
-**작성 시각**: 2026-09-16 (자동 트리거 — 5시간 사용 한도 잔여 3%에서 작성됨)
+**작성 시각**: 2026-09-18 18:20
 
 ## 현재 목표
 
-Claude Code 세션이 토큰 부족으로 중단돼도 다른 PC에서 이어서 작업할 수 있도록 "핸드오프" 체계를 구축 중.
-구체적으로는 (1) 진행상황 요약을 저장/불러오는 슬래시 커맨드, (2) 5시간 사용 한도가 10% 이하로 남으면 자동으로 (1)을 실행시키는 훅을 만드는 작업.
+Stage1의 1-2 구역(`Sections/Section_2`)을 컨셉 이미지(별=시작/원=목표, 실선=발판, 점선=점프 갭) 설계대로 Unity에서 실제 타일 배치하고, 플레이어 물리(moveSpeed=8, jumpForce=9, gravityScale=3)로 실제로 끝까지 갈 수 있는지 검증하는 작업. 여러 차례 시행착오 끝에 현재는 굴곡(이중 언덕)과 전력 질주 안전성을 모두 만족하는 상태로 저장됨.
 
 ## 진행 상황
 
-- [.claude/commands/handoff.md](.claude/commands/handoff.md): `/handoff` 커맨드. 실행하면 진행상황/다음 할 일을 이 파일(HANDOFF.md)에 정리. git commit은 하지 않음(사용자가 원할 때 직접 커밋).
-- [.claude/commands/resume.md](.claude/commands/resume.md): `/resume` 커맨드. 다른 PC에서 HANDOFF.md를 읽고 git 상태와 대조해 이어서 작업하도록 안내.
-- [.claude/scripts/statusline.ps1](.claude/scripts/statusline.ps1): statusLine 훅. 5시간 사용률을 `.claude/.usage-state.json`에 기록. **단, Claude Desktop 앱의 Code 탭에서는 statusLine이 아예 호출되지 않는 것을 실측으로 확인함** (터미널 CLI 세션에서는 작동할 가능성이 있어 남겨둠).
-- [.claude/scripts/check-usage-stop.ps1](.claude/scripts/check-usage-stop.ps1): Stop 훅. 매 턴 종료 시 실행됨(실측 확인됨 — `.claude/.stophook-debug.log`에 다회 기록 확인 후 정리함).
-  - 1차: `.claude/.usage-state.json`이 20분 이내로 신선하면 그 값을 사용 (CLI/statusLine 작동 환경용, 비용 없음).
-  - 2차(현재 데스크톱 앱에서 실제로 타는 경로): 로컬 상태가 없으면 Claude에게 `mcp__ccd_session_mgmt__get_usage` 도구를 직접 호출해서 5시간 사용률을 확인하고, 90% 이상이면 `/handoff` 절차를 수행하도록 지시를 주입(block).
-  - 중복 실행 방지: `.claude/.usage-handoff-flag` 파일에 현재 윈도우의 resetsAt 시각을 저장해두고, 그 시각이 지나야 다시 트리거되게 함.
-  - 무한루프 방지: 훅 입력의 `stop_hook_active`가 true면 즉시 종료.
-- `.claude/settings.json`에 위 statusLine/Stop 훅 등록 완료, 커밋됨.
-- `.gitignore`에 `.claude/.usage-state.json`, `.claude/.usage-handoff-flag`, `.claude/settings.local.json` 추가함(개인/런타임 상태라 커밋 대상 아님).
-- **이번에 실제로 5시간 한도 97% 사용(잔여 3%) 상황에서 자동 트리거가 걸려 이 HANDOFF.md가 작성됨 — 데스크톱 앱 경로(get_usage 폴백)가 실제로 동작함을 확인.**
+- **Section_2(1-2) 지형 완성** (`Assets/Scenes/Stage1.unity`, GameObject 경로 `Sections/Section_2` 하위):
+  - `Entry`(x 47.0-50.0, y=0.8) — 1-1에서 넘어오는 착지 안전지대
+  - `Hill1`(50.0-50.9, y=1.3) → `Dip`(50.9-51.2, y=0.9) → `Hill2`(51.2-51.7, y=1.4) — 이중 언덕
+  - 갭1(51.7-52.6, 점프 필요)
+  - `ValleyLow`(52.6-52.9, y=1.0) → `ValleyRise`(52.9-53.4, y=1.3) — 상승 구간
+  - 갭2(53.4-54.6, 점프 필요)
+  - `HookDip`(54.6-56.3, y=0.4) → `HookLower`(56.3-58.0, y=-0.4) → `HookRise`(58.0-59.5, y=-0.2) — 하강 후 재상승(훅 커브), 목표 직전
+  - 각 발판은 `Tile_Ground_Brick` 스프라이트 + `BoxCollider2D` + 자식 `GrassTop`(`Tile_GrassTop`, 부모 스케일을 그대로 물려받아 폭이 자동으로 맞춰짐) 구조 — Section_1의 기존 발판 제작 관례를 그대로 따름.
+- **스테이지 경계 재조정**: 1-2 구간이 좁아서(원래 10.5유닛) 전력 질주 점프가 안전하게 안 잡혀서, `Boundary_2_3`을 57.5→**59.5**로 옮기고 `Section_3/4/5`, `Boundary_3_4`, `Boundary_4_5`를 전부 +2.0만큼 같이 밀었음(스테이지 나머지 구조 폭은 그대로 유지, 시작 위치만 전체적으로 뒤로 이동).
+- **물리 시뮬레이션 검증**: `mcp__unityMCP__execute_code`로 `Physics2D.Simulate`를 수동 스텝하며 실제 점프 궤적을 재현 — 시작~목표까지 스턱(완전 정지) 없이 도달, 마지막 하강도 실제로 `HookRise`에 착지 후 걸어서 목표 도달하는 것까지 확인함.
 
 ## 다음 할 일
 
-1. `.claude/scripts/check-usage-stop.ps1`, `.claude/scripts/statusline.ps1`의 방금 수정사항(디버그 로그 제거, 폴백 로직 추가)을 git add/commit할지 사용자에게 확인 후 커밋.
-2. 데스크톱 앱 폴백 경로는 **매 턴마다** `get_usage` 도구를 호출하게 되어 있어 약간의 오버헤드가 있음 — 사용자가 원하면 N턴마다 한 번만 체크하도록 샘플링 로직 추가 검토.
-3. 실제 터미널(CLI) `claude` 세션에서 statusLine 경로가 진짜로 작동하는지는 아직 미검증 (데스크톱 앱에서만 "작동 안 함"을 확인함).
-4. `.claude/.usage-handoff-flag`가 정상적으로 5시간 윈도우 리셋 후 재무장되는지 실제 사용 중 재확인.
+1. 유저가 직접 Play 모드에서 키보드로 플레이해서 최종 체감 난이도/느낌 확인.
+2. (선택) Section_3 이후가 현재 거의 빈 스텁 상태 — Section_2에서 넘어갔을 때 바로 낭떠러지로 떨어져 죽는 구간일 수 있어, Section_3 초입에 안전한 착지 지형이 있는지 점검 필요.
+3. (선택) `OutOfBoundsTrigger`(현재 로컬 x=29, scale x=100 → 월드 x -21~79 커버)가 Section_5 앵커(월드 x=99.5, 이번 작업으로 +2 이동)까지 못 미치는 것으로 보임 — Section_4/5 작업 시 이 트리거 범위도 같이 넓혀야 할 수 있음(이번 작업 범위 밖이라 손대지 않음).
 
 ## 중요 결정/맥락
 
-- 사용자가 "구성만 제작, 커밋은 내가 원할 때"라고 명시해서, 이 세션은 관련 파일들을 만들기만 하고 git add/commit은 하지 않음.
-- statusLine이 Claude Desktop 앱에서 호출되지 않는다는 사실은 문서에 없고, 디버그 로그(`.claude/.statusline-debug.log`가 끝내 생기지 않음, `.claude/.stophook-debug.log`는 생김)로 직접 실측 확인한 것. 향후 Claude Code 업데이트로 바뀔 수 있음.
+- **원인 파악에 시간이 많이 든 버그**: 플레이어가 벽에 닿은 "직후" 곧바로 점프하면(착지가 아직 안정되기 전 접촉 상태에서) Box2D 콜라이더 접촉 처리가 점프 속도(vy)와 이동 속도(vx)를 동시에 씹어버려서 완전히 멈춰버리는 현상이 반복적으로 재현됨. 해결 방법: 점프시키기 전에 접지 상태가 최소 3프레임 이상 안정된 뒤에, 벽 쪽으로 미는 힘(vx) 대신 살짝 벽에서 떨어지는 방향으로 잠깐 밀었다가(약 0.1초) 진행 방향 속도를 재적용하면 걸리지 않음. **이건 검증 스크립트(제 시뮬레이션 코드) 쪽 로직이고, 실제 `PlayerMovement.cs` 코드 자체는 수정하지 않았음** — 실제 플레이에서 동일 현상이 재현되면 `PlayerMovement.cs`의 점프/이동 로직에 유사한 처리(예: 접지 유예/코요테 타임, 또는 점프 시 벽과의 미세한 분리)를 추가하는 걸 고려할 것.
+- **구간 폭과 점프 사거리의 트레이드오프**: moveSpeed=8, jumpForce=9, gravityScale=3 조합에서 전력 질주 점프 사거리가 매우 길어서(높이 차가 있는 착지는 5.5~6유닛까지 필요), 좁은 구간에 굴곡을 많이 넣으면 필연적으로 뒷부분 발판을 건너뛰거나 허공으로 날아가 버림. 이번엔 구간 자체를 넓혀서(Boundary 이동) 해결했지만, 앞으로 다른 구역(2-1, 2-2 등) 설계 시에도 이 물리 상수를 고려해서 구간 폭을 넉넉히 잡을 것.
+- 이 프로젝트의 작업 규칙(`LHS_Custumer.md`, `@Edit/MapEdit.md`)에 따라 Unity 작업은 매번 사용자에게 명시적 확인을 받은 뒤에만 진행함 — 이번 세션에서도 매 단계 사용자가 직접 "다시 제작해라", "구간 넓혀줘" 등으로 명시적으로 지시함.
 
-## 관련 파일
+## 관련 파일 경로
 
-- `.claude/commands/handoff.md`, `.claude/commands/resume.md`
-- `.claude/scripts/statusline.ps1`, `.claude/scripts/check-usage-stop.ps1`
-- `.claude/settings.json`
-- `.gitignore` (상태 파일 무시 규칙 추가)
+- `Assets/Scenes/Stage1.unity` — 이번 작업의 메인 대상 (Section_2 지형 + 경계 위치)
+- `Assets/Scripts/Player/PlayerMovement.cs` — 점프/이동 로직 (버그 재현 원인, 위 "중요 결정/맥락" 참고, 미수정)
+- `Assets/Scripts/Managers/SectionEdgeTrigger.cs`, `Assets/Scripts/Camera/PlayerCameraFollow.cs`, `Assets/Scripts/Camera/CameraBoundsZone.cs` — 구간 전환/카메라 시스템 (이번 작업에서 직접 수정하지 않음, 참고만 함)
+- `@Edit/MapEdit.md`, `LHS_Custumer.md` — 이 프로젝트의 작업 규칙 (맵 제작 시 항상 먼저 참고)
+- `MapDesign_Stage1-2.md` (프로젝트 루트) — 세션 초반에 작성한 1-2 설계 문서(이후 실제 배치와 다소 달라졌으니 최신 상태는 이 HANDOFF.md와 실제 씬 파일을 기준으로 볼 것)
 
-## 커밋되지 않은 변경사항
+## 커밋 상태
 
-`git status` 기준, 아래 파일만 수정된 상태이고 아직 커밋 안 됨:
-- `.claude/scripts/check-usage-stop.ps1`
-- `.claude/scripts/statusline.ps1`
-
-(그 외 `.claude/commands/`, `.claude/settings.json` 등은 이전에 이미 커밋됨 — 커밋 9207852 "260916-오전 작업분" 기준)
+이번 절차(8번)에서 현재 변경사항(`Assets/Scenes/Stage1.unity` 수정 + `.claude/commands/handon.md` 신규)을 전부 커밋함. 제외할 실험적/깨진 파일 없음.
