@@ -10,6 +10,8 @@ public class ZoneEndPoint : MonoBehaviour
     [SerializeField] private CameraBoundsZone nextZone;
     [SerializeField] private PlayerCameraFollow cameraFollow;
 
+    private bool triggered; // 왕복 시 영역 진행이 중복 증가하지 않도록 최초 1회만 처리
+
     private void Awake()
     {
         GetComponent<BoxCollider2D>().isTrigger = true;
@@ -17,9 +19,12 @@ public class ZoneEndPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (triggered) return;
         if (other.attachedRigidbody == null || !other.attachedRigidbody.TryGetComponent<PlayerMovement>(out _)) return;
 
+        triggered = true;
         cameraFollow.SetActiveZone(nextZone);
+        StageManager.Instance.AdvanceToNextArea();
     }
 
     private void OnDrawGizmos()

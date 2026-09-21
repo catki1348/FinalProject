@@ -99,17 +99,23 @@ public class PlayerSpriteAnimator : MonoBehaviour
     private PlayerMovement movement;       // 이동 상태(입력/접지/방향) 조회용 캐시
     private PlayerEquipment equipment;     // 갑옷 장착 여부 조회용 캐시
     private PlayerDash dash;               // 대시 여부 조회용 캐시
+    private Animator visualAnimator;       // Visual에 붙은 Animator(걷기 등 다중 프레임 재생용, 그 외 상태에서는 비활성화)
 
     private float boxOpenTimer;    // 상자 열기 포즈 유지 남은 시간(0 이하면 종료)
     private bool isOpeningBox;     // 현재 상자 열기 포즈를 보여주는 중인지 여부
     private bool isEquipped;       // 갑옷(Armor) 장착 여부 - 초기 상태/장비 상태 판정 기준
     private float disarmedTimer;   // 무장해제 연출 남은 시간(0 이하면 평소 상태로 복귀)
 
+    private const string WalkRightAnimState = "Player_Walk_Right";
+    private const string WalkLeftAnimState = "Player_Walk_Left";
+
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
         equipment = GetComponent<PlayerEquipment>();
         dash = GetComponent<PlayerDash>();
+        visualAnimator = spriteRenderer.GetComponent<Animator>();
+        if (visualAnimator != null) visualAnimator.enabled = false;
     }
 
     private void OnEnable()
@@ -162,6 +168,10 @@ public class PlayerSpriteAnimator : MonoBehaviour
     {
         bool facingRight = movement.FacingRight;
 
+        // 걷기 애니메이션 재생 중이 아니면 매 프레임 기본적으로 꺼둔다(아래 걷기 분기에서만 다시 켬).
+        // 이렇게 해야 Animator가 매 프레임 스프라이트를 덮어써서 SetVisual과 충돌하는 걸 막을 수 있다.
+        if (visualAnimator != null) visualAnimator.enabled = false;
+
         if (dash.IsDashing)
         {
             SetVisual(facingRight ? dashLeft : dashRight, dashVisualOffsetY);
@@ -198,10 +208,28 @@ public class PlayerSpriteAnimator : MonoBehaviour
             }
             else
             {
-                Sprite sprite = facingRight
-                    ? Pick(walkLeft, walkLeftEquipped, walkLeftDisarmed)
-                    : Pick(walkRight, walkRightEquipped, walkRightDisarmed);
-                SetVisual(sprite, walkVisualOffsetY);
+                // 초기(비장비) 상태이고 피격 연출 중이 아닐 때만 4프레임 걷기 애니메이션을 재생한다.
+                // 장비/피격 상태는 아직 다중 프레임 아트가 없어 기존처럼 정지 스프라이트로 표시한다.
+                bool useAnimatedWalk = visualAnimator != null && disarmedTimer <= 0f && !isEquipped;
+                if (useAnimatedWalk)
+                {
+                    visualAnimator.enabled = true;
+                    string state = facingRight ? WalkLeftAnimState : WalkRightAnimState;
+                    if (!visualAnimator.GetCurrentAnimatorStateInfo(0).IsName(state))
+                    {
+                        visualAnimator.Play(state, 0, 0f);
+                    }
+                    Vector3 localPos = spriteRenderer.transform.localPosition;
+                    localPos.y = walkVisualOffsetY;
+                    spriteRenderer.transform.localPosition = localPos;
+                }
+                else
+                {
+                    Sprite sprite = facingRight
+                        ? Pick(walkLeft, walkLeftEquipped, walkLeftDisarmed)
+                        : Pick(walkRight, walkRightEquipped, walkRightDisarmed);
+                    SetVisual(sprite, walkVisualOffsetY);
+                }
             }
             return;
         }

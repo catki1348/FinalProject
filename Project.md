@@ -314,3 +314,31 @@
   - [Stop hook 자동 사용량 체크] 5시간 2%, 컨텍스트 7% → 조치 없음.
 - **사용자**: 현재 작업 처리 완료 후 프로젝트 체크
 - **클로드**: 47번 규칙에 따라 `프로젝트 체크` 명령 수행. 커스텀 사이드바 그룹은 없어(`list_groups` 결과 없음) "같은 프로젝트 경로(cwd)"를 그룹 기준으로 판단, 이 프로젝트(`C:\Users\catkl\OneDrive\문서\Unity`) cwd의 세션들 중 아직 `Project.md`에 기록되지 않은 3개 세션(`테마 이미지 무한 반복 확인`, `내려치는 공격모션 5단계 워크플로우`, 현재 세션)을 시간순으로 통합 기록.
+
+### 20260921-01:51 / 몬스터 설계 규칙
+
+세션: `몬스터 설계 규칙` (local_7075ee6c)
+
+- **사용자**: 몬스터 관련 설계/구현 요청(제목 기준 몬스터 스탯·패턴·전투 규칙 관련).
+- **클로드**: `Assets/@Scripts/Monster/MonsterContactDamage.cs` 작성 — `MonsterStats`를 참조해 공격력만큼 피해를 주는 판정만 전담(규칙 39 SRP), 태그/`Find` 대신 `targetLayer`(LayerMask)로 대상 판별(규칙 41), `IDamageable`을 구현한 `PlayerHealth`에 `TakeDamage` 호출. 충돌 시작/지속 모두에서 시도하되 연속 타격 방지는 피격 측 무적시간에 위임, 사망한 몬스터는 피해를 주지 않도록 방어 처리. 실제 프리팹 반영은 규칙 9·11에 따라 승인 대기.
+
+### 20260921-07:02 / 발판 유형 설계
+
+세션: `발판 유형 설계` (local_698a0e68)
+
+- **사용자**: 기존 이동형 발판 외에 다양한 상호작용 발판 유형 설계 요청.
+- **클로드**: `PlatformDesign_InteractiveFootholds.md` 작성(`@Edit/README.md` 인덱스에도 등록). 다른 세션이 작업 중인 `MovingPlatform.cs`(경로 이동형)는 손대지 않고, 공통 베이스 `FootholdBase`로 묶어 `DisappearingFoothold`(밟으면 사라졌다 재생성)·`BlinkingFoothold`(주기적 점멸)·`DamageFoothold`(머무르면 반복 피해, `PlayerHealth` 무적시간을 쿨다운으로 활용) 3종 설계. 태그/`Find` 대신 `TryGetComponent<PlayerMovement>` 사용, 코루틴 `WaitForSeconds` 캐싱 반영. 5가지 확인 사항 정리 후 규칙 9·11에 따라 승인 대기.
+
+### 20260921-07:11 / 2D 맵 생성 1-4
+
+세션: `2D 맵 생성 1-4` (local_b3e158f7)
+
+- **사용자**: Stage1 4영역(1-4) 맵 설계 요청.
+- **클로드**: `MapDesign_Stage1-4.md` 작성(Unity 작업은 하지 않음). Section_4가 로컬 x=0~30(월드 147~177)의 빈 구간임을 확인, 기존 1-2 문서가 가정한 "카메라 고정"이 실제로는 `PlayerCameraFollow`+`CameraBoundsZone` 스크롤 방식임을 발견해 정정. 시작→이중 갭 점프→소멸형 발판 다리→몬스터 조우(placeholder)→수직 발판 등반→점멸형 발판 공중 브릿지→피해형/소멸형 분기→보스 예고 순 7구간 설계. `Boundary_4_5` 위치가 스카이브릿지 중간에 걸림, 발판/몬스터 스크립트 미구현 등 선행 의존성 명시, `@Edit/README.md`에도 등록.
+
+### 20260921-07:25 / 게임 맵 함정 설계
+
+세션: `게임 맵 함정 설계` (local_e63f252f)
+
+- **사용자**: 스위치 발동/구간 진입/몬스터 스폰 등 함정 3종 설계 요청.
+- **클로드**: `TrapDesign_SwitchZoneMonster.md` 작성(`@Edit/README.md` 등록). 스위치→투사체 함정(`SwitchTrigger`의 `event Action OnActivated`를 `ProjectileLauncher`가 구독해 기존 `Projectile.Launch()` 호출, 다대다 연결 가능), 구간 진입 자동 이벤트 함정(공통 베이스 `ZoneEventTrigger` + 예시로 `TeleportTrap`), 몬스터 스폰 함정(`ZoneEventTrigger` 상속 `MonsterSpawnTrigger`가 지정 지점에 프리팹 Instantiate) 3종 설계. 6가지 확인 사항 정리 후 규칙 9·11에 따라 승인 대기.
