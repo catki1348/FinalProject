@@ -1,5 +1,11 @@
 # 상호작용형 발판(소멸형/점멸형/피해형) 설계안
 
+> **구현 완료(2026-09-22)**: 사용자 승인("유니티에 설계대로 작업해라") 후 아래 8항 스크립트 3종 + `FootholdBase`를 그대로 구현하여 `Stage1.unity` Section_4(1-4)에 배치했습니다. 7항의 확인 필요 사항은 문서에 적힌 기본값(취소 불가/유한 재생성/경고 연출 없음/반복 피해/완전 비활성화)을 그대로 채택했습니다.
+> **버그 수정**: `FootholdBase.IsTopContact`의 `contact.normal.y > 0.5f` 조건이 실제로는 항상 거짓이어서 소멸형/피해형 발판이 전혀 작동하지 않는 문제를 Test000 씬 테스트 중 발견했습니다. Unity의 `Collision2D` 콜백은 콜백을 받는 쪽(발판) 기준으로 법선이 아래를 향하므로, `< -0.5f`로 수정 후 정상 동작을 확인했습니다(실측: `Collider2D.Distance`/`Physics2D.GetContacts`로 직접 법선값 확인).
+> **버그 수정(2)**: 소멸형 발판 위에서 점프 등 행동이 막히는 문제 발견. 원인은 `Foothold_Disappearing.prefab`의 `m_Layer`가 `Default`(0)로 남아있어, `PlayerMovement.groundLayer` 비트마스크(`Ground`(8)만 포함, `m_Bits: 256`)에서 제외되어 물리적으로 서 있어도 `IsGrounded`가 `false`로 나온 것. 프리팹 Layer를 손으로 맞추는 방식은 재발하기 쉬워, `FootholdBase.Awake()`에서 런타임에 `gameObject.layer`를 항상 `LayerMask.NameToLayer("Ground")`로 강제 지정하도록 코드 수정(씬/프리팹 데이터는 변경하지 않음).
+> **구조 변경(2026-09-22)**: 발판 외형을 스테이지마다 다른 프리팹으로 교체할 수 있도록 `FootholdBase`의 `[SerializeField] protected SpriteRenderer visual` 필드를 `[SerializeField] protected GameObject visualRoot`로 변경. 이제 베이스 클래스는 외형의 내부 구성(스프라이트 1장/여러 장/애니메이터 등)을 전혀 모르고 `visualRoot.SetActive(bool)`로만 켜고 끈다 — 3항 코드 블록도 최신화함.
+> **프리팹 재연결(2026-09-22, 사용자 지시로 진행)**: `Foothold_Disappearing.prefab`, `Foothold_Blinking.prefab`, `Foothold_Damage.prefab` 3개 모두 루트 오브젝트에 스프라이트가 직접 붙어있던 구조를, 루트(콜라이더+스크립트) + 자식 `Visual`(스프라이트) 구조로 재구성하고 각 스크립트의 `visualRoot` 필드를 새 `Visual` 자식으로 연결 완료. 루트를 통째로 꺼버리면(발판 자기 자신을 visualRoot로 연결하면) 재생성/점멸 코루틴이 함께 멈춰버리는 문제가 있어 반드시 별도 자식으로 분리해야 함 — 이후 스테이지별 외형 프리팹도 이 `Visual` 자식 자리를 교체하는 방식으로 적용.
+>
 > 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트 배치 등)은 `LHS_Custumer.md` 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
 > **구현 준비 목적의 문서**이므로, "구현해" 지시만 받으면 6항의 파일 목록대로 바로 작업을 시작할 수 있을 만큼 구체적으로 작성합니다.
 > `LHS_Custumer.md`(작업 수칙) 참고 완료 — 관련 반영 사항:
@@ -31,28 +37,54 @@
 
 ## 3. 공통 베이스 클래스: `FootholdBase`
 
+> 아래 코드는 실제 구현/버그 수정을 모두 반영한 최신 상태입니다([FootholdBase.cs](Assets/@Scripts/Platform/FootholdBase.cs) 참고).
+
 ```csharp
 // 상호작용형 발판(소멸형/점멸형/피해형)이 공통으로 쓰는 "발판 켜짐/꺼짐" 상태와
 // "플레이어가 위에 올라섰는지" 판정을 담당하는 베이스 클래스.
 // 경로 이동형(MovingPlatform)은 이동 로직 자체가 완전히 다르고(Kinematic + MovePosition,
-// 탑승자 판정도 플레이어 쪽 PlayerPlatformRider가 전담) 다른 세션에서 별도 작업 중이므로 상속 대상에서 제외한다.
+// 탑승자 판정도 플레이어 쪽 PlayerPlatformRider가 전담) 별도로 구현되어 있으므로 상속 대상에서 제외한다.
+//
+// 기능(콜라이더 판정/타이머/피해 등)과 외형(스프라이트)을 분리한다: 이 스크립트는 자식 오브젝트
+// visualRoot를 켜고 끄기만 할 뿐 내부 구성(스프라이트 1장인지, 애니메이터가 붙은 여러 장인지 등)은
+// 전혀 몰라도 된다. 스테이지마다 외형 프리팹을 다르게 쓰고 싶으면, 같은 발판 프리팹의 자식으로
+// 그 스테이지용 외형 프리팹을 넣고 visualRoot에 연결하기만 하면 되고 코드는 수정할 필요가 없다.
 [RequireComponent(typeof(Collider2D))]
 public abstract class FootholdBase : MonoBehaviour
 {
-    [SerializeField] protected SpriteRenderer visual; // 발판 스프라이트(꺼짐 상태에서 함께 비활성화, Inspector 연결)
+    [SerializeField] protected GameObject visualRoot; // 발판 외형(자식 오브젝트, 스테이지별로 다른 프리팹으로 교체 가능)
 
     protected Collider2D col;
 
     protected virtual void Awake()
     {
         col = GetComponent<Collider2D>();
+
+        // 발판 프리팹의 Layer가 (실수로) Default로 남아있으면, PlayerMovement.groundLayer
+        // 비트마스크(Ground만 포함)에서 제외되어 물리적으로는 서 있어도 IsGrounded가 false로
+        // 나와 점프 등이 막히는 문제가 있었다(실측: Foothold_Disappearing.prefab이 Default였음).
+        // 프리팹마다 Layer를 손으로 맞추는 방식은 실수하기 쉬우므로, 런타임에 항상 "Ground"와
+        // 동일한 레이어로 강제 지정해 이 문제 자체가 재발하지 않게 한다.
+        int groundLayer = LayerMask.NameToLayer("Ground");
+        if (groundLayer >= 0) gameObject.layer = groundLayer;
     }
 
-    // 콜라이더+스프라이트를 함께 토글해 "발판이 실제로 존재하는 상태"를 켜고 끈다
+    // 발판은 항상 "밟을 수 있는" 상태로 게임을 시작해야 한다 - 에디터에서 미리보기 등으로
+    // 콜라이더/외형을 꺼둔 채 씬이 저장돼도(예: DisappearingFoothold는 밟혀야만 사라짐 루틴이
+    // 시작되므로, 꺼진 채로 시작하면 영원히 밟을 수 없는 상태로 고착된다) 여기서 강제로 켜서 방지한다.
+    // 자체적으로 점멸/사라짐 주기를 곧바로 시작하는 파생 클래스(BlinkingFoothold)는 override 후
+    // base.Start()를 호출해 이 초기화를 유지한다.
+    protected virtual void Start()
+    {
+        SetFootholdActive(true);
+    }
+
+    // 콜라이더+외형 오브젝트를 함께 토글해 "발판이 실제로 존재하는 상태"를 켜고 끈다.
+    // 외형은 GameObject 단위로 껐다 켤 뿐이라, 그 안에 스프라이트가 몇 장이든 애니메이터가 있든 상관없다.
     protected void SetFootholdActive(bool active)
     {
         col.enabled = active;
-        if (visual != null) visual.enabled = active;
+        if (visualRoot != null) visualRoot.SetActive(active);
     }
 
     // 발판은 정적 오브젝트이므로(MovingPlatform과 달리 직접 움직이지 않음) 일반적인 물리 콜백만으로
@@ -75,12 +107,13 @@ public abstract class FootholdBase : MonoBehaviour
         OnPlayerLeave(body);
     }
 
-    // 접촉면 법선이 위쪽(y > 0.5)인 접촉점이 하나라도 있으면 "위에서 밟았다"고 판정
+    // 접촉면 법선이 아래쪽(y < -0.5)인 접촉점이 하나라도 있으면 "위에서 밟았다"고 판정
+    // (Unity Collision2D 콜백을 받는 쪽(this=발판) 기준 normal은 발판 표면에서 아래쪽을 향함 - 실측으로 확인됨)
     private bool IsTopContact(Collision2D collision)
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            if (contact.normal.y > 0.5f) return true;
+            if (contact.normal.y < -0.5f) return true;
         }
         return false;
     }
@@ -90,6 +123,12 @@ public abstract class FootholdBase : MonoBehaviour
     protected virtual void OnPlayerLeave(Rigidbody2D playerBody) { }
 }
 ```
+
+### 3.1 스테이지별 외형 프리팹 교체 방법
+
+- 발판 프리팹 하나는 항상 **기능 루트(이 오브젝트에 `Collider2D` + 발판 스크립트가 있음)** + **자식 외형 오브젝트(`visualRoot`)** 두 부분으로 구성된다고 가정합니다.
+- 스테이지 아트가 바뀌면, `visualRoot` 자식 자리에 그 스테이지 전용 외형 프리팹 인스턴스를 넣고 Inspector의 `Visual Root` 필드에 연결하기만 하면 됩니다. `FootholdBase`/`DisappearingFoothold`/`BlinkingFoothold`/`DamageFoothold` 중 어떤 스크립트도 수정할 필요가 없습니다.
+- 콜라이더(발판의 실제 판정 크기)는 외형과 무관하게 기능 루트가 소유하므로, 스테이지마다 아트 크기가 달라져도 게임플레이 판정은 항상 일관됩니다. 아트 크기에 맞춰 판정 크기도 바꾸고 싶다면 그 프리팹의 `Collider2D` 크기를 별도로 조정해야 합니다(자동 연동 아님).
 
 ## 4. 유형 2 — 소멸형: `DisappearingFoothold`
 

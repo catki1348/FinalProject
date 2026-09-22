@@ -12,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerEquipment))]
 [RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(PlayerCombat))]
 public class PlayerSpriteAnimator : MonoBehaviour
 {
     [Header("Visual 자식 오브젝트(콜라이더와 분리된 표시 전용)")]
@@ -24,10 +25,16 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private float jumpVisualOffsetY = 0f;
     [SerializeField] private float boxOpenVisualOffsetY = 0.35f;
     [SerializeField] private float dashVisualOffsetY = 0f;
+    [SerializeField] private float attackVisualOffsetY = 0f;
 
     [Header("Dash")]
     [SerializeField] private Sprite dashRight;
     [SerializeField] private Sprite dashLeft;
+
+    [Header("Attack - 검 스윙(프레임 연속 재생)")]
+    // 현재 방향별(왼쪽을 보는 뒷모습 등) 전용 아트가 없어 한 세트만 사용하고, 왼쪽을 볼 때는
+    // SpriteRenderer.flipX로 좌우만 반전한다(다른 포즈처럼 방향별 별도 아트를 교체하는 대신).
+    [SerializeField] private Sprite[] attackFrames = new Sprite[5];
 
     [Header("Idle")]
     [SerializeField] private Sprite idleRight;
@@ -99,6 +106,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
     private PlayerMovement movement;       // 이동 상태(입력/접지/방향) 조회용 캐시
     private PlayerEquipment equipment;     // 갑옷 장착 여부 조회용 캐시
     private PlayerDash dash;               // 대시 여부 조회용 캐시
+    private PlayerCombat combat;           // 검 공격 여부/진행률 조회용 캐시
     private Animator visualAnimator;       // Visual에 붙은 Animator(걷기 등 다중 프레임 재생용, 그 외 상태에서는 비활성화)
 
     private float boxOpenTimer;    // 상자 열기 포즈 유지 남은 시간(0 이하면 종료)
@@ -114,6 +122,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         equipment = GetComponent<PlayerEquipment>();
         dash = GetComponent<PlayerDash>();
+        combat = GetComponent<PlayerCombat>();
         visualAnimator = spriteRenderer.GetComponent<Animator>();
         if (visualAnimator != null) visualAnimator.enabled = false;
     }
@@ -140,6 +149,14 @@ public class PlayerSpriteAnimator : MonoBehaviour
     public void TriggerDisarmed()
     {
         disarmedTimer = disarmedDuration;
+    }
+
+    // 일반 체력이 0이 되어 무장해제 상태로 전환될 때 외부(PlayerHealth)에서 호출 - 이후 계속
+    // 무장해제 스프라이트를 유지해야 하므로 disarmedTimer를 무한대로 설정한다(일정 시간 후 원복되는
+    // TriggerDisarmed의 짧은 피격 연출과 달리, 이 상태는 다시 무장하기 전까지 영구적으로 지속된다)
+    public void SetPermanentlyDisarmed()
+    {
+        disarmedTimer = float.PositiveInfinity;
     }
 
     private void Update()
@@ -172,9 +189,22 @@ public class PlayerSpriteAnimator : MonoBehaviour
         // 이렇게 해야 Animator가 매 프레임 스프라이트를 덮어써서 SetVisual과 충돌하는 걸 막을 수 있다.
         if (visualAnimator != null) visualAnimator.enabled = false;
 
+        // Attack 포즈만 좌우 전용 아트 대신 flipX로 반전하므로, 다른 포즈로 넘어갈 때는 항상 꺼둔다.
+        spriteRenderer.flipX = false;
+
         if (dash.IsDashing)
         {
             SetVisual(facingRight ? dashLeft : dashRight, dashVisualOffsetY);
+            return;
+        }
+
+        if (combat.IsAttacking)
+        {
+            // 원본 아트(attack_1~5)는 왼쪽으로 검을 휘두르는 모션으로 제작되어 있어,
+            // 오른쪽을 볼 때는 flipX로 반전해야 시야 방향과 스윙 방향이 일치한다.
+            int frame = Mathf.Clamp(Mathf.FloorToInt(combat.AttackProgress01 * attackFrames.Length), 0, attackFrames.Length - 1);
+            spriteRenderer.flipX = facingRight;
+            SetVisual(attackFrames[frame], attackVisualOffsetY);
             return;
         }
 
@@ -204,7 +234,12 @@ public class PlayerSpriteAnimator : MonoBehaviour
                 Sprite sprite = facingRight
                     ? Pick(runLeft, runLeftEquipped, runLeftDisarmed)
                     : Pick(runRight, runRightEquipped, runRightDisarmed);
-                SetVisual(sprite, runVisualOffsetY);
+
+                // 무장해제 상태에서는 전용 뛰기 아트가 없어 걷기 아트를 대신 보여주므로
+                // (runRightDisarmed/runLeftDisarmed가 걷기 스프라이트를 그대로 씀), 이때는
+                // 뛰기용 보정값이 아니라 걷기용 보정값을 적용해야 발이 바닥에 맞는다.
+                float offsetY = disarmedTimer > 0f ? walkVisualOffsetY : runVisualOffsetY;
+                SetVisual(sprite, offsetY);
             }
             else
             {

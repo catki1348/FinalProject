@@ -8,14 +8,22 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int baseHealth = 100;          // 초기 체력(장비 보너스 합산 전)
     [SerializeField] private float invincibleDuration = 1f; // 피격 후 무적 시간(연속 피격 방지)
+    [SerializeField] private int disarmedMaxHealth = 100;   // 무장해제 상태에서 별도로 갖는 체력(장비/방어력과 무관한 고정값)
 
-    public event Action<int, int> OnHealthChanged; // 인자: (현재 체력, 최종 최대 체력)
+    public event Action<int, int> OnHealthChanged; // 인자: (현재 체력, 현재 상태의 최대 체력)
     public event Action OnDied;
 
-    public int CurrentHealth => currentHealth;
-    public int FinalMaxHealth { get; private set; }
+    // 무장해제 상태가 아니면 일반 체력을, 무장해제 상태면 별도의 무장해제 체력을 반환(UI 등 외부에서는 이 값만 보면 됨)
+    public int CurrentHealth => isDisarmed ? disarmedHealth : currentHealth;
+    public int FinalMaxHealth { get; private set; }         // 장비 보너스를 합산한 일반 상태의 최대 체력
+    public bool IsDisarmed => isDisarmed;                     // 일반 체력이 0이 되어 무장해제 상태로 전환되었는지 여부
+
+    // 현재 상태(일반/무장해제)에 대응하는 최대 체력 - OnHealthChanged 발행 시 CurrentHealth와 짝을 맞추기 위한 헬퍼
+    private int ActiveMaxHealth => isDisarmed ? disarmedMaxHealth : FinalMaxHealth;
 
     private int currentHealth;
+    private int disarmedHealth;   // 무장해제 상태의 현재 체력(무장해제 진입 시 disarmedMaxHealth로 초기화)
+    private bool isDisarmed;      // IsDisarmed의 백킹 필드
     private float lastHitTime = -999f;
     private PlayerSpriteAnimator spriteAnimator; // 없는 경우(스프라이트 미사용 캐릭터)도 있어 null 허용
     private PlayerEquipment equipment;
@@ -31,7 +39,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         RecalculateMaxHealth(applyDelta: false);
         currentHealth = FinalMaxHealth;
-        OnHealthChanged?.Invoke(currentHealth, FinalMaxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
     }
 
     private void OnDestroy()
@@ -62,33 +70,63 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         FinalMaxHealth = baseHealth + healthBonus;
 
-        if (applyDelta)
+        // 이미 무장해제 상태(일반 체력 소진)라면 장비 변경으로 일반 체력 풀을 되살리지 않는다 -
+        // 그 사이 실제로 표시/적용되는 체력은 CurrentHealth가 가리키는 disarmedHealth뿐이다.
+        if (applyDelta && !isDisarmed)
         {
             int delta = FinalMaxHealth - previousMax;
             int minBound = currentHealth > 0 ? 1 : 0;
             currentHealth = Mathf.Clamp(currentHealth + delta, minBound, FinalMaxHealth);
-            OnHealthChanged?.Invoke(currentHealth, FinalMaxHealth);
+            OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
         }
     }
 
-    // 무적 시간이 끝난 경우에만 방어력으로 경감된 피해(최소 1)를 적용하고, 체력이 0 이하가 되면 사망 처리
+    // 무적 시간이 끝난 경우에만 방어력으로 경감된 피해(최소 1)를 적용한다.
+    // 일반 상태에서 체력이 0이 되면 죽는 대신 무장해제 상태로 전환되고, 무장해제 상태에서
+    // 별도의 체력(disarmedMaxHealth)이 다시 0이 되어야 비로소 사망(게임오버) 처리한다.
     public void TakeDamage(int amount)
     {
         if (Time.time - lastHitTime < invincibleDuration) return;
         lastHitTime = Time.time;
 
         int actualDamage = Mathf.Max(1, amount - stats.FinalDefense);
-        currentHealth = Mathf.Max(0, currentHealth - actualDamage);
-        OnHealthChanged?.Invoke(currentHealth, FinalMaxHealth);
-        spriteAnimator?.TriggerDisarmed();
 
-        if (currentHealth <= 0) Die();
+        if (isDisarmed)
+        {
+            disarmedHealth = Mathf.Max(0, disarmedHealth - actualDamage);
+            OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+
+            if (disarmedHealth <= 0) Die();
+            return;
+        }
+
+        currentHealth = Mathf.Max(0, currentHealth - actualDamage);
+
+        if (currentHealth <= 0)
+        {
+            EnterDisarmedState();
+        }
+        else
+        {
+            OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+            spriteAnimator?.TriggerDisarmed();
+        }
     }
 
-    // 최소 프로토타입에서는 파괴 대신 현재 씬을 재시작해 다시 도전할 수 있게 함
+    // 일반 체력이 0이 되었을 때 호출 - 무장해제 상태로 전환하고 별도의 체력을 가득 채운 뒤,
+    // 스프라이트도 무장해제 모습을 계속 유지하도록 만든다(일반 피격의 짧은 연출과 달리 지속 상태)
+    private void EnterDisarmedState()
+    {
+        isDisarmed = true;
+        disarmedHealth = disarmedMaxHealth;
+        spriteAnimator?.SetPermanentlyDisarmed();
+        OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+    }
+
+    // 무장해제 상태의 체력까지 모두 소진되었을 때 호출 - 게임오버 연출을 띄운다(규칙 39: GameOverManager를 통해 처리)
     private void Die()
     {
         OnDied?.Invoke();
-        GameManager.Instance.LoadScene(gameObject.scene.name);
+        GameOverManager.Instance.TriggerGameOver();
     }
 }

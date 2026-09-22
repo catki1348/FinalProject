@@ -6,8 +6,8 @@ using UnityEngine;
 public class MonsterStats : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 20; // 최대 체력
-    [SerializeField] private int attack = 5;     // 공격력
-    [SerializeField] private int defense = 2;    // 방어력
+    [SerializeField] private int attack = 10;    // 공격력
+    [SerializeField] private int defense = 10;   // 방어력
 
     private int currentHealth;
 
@@ -36,10 +36,17 @@ public class MonsterStats : MonoBehaviour, IDamageable
         if (currentHealth <= 0) Die();
     }
 
-    // 사망 상태로 전환하고 구독자(MonsterController 등)에게 알림 - 이후 TakeDamage는 무시됨
+    // 사망 상태로 전환하고, 콜라이더를 모두 비활성화해 더 이상 아무와도 상호작용하지 않는 오브젝트로 만든 뒤
+    // 구독자(MonsterController 등)에게 알림 - 이후 TakeDamage는 무시됨
     private void Die()
     {
         IsDead = true;
+
+        foreach (Collider2D col in GetComponents<Collider2D>())
+        {
+            col.enabled = false;
+        }
+
         OnDeath?.Invoke();
     }
 }
