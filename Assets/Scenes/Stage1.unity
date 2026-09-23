@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688dab30464420e428bba03bffb83fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WarpManager
-  testStartZone: 1-3
+  testStartZone: 1-1
 --- !u!4 &113684457
 Transform:
   m_ObjectHideFlags: 0
