@@ -313,6 +313,7 @@ MonoBehaviour:
     m_Bits: 256
   slopeCheckDistance: 1
   maxWalkableSlopeAngle: 60
+  jumpSfx: {fileID: 0}
 --- !u!114 &8976316943568954123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
   dashKey: 304
-  dashSpeed: 15
+  dashSpeed: 4.5
   dashDuration: 0.2
   dashCooldown: 0.8
 --- !u!114 &7289477503037226255
@@ -419,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   baseHealth: 100
   invincibleDuration: 1
+  disarmedMaxHealth: 100
 --- !u!114 &4547181361737197089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,3 +455,4 @@ MonoBehaviour:
   attackCooldown: 0.4
   attackVisualDuration: 0.3
   specialActionCooldown: 1
+  attackSfx: {fileID: 0}

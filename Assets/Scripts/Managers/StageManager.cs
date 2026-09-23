@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// 스테이지 진행 상태(1영역 시작 지점 스폰, 보스 처치 시 다음 스테이지 로드)를 관리하는 매니저(규칙 39).
+// 스테이지 진행 상태(1영역 시작 지점 스폰, 5영역 종료점 도달 시 클리어/엔딩 처리)를 관리하는 매니저(규칙 39).
 // 카메라 이동/줌 책임은 PlayerCameraFollow + CameraBoundsZone으로 이전됨(팔로우 카메라 구조 도입, @Edit/CameraDesign_FollowCamera.md 참고).
 public class StageManager : MonoBehaviour
 {
@@ -85,8 +85,22 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    // 5영역(마지막 구간)의 보스를 처치했을 때 보스 스크립트가 호출하는 진입점
-    public void NotifyBossDefeated()
+    // 5영역 종료점(BossZoneEndPoint, 보스 처치 후에만 활성화됨)에 플레이어가 도달했을 때 호출된다.
+    // MapEdit.md 규칙 9, 10: 클리어 화면(또는 5-5의 경우 엔딩 화면)을 먼저 보여준 뒤 다음 단계로 진행한다.
+    public void OnZone5EndPointReached()
+    {
+        bool isFinalStage = stageIndex >= 5;
+
+        if (isFinalStage)
+        {
+            EndingManager.Instance.TriggerEnding();
+            return;
+        }
+
+        StageClearManager.Instance.TriggerStageClear(LoadNextStage);
+    }
+
+    private void LoadNextStage()
     {
         if (string.IsNullOrEmpty(nextStageSceneName)) return;
         GameManager.Instance.LoadScene(nextStageSceneName);

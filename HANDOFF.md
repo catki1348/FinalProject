@@ -1,44 +1,47 @@
 # 작업 핸드오프
 
-**작성 시각**: 2026-09-18 18:20
+**작성 시각**: 2026-09-23
 
 ## 현재 목표
 
-Stage1의 1-2 구역(`Sections/Section_2`)을 컨셉 이미지(별=시작/원=목표, 실선=발판, 점선=점프 갭) 설계대로 Unity에서 실제 타일 배치하고, 플레이어 물리(moveSpeed=8, jumpForce=9, gravityScale=3)로 실제로 끝까지 갈 수 있는지 검증하는 작업. 여러 차례 시행착오 끝에 현재는 굴곡(이중 언덕)과 전력 질주 안전성을 모두 만족하는 상태로 저장됨.
+이 세션 자체의 목표는 "토큰/사용량 부족으로 세션이 중단돼도 다른 PC에서 이어서 작업할 수 있게 하는 도구"(`/handoff`, `/resume`, `/handon` 슬래시 커맨드)를 만드는 것. 이 도구 자체는 기능적으로 완성된 상태.
+단, 이 저장소에는 이 세션과 무관하게 **다른 세션들에서 진행된 대규모 미커밋 Unity 작업**이 쌓여 있어(아래 참고), 그 부분은 이 세션이 세부 맥락을 모른다는 점을 분명히 밝혀둔다.
 
 ## 진행 상황
 
-- **Section_2(1-2) 지형 완성** (`Assets/Scenes/Stage1.unity`, GameObject 경로 `Sections/Section_2` 하위):
-  - `Entry`(x 47.0-50.0, y=0.8) — 1-1에서 넘어오는 착지 안전지대
-  - `Hill1`(50.0-50.9, y=1.3) → `Dip`(50.9-51.2, y=0.9) → `Hill2`(51.2-51.7, y=1.4) — 이중 언덕
-  - 갭1(51.7-52.6, 점프 필요)
-  - `ValleyLow`(52.6-52.9, y=1.0) → `ValleyRise`(52.9-53.4, y=1.3) — 상승 구간
-  - 갭2(53.4-54.6, 점프 필요)
-  - `HookDip`(54.6-56.3, y=0.4) → `HookLower`(56.3-58.0, y=-0.4) → `HookRise`(58.0-59.5, y=-0.2) — 하강 후 재상승(훅 커브), 목표 직전
-  - 각 발판은 `Tile_Ground_Brick` 스프라이트 + `BoxCollider2D` + 자식 `GrassTop`(`Tile_GrassTop`, 부모 스케일을 그대로 물려받아 폭이 자동으로 맞춰짐) 구조 — Section_1의 기존 발판 제작 관례를 그대로 따름.
-- **스테이지 경계 재조정**: 1-2 구간이 좁아서(원래 10.5유닛) 전력 질주 점프가 안전하게 안 잡혀서, `Boundary_2_3`을 57.5→**59.5**로 옮기고 `Section_3/4/5`, `Boundary_3_4`, `Boundary_4_5`를 전부 +2.0만큼 같이 밀었음(스테이지 나머지 구조 폭은 그대로 유지, 시작 위치만 전체적으로 뒤로 이동).
-- **물리 시뮬레이션 검증**: `mcp__unityMCP__execute_code`로 `Physics2D.Simulate`를 수동 스텝하며 실제 점프 궤적을 재현 — 시작~목표까지 스턱(완전 정지) 없이 도달, 마지막 하강도 실제로 `HookRise`에 착지 후 걸어서 목표 도달하는 것까지 확인함.
+### 이 세션이 실제로 완료한 것 (핸드오프 도구 자체)
+- [.claude/commands/handoff.md](.claude/commands/handoff.md) — `/handoff`: HANDOFF.md 작성 + 마지막에 `git add -A` + 고정 메시지로 자동 커밋(push는 안 함). 사용자가 명시적으로 자동 커밋 유지를 확인함.
+- [.claude/commands/resume.md](.claude/commands/resume.md) — `/resume`: HANDOFF.md를 읽고 git 상태와 대조해서 "다음 할 일"을 보여주고 사용자 확인 후 시작 (보고 후 대기형).
+- [.claude/commands/handon.md](.claude/commands/handon.md) — `/handon`: `/resume`과 달리 확인 없이 바로 "다음 할 일"을 실행. 파괴적/되돌리기 힘든 작업만 예외적으로 확인받음. 다른 PC에서 이전 대화 기록이 전혀 없어도 HANDOFF.md만으로 이어서 작업하도록 설계됨.
+- [.claude/settings.json](.claude/settings.json), [.claude/scripts/statusline.ps1](.claude/scripts/statusline.ps1) — statusLine에 "5h left N%" 표시 (참고용 표시일 뿐, 아무것도 자동 실행하지 않음).
+- **폐기된 시도**: 5시간 사용량 임계치(잔여 10% 이하)에서 Stop 훅으로 `/handoff`를 자동 실행하려 했으나, Claude Desktop 앱 Code 탭에서는 statusLine이 아예 호출되지 않고 Stop 훅 JSON에도 사용량 필드가 없어 로컬로는 감지 불가능함을 실측으로 확인. `mcp__ccd_session_mgmt__get_usage` 도구로 우회해 한 번은 성공시켰으나, 사용자가 "자동 체크 금지, 명령이 있을 때만 처리"를 명시적으로 지시(메모리 `feedback_explicit_handoff_trigger`에 기록됨) → Stop 훅 등록과 `check-usage-stop.ps1`을 완전히 제거하고 수동 명령(`/handoff`, `/handon`)만 남김.
+
+### 이 세션이 관여하지 않은, 저장소에 쌓인 변경 (다른 세션 작업 — 세부 맥락 모름)
+`git log` 최근 커밋: `af11cec 260922-오후 작업`, `fae018f 230921-오후 작업분`, `3a04b70 자동 핸드오프 커밋 (사용량 임계치 도달)`, `746944c 260918-오전 작업` 등.
+현재 **미커밋 상태**로 다음이 쌓여 있음 (`git status`/`git diff --stat` 기준, 이 세션은 왜 이렇게 바뀌었는지 모름):
+- 수정: `@Edit/LHS_Custumer.md`, `@Edit/MapEdit.md`, `@Edit/README.md`, `Assets/@ExternalAssets/@Prefab/Player_Warrior.prefab`, `Assets/Scenes/Stage1~5.unity`(전체), `Assets/Scripts/Managers/Boss.cs`, `Assets/Scripts/Managers/StageManager.cs`, `Assets/Sprites/Warrior/Transparent/dash_right.png`, `Project.md`(+186줄)
+- 신규(미추적): `@Edit/MapDesign_AllStages_Layout.md`, `@Edit/MapDesign_Stage1-3.md`, `Assets/Scripts/Managers/BossZoneEndPoint.cs`, `Assets/Scripts/Managers/EndingManager.cs`, `Assets/Scripts/Managers/StageClearManager.cs`(+각 .meta), `Assets/Sprites/Bosses/`(+.meta)
+
+이름으로 미루어 보스전 종료 지점, 엔딩 처리, 스테이지 클리어 처리 시스템을 추가하는 작업으로 보이나, 이 세션은 설계 의도·시행착오·테스트 여부를 전혀 모른다.
 
 ## 다음 할 일
 
-1. 유저가 직접 Play 모드에서 키보드로 플레이해서 최종 체감 난이도/느낌 확인.
-2. (선택) Section_3 이후가 현재 거의 빈 스텁 상태 — Section_2에서 넘어갔을 때 바로 낭떠러지로 떨어져 죽는 구간일 수 있어, Section_3 초입에 안전한 착지 지형이 있는지 점검 필요.
-3. (선택) `OutOfBoundsTrigger`(현재 로컬 x=29, scale x=100 → 월드 x -21~79 커버)가 Section_5 앵커(월드 x=99.5, 이번 작업으로 +2 이동)까지 못 미치는 것으로 보임 — Section_4/5 작업 시 이 트리거 범위도 같이 넓혀야 할 수 있음(이번 작업 범위 밖이라 손대지 않음).
+1. **(중요) 위 미커밋 Unity 변경사항 검토** — 이번 `/handoff` 실행 시 8번 절차대로 이 변경들이 전부 `git add -A`로 함께 커밋된다. 실험적이거나 깨진 상태의 코드가 섞여 있다면, 다음 세션에서 커밋 로그(`git show`)를 보고 필요시 별도로 되돌릴 것.
+2. Boss/EndingManager/StageClearManager 관련 작업을 진행하던 세션이 있다면 그 세션에서 이어서 테스트 진행.
+3. 핸드오프 도구(`/handoff`, `/resume`, `/handon`) 자체는 추가 요구사항이 없는 한 현재 상태로 유지.
 
 ## 중요 결정/맥락
 
-- **원인 파악에 시간이 많이 든 버그**: 플레이어가 벽에 닿은 "직후" 곧바로 점프하면(착지가 아직 안정되기 전 접촉 상태에서) Box2D 콜라이더 접촉 처리가 점프 속도(vy)와 이동 속도(vx)를 동시에 씹어버려서 완전히 멈춰버리는 현상이 반복적으로 재현됨. 해결 방법: 점프시키기 전에 접지 상태가 최소 3프레임 이상 안정된 뒤에, 벽 쪽으로 미는 힘(vx) 대신 살짝 벽에서 떨어지는 방향으로 잠깐 밀었다가(약 0.1초) 진행 방향 속도를 재적용하면 걸리지 않음. **이건 검증 스크립트(제 시뮬레이션 코드) 쪽 로직이고, 실제 `PlayerMovement.cs` 코드 자체는 수정하지 않았음** — 실제 플레이에서 동일 현상이 재현되면 `PlayerMovement.cs`의 점프/이동 로직에 유사한 처리(예: 접지 유예/코요테 타임, 또는 점프 시 벽과의 미세한 분리)를 추가하는 걸 고려할 것.
-- **구간 폭과 점프 사거리의 트레이드오프**: moveSpeed=8, jumpForce=9, gravityScale=3 조합에서 전력 질주 점프 사거리가 매우 길어서(높이 차가 있는 착지는 5.5~6유닛까지 필요), 좁은 구간에 굴곡을 많이 넣으면 필연적으로 뒷부분 발판을 건너뛰거나 허공으로 날아가 버림. 이번엔 구간 자체를 넓혀서(Boundary 이동) 해결했지만, 앞으로 다른 구역(2-1, 2-2 등) 설계 시에도 이 물리 상수를 고려해서 구간 폭을 넉넉히 잡을 것.
-- 이 프로젝트의 작업 규칙(`LHS_Custumer.md`, `@Edit/MapEdit.md`)에 따라 Unity 작업은 매번 사용자에게 명시적 확인을 받은 뒤에만 진행함 — 이번 세션에서도 매 단계 사용자가 직접 "다시 제작해라", "구간 넓혀줘" 등으로 명시적으로 지시함.
+- `/handoff`의 자동 커밋(8번)은 사용자가 명시적으로 유지를 지시함 — git push는 하지 않음(사용자가 직접).
+- 5시간 사용량 자동 감지는 이 host 환경(Claude Desktop Code 탭)에서 기술적으로 불가능하다고 판단하고 포기함 — 향후 Claude Code가 관련 필드를 훅/statusLine에 노출하면 재검토 가능.
+- 자동 트리거를 걷어낸 이유는 사용자 피드백(메모리 `feedback_explicit_handoff_trigger`): "handoff는 명시적 명령이 있을 때만 체크".
 
 ## 관련 파일 경로
 
-- `Assets/Scenes/Stage1.unity` — 이번 작업의 메인 대상 (Section_2 지형 + 경계 위치)
-- `Assets/Scripts/Player/PlayerMovement.cs` — 점프/이동 로직 (버그 재현 원인, 위 "중요 결정/맥락" 참고, 미수정)
-- `Assets/Scripts/Managers/SectionEdgeTrigger.cs`, `Assets/Scripts/Camera/PlayerCameraFollow.cs`, `Assets/Scripts/Camera/CameraBoundsZone.cs` — 구간 전환/카메라 시스템 (이번 작업에서 직접 수정하지 않음, 참고만 함)
-- `@Edit/MapEdit.md`, `LHS_Custumer.md` — 이 프로젝트의 작업 규칙 (맵 제작 시 항상 먼저 참고)
-- `MapDesign_Stage1-2.md` (프로젝트 루트) — 세션 초반에 작성한 1-2 설계 문서(이후 실제 배치와 다소 달라졌으니 최신 상태는 이 HANDOFF.md와 실제 씬 파일을 기준으로 볼 것)
+- `.claude/commands/handoff.md`, `.claude/commands/resume.md`, `.claude/commands/handon.md`
+- `.claude/settings.json`, `.claude/scripts/statusline.ps1`
+- (다른 세션 관할, 참고만) `Assets/Scripts/Managers/Boss.cs`, `BossZoneEndPoint.cs`, `EndingManager.cs`, `StageClearManager.cs`, `Assets/Scenes/Stage1~5.unity`, `@Edit/MapDesign_AllStages_Layout.md`, `@Edit/MapDesign_Stage1-3.md`
 
 ## 커밋 상태
 
-이번 절차(8번)에서 현재 변경사항(`Assets/Scenes/Stage1.unity` 수정 + `.claude/commands/handon.md` 신규)을 전부 커밋함. 제외할 실험적/깨진 파일 없음.
+미커밋 변경이 많지만(위 목록), 이 세션이 의도적으로 제외해야 할 근거를 가진 파일은 없다. 8번 절차대로 전부 `git add -A` 후 커밋한다. 다만 위 "다른 세션 작업" 항목은 이 세션이 검증하지 않은 상태로 함께 커밋됨에 유의.
