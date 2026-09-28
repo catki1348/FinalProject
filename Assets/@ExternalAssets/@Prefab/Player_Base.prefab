@@ -46,6 +46,9 @@ GameObject:
   - component: {fileID: 1300606467144415255}
   - component: {fileID: 1897875791595422516}
   - component: {fileID: 6221037415067270412}
+  - component: {fileID: 6666055710053107406}
+  - component: {fileID: 2664104900837336053}
+  - component: {fileID: 1219767355556682208}
   m_Layer: 0
   m_Name: Player_Base
   m_TagString: Untagged
@@ -192,7 +195,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.45508, y: 0.14388}
     oldSize: {x: 10.24, y: 15.36}
     newSize: {x: 10.24, y: 15.36}
     adaptiveTilingThreshold: 0.5
@@ -220,6 +223,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  slopeCheckDistance: 1
+  maxWalkableSlopeAngle: 60
+  jumpSfx: {fileID: 0}
 --- !u!114 &1897875791595422516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +252,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c566c1e3f95eb439d1064c1f1b1eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteAnimator
+  spriteRenderer: {fileID: 0}
+  idleVisualOffsetY: 0
+  walkVisualOffsetY: 0.35
+  runVisualOffsetY: 0
+  jumpVisualOffsetY: 0
+  boxOpenVisualOffsetY: 0.35
+  dashVisualOffsetY: 1.8
+  attackVisualOffsetY: 0
+  dashRight: {fileID: 0}
+  dashLeft: {fileID: 0}
+  attackFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   idleRight: {fileID: 21300000, guid: 5aa527c4aa4047a408cca153d5f3bf51, type: 3}
   idleLeft: {fileID: 21300000, guid: 68a25bb71fcc960429d966ef6f9268b7, type: 3}
   walkRight: {fileID: 21300000, guid: 8b96f41185e39034b8e253335e124bc7, type: 3}
@@ -268,4 +290,66 @@ MonoBehaviour:
   jumpLeftEquipped: {fileID: 0}
   boxOpenRightEquipped: {fileID: 0}
   boxOpenLeftEquipped: {fileID: 0}
+  idleRightDisarmed: {fileID: 0}
+  idleLeftDisarmed: {fileID: 0}
+  walkRightDisarmed: {fileID: 0}
+  walkLeftDisarmed: {fileID: 0}
+  runRightDisarmed: {fileID: 0}
+  runLeftDisarmed: {fileID: 0}
+  jumpRightDisarmed: {fileID: 0}
+  jumpLeftDisarmed: {fileID: 0}
+  boxOpenRightDisarmed: {fileID: 0}
+  boxOpenLeftDisarmed: {fileID: 0}
+  disarmedDuration: 1
   runKey: 304
+--- !u!114 &6666055710053107406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392264112925914719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ed44b3bc2dce44dae0e5489b73a153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
+  dashKey: 304
+  dashDistance: 0.9
+  dashDuration: 0.2
+  dashCooldown: 0.8
+--- !u!114 &2664104900837336053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392264112925914719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080749f38c74bdb46abb079a292ddf20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  baseAttack: 10
+  baseDefense: 5
+--- !u!114 &1219767355556682208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392264112925914719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabc52b057466c14f8d889b37908f37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  attackPoint: {fileID: 0}
+  attackRange: 0.75
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackCooldown: 0.4
+  attackVisualDuration: 0.3
+  specialActionCooldown: 1
+  attackSfx: {fileID: 0}

@@ -24,7 +24,8 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private float runVisualOffsetY = 0f;
     [SerializeField] private float jumpVisualOffsetY = 0f;
     [SerializeField] private float boxOpenVisualOffsetY = 0.35f;
-    [SerializeField] private float dashVisualOffsetY = 0f;
+    [SerializeField] private float dashVisualOffsetY = 1.8f; // 대쉬 포즈는 발이 캔버스 위쪽에 그려져 있어(공중 런지 자세) 0이면 발판을 파고들어 보임.
+    // 루트(Player_Warrior)에 스케일 0.13이 걸려 있어 이 값의 실제 월드 이동량은 (값 * 0.13)뿐이라 1이었을 때는 보정이 거의 반영되지 않았음 - 실측(Test004)으로 1.8 확정
     [SerializeField] private float attackVisualOffsetY = 0f;
 
     [Header("Dash")]

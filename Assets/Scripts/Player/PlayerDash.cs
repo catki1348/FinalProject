@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerDash : MonoBehaviour
 {
     [SerializeField] private KeyCode dashKey = KeyCode.LeftShift;
-    [SerializeField] private float dashSpeed = 15f;
+    [SerializeField] private float dashDistance = 0.9f; // 대시로 이동할 총 거리(월드 유닛) - 외부(Inspector)에서 조정. 기존 dashSpeed(4.5)*dashDuration(0.2) 값과 동일하게 맞춘 기본값
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 0.8f;
 
@@ -38,6 +38,7 @@ public class PlayerDash : MonoBehaviour
         movement.MovementLocked = true;
 
         float direction = movement.FacingRight ? 1f : -1f;
+        float dashSpeed = dashDistance / dashDuration; // 거리/시간으로 속도를 역산해, dashDistance만 조정해도 이동 거리가 그대로 맞춰지게 한다
         float elapsed = 0f;
 
         while (elapsed < dashDuration)

@@ -10,6 +10,9 @@
 - [MapDesign_Stage1-2.md](MapDesign_Stage1-2.md) — 원래 위치: 프로젝트 루트
 - [MapDesign_Stage1-3.md](MapDesign_Stage1-3.md) — 신규 작성
 - [MapDesign_Stage1-4.md](MapDesign_Stage1-4.md) — 신규 작성
+- [MapDesign_Stage2-2.md](MapDesign_Stage2-2.md) — 신규 작성(폐기됨, 기록용)
+- [MapDesign_Stage2-3.md](MapDesign_Stage2-3.md) — 신규 작성
+- [MapDesign_Stage2-4.md](MapDesign_Stage2-4.md) — 신규 작성
 - [MapEdit.md](MapEdit.md) — 원래 위치: 프로젝트 루트
 - [Monster.md](Monster.md) — 신규 작성
 - [PlatformDesign_InteractiveFootholds.md](PlatformDesign_InteractiveFootholds.md) — 신규 작성

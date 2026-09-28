@@ -26,8 +26,15 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private LoopMode loopMode = LoopMode.PingPong;
 
+    // "이동 거리 1"의 기준: 플레이어가 1초 동안 이동하는 거리(PlayerMovement.moveSpeed - Player_Base/
+    // Player_Warrior 공통값). 발판이 시작 지점에서 이보다 7배(7초치) 넘게 멀어지지 않도록 제한해,
+    // 플레이어가 따라잡을 수 없을 만큼 긴 경로가 실수로 만들어지는 것을 막는 안전장치다.
+    private const float PlayerSecondDistance = 8f;
+    private const float MaxTravelDistance = PlayerSecondDistance * 7f;
+
     private Rigidbody2D rb;
     private Collider2D col;
+    private Vector2 startPosition;
     private int currentIndex;
     private int targetIndex = 1;
     private int direction = 1; // PingPong 모드에서 현재 진행 방향(+1/-1)
@@ -44,11 +51,12 @@ public class MovingPlatform : MonoBehaviour
         col = GetComponent<Collider2D>();
     }
 
-    // 시작 시 경로의 첫 지점으로 위치를 맞춘다.
+    // 시작 시 경로의 첫 지점으로 위치를 맞춘다. 이 지점이 최대 이동 거리 제한의 기준(원점)이 된다.
     private void Start()
     {
         if (path == null || path.PointCount == 0) return;
-        rb.position = path.GetPoint(0);
+        startPosition = path.GetPoint(0);
+        rb.position = startPosition;
     }
 
     private void FixedUpdate()
@@ -58,6 +66,10 @@ public class MovingPlatform : MonoBehaviour
         Vector2 previousPosition = rb.position;
         Vector2 target = path.GetPoint(targetIndex);
         Vector2 next = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+
+        // 시작 지점 기준 MaxTravelDistance를 넘어서는 지점으로는 절대 이동하지 않도록 재클램프.
+        // 경로가 이보다 길게 설계되어도 발판은 이 경계에서 멈춘다(다음 지점으로 넘어가지 않음).
+        next = Vector2.MoveTowards(startPosition, next, MaxTravelDistance);
         rb.MovePosition(next);
 
         Vector2 delta = next - previousPosition;

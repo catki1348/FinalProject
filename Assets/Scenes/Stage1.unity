@@ -5373,6 +5373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
   size: {x: 34, y: 13}
   orthographicSize: 5
+  leftBoundary: {fileID: 83712225}
+  rightBoundary: {fileID: 1886040909}
 --- !u!1001 &851874831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6485,6 +6487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
   size: {x: 35, y: 26}
   orthographicSize: 5
+  leftBoundary: {fileID: 1743791127}
+  rightBoundary: {fileID: 83712225}
 --- !u!1001 &1113538594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6669,6 +6673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
   size: {x: 29.57, y: 16.9}
   orthographicSize: 5
+  leftBoundary: {fileID: 0}
+  rightBoundary: {fileID: 0}
 --- !u!4 &1132171853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 853225221248719097, guid: c3e63c76af1db85458c088dc10c59c03, type: 3}
@@ -9916,6 +9922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
   size: {x: 54, y: 17}
   orthographicSize: 5
+  leftBoundary: {fileID: 0}
+  rightBoundary: {fileID: 1743791127}
 --- !u!1 &1743791126
 GameObject:
   m_ObjectHideFlags: 0
@@ -11419,6 +11427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
   size: {x: 34, y: 11}
   orthographicSize: 5
+  leftBoundary: {fileID: 1886040909}
+  rightBoundary: {fileID: 149561525}
 --- !u!1001 &1912474233
 PrefabInstance:
   m_ObjectHideFlags: 0

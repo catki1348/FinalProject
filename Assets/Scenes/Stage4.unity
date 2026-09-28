@@ -578,8 +578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f85b13620ab6245898909237ee2f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
-  size: {x: 20, y: 8}
-  orthographicSize: 4
+  size: {x: 20, y: 15}
+  orthographicSize: 5
+  leftBoundary: {fileID: 0}
+  rightBoundary: {fileID: 0}
 --- !u!1001 &118913481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -687,8 +689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c80581378f5f4eb40a324d9093741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneEndPoint
-  nextZone: {fileID: 0}
-  cameraFollow: {fileID: 0}
+  nextZone: {fileID: 1470332813}
+  cameraFollow: {fileID: 100005}
 --- !u!61 &185507781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1232,8 +1234,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f85b13620ab6245898909237ee2f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
-  size: {x: 20, y: 8}
-  orthographicSize: 4
+  size: {x: 20, y: 10}
+  orthographicSize: 5
+  leftBoundary: {fileID: 650273709}
+  rightBoundary: {fileID: 1783694923}
 --- !u!1 &1045528383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1283,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   maxHealth: 30
+--- !u!1 &1125846079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125846081}
+  - component: {fileID: 1125846080}
+  m_Layer: 0
+  m_Name: WarpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1125846080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125846079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688dab30464420e428bba03bffb83fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WarpManager
+  testStartZone: 
+--- !u!4 &1125846081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125846079}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1131109866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1386,8 +1435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c80581378f5f4eb40a324d9093741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneEndPoint
-  nextZone: {fileID: 0}
-  cameraFollow: {fileID: 0}
+  nextZone: {fileID: 78000373}
+  cameraFollow: {fileID: 100005}
 --- !u!61 &1135619914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1648,8 +1697,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f85b13620ab6245898909237ee2f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
-  size: {x: 20, y: 8}
-  orthographicSize: 4
+  size: {x: 20, y: 10}
+  orthographicSize: 5
+  leftBoundary: {fileID: 1783694923}
+  rightBoundary: {fileID: 15416687}
 --- !u!1 &1403053586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,8 +1746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c80581378f5f4eb40a324d9093741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneEndPoint
-  nextZone: {fileID: 0}
-  cameraFollow: {fileID: 0}
+  nextZone: {fileID: 959232952}
+  cameraFollow: {fileID: 100005}
 --- !u!61 &1403053589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1895,8 +1946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f85b13620ab6245898909237ee2f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
-  size: {x: 20, y: 8}
-  orthographicSize: 4
+  size: {x: 20, y: 10}
+  orthographicSize: 5
+  leftBoundary: {fileID: 0}
+  rightBoundary: {fileID: 1506613306}
 --- !u!4 &1453473392
 Transform:
   m_ObjectHideFlags: 0
@@ -1963,8 +2016,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f85b13620ab6245898909237ee2f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBoundsZone
-  size: {x: 20, y: 8}
-  orthographicSize: 4
+  size: {x: 20, y: 10}
+  orthographicSize: 5
+  leftBoundary: {fileID: 1506613306}
+  rightBoundary: {fileID: 650273709}
 --- !u!1 &1506613305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,8 +2282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c80581378f5f4eb40a324d9093741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneEndPoint
-  nextZone: {fileID: 0}
-  cameraFollow: {fileID: 0}
+  nextZone: {fileID: 1346851903}
+  cameraFollow: {fileID: 100005}
 --- !u!61 &1699993457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2425,3 +2480,4 @@ SceneRoots:
   - {fileID: 593066072}
   - {fileID: 450543138}
   - {fileID: 33888372}
+  - {fileID: 1125846081}
