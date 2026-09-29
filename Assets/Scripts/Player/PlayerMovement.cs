@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        GameManager.Instance.RegisterPlayer(transform); // 몬스터 크기 산정 등에서 Find 없이 조회할 수 있도록 등록
     }
 
     // 매 프레임 입력을 읽어 방향 전환, 바닥 감지, 점프 입력을 처리

@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 플레이어의 Transform 캐시(몬스터 크기 산정 등에서 GameObject.Find 없이 참조하기 위함 - 규칙 40, 41)
+    public Transform PlayerTransform { get; private set; }
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -36,5 +39,11 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    // 플레이어가 자신의 Transform을 등록(PlayerMovement.Awake에서 호출) - 이후 다른 스크립트가 Find 없이 조회 가능
+    public void RegisterPlayer(Transform playerTransform)
+    {
+        PlayerTransform = playerTransform;
     }
 }

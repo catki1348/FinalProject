@@ -829,6 +829,7 @@ MonoBehaviour:
   path: {fileID: 427637993}
   speed: 1.8
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &126349934
 Rigidbody2D:
   serializedVersion: 5
@@ -866,7 +867,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1616,6 +1617,7 @@ MonoBehaviour:
   path: {fileID: 693784547}
   speed: 2
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &244965794
 Rigidbody2D:
   serializedVersion: 5
@@ -1653,7 +1655,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2690,6 +2692,7 @@ MonoBehaviour:
   path: {fileID: 1747909957}
   speed: 1.8
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &407111899
 Rigidbody2D:
   serializedVersion: 5
@@ -2727,7 +2730,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3599,6 +3602,7 @@ MonoBehaviour:
   path: {fileID: 1477399128}
   speed: 1.6
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &510122925
 Rigidbody2D:
   serializedVersion: 5
@@ -3636,7 +3640,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4965,6 +4969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform_1-3
       objectReference: {fileID: 0}
+    - target: {fileID: 8539461757681513920, guid: c3e63c76af1db85458c088dc10c59c03, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5001,6 +5009,7 @@ MonoBehaviour:
   path: {fileID: 1539796872}
   speed: 2.2
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &810380477
 Rigidbody2D:
   serializedVersion: 5
@@ -5135,6 +5144,7 @@ MonoBehaviour:
   path: {fileID: 1233873399}
   speed: 2
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &844436740
 Rigidbody2D:
   serializedVersion: 5
@@ -5172,7 +5182,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6844,6 +6854,7 @@ MonoBehaviour:
   path: {fileID: 1527031707}
   speed: 1.8
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &1155507867
 Rigidbody2D:
   serializedVersion: 5
@@ -6881,7 +6892,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7028,6 +7039,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform_1-4
       objectReference: {fileID: 0}
+    - target: {fileID: 8539461757681513920, guid: c3e63c76af1db85458c088dc10c59c03, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7064,6 +7079,7 @@ MonoBehaviour:
   path: {fileID: 1397784572}
   speed: 2.5
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &1155700001
 Rigidbody2D:
   serializedVersion: 5
@@ -10438,6 +10454,7 @@ MonoBehaviour:
   path: {fileID: 704045658}
   speed: 1.8
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &1794799216
 Rigidbody2D:
   serializedVersion: 5
@@ -10475,7 +10492,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10620,6 +10637,7 @@ MonoBehaviour:
   path: {fileID: 315268230}
   speed: 1.6
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &1812778732
 Rigidbody2D:
   serializedVersion: 5
@@ -10657,7 +10675,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -12574,6 +12592,7 @@ MonoBehaviour:
   path: {fileID: 1560245110}
   speed: 1.6
   loopMode: 1
+  riderDetectMargin: 0.15
 --- !u!50 &2126519059
 Rigidbody2D:
   serializedVersion: 5
@@ -12611,7 +12630,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e87c9a6b9c577dd4fbef80b0815493f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
