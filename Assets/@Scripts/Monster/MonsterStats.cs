@@ -8,6 +8,7 @@ public class MonsterStats : MonoBehaviour, IDamageable
     [SerializeField] private int maxHealth = 20; // 최대 체력
     [SerializeField] private int attack = 10;    // 공격력
     [SerializeField] private int defense = 10;   // 방어력
+    [SerializeField] private float deathGravityScale = 3f; // 사망 시 적용할 중력 배율(지상종 기본값과 동일 - Monster.md 규칙 13)
 
     private int currentHealth;
 
@@ -38,6 +39,8 @@ public class MonsterStats : MonoBehaviour, IDamageable
 
     // 사망 상태로 전환하고, 콜라이더를 모두 비활성화해 더 이상 아무와도 상호작용하지 않는 오브젝트로 만든 뒤
     // 구독자(MonsterController 등)에게 알림 - 이후 TakeDamage는 무시됨
+    // 비행종은 사망 시 중력을 지상종과 동일한 값으로 되돌려 아래로 낙사한다(Monster.md 규칙 13).
+    // 지상종은 이미 같은 값이라 이 대입이 사실상 아무 변화도 주지 않는다(별도 분기 불필요).
     private void Die()
     {
         IsDead = true;
@@ -46,6 +49,8 @@ public class MonsterStats : MonoBehaviour, IDamageable
         {
             col.enabled = false;
         }
+
+        if (TryGetComponent<Rigidbody2D>(out var rb)) rb.gravityScale = deathGravityScale;
 
         OnDeath?.Invoke();
     }

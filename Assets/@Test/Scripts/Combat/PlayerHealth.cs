@@ -109,6 +109,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         else
         {
             OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+            spriteAnimator?.TriggerDamage();
             spriteAnimator?.TriggerDisarmed();
         }
     }

@@ -1209,6 +1209,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -1221,6 +1225,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1132248982}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1132248990}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1132248989}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &73063185 stripped
 Transform:
@@ -1728,6 +1738,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -1740,6 +1754,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470184514}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1470184522}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1470184521}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &134652760 stripped
 Transform:
@@ -1849,11 +1869,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 2.02
       objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1899,6 +1919,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -1911,6 +1935,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1317686514}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1317686522}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1317686521}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &136657574 stripped
 Transform:
@@ -3182,6 +3212,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -3194,6 +3228,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 745791422}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745791430}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745791429}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &378186607 stripped
 Transform:
@@ -3851,12 +3891,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1736111
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1736111
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.25
+      value: 10.54
       objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3909,6 +3957,14 @@ PrefabInstance:
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293832250987289302, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 11.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293832250987289302, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 8.64
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -4180,6 +4236,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -4192,6 +4252,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 481164365}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 481164373}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 481164372}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &481164357 stripped
 Transform:
@@ -4213,6 +4279,40 @@ MonoBehaviour:
   path: {fileID: 1616220428}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &481164372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &481164373
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &488177054
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,6 +5073,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -4985,6 +5089,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 891307409}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 891307417}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 891307416}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &549423447 stripped
 Transform:
@@ -5405,6 +5515,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -5417,6 +5531,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1594709409}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1594709417}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1594709416}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &621489415 stripped
 Transform:
@@ -6226,6 +6346,40 @@ MonoBehaviour:
   path: {fileID: 2109017393}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &745791429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745791414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &745791430
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745791414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &752527627
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,6 +7475,40 @@ MonoBehaviour:
   path: {fileID: 898743986}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &891307416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891307401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &891307417
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891307401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &894669646
 GameObject:
   m_ObjectHideFlags: 0
@@ -7905,6 +8093,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -7917,6 +8109,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1061272153}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1061272161}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1061272160}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &944051118 stripped
 Transform:
@@ -8094,6 +8292,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -8106,6 +8308,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 964418784}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 964418792}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 964418791}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &964418776 stripped
 Transform:
@@ -8127,6 +8335,40 @@ MonoBehaviour:
   path: {fileID: 1144589613}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &964418791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501357367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &964418792
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501357367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &972142748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8644,6 +8886,40 @@ MonoBehaviour:
   path: {fileID: 73512706}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1061272160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061272145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1061272161
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061272145}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1064982820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8703,6 +8979,14 @@ PrefabInstance:
     - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: areaSize.y
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -9196,6 +9480,40 @@ MonoBehaviour:
   path: {fileID: 871747370}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1132248989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132248974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1132248990
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132248974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1132738863
 GameObject:
   m_ObjectHideFlags: 0
@@ -9958,6 +10276,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -9970,6 +10292,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1216940133}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1216940141}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1216940140}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1216940125 stripped
 Transform:
@@ -9991,6 +10319,40 @@ MonoBehaviour:
   path: {fileID: 62360185}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1216940140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345683773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1216940141
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345683773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1221840056
 GameObject:
   m_ObjectHideFlags: 0
@@ -10790,6 +11152,40 @@ MonoBehaviour:
   path: {fileID: 547398660}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1317686521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317686506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1317686522
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317686506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1318239575
 GameObject:
   m_ObjectHideFlags: 0
@@ -11840,6 +12236,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -11852,6 +12252,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1620715346}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1620715354}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1620715353}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1420783161 stripped
 Transform:
@@ -12334,6 +12740,40 @@ MonoBehaviour:
   path: {fileID: 420488913}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1470184521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470184506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1470184522
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470184506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1480700034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12394,6 +12834,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -12406,6 +12850,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1480700043}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1480700051}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1480700050}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1480700035 stripped
 Transform:
@@ -12427,6 +12877,40 @@ MonoBehaviour:
   path: {fileID: 1960486394}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1480700050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649794185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1480700051
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649794185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1482959631
 GameObject:
   m_ObjectHideFlags: 0
@@ -13349,6 +13833,40 @@ MonoBehaviour:
   path: {fileID: 456853751}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1594709416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594709401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1594709417
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594709401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1595252414
 GameObject:
   m_ObjectHideFlags: 0
@@ -13440,6 +13958,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -13452,6 +13974,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1598024991}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1598024999}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1598024998}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1598024983 stripped
 Transform:
@@ -13473,6 +14001,40 @@ MonoBehaviour:
   path: {fileID: 1316627502}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1598024998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855061805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1598024999
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855061805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1602936970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13930,6 +14492,40 @@ MonoBehaviour:
   path: {fileID: 1863390206}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1620715353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620715338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1620715354
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620715338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1622104562
 GameObject:
   m_ObjectHideFlags: 0
@@ -14748,11 +15344,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.75
+      value: 9.06
       objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14798,6 +15394,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -14810,6 +15410,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1761483535}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1761483543}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1761483542}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1761483527 stripped
 Transform:
@@ -14831,6 +15437,40 @@ MonoBehaviour:
   path: {fileID: 1607599572}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1761483542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525313758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1761483543
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525313758}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1764543283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -15005,6 +15645,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -15017,6 +15661,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1779816365}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1779816373}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1779816372}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1779816357 stripped
 Transform:
@@ -15038,6 +15688,40 @@ MonoBehaviour:
   path: {fileID: 1119443906}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1779816372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426243644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1779816373
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426243644}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1781677378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15450,6 +16134,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -15462,6 +16150,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1857930214}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857930222}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857930221}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1857930206 stripped
 Transform:
@@ -15483,6 +16177,40 @@ MonoBehaviour:
   path: {fileID: 1397728617}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &1857930221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567132506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &1857930222
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567132506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1860135147
 GameObject:
   m_ObjectHideFlags: 0
@@ -16526,6 +17254,10 @@ PrefabInstance:
       propertyPath: areaSize.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8138140284996509350, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9bf4a77b5f85e47bd0c77cdecfbeca, type: 3}
     - target: {fileID: 8245555105517083830, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -16538,6 +17270,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2014901774}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014901782}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014901781}
   m_SourcePrefab: {fileID: 100100000, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
 --- !u!4 &1953539256 stripped
 Transform:
@@ -17097,6 +17835,40 @@ MonoBehaviour:
   path: {fileID: 90860555}
   moveSpeed: 1.2
   arrivalThreshold: 0.1
+--- !u!114 &2014901781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014901766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae9187da0828c148849975742e22cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterFlightAnimator
+--- !u!95 &2014901782
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014901766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a71031bf1e751458546f30f7ca60ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2023515086
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,20 @@
 > - 실제 발판 위의 12마리(`Monster_2-3_1~12`)는 이미 지상종 요건(발판 위 스폰+중력 적용+`PatrolPattern`)을 만족하고 있어 변경하지 않았습니다.
 > - 컴파일 에러 없음, 콘솔 에러 없음, 씬 저장 완료.
 >
+> **비행형 몬스터 외형 적용(2026-09-29~30 추가, 4차)**: 사용자 지시 "비행형 몬스터에 박쥐 외형 모두 적용해라"에 따라 처리했습니다(규칙 6: 전용 에셋 확정 시 외형만 교체).
+> - 연결된 워크플로우(`nano-banana-1`)로 박쥐 몬스터 이미지 생성. 1차 시도("투명 배경" 프롬프트)는 실제 알파 채널 대신 체크무늬 패턴이 픽셀에 그대로 그려지는 문제 발생(선례와 동일한 현상) → 2차로 "완전히 평평한 단색 마젠타 배경"으로 재생성 후, PowerShell(`System.Drawing`)으로 직접 크로마키 처리해 진짜 알파 채널을 만듦(배경 알파=0, 본체 알파=255 확인).
+> - `Assets/Sprites/Monsters/Monster_Flying_Bat.png`로 저장·임포트(Sprite/Single/FullRect).
+> - 현재 프로젝트에서 비행형 컴포넌트(`FlyingPatrolPattern`/`FlyingPathPatrolPattern` 등)를 쓰는 몬스터는 2-3의 18마리(`Monster_2-3_13~30`)뿐임을 전체 씬 파일 검색으로 확인 → 이 18마리 전부의 `SpriteRenderer.sprite`를 박쥐 스프라이트로 교체(기능 컴포넌트는 그대로 유지).
+> - 향후 재사용을 위해 `Assets/@ExternalAssets/@Prefab/Monster_Flying_Bat.prefab`도 신규 제작(`Monster_Basic` 기반, 박쥐 스프라이트 + `FlyingPatrolPattern` + 중력0 기본 적용).
+> - Play 모드가 아닌 씬 뷰 스크린샷으로 실제 반투명 배경 없이 정상 렌더링되는 것 확인 후 스크린샷 삭제(규칙22). 콘솔 에러 없음, 씬 저장 완료.
+>
+> **기존 에셋으로 교체(2026-09-30 추가, 5차)**: 사용자 지시 "이미 생성해둔 박쥐 외형이 있다. 새로 만든 이미지는 폐기하고 기존 생성한 이미지와 애니메이션을 사용해라"에 따라 처리했습니다. 다른 세션이 이미 `Monster_ForestBat`라는 완성도 높은 에셋(스프라이트 6장 `fly_left/right_1/2`+`attack_left/right`, 전용 `Monster_ForestBatAnimator.controller`, 방향에 따라 좌우 비행 애니메이션을 전환하는 신규 스크립트 `MonsterFlightAnimator.cs`)을 만들어둔 것을 발견했습니다.
+> - 방금 직접 생성했던 `Monster_Flying_Bat.png`/`Monster_Flying_Bat.prefab`은 **전부 삭제**(폐기).
+> - 18마리(`Monster_2-3_13~30`) 전부에게 기존 `Monster_ForestBat` 에셋을 적용 — `SpriteRenderer.sprite`를 `fly_right_1`로, `color`를 프리팹과 동일한 (0.9,0.2,0.2,1) 적색 톤으로 설정하고, `Animator`(컨트롤러 연결) + `MonsterFlightAnimator` 컴포넌트를 추가. 기존에 붙어 있던 이동 로직(`FlyingPathPatrolPattern` + 개별 `PlatformPath`)은 그대로 유지 — `MonsterFlightAnimator`가 어떤 패턴이 `Rigidbody2D`를 움직이든 속도 부호만으로 좌우를 판정하도록 설계돼 있어 그대로 호환됨을 확인.
+> - 씬 뷰 스크린샷으로 실제로 적색 톤의 상세한 박쥐 그래픽이 투명 배경으로 정상 렌더링됨을 확인 후 삭제(규칙22).
+> - 몬스터 스탯(`MonsterStats`)은 이번 지시 범위(외형·애니메이션)를 벗어나 손대지 않았습니다 — `Monster_ForestBat` 프리팹은 체력30/공격8/방어2로 다른 값을 쓰고 있는데, 이 값까지 맞추길 원하시면 말씀해주세요.
+> - 콘솔 에러 없음, 씬 저장 완료.
+>
 > **경로 기반 패턴 개별 적용(2026-09-29 추가, 3차)**: 사용자 지시 "개별 몬스터에 경로 기반 패턴 적용해줘"에 따라 30마리 전부에 몬스터 전용 `PlatformPath`(2점, 기존 정찰 영역 크기를 그대로 반영)를 새로 만들어 연결했습니다.
 > - 지상형 12마리: `PatrolPattern` → `PathPatrolPattern`으로 교체, 경로는 기존 정찰 폭만큼 좌우 2점(같은 높이).
 > - 비행형 18마리: `FlyingPatrolPattern` → `FlyingPathPatrolPattern`으로 교체, 경로는 기존 정찰 영역의 대각선 2점(X·Y 모두 포함).

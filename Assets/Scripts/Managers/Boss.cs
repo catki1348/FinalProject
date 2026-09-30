@@ -13,6 +13,14 @@ public class Boss : MonoBehaviour, IDamageable
 
     private int currentHealth;
 
+    // 보스 행동 스크립트(BossController)가 구독하는 인스턴스 이벤트 - 피격 사실만 알리고 행동 결정은 구독자가 담당(규칙 39, 40)
+    public event System.Action<int> OnDamaged; // 인자: 이번에 실제로 입은 피해량
+    public event System.Action OnDied;         // 체력이 0이 되는 순간 한 번 발행
+
+    public int CurrentHealth => currentHealth; // 현재 체력(외부 조회용)
+    public int MaxHealth => maxHealth;         // 최대 체력(외부 조회용)
+    public bool IsDead => currentHealth <= 0;  // 사망 여부(외부 조회용)
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -22,7 +30,13 @@ public class Boss : MonoBehaviour, IDamageable
     {
         if (currentHealth <= 0) return;
 
+        int before = currentHealth;
         currentHealth = Mathf.Max(0, currentHealth - amount);
-        if (currentHealth <= 0) OnBossDefeated?.Invoke();
+        OnDamaged?.Invoke(before - currentHealth);
+        if (currentHealth <= 0)
+        {
+            OnDied?.Invoke();
+            OnBossDefeated?.Invoke();
+        }
     }
 }

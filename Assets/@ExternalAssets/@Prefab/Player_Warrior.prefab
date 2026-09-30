@@ -345,9 +345,10 @@ MonoBehaviour:
   walkVisualOffsetY: 4.97
   runVisualOffsetY: 0
   jumpVisualOffsetY: 0
-  boxOpenVisualOffsetY: 0
+  boxOpenVisualOffsetY: 1.6
   dashVisualOffsetY: 1.8
   attackVisualOffsetY: 0
+  damageVisualOffsetY: 1.6
   dashRight: {fileID: 21300000, guid: ba9c64c8541b7934bbeacb61e36f84b5, type: 3}
   dashLeft: {fileID: 21300000, guid: ebe23b94c0cebe14489ff48263418330, type: 3}
   attackFrames:
@@ -356,6 +357,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c7cb8db18eb4b564eae5b86ef79d743a, type: 3}
   - {fileID: 21300000, guid: 34255f69c60823e408146ec7cf5515d2, type: 3}
   - {fileID: 21300000, guid: 5de434f7209ae184395793f30c061b54, type: 3}
+  damageRight: {fileID: 21300000, guid: 2734cb6c2b4e2e94c9685e50833690ed, type: 3}
+  damageLeft: {fileID: 21300000, guid: 412f51537297b9a45afc03adfab0bc67, type: 3}
+  damageFlashDuration: 0.35
   idleRight: {fileID: 21300000, guid: 96659352f6f6b6944b1846d000867394, type: 3}
   idleLeft: {fileID: 21300000, guid: 7ada2d9f202d0ef4aac6cff0b232a289, type: 3}
   walkRight: {fileID: 21300000, guid: 914e246d763296641a2f16d55740732b, type: 3}
@@ -364,8 +368,10 @@ MonoBehaviour:
   runLeft: {fileID: 21300000, guid: d296baabebc94c146845dbc01ab32d5d, type: 3}
   jumpRight: {fileID: 21300000, guid: 027cc64d3fa541b4395897f5932d74c0, type: 3}
   jumpLeft: {fileID: 21300000, guid: 9c20398ef4456da48a027a2cbbb0ecec, type: 3}
-  boxOpenRight: {fileID: 21300000, guid: 62ff74157a6b7e74189872b3367a8ab7, type: 3}
-  boxOpenLeft: {fileID: 21300000, guid: b2563bfa2fb292d418331609128db234, type: 3}
+  boxOpenRight: {fileID: 21300000, guid: a155308328cf50942b74c561478823a1, type: 3}
+  boxOpenLeft: {fileID: 21300000, guid: ea6c98ad65b27cf48a5d25812364d639, type: 3}
+  boxOpenRight2: {fileID: 21300000, guid: 29e08d0176fb6b346b943b7f43a85679, type: 3}
+  boxOpenLeft2: {fileID: 21300000, guid: a15d2c4373869194e81554fa6eee81e6, type: 3}
   interactKey: 101
   boxOpenDuration: 0.6
   idleRightEquipped: {fileID: 0}
