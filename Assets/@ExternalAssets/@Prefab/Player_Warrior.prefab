@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 7289477503037226255}
   - component: {fileID: 4547181361737197089}
   - component: {fileID: 6235360284937099708}
+  - component: {fileID: 3823194826087538278}
   m_Layer: 0
   m_Name: Player_Warrior
   m_TagString: Untagged
@@ -462,3 +463,17 @@ MonoBehaviour:
   attackVisualDuration: 0.3
   specialActionCooldown: 1
   attackSfx: {fileID: 0}
+--- !u!114 &3823194826087538278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555657478530073304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b147c8554e44e4d925406eb08d5c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPetrify
+  tintTarget: {fileID: 2398752785001790154}
+  petrifiedColor: {r: 0.55, g: 0.55, b: 0.55, a: 1}

@@ -2,7 +2,8 @@
 
 > 2026-10-02 작성. 스테이지 1 보스(Ancient Treant Guardian, `BossController.cs`)의 기본 구조를 계승하고
 > 일반 공격 2종 + 특수 공격 2종으로 확장한 설계.
-> **Unity 미반영 상태**(사용자 선택). 모든 결과물은 Unity `Assets` 구조 그대로 아래 폴더에 준비되어 있어 복사만 하면 된다.
+> **2026-10-02 Unity 적용 완료**(사용자 요청). 에셋·스크립트·프리팹 생성, 플레이어 프리팹에 석화 컴포넌트 추가, Stage2 2-5 보스존 배치 및 임시 씬 플레이 테스트까지 완료(아래 7장).
+> 적용 전 원본 패키지(Unity `Assets` 구조 그대로):
 > `C:\Users\MBC-501-16\Downloads\LHS\컨셉\@Boss_Stage2_Serpent\UnityReady\Assets\`
 
 원본 테마 이미지: `Assets/Sprites/Bosses/Stage2_Transition/05_StoneSerpent_pixel.png`(보스 컨셉 생성 때 최종 채택된 도트 버전)
@@ -20,7 +21,7 @@
 | 이동 속도 | 2.5 | 2.2 (원거리 패턴이 있어 조금 느리게) |
 | 일반 공격 | 양손 주먹질 1종 | **물기 + 꼬리치기 2종** |
 | 특수 공격 | 점프 내려찍기 1종 | **독 브레스 + 석화 광선 2종 (번갈아 사용)** |
-| 그로기/사망 | 누적 30 / 단일 20 → 3초 그로기, 사망 시 충돌 해제 | 동일 계승 |
+| 그로기/사망 | 누적 30 / 단일 20 → 3초 그로기(클립은 마지막 자세 1초 유지 후에만 반복), 사망 시 충돌 해제 | 동일 계승 |
 
 ## 2. 행동 패턴 (`StoneSerpentController.cs`)
 
@@ -31,8 +32,8 @@
 |---|---|---|---|---|---|---|
 | 일반 1 | 물기 | 2.4 이내 | 12 | 전방 2.6, 발밑 0.8~2.6 높이 상자 (0.35초에 1회) | 뒤로 빠지기 / 아래(0.8 미만)로는 안 닿음 | `Boss_Bite` 0.7초 |
 | 일반 2 | 꼬리치기 | 3.4 이내 | 10 | 전방 3.6, 높이 1.0 낮은 상자 (0.4초에 1회) | **점프** | `Boss_TailSwipe` 0.8초 |
-| 특수 1 | 독 브레스 | 7 이내 | 4 × 틱 (0.3초 간격, 분사 1.2초 → 최대 5틱 = 20) | 입 앞 6.5 × 높이 2.2 상자(입보다 1.2 아래 중심) | 사거리 밖으로 도망 / 보스 뒤로 돌아가기 | `Boss_PoisonBreath` 1.9초 |
-| 특수 2 | 석화 광선 | 16(감지 거리) 이내, 광선 14 | 8 + **석화 1.5초** | 눈에서 조준 방향으로 두께 0.5 원형 캐스트, 첫 대상 1명. 바닥에 막힘 | 충전(0.8초) 중 조준 고정(발사 0.25초 전) 직후 이동 | `Boss_PetrifyGaze` 1.4초 |
+| 특수 1 | 독 브레스 | 7 이내 | 14 × 틱 (1초 간격, 분사 1.2초 → 최대 2틱) ※ 플레이어 피격 무적 1초에 맞춤 | 입 앞 6.5 × 높이 2.2 상자(입보다 1.2 아래 중심) | 사거리 밖으로 도망 / 보스 뒤로 돌아가기 | `Boss_PoisonBreath` 1.9초 |
+| 특수 2 | 석화 광선 | 16(감지 거리) 이내, 광선 14 | 12 + **석화 1.5초** | 눈에서 조준 방향으로 두께 0.5 원형 캐스트, 첫 대상 1명. 바닥에 막힘 | 충전(0.8초) 중 조준 고정(발사 0.25초 전) 직후 이동 | `Boss_PetrifyGaze` 1.4초 |
 
 - 일반 공격 선택: 물기 사거리(2.4) 안이면 물기/꼬리치기 50:50, 그보다 멀고 3.4 이내면 꼬리치기. 공용 쿨다운 1.2초.
 - 특수 공격 선택: 첫 사용은 전투 시작 4초 후, 이후 7초마다. 독 브레스 ↔ 석화 광선 번갈아 사용. 독 브레스 차례인데 플레이어가 7보다 멀면 석화 광선으로 대체.
@@ -109,7 +110,7 @@ Boss_Stage2_StoneSerpent  (Layer: 트렌트와 동일 9)
 │    targetLayer = Default / groundLayer = Ground
 │    breathVfx = Visual/BreathVfx / gazeBeamVfx = GazeBeamVfx
 ├─ Visual           Scale (0.35, 0.35, 1)  SpriteRenderer(01_idle_1, Order 5) + Animator(Boss_Stage2_StoneSerpentAnimator)
-│   └─ BreathVfx    LocalPos (3.29, 5.71), Scale (1.4, 1.15)  SpriteRenderer(vfx_poison_breath, Order 6, 비활성)
+│   └─ BreathVfx    LocalPos (3.29, 5.71), Rot Z -18, Scale (1.4, 1.15)  SpriteRenderer(vfx_poison_breath, Order 6, 비활성)
 │                   ※ Visual의 자식이라 좌우 반전을 같이 따라감
 └─ GazeBeamVfx      SpriteRenderer(vfx_petrify_beam, Order 6, 비활성)
                     ※ Visual의 형제. 위치/회전/길이는 스크립트가 매번 설정(좌우 반전 영향 없음)
@@ -124,7 +125,7 @@ Boss_Stage2_StoneSerpent  (Layer: 트렌트와 동일 9)
 
 - 스크립트 3종: 프로젝트의 `Assembly-CSharp.csproj` 참조(UnityEngine 등)로 임시 컴파일 검사 → **오류 0**. 경고는 `OverlapBoxNonAlloc` 폐기 예정 경고뿐(기존 `BossController.cs`와 같은 방식이라 통일 유지).
 - 프레임 정렬: 01번 프레임을 반투명으로 겹친 검수 시트로 18장 모두 똬리 위치가 피벗에 맞는 것을 확인(`preview_sheet.png`).
-- **Unity에서 실제 재생·플레이 확인은 아직 하지 않음**(Unity 미반영 선택). 적용 후 확인할 것:
+- Unity 플레이 테스트 결과는 7장 참고. 아래는 실제 화면에서 계속 지켜볼 항목:
   - 08(물기)은 머리를 앞으로 내미느라 생성 단계에서 몸이 다른 프레임보다 약간 작게 그려졌다 - 화면에서 튀어 보이면 해당 프레임만 재생성 또는 스케일 보정.
   - 03↔04(이동) 루프, 15→16→17(사망) 사이의 자세 변화가 자연스러운지.
   - 독 브레스 VFX 위치/크기(입에서 시작하는지), 석화 광선 각도.
@@ -138,3 +139,40 @@ Boss_Stage2_StoneSerpent  (Layer: 트렌트와 동일 9)
 - 원본/후보 이미지: `@Boss_Stage2_Serpent\_work\` (`raw` 원본, `retry` 재생성 후보, `frames_src` 채택본, `norm2` 정렬본)
 - 사용 크레딧: 약 520 (이미지 1장 20 × 26장: 기준 프레임 3 + 본 생성 19 + 재생성 후보 4)
 - 워크플로우 노드: x 42000~43800 구역(ImageInput `fe9f8464…`이 기준 프레임 v2a). 재생성 시 해당 TextInput 프롬프트만 수정해 재사용(규칙 27).
+
+## 7. Unity 적용 결과 (2026-10-02)
+
+### 생성/변경한 에셋
+| 구분 | 경로 |
+|---|---|
+| 스프라이트 18 + VFX 2 | `Assets/Sprites/Bosses/Stage2_Transition/StoneSerpent/` (+ `VFX/`) |
+| 클립 8 + 컨트롤러 | `Assets/Animations/Boss/Stage2_StoneSerpent/` |
+| 스크립트 | `Assets/@Scripts/Boss/StoneSerpentController.cs`, `IPetrifiable.cs`, `Assets/@Scripts/Player/PlayerPetrify.cs` |
+| 보스 프리팹(신규) | `Assets/@ExternalAssets/@Prefab/Boss_Stage2_StoneSerpent.prefab` (트렌트 프리팹과 같은 위치·구성, Layer 9, Rigidbody2D 값은 트렌트에서 복사) |
+| 플레이어 프리팹(변경) | `Player_Warrior.prefab`에 `PlayerPetrify` 추가(`tintTarget` = Visual) — Stage1/2가 모두 이 프리팹 사용 |
+| 씬(변경) | `Stage2.unity` Section_5(2-5) |
+
+### 2-5 보스존 배치 (Section_5 위치 (228, -60), 1-5와 같은 구조)
+기존 2-5는 임시 상태(길이 2 발판 1개 + `Boss` 컴포넌트만 붙은 빈 오브젝트 `Boss_2-5`)였음 → 빈 보스는 삭제하고 아래처럼 구성.
+
+| 오브젝트 | 위치 | 비고 |
+|---|---|---|
+| Platform_Stage2_Jungle_2-5 | (228, -60.5), 스케일 (14, 0.5) | 기존 발판 인스턴스를 길이 28 직선 발판 1개로 늘림(규칙 13). 충돌 X 214~242, 윗면 y = -60 |
+| ZoneStartPoint_2-5 (★) | (217, -59) | 왼쪽 끝 |
+| Boss_2-5 | (236, -59.98) | `Boss_Stage2_StoneSerpent` 프리팹, 체력 130 |
+| BossZoneEndPoint_2-5 (○) | (240.5, -59), 트리거 1×2 | 처치 전 비활성 |
+| ArenaWall_Left/Right_2-5 | x = 213.5 / 242.5, 1×12 | 보이지 않는 벽 |
+| OutOfBoundsTrigger_2-5 | (228, -67.5), 40×2 | 2-5 전용 낙사 트리거(공용 트리거 y=-20은 2-5를 덮지 못함) |
+| Section_5 CameraBoundsZone | size (20,15) → **(30,15)** | 아레나 폭에 맞춤 |
+
+### 플레이 테스트 (임시 씬 `Test000` = Stage2 복사본, `WarpManager.testStartZone = "2-5"`, 테스트 후 삭제 - 규칙 24)
+- 2-5 스폰 → 거리 19(감지 밖)에서 대기 → 접근 시 추적, 플레이어 쪽으로 좌우 반전 정상.
+- 근접: 물기/꼬리치기가 무작위로 번갈아 나오고, 타격 시점이 클립 프레임 전환(0.35초/0.4초)과 일치. 실제 피해 7/5(플레이어 방어력 5 반영).
+- 거리 6: 독 브레스(충전 0.5초 → 분사 1.2초, 2회 명중 9+9) → 7초 뒤 석화 광선(플레이어 쪽 아래 25° 조준, 명중 시 피해 + 석화 → 1.5초 후 해제).
+- 피해 25 → 즉시 그로기(진행 중이던 브레스 이펙트 꺼짐) → 3초 후 회복.
+- 처치 → 사망 애니메이션 후 회색 돌 모습으로 정지, 몸 충돌 해제, 종료점 활성화 → 종료점 통과 → 스테이지 클리어 → **Stage3 로드**까지 확인. 콘솔 에러/경고 0.
+
+### 테스트 중 수정한 점
+1. **독 브레스 피해가 거의 안 들어감**: 플레이어에게 피격 후 1초 무적 + 방어력 5가 있어, 0.3초 간격 4피해 틱은 1회·1피해만 적용됨 → 틱 간격을 무적 시간과 같은 1초로, 틱 피해를 14로 조정(분사 중 최대 2회).
+2. **석화 광선 피해 8 → 12**: 방어력 5를 빼면 3밖에 안 들어가서 상향(실피해 7).
+3. **독 구름이 플레이어 머리 위로 떠 보임**(판정은 바닥 높이): BreathVfx를 앞쪽 아래로 18° 기울여 판정 범위와 화면을 일치시킴.

@@ -27,16 +27,31 @@ public class MonsterController : MonoBehaviour
 
     // 스폰 시 플레이어 크기의 50%로 고정(Monster.md 규칙 14). placeholder 사각형(스케일 1에서 월드
     // 1유닛)과 실제 몬스터 아트(캔버스 크기가 제각각)를 모두 지원하기 위해, 고정값을 대입하는 대신
-    // 이 오브젝트에 "지금" 붙어있는 스프라이트의 원본(스케일 1 기준) 세로 크기를 실측해 역산한다 -
+    // 이 오브젝트에 "지금" 붙어있는 스프라이트의 원본(스케일 1 기준) 보이는 세로 크기를 실측해 역산한다 -
     // 규칙 6(사각형 placeholder -> 이후 전용 에셋으로 외형만 교체)대로 스프라이트만 바꿔도 크기 보정을
     // 다시 손볼 필요가 없다.
     private void ApplySpawnScale()
     {
         float targetWorldHeight = playerWorldHeight * sizeRatio;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        float spriteNativeHeight = sr != null && sr.sprite != null ? sr.sprite.bounds.size.y : 1f;
+        float spriteNativeHeight = sr != null && sr.sprite != null ? GetVisibleHeight(sr.sprite) : 1f;
         float scale = targetWorldHeight / spriteNativeHeight;
         transform.localScale = new Vector3(scale, scale, transform.localScale.z);
+    }
+
+    // 실제 몬스터 아트는 캔버스에 투명 여백이 커서(고블린: 캔버스 11.84 중 그림 5.4) sprite.bounds로 재면
+    // 보이는 크기가 규칙의 절반 이하가 된다. Tight 메시 정점은 불투명 영역만 감싸므로 그 높이를 사용한다.
+    private static float GetVisibleHeight(Sprite sprite)
+    {
+        Vector2[] vertices = sprite.vertices;
+        if (vertices.Length == 0) return sprite.bounds.size.y;
+        float minY = float.MaxValue, maxY = float.MinValue;
+        foreach (Vector2 v in vertices)
+        {
+            if (v.y < minY) minY = v.y;
+            if (v.y > maxY) maxY = v.y;
+        }
+        return maxY - minY;
     }
 
 #if UNITY_EDITOR

@@ -5,7 +5,8 @@ using UnityEngine;
 // 경로의 정의/시각화는 PlatformPath가 전담하고, 이 스크립트는 이동 로직만 담당한다(단일 책임).
 //
 // 발판 위에 서 있는 대상이 미끄러지지 않고 같이 움직이게 하는 방법: 매 FixedUpdate마다 발판 자신이
-// 이동한 거리(delta)를 계산해서, 그 위에 서 있는 대상의 Rigidbody2D 위치에 그대로 더해준다. 탑승자의
+// 이동한 거리(delta)를 계산해서, 좌우 성분은 탑승자의 Rigidbody2D 위치에 더하고 상하 성분은 탑승자의
+// Y속도를 발판 속도에 맞춰 전달한다(이유는 CarryRiders 주석 참고). 탑승자의
 // Rigidbody2D는 Dynamic 그대로 유지한다(Kinematic으로 바꾸면 PlayerMovement/PlayerDash가
 // rb.linearVelocity를 직접 대입해 이동을 제어하는 구조와 충돌해, 발판에 타는 순간 캐릭터가 이동/점프
 // 입력에 전혀 반응하지 않는 버그가 생긴다).
@@ -97,6 +98,12 @@ public class MovingPlatform : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
             rb.bodyType = RigidbodyType2D.Kinematic;
+
+            // 탑승자(플레이어 Rigidbody2D도 보간 None)는 좌우 이동을 위치 직접 대입으로 받기 때문에 보간이
+            // 적용되지 않는다 - 발판만 보간이 켜져 있으면 발판은 매 프레임 부드럽게, 탑승자는 물리 스텝마다
+            // 끊겨 그려져 둘 사이가 계속 어긋나 진동처럼 보인다. 새로 만드는 발판의 프리팹 설정과 무관하게
+            // 항상 탑승자와 같은 방식(None)으로 맞춘다.
+            rb.interpolation = RigidbodyInterpolation2D.None;
         }
         if (col == null)
         {
@@ -124,10 +131,25 @@ public class MovingPlatform : MonoBehaviour
     // 새로 만들지 않는다).
     private static PhysicsMaterial2D frictionlessMaterial;
 
+    // 탑승자 판정(UpdateRiders)과 상하 이동 전달(CarryRiders의 IsTouching)은 모두 루트의 BoxCollider2D
+    // 하나를 발판 표면으로 사용한다. 스테이지별 외형 프리팹을 자식으로 넣을 때 콜라이더가 함께 딸려오면
+    // 플레이어가 그 콜라이더 위에 서게 되어 탑승 인식과 상하 이동 전달이 동작하지 않는다 - 새로 만든
+    // 발판에서 이 실수를 바로 알아챌 수 있도록 시작 시 한 번 경고한다(매 프레임 검사하지 않음).
+    private void WarnIfExtraColliders()
+    {
+        int total = GetComponentsInChildren<Collider2D>(true).Length;
+        if (total > 1)
+        {
+            Debug.LogWarning($"[MovingPlatform] '{name}'에 콜라이더가 {total}개 있습니다. 발판 표면은 루트의 BoxCollider2D 하나만 " +
+                             "사용하므로, 외형용 자식 오브젝트의 콜라이더는 제거하세요(남아있으면 탑승/상하 이동 전달이 동작하지 않습니다).", this);
+        }
+    }
+
     // 시작 시 경로의 첫 지점으로 위치를 맞춘다. 이 지점이 최대 이동 거리 제한의 기준(원점)이 된다.
     private void Start()
     {
         EnsureCached();
+        WarnIfExtraColliders();
         if (path == null || path.PointCount == 0) return;
         startPosition = path.GetPoint(0);
         currentPosition = startPosition;
@@ -137,14 +159,16 @@ public class MovingPlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (finished || path == null || path.PointCount < 2) return;
+        if (path == null || path.PointCount < 2) return;
         EnsureCached();
 
-        // 출발 대기 중에는 제자리에 머무르되, 그 사이 올라탄 대상도 탑승자로 인식해 둔다
-        // (대기가 끝나 움직이기 시작하는 순간부터 탑승자가 함께 이동하도록).
-        if (delayRemaining > 0f)
+        // 출발 대기 중이거나 Once 모드로 도착해 멈춘 상태에서도 탑승자 판정과 Y속도 정리는 계속한다
+        // (대기 중 올라탄 대상도 탑승자로 인식해 두고, 올라가던 발판이 멈춘 순간 탑승자에게 남은
+        // 상승 속도를 정리해 튀어 오르지 않게 하기 위함).
+        if (finished || delayRemaining > 0f)
         {
-            delayRemaining -= Time.fixedDeltaTime;
+            if (delayRemaining > 0f) delayRemaining -= Time.fixedDeltaTime;
+            CarryRiders(Vector2.zero);
             UpdateRiders(currentPosition);
             return;
         }
@@ -159,25 +183,60 @@ public class MovingPlatform : MonoBehaviour
         rb.MovePosition(next);
         currentPosition = next;
 
-        Vector2 delta = next - previousPosition;
-        if (delta != Vector2.zero)
-        {
-            foreach (Rigidbody2D riderRb in riders.Keys)
-            {
-                // 여기서 riderRb.MovePosition()을 쓰면 안 된다 - Dynamic Rigidbody2D에 대한 MovePosition은
-                // 그 스텝 동안 목표 지점에 도달하기 위한 속도를 물리 엔진이 다시 계산해 적용하는 방식이라,
-                // 플레이어가 그 프레임에 점프로 설정한 Y속도를 곧바로 덮어써버려 발판 위에서 점프가 전혀
-                // 되지 않는 버그가 있었다(실측으로 확인). position을 직접 대입하면 속도에는 전혀 손대지
-                // 않으므로 점프가 정상 작동한다 - 대신 발판이 한쪽으로 계속 이동하는 동안 탑승자가 아주
-                // 조금(최대 1유닛 이내, 방향 전환 시 다시 줄어듦) 밀리는 미세한 오차가 남지만, 점프가
-                // 아예 안 되는 것보다 훨씬 낫다.
-                if (riderRb != null) riderRb.position += delta;
-            }
-        }
-
+        CarryRiders(next - previousPosition);
         UpdateRiders(next);
 
         if (next == target) AdvanceTarget();
+    }
+
+    // 직전 스텝에 탑승자에게 맞춰준 발판의 Y속도 - 탑승자의 점프와 "발판이 남긴 상승 관성"을 구분하는 기준
+    private float lastPlatformVelocityY;
+
+    // 탑승자를 발판과 함께 이동시킨다. 좌우와 상하를 서로 다른 방식으로 처리한다.
+    // - 좌우(delta.x): PlayerMovement가 매 FixedUpdate마다 X속도를 덮어쓰므로 속도로는 전달되지 않는다 -
+    //   위치에 직접 더한다. 발판보다 한 스텝 먼저 움직이게 되지만 접촉면과 평행한 방향이라(마찰 0)
+    //   충돌 보정이 생기지 않는다.
+    // - 상하(delta.y): 위치에 직접 더하면 즉시 반영되는 반면 발판의 MovePosition은 다음 물리 스텝에서야
+    //   반영돼, 매 스텝 탑승자가 발판보다 delta만큼 떠 있거나(상승) 발판에 파묻혀(하강) 물리 엔진이
+    //   밀어내는 보정이 반복됐다 - 이것이 상하 이동 시 캐릭터가 진동하던 원인이다(튀는 순간 IsGrounded가
+    //   끊겨 점프 스프라이트로 깜빡이는 것까지 겹쳐 보임). 대신 탑승자의 Y속도를 발판의 Y속도로 맞춰,
+    //   같은 물리 스텝 안에서 둘이 함께 움직이게 한다.
+    private void CarryRiders(Vector2 delta)
+    {
+        float platformVelocityY = delta.y / Time.fixedDeltaTime;
+
+        // 이 값보다 빠르게 올라가는 중이면 점프 등 탑승자 자신의 움직임으로 보고 Y속도를 건드리지 않는다.
+        // 직전 스텝 발판 속도까지 포함하는 이유: 올라가던 발판이 멈추거나 내려가기 시작한 순간 탑승자에게
+        // 남아있는 상승 속도는 점프가 아니라 발판이 준 관성이므로 함께 정리해야 튀어 오르지 않는다.
+        // 여유값 0.5는 점프 속도(jumpForce 9 이상)보다 충분히 작고, 물리 보정으로 생기는 미세한 오차보다는 크다.
+        float ownMotionThreshold = Mathf.Max(platformVelocityY, lastPlatformVelocityY) + 0.5f;
+
+        foreach (Rigidbody2D riderRb in riders.Keys)
+        {
+            if (riderRb == null) continue;
+
+            // 여기서 riderRb.MovePosition()을 쓰면 안 된다 - Dynamic Rigidbody2D에 대한 MovePosition은
+            // 그 스텝 동안 목표 지점에 도달하기 위한 속도를 물리 엔진이 다시 계산해 적용하는 방식이라,
+            // 플레이어가 그 프레임에 점프로 설정한 Y속도를 곧바로 덮어써버려 발판 위에서 점프가 전혀
+            // 되지 않는 버그가 있었다(실측으로 확인). position을 직접 대입하면 속도에는 손대지 않는다 -
+            // 대신 발판이 한쪽으로 계속 이동하는 동안 탑승자가 아주 조금(최대 1유닛 이내, 방향 전환 시
+            // 다시 줄어듦) 밀리는 미세한 오차가 남는다.
+            if (delta.x != 0f) riderRb.position += new Vector2(delta.x, 0f);
+
+            // 실제로 발판에 닿아 있을 때만 Y속도를 맞춘다 - 위에서 떨어지는 중에 탑승 판정 영역
+            // (riderDetectMargin)에만 들어온 대상까지 맞추면, 표면에 닿기 전 허공에서 낙하가 멈춰
+            // 천천히 내려앉는 것처럼 보인다.
+            if (!riderRb.IsTouching(col)) continue;
+
+            Vector2 velocity = riderRb.linearVelocity;
+            if (velocity.y <= ownMotionThreshold)
+            {
+                velocity.y = platformVelocityY;
+                riderRb.linearVelocity = velocity;
+            }
+        }
+
+        lastPlatformVelocityY = platformVelocityY;
     }
 
     // 이번 프레임에 발판이 실제로 이동한 "이후" 위치(next)를 기준으로 발판 바로 위 얇은 영역을 겹침
