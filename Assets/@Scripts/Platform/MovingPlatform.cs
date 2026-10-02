@@ -51,6 +51,12 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private LoopMode loopMode = LoopMode.PingPong;
 
+    // 첫 이동을 시작하기 전 경로 첫 지점에서 대기하는 시간(초). 이동형 발판을 연속으로 배치할 때
+    // 인접한 두 발판이 같은 순간에 출발하지 않도록 서로 다른 값을 지정한다(MapEdit.md 규칙 18).
+    // 기본값 0이면 기존과 동일하게 시작 즉시 움직인다.
+    [SerializeField] private float startDelay = 0f;
+    private float delayRemaining;
+
     // "이동 거리 1"의 기준: 플레이어가 1초 동안 이동하는 거리(PlayerMovement.moveSpeed - Player_Base/
     // Player_Warrior 공통값). 발판이 시작 지점에서 이보다 7배(7초치) 넘게 멀어지지 않도록 제한해,
     // 플레이어가 따라잡을 수 없을 만큼 긴 경로가 실수로 만들어지는 것을 막는 안전장치다.
@@ -126,12 +132,22 @@ public class MovingPlatform : MonoBehaviour
         startPosition = path.GetPoint(0);
         currentPosition = startPosition;
         rb.position = startPosition;
+        delayRemaining = startDelay;
     }
 
     private void FixedUpdate()
     {
         if (finished || path == null || path.PointCount < 2) return;
         EnsureCached();
+
+        // 출발 대기 중에는 제자리에 머무르되, 그 사이 올라탄 대상도 탑승자로 인식해 둔다
+        // (대기가 끝나 움직이기 시작하는 순간부터 탑승자가 함께 이동하도록).
+        if (delayRemaining > 0f)
+        {
+            delayRemaining -= Time.fixedDeltaTime;
+            UpdateRiders(currentPosition);
+            return;
+        }
 
         Vector2 previousPosition = currentPosition;
         Vector2 target = path.GetPoint(targetIndex);

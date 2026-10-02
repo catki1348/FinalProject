@@ -6,16 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(MonsterStats))]
 public class MonsterController : MonoBehaviour
 {
-    // Player_Warrior 프리팹의 루트 트랜스폼 스케일(실측값) - 몬스터 스폰 크기 산정 기준(Monster.md 규칙 14)
-    [SerializeField] private float playerReferenceScale = 7.68f;
-    [SerializeField] private float minSizeRatio = 0.3f; // 플레이어 크기 대비 최소 비율
-    [SerializeField] private float maxSizeRatio = 0.5f; // 플레이어 크기 대비 최대 비율
+    // Player_Warrior의 실제 월드 세로 크기(콜라이더 기준 실측값, 루트 스케일 0.130208 적용된 값) -
+    // 몬스터 스폰 크기 산정 기준(Monster.md 규칙 14)
+    [SerializeField] private float playerWorldHeight = 1.2865f;
+    [SerializeField] private float sizeRatio = 0.5f; // 플레이어 크기 대비 비율(규칙 14: 50%로 고정)
 
     private MonsterStats stats;
     private IMonsterPattern pattern;
 
     // 시작 시 같은 오브젝트에 붙은 스탯/패턴 컴포넌트를 캐싱(GameObject.Find 미사용 - 규칙 40, 41)
-    // 스폰 시 플레이어 크기의 30%~50% 사이 무작위 크기로 설정(Monster.md 규칙 14)
     private void Awake()
     {
         stats = GetComponent<MonsterStats>();
@@ -23,9 +22,36 @@ public class MonsterController : MonoBehaviour
 
         stats.OnDeath += HandleDeath;
 
-        float scale = Random.Range(minSizeRatio, maxSizeRatio) * playerReferenceScale;
+        ApplySpawnScale();
+    }
+
+    // 스폰 시 플레이어 크기의 50%로 고정(Monster.md 규칙 14). placeholder 사각형(스케일 1에서 월드
+    // 1유닛)과 실제 몬스터 아트(캔버스 크기가 제각각)를 모두 지원하기 위해, 고정값을 대입하는 대신
+    // 이 오브젝트에 "지금" 붙어있는 스프라이트의 원본(스케일 1 기준) 세로 크기를 실측해 역산한다 -
+    // 규칙 6(사각형 placeholder -> 이후 전용 에셋으로 외형만 교체)대로 스프라이트만 바꿔도 크기 보정을
+    // 다시 손볼 필요가 없다.
+    private void ApplySpawnScale()
+    {
+        float targetWorldHeight = playerWorldHeight * sizeRatio;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float spriteNativeHeight = sr != null && sr.sprite != null ? sr.sprite.bounds.size.y : 1f;
+        float scale = targetWorldHeight / spriteNativeHeight;
         transform.localScale = new Vector3(scale, scale, transform.localScale.z);
     }
+
+#if UNITY_EDITOR
+    // 플레이하지 않은 상태(씬에 배치한 직후, 인스펙터에서 값 수정 시)에도 에디터에서 곧바로 같은 크기로
+    // 보이도록 한다 - Awake()는 플레이 모드에서만 호출되므로, 배치 상태와 실제 플레이 상태의 크기가
+    // 달라 보이지 않으려면 에디터 전용 콜백에서도 동일한 계산을 적용해야 한다.
+    private void OnValidate()
+    {
+        if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) return;
+        // OnValidate는 컴포넌트가 아직 완전히 초기화되기 전(다른 컴포넌트가 없을 때)에도 호출될 수 있어
+        // GetComponent 결과가 null일 수 있으므로 방어적으로 처리한다.
+        if (GetComponent<SpriteRenderer>() == null) return;
+        ApplySpawnScale();
+    }
+#endif
 
     private void OnDestroy()
     {

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>프로젝트 개발 포트폴리오</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "맑은 고딕", "Noto Sans KR", sans-serif;
+    color: #222;
+    line-height: 1.55;
+    font-size: 11pt;
+  }
+  .cover {
+    page-break-after: always;
+    height: 240mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .cover .kicker {
+    color: #6b7280;
+    letter-spacing: 2px;
+    font-size: 11pt;
+    margin-bottom: 10px;
+  }
+  .cover h1 {
+    font-size: 30pt;
+    margin: 0 0 14px 0;
+    color: #111827;
+  }
+  .cover .subtitle {
+    font-size: 13pt;
+    color: #374151;
+    margin-bottom: 36px;
+  }
+  .cover .meta {
+    border-top: 1px solid #d1d5db;
+    padding-top: 16px;
+    font-size: 10.5pt;
+    color: #4b5563;
+    width: 100%;
+  }
+  .cover .meta div { margin-bottom: 4px; }
+  h2.date-heading {
+    font-size: 15pt;
+    color: #111827;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 4px;
+    margin-top: 26px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+  .entry {
+    margin-bottom: 10px;
+    page-break-inside: avoid;
+  }
+  .entry .time {
+    display: inline-block;
+    min-width: 48px;
+    font-weight: bold;
+    color: #2563eb;
+    font-size: 10pt;
+    vertical-align: top;
+  }
+  .entry .desc { display: inline; }
+  .entry .tag {
+    display: inline-block;
+    font-size: 8.5pt;
+    color: #ffffff;
+    background: #6b7280;
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag.feature { background: #2563eb; }
+  .tag.fix { background: #dc2626; }
+  .tag.design { background: #059669; }
+  .tag.asset { background: #d97706; }
+  .tag.infra { background: #6b7280; }
+  code {
+    font-family: Consolas, "D2Coding", monospace;
+    background: #f3f4f6;
+    padding: 0 3px;
+    border-radius: 3px;
+    font-size: 9.5pt;
+  }
+  .section-intro {
+    color: #4b5563;
+    font-size: 10pt;
+    margin-bottom: 14px;
+  }
+  .legend {
+    margin-top: 24px;
+    font-size: 9.5pt;
+    color: #4b5563;
+  }
+  .legend .tag { margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">PROJECT PORTFOLIO</div>
+  <h1>2D 플랫포머 게임 개발 포트폴리오</h1>
+  <div class="subtitle">Project.md 작업 통합 로그 기반 — 시간순 재정렬</div>
+  <div class="meta">
+    <div><strong>프로젝트 경로:</strong> <code>FinalProject</code> (Unity 2D 플랫포머)</div>
+    <div><strong>기간:</strong> 2026-09-15 ~ 2026-10-01</div>
+    <div><strong>생성 방식:</strong> Claude Code 다중 세션의 작업 기록(<code>Project.md</code>)을 실제 발생 시각 기준으로 재정렬·정리</div>
+    <div><strong>범례:</strong> <span class="tag feature">기능</span> <span class="tag fix">버그수정</span> <span class="tag design">설계</span> <span class="tag asset">에셋</span> <span class="tag infra">인프라/수칙</span></div>
+  </div>
+</div>
+
+<h2 class="date-heading">2026-09-15 (프로젝트 시작)</h2>
+<div class="entry"><span class="time">09:34</span><span class="tag infra">인프라</span><span class="desc">저장소 최초 커밋(<code>README.md</code>).</span></div>
+<div class="entry"><span class="time">10:56</span><span class="tag infra">인프라</span><span class="desc">작업 수칙 문서 <code>LHS_Custumer.md</code> 최초 작성(약 48줄 초안).</span></div>
+<div class="entry"><span class="time">11:51</span><span class="tag infra">인프라</span><span class="desc"><code>.gitignore</code> 정비(Unity 표준 무시 규칙 수준으로 확장).</span></div>
+<div class="entry"><span class="time">15:09</span><span class="tag infra">인프라</span><span class="desc">Unity 프로젝트 초기 세팅 — <code>@Prefab</code> 폴더(발판·플레이어 프리팹), Input System 액션 정의.</span></div>
+<div class="entry"><span class="time">16:47</span><span class="tag asset">에셋</span><span class="desc">무장해제(NoEquip) 캐릭터 애니메이션 리소스 추가.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag asset">에셋</span><span class="desc">도트 캐릭터 생성 — 판타지 전사 기본 이미지, 걷기/뛰기/점프/상자열기 포즈, 좌우 반전(미러링 대신 "회전" 방식으로 무기 위치 유지), <code>Player_Warrior</code> 프리팹 제작, 무장해제·투명배경 세트 완성.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag design">설계</span><span class="desc">2D 맵 생성(메인 세션) — Unity MCP 연결 문제 해결, Stage1 배경·발판·플레이어 배치, 플레이어 점프 물리를 역산한 1-1 영역 설계.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag asset">에셋</span><span class="desc">테마 이미지 생성 — 스테이지 1~5 테마 배경 5장 생성, 좌우 시임리스 타일링 보정, Unity 임포트 및 <code>BackgroundFitter</code> 정렬 버그 수정.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag asset">에셋</span><span class="desc">플레이어 애니메이션 생성 — Shovel Knight 스타일 참고로 idle/walk/run/jump/box/dash 34프레임 추가 생성.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag infra">인프라</span><span class="desc">코딩 수칙 확장 — 아키텍처/통신/참조/리소스/프레임 할당 5개 카테고리 규칙 추가, 주요 스크립트에 설명 주석 작성, 맵 제작 전용 수칙 문서(<code>MapEdit.md</code>) 신설.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag fix">수정</span><span class="desc">발판 접지 버그 근본 수정 — 콜라이더·레이어 정합성 확보, 발판 사이 간격 보완.</span></div>
+<div class="entry"><span class="time">저녁</span><span class="tag asset">에셋</span><span class="desc">숲 배경을 5개 레이어(하늘/좌우 나무/지형/다리)로 분리 제작, 합성 검증.</span></div>
+
+<h2 class="date-heading">2026-09-16</h2>
+<div class="entry"><span class="time">-</span><span class="tag fix">수정</span><span class="desc">"발이 발판을 파고든다" 버그를 <code>Visual</code> 자식 오브젝트 분리로 구조적 해결, 공유 발판 프리팹 콜라이더 보정.</span></div>
+<div class="entry"><span class="time">01:45</span><span class="tag infra">인프라</span><span class="desc">토큰 소진 대비 핸드오프 체계 구축 — <code>/handoff</code>·<code>/resume</code> 커맨드, 사용량 자동 감지 Stop 훅.</span></div>
+<div class="entry"><span class="time">05:59</span><span class="tag design">설계</span><span class="desc">Stage1 2영역(1-2) 설계 재확인.</span></div>
+<div class="entry"><span class="time">06:11</span><span class="tag design">설계</span><span class="desc">플레이어 체력/스탯 UI 설계 — <code>PlayerStats</code>(공격/방어)·<code>PlayerHealth</code>(체력) 역할 분리.</span></div>
+<div class="entry"><span class="time">07:46</span><span class="tag design">설계</span><span class="desc">카메라 팔로우 설계 문서 정비 — <code>CameraBoundsZone</code> 기반 구간별 추적 구조.</span></div>
+<div class="entry"><span class="time">07:56</span><span class="tag infra">인프라</span><span class="desc">모든 설계 문서를 <code>@Edit</code> 폴더로 통일 이관.</span></div>
+<div class="entry"><span class="time">12:29</span><span class="tag infra">인프라</span><span class="desc">핸드오프 체계·<code>HANDOFF.md</code> 최초 커밋.</span></div>
+<div class="entry"><span class="time">17:03</span><span class="tag feature">기능</span><span class="desc">카메라·HUD 체력바·PlayerStats·Stage1 씬 수정 대규모 반영 커밋.</span></div>
+<div class="entry"><span class="time">23:02</span><span class="tag fix">수정</span><span class="desc"><code>HANDOFF.md</code> 점검, 사용량 체크 훅의 컨텍스트 윈도우 미확인 버그 수정, 자동 커밋 단계 추가.</span></div>
+<div class="entry"><span class="time">23:15</span><span class="tag infra">인프라</span><span class="desc"><code>Project.md</code> 통합 작업 로그 체계 최초 구축.</span></div>
+<div class="entry"><span class="time">23:31</span><span class="tag fix">수정</span><span class="desc">테마 배경 무한반복(시임리스) 검증, Stage4·5 배경을 결함 없는 버전으로 교체.</span></div>
+
+<h2 class="date-heading">2026-09-17</h2>
+<div class="entry"><span class="time">00:01</span><span class="tag asset">에셋</span><span class="desc">검 내리치기 공격 모션 5단계 워크플로우로 재생성.</span></div>
+<div class="entry"><span class="time">01:14</span><span class="tag infra">인프라</span><span class="desc"><code>/프로젝트 체크</code> 명령(규칙 47) 최초 제정 — 여러 세션의 작업을 <code>Project.md</code>에 통합 기록하는 규칙.</span></div>
+
+<h2 class="date-heading">2026-09-18</h2>
+<div class="section-intro">여러 세션이 신설된 수칙 체크 후 프로젝트 체크를 수행하며 기록 정합성을 점검.</div>
+<div class="entry"><span class="time">08:12</span><span class="tag infra">인프라</span><span class="desc">핸드오프 기능 보강 확인.</span></div>
+
+<h2 class="date-heading">2026-09-21</h2>
+<div class="entry"><span class="time">01:51</span><span class="tag feature">기능</span><span class="desc">몬스터 설계 규칙 수립, <code>MonsterContactDamage</code> 등 전투 판정 스크립트 작성(<code>Assets/@Scripts/Monster</code>).</span></div>
+<div class="entry"><span class="time">05:44</span><span class="tag design">설계</span><span class="desc">Stage1 2영역(1-2) 재점검.</span></div>
+<div class="entry"><span class="time">07:02</span><span class="tag design">설계</span><span class="desc">상호작용 발판 3종(소멸형/점멸형/피해형) 설계 — 공통 베이스 <code>FootholdBase</code>.</span></div>
+<div class="entry"><span class="time">07:11</span><span class="tag design">설계</span><span class="desc">Stage1 4영역(1-4) 맵 설계 — 7구간 구성(이중 갭 점프~보스 예고).</span></div>
+<div class="entry"><span class="time">07:25</span><span class="tag design">설계</span><span class="desc">함정 3종(스위치형/구간진입 이벤트형/몬스터 스폰형) 설계.</span></div>
+
+<h2 class="date-heading">2026-09-22</h2>
+<div class="entry"><span class="time">04:18</span><span class="tag feature">기능</span><span class="desc">발판 3종 실제 구현 및 Test000 검증 완료(소멸/점멸/피해 동작 확인).</span></div>
+<div class="entry"><span class="time">05:50</span><span class="tag fix">수정</span><span class="desc">경사면 접지 판정 근본 버그 수정 — 레이캐스트가 콜라이더 내부에서 시작돼 생기는 자기 자신 감지 오류 해결.</span></div>
+<div class="entry"><span class="time">07:00</span><span class="tag feature">기능</span><span class="desc">몬스터 스탯(공격10/방어10)·사망 처리(콜라이더 비활성화로 완전 무상호작용화) 구현.</span></div>
+<div class="entry"><span class="time">07:59</span><span class="tag feature">기능</span><span class="desc">BGM/SFX 사운드 시스템(<code>SoundManager</code> 싱글톤) 구축 — 스테이지별 배경음, 점프·공격 효과음 연동.</span></div>
+<div class="entry"><span class="time">08:32</span><span class="tag fix">수정</span><span class="desc">Stage1 4영역 발판 겹침 수정, 발판 외형을 테마에 맞게 통일.</span></div>
+<div class="entry"><span class="time">-</span><span class="tag infra">인프라</span><span class="desc"><code>/프로젝트 체크</code> 트리거 문구 명시화(슬래시 커맨드화), 생성 스크립트를 <code>@Scripts</code> 폴더에 저장하는 규칙 추가.</span></div>
+
+<h2 class="date-heading">2026-09-23</h2>
+<div class="entry"><span class="time">00:38</span><span class="tag design">설계</span><span class="desc">Stage1 3영역(1-3) 설계 및 실제 배치, 카메라 영역 확장·발판 겹침 해소.</span></div>
+<div class="entry"><span class="time">00:49</span><span class="tag feature">기능</span><span class="desc">전 스테이지 영역 재배치 완료, 보스전 종료→스테이지 클리어→엔딩 전환 시스템(<code>StageClearManager</code>/<code>EndingManager</code>/<code>BossZoneEndPoint</code>) 코드 구현.</span></div>
+<div class="entry"><span class="time">01:26</span><span class="tag asset">에셋</span><span class="desc">스테이지별 보스 컨셉 이미지 25종 생성, 5종 최종 채택(배경 제거+2D 도트 스타일 변환).</span></div>
+<div class="entry"><span class="time">01:40</span><span class="tag design">설계</span><span class="desc"><code>MapEdit.md</code> 규칙 7~12 추가 — 종료점 도달 메커니즘, 영역 크기·겹침 규칙.</span></div>
+<div class="entry"><span class="time">01:53</span><span class="tag fix">수정</span><span class="desc">Stage1 3영역 이동형 발판 스윕 범위까지 포함한 겹침 전수 재해소(20개 중 15쌍 겹침 발견·수정).</span></div>
+<div class="entry"><span class="time">01:57</span><span class="tag fix">수정</span><span class="desc">플레이어 대쉬 이동거리를 기존의 30%로 축소.</span></div>
+<div class="entry"><span class="time">08:47</span><span class="tag fix">수정</span><span class="desc">걷기 애니메이션 Unity 실반영, 걷기 위아래 흔들림·대쉬 좌우 방향 버그 수정.</span></div>
+<div class="entry"><span class="time">08:51</span><span class="tag infra">인프라</span><span class="desc"><code>/handon</code> 커맨드 신설(핸드오프 자동 이어받기), 대규모 미커밋 작업 통합 커밋(88개 파일).</span></div>
+<div class="entry"><span class="time">-</span><span class="tag infra">인프라</span><span class="desc"><code>/프로젝트 체크</code>가 세션 존재 여부만 확인하고 후속 작업을 놓치는 결함을 발견 → 규칙 47을 <code>lastActivityAt</code> 비교 + 커버리지 마커 방식으로 개정.</span></div>
+
+<h2 class="date-heading">2026-09-28</h2>
+<div class="entry"><span class="time">00:43</span><span class="tag feature">기능</span><span class="desc">대쉬 거리를 <code>SerializeField</code>(<code>dashDistance</code>)로 외부 조정 가능하게 리팩터링.</span></div>
+<div class="entry"><span class="time">01:23</span><span class="tag fix">수정</span><span class="desc">왼쪽 대쉬 애니메이션 방향 최종 수정.</span></div>
+<div class="entry"><span class="time">02:06</span><span class="tag design">설계</span><span class="desc">Stage2 4영역(2-4) 이동형 발판 25개로만 구성한 설계(루프 컨베이어·원웨이 하강 체인 첫 적용).</span></div>
+<div class="entry"><span class="time">06:37</span><span class="tag feature">기능</span><span class="desc">Stage2 2영역(2-2) 실제 배치 완료 — 일반 10·이동형 5·소멸형 3, 총 18개.</span></div>
+<div class="entry"><span class="time">06:48</span><span class="tag fix">수정</span><span class="desc">Stage2 카메라 영역(<code>CameraBoundsZone</code>) 상호 겹침 수정.</span></div>
+<div class="entry"><span class="time">06:59</span><span class="tag design">설계</span><span class="desc">Stage3 1영역(3-1) "용암 갱도 수직 등반" 혼합형 설계(일반10+데미지10+이동형3+소멸형2, 동선 75/100).</span></div>
+<div class="entry"><span class="time">07:51</span><span class="tag feature">기능</span><span class="desc">이동형 발판 최대 이동거리를 56유닛(플레이어 1초 이동거리×7)으로 코드 제한.</span></div>
+<div class="entry"><span class="time">07:54</span><span class="tag design">설계</span><span class="desc"><code>MapEdit.md</code> 규칙 13~17 추가 — 직선 발판 통합, 점프 전용 간격, 이동 동선 1~100 척도, 맵 간 겹침 방지, 이동형 발판 거리 제한.</span></div>
+<div class="entry"><span class="time">08:09</span><span class="tag fix">수정</span><span class="desc"><code>WarpManager</code> 경유 워프 시 카메라 구간 미연결 버그 수정(Stage2 2-3영역).</span></div>
+<div class="entry"><span class="time">08:34</span><span class="tag design">설계</span><span class="desc">Stage2 2·3영역 반복 재설계(점멸형 발판 시도 → 폐기 → 480유닛 규모로 신규 설계), 이동형 발판 방향전환 지점에서 플레이어가 이탈하는 기존 한계 발견.</span></div>
+
+<h2 class="date-heading">2026-09-29</h2>
+<div class="entry"><span class="time">05:38</span><span class="tag fix">수정</span><span class="desc">이동형 발판 탑승 중 점프가 안 되는 버그 수정(드리프트 방지 코드와의 충돌 해소).</span></div>
+<div class="entry"><span class="time">06:49</span><span class="tag fix">수정</span><span class="desc">이동형 발판 전체(기존 48개 + 향후 신규분)에 마찰 0 재질 일괄 적용.</span></div>
+
+<h2 class="date-heading">2026-09-30</h2>
+<div class="entry"><span class="time">00:36</span><span class="tag asset">에셋</span><span class="desc">Stage1 보스(나무 거인) 사망 전용 애니메이션 6프레임 제작 및 좌우 양방향 검증.</span></div>
+<div class="entry"><span class="time">00:58</span><span class="tag fix">수정</span><span class="desc">Stage2 3영역 비행 몬스터를 자체 제작 에셋 대신 기존 <code>Monster_ForestBat</code> 에셋으로 교체.</span></div>
+<div class="entry"><span class="time">06:50</span><span class="tag fix">수정</span><span class="desc">다른 세션 변경으로 틀어진 걷기/대쉬/점프/공격 애니메이션을 git 기준으로 정확히 복원.</span></div>
+
+<h2 class="date-heading">2026-10-01</h2>
+<div class="entry"><span class="time">00:44</span><span class="tag feature">기능</span><span class="desc">비행형 몬스터 기본 패턴 구현 — 경로 미지정 시 원형 궤도 순회, 플레이어 감지 시 추적으로 전환.</span></div>
+
+</body>
+</html>
