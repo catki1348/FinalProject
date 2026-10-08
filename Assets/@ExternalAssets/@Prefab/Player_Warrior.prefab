@@ -164,7 +164,7 @@ Animator:
   m_GameObject: {fileID: 7941142322637608356}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 529f455dea37584478057f5f9a6cf35d, type: 2}
+  m_Controller: {fileID: 22100000, guid: 0cac5a1d53a6af141bcd583d975c7e2f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 4547181361737197089}
   - component: {fileID: 6235360284937099708}
   - component: {fileID: 3823194826087538278}
+  - component: {fileID: 2290336872281739045}
   m_Layer: 0
   m_Name: Player_Warrior
   m_TagString: Untagged
@@ -315,6 +316,12 @@ MonoBehaviour:
   slopeCheckDistance: 1
   maxWalkableSlopeAngle: 60
   jumpSfx: {fileID: 0}
+  slideStartAngle: 12
+  slideEndAngle: 6
+  slideMinSpeed: 3
+  slideMaxSpeed: 12
+  slideFriction: 8
+  slideBrake: 16
 --- !u!114 &8976316943568954123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,23 +350,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteAnimator
   spriteRenderer: {fileID: 2398752785001790154}
   idleVisualOffsetY: 0
-  walkVisualOffsetY: 4.97
+  walkVisualOffsetY: 0
   runVisualOffsetY: 0
   jumpVisualOffsetY: 0
   boxOpenVisualOffsetY: 1.6
-  dashVisualOffsetY: 1.8
+  dashVisualOffsetY: 0
   attackVisualOffsetY: 0
-  damageVisualOffsetY: 1.6
-  dashRight: {fileID: 21300000, guid: ba9c64c8541b7934bbeacb61e36f84b5, type: 3}
-  dashLeft: {fileID: 21300000, guid: ebe23b94c0cebe14489ff48263418330, type: 3}
+  damageVisualOffsetY: 0
+  dashRight: {fileID: 21300000, guid: f62ae9d887bcc89498e31fd11a1c1b34, type: 3}
+  dashLeft: {fileID: 21300000, guid: f62ae9d887bcc89498e31fd11a1c1b34, type: 3}
   attackFrames:
-  - {fileID: 21300000, guid: 278ee20df23c8c44299e8721c15d351e, type: 3}
-  - {fileID: 21300000, guid: fb2d949879e6747458ea358aa618c44b, type: 3}
-  - {fileID: 21300000, guid: c7cb8db18eb4b564eae5b86ef79d743a, type: 3}
-  - {fileID: 21300000, guid: 34255f69c60823e408146ec7cf5515d2, type: 3}
-  - {fileID: 21300000, guid: 5de434f7209ae184395793f30c061b54, type: 3}
-  damageRight: {fileID: 21300000, guid: 2734cb6c2b4e2e94c9685e50833690ed, type: 3}
-  damageLeft: {fileID: 21300000, guid: 412f51537297b9a45afc03adfab0bc67, type: 3}
+  - {fileID: 21300000, guid: 6bb10b8cee3231b4da2fea1efa54b75e, type: 3}
+  - {fileID: 21300000, guid: 80054ef6d462a114c98bc17a3d0c3818, type: 3}
+  - {fileID: 21300000, guid: 41502a0b55bf7e44f86f785663d291dd, type: 3}
+  - {fileID: 21300000, guid: f2705bfb0ddf51b44bbc3c1d84e8fa13, type: 3}
+  - {fileID: 21300000, guid: 2476dfd9368ca79459e9bd6c080d5698, type: 3}
+  - {fileID: 21300000, guid: 0d3f2d4ac8c68db48b6a5bc1ddffed3f, type: 3}
+  - {fileID: 21300000, guid: d305d2e7c0fff3c4381794d32ebe5227, type: 3}
+  - {fileID: 21300000, guid: eed04575b169b33478fbdf525c082efe, type: 3}
+  damageRight: {fileID: 21300000, guid: 7090f9ac098f18f459b7bc1d328e6c39, type: 3}
+  damageLeft: {fileID: 21300000, guid: bb3a8d4306ae5e744b4ea84f99bcb8e9, type: 3}
   damageFlashDuration: 0.35
   idleRight: {fileID: 21300000, guid: 96659352f6f6b6944b1846d000867394, type: 3}
   idleLeft: {fileID: 21300000, guid: 7ada2d9f202d0ef4aac6cff0b232a289, type: 3}
@@ -395,8 +405,7 @@ MonoBehaviour:
   jumpLeftDisarmed: {fileID: 21300000, guid: 2441e3670e3d5f54091025dba3c46960, type: 3}
   boxOpenRightDisarmed: {fileID: 21300000, guid: 4ae4b83dd8828ed42a58edfb79d45987, type: 3}
   boxOpenLeftDisarmed: {fileID: 21300000, guid: e576491b41c00b842a458f5e5b319ad3, type: 3}
-  disarmedDuration: 1
-  runKey: 304
+  runKey: 0
 --- !u!114 &7771843309955246178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,8 +468,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  attackCooldown: 0.4
-  attackVisualDuration: 0.3
+  attackCooldown: 0.52
+  attackVisualDuration: 0.5
   specialActionCooldown: 1
   attackSfx: {fileID: 0}
 --- !u!114 &3823194826087538278
@@ -477,3 +486,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPetrify
   tintTarget: {fileID: 2398752785001790154}
   petrifiedColor: {r: 0.55, g: 0.55, b: 0.55, a: 1}
+--- !u!114 &2290336872281739045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555657478530073304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac865fc417fccd429cac2b1236c9bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHeroKnightMotionTest
+  visual: {fileID: 2398752785001790154}
+  rightFacingPoses:
+  - {fileID: 21300000, guid: 6bb10b8cee3231b4da2fea1efa54b75e, type: 3}
+  - {fileID: 21300000, guid: 80054ef6d462a114c98bc17a3d0c3818, type: 3}
+  - {fileID: 21300000, guid: 41502a0b55bf7e44f86f785663d291dd, type: 3}
+  - {fileID: 21300000, guid: f2705bfb0ddf51b44bbc3c1d84e8fa13, type: 3}
+  - {fileID: 21300000, guid: 2476dfd9368ca79459e9bd6c080d5698, type: 3}
+  - {fileID: 21300000, guid: 0d3f2d4ac8c68db48b6a5bc1ddffed3f, type: 3}
+  - {fileID: 21300000, guid: d305d2e7c0fff3c4381794d32ebe5227, type: 3}
+  - {fileID: 21300000, guid: eed04575b169b33478fbdf525c082efe, type: 3}
+  - {fileID: 21300000, guid: f62ae9d887bcc89498e31fd11a1c1b34, type: 3}
+  damageRightPose: {fileID: 21300000, guid: 7090f9ac098f18f459b7bc1d328e6c39, type: 3}
+  damageLeftPose: {fileID: 21300000, guid: bb3a8d4306ae5e744b4ea84f99bcb8e9, type: 3}

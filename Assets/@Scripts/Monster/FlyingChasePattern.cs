@@ -24,6 +24,7 @@ public class FlyingChasePattern : MonoBehaviour, IMonsterPattern
     private float orbitAngle;        // 원형 궤도 위 현재 각도(라디안)
     private int pathTargetIndex = 1;
     private int pathDirection = 1;   // 마지막 지점에서 방향을 반전하는 PingPong 전용(경로는 왕복만 지원)
+    private readonly Collider2D[] detectionBuffer = new Collider2D[16];
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class FlyingChasePattern : MonoBehaviour, IMonsterPattern
     // 없으면 지정된 경로(또는 지정이 없을 때의 기본 원형 궤도)를 따라 평소 동선을 유지한다
     public void UpdatePattern()
     {
-        Collider2D player = Physics2D.OverlapBox(detectionCenter, detectionSize, 0f, playerLayer);
+        Collider2D player = DetectPlayer();
         if (player != null)
         {
             Vector2 toPlayer = (Vector2)player.transform.position - (Vector2)transform.position;
@@ -46,6 +47,18 @@ public class FlyingChasePattern : MonoBehaviour, IMonsterPattern
 
         if (path != null && path.PointCount >= 2) FollowPath();
         else OrbitCircle();
+    }
+
+    // 플레이어가 Default 레이어를 쓰더라도 경로/출구 트리거를 플레이어로 오인하지 않는다.
+    private Collider2D DetectPlayer()
+    {
+        int count = Physics2D.OverlapBoxNonAlloc(detectionCenter, detectionSize, 0f, detectionBuffer, playerLayer);
+        for (int i = 0; i < count; i++)
+        {
+            Rigidbody2D body = detectionBuffer[i].attachedRigidbody;
+            if (body != null && body.TryGetComponent<PlayerMovement>(out _)) return detectionBuffer[i];
+        }
+        return null;
     }
 
     // path가 지정된 경우: 경로 지점(X, Y)을 향해 날아가고, 끝에 닿으면 방향을 반전해 되돌아가는 왕복 이동

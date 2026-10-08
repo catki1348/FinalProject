@@ -8,8 +8,10 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private string nextStageSceneName; // 5영역 보스 처치 시 이동할 다음 스테이지 씬 이름(비워두면 이동하지 않음)
     [SerializeField] private AudioClip stageBgm;         // 이 스테이지의 배경음(비워두면 재생하지 않음)
+    [SerializeField] private AudioClip stageAmbience;    // 이 스테이지의 환경음(비워두면 재생하지 않음)
     [SerializeField] private Transform player;           // 씬의 플레이어(Inspector 연결)
     [SerializeField] private int stageIndex = 1;         // 이 스테이지 번호(MapEdit.md 규칙 3 "스테이지-영역" 표기용)
+    [SerializeField] private bool enableSection2SlopeSlide; // 선택한 스테이지의 2영역에서만 경사 슬라이드 허용
     [SerializeField] private ZoneStartPoint[] zoneStartPoints = new ZoneStartPoint[5]; // 1~5영역 시작 지점(★), 인덱스 0=1영역
     [SerializeField] private PlayerCameraFollow cameraFollow;                          // 카메라 활성 구간 전환용
     [SerializeField] private CameraBoundsZone[] zoneCameraBounds = new CameraBoundsZone[5]; // 1~5영역 각각의 카메라 구간, zoneStartPoints와 1:1 대응
@@ -33,6 +35,7 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayBgm(stageBgm);
+        SoundManager.Instance.PlayAmbience(stageAmbience);
         CurrentArea = ResolveStartArea();
         MovePlayerToStartOfCurrentArea();
     }
@@ -69,6 +72,9 @@ public class StageManager : MonoBehaviour
     // 없으면 transform.position으로 이동시킨다.
     private void MovePlayerToStartOfCurrentArea()
     {
+        // 정상 진입과 WarpManager 진입 모두 같은 지점에서 이동 상태를 갱신한다.
+        if (player != null && player.TryGetComponent(out PlayerMovement movement))
+            movement.SetSlopeSlideEnabled(enableSection2SlopeSlide && CurrentArea == 2);
         int index = CurrentArea - 1;
         if (player == null || zoneStartPoints == null || index < 0 || index >= zoneStartPoints.Length) return;
 

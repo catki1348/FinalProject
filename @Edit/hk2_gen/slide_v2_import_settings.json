@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "slide_1.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 156,
+    "PixelsPerUnit": 89.14285714285714,
+    "PivotX": 0.49640873015873016,
+    "PivotY": 0.3639322916666667,
+    "AuthoredGroundAngle": 0
+  },
+  {
+    "Name": "slide_2.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 155,
+    "PixelsPerUnit": 88.57142857142857,
+    "PivotX": 0.4966765873015873,
+    "PivotY": 0.3639322916666667,
+    "AuthoredGroundAngle": 0
+  },
+  {
+    "Name": "slide_3.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 156,
+    "PixelsPerUnit": 89.14285714285714,
+    "PivotX": 0.5050892857142857,
+    "PivotY": 0.3522135416666667,
+    "AuthoredGroundAngle": 0
+  },
+  {
+    "Name": "slide_4.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 155,
+    "PixelsPerUnit": 88.57142857142857,
+    "PivotX": 0.4966765873015873,
+    "PivotY": 0.3626302083333333,
+    "AuthoredGroundAngle": 0
+  }
+]

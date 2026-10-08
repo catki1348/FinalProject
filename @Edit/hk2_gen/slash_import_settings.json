@@ -1,0 +1,74 @@
+[
+  {
+    "Name": "attack_1.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.3815104,
+    "PivotY": 0.1041667,
+    "PixelsPerUnit": 98.857143,
+    "BottomY": 1031
+  },
+  {
+    "Name": "attack_2.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.4430338,
+    "PivotY": 0.04253472,
+    "PixelsPerUnit": 98.857143,
+    "BottomY": 1101
+  },
+  {
+    "Name": "attack_3.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.4270833,
+    "PivotY": 0.08854166,
+    "PixelsPerUnit": 81.714286,
+    "BottomY": 1049
+  },
+  {
+    "Name": "attack_4.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.351888,
+    "PivotY": 0.1059028,
+    "PixelsPerUnit": 95.428571,
+    "BottomY": 1028
+  },
+  {
+    "Name": "attack_5.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.3209635,
+    "PivotY": 0.1050347,
+    "PixelsPerUnit": 104.571429,
+    "BottomY": 1029
+  },
+  {
+    "Name": "attack_6.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.3909505,
+    "PivotY": 0.08506945,
+    "PixelsPerUnit": 102.285714,
+    "BottomY": 1052
+  },
+  {
+    "Name": "attack_7.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.4433594,
+    "PivotY": 0.1206597,
+    "PixelsPerUnit": 97.142857,
+    "BottomY": 1011
+  },
+  {
+    "Name": "attack_8.png",
+    "Width": 1536,
+    "Height": 1152,
+    "PivotX": 0.5071614,
+    "PivotY": 0.1015625,
+    "PixelsPerUnit": 97.714286,
+    "BottomY": 1033
+  }
+]

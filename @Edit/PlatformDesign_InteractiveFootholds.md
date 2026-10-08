@@ -4,6 +4,7 @@
 > **버그 수정**: `FootholdBase.IsTopContact`의 `contact.normal.y > 0.5f` 조건이 실제로는 항상 거짓이어서 소멸형/피해형 발판이 전혀 작동하지 않는 문제를 Test000 씬 테스트 중 발견했습니다. Unity의 `Collision2D` 콜백은 콜백을 받는 쪽(발판) 기준으로 법선이 아래를 향하므로, `< -0.5f`로 수정 후 정상 동작을 확인했습니다(실측: `Collider2D.Distance`/`Physics2D.GetContacts`로 직접 법선값 확인).
 > **버그 수정(2)**: 소멸형 발판 위에서 점프 등 행동이 막히는 문제 발견. 원인은 `Foothold_Disappearing.prefab`의 `m_Layer`가 `Default`(0)로 남아있어, `PlayerMovement.groundLayer` 비트마스크(`Ground`(8)만 포함, `m_Bits: 256`)에서 제외되어 물리적으로 서 있어도 `IsGrounded`가 `false`로 나온 것. 프리팹 Layer를 손으로 맞추는 방식은 재발하기 쉬워, `FootholdBase.Awake()`에서 런타임에 `gameObject.layer`를 항상 `LayerMask.NameToLayer("Ground")`로 강제 지정하도록 코드 수정(씬/프리팹 데이터는 변경하지 않음).
 > **구조 변경(2026-09-22)**: 발판 외형을 스테이지마다 다른 프리팹으로 교체할 수 있도록 `FootholdBase`의 `[SerializeField] protected SpriteRenderer visual` 필드를 `[SerializeField] protected GameObject visualRoot`로 변경. 이제 베이스 클래스는 외형의 내부 구성(스프라이트 1장/여러 장/애니메이터 등)을 전혀 모르고 `visualRoot.SetActive(bool)`로만 켜고 끈다 — 3항 코드 블록도 최신화함.
+> **타입 교체 구조로 변경(2026-10-06) — 최신 구조는 10항 참고**: `FootholdBase`는 `PlatformBehaviour`로 대체되었고, 외형/콜라이더 토글은 신규 `PlatformCore`가 담당한다(`visualRoot` 필드 폐지). 3항의 코드 블록과 아래 `visualRoot` 관련 기록은 당시 이력이다.
 > **프리팹 재연결(2026-09-22, 사용자 지시로 진행)**: `Foothold_Disappearing.prefab`, `Foothold_Blinking.prefab`, `Foothold_Damage.prefab` 3개 모두 루트 오브젝트에 스프라이트가 직접 붙어있던 구조를, 루트(콜라이더+스크립트) + 자식 `Visual`(스프라이트) 구조로 재구성하고 각 스크립트의 `visualRoot` 필드를 새 `Visual` 자식으로 연결 완료. 루트를 통째로 꺼버리면(발판 자기 자신을 visualRoot로 연결하면) 재생성/점멸 코루틴이 함께 멈춰버리는 문제가 있어 반드시 별도 자식으로 분리해야 함 — 이후 스테이지별 외형 프리팹도 이 `Visual` 자식 자리를 교체하는 방식으로 적용.
 >
 > 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트 배치 등)은 `LHS_Custumer.md` 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
@@ -292,3 +293,78 @@ public class DamageFoothold : FootholdBase
 ## 9. 다음 단계
 
 이 설계안대로 구현 진행을 승인해주시면, 7항의 확인 사항에 대한 답변을 받은 뒤 규칙 9, 11에 따라 8항 순서로 실제 스크립트 작성을 시작합니다.
+
+## 10. 타입 교체 구조 (2026-10-06 변경, 현재 구조)
+
+### 10.1 문제
+
+- 기본 발판(`Platform_*`)은 스프라이트가 루트에 있어, 외형을 `visualRoot` 자식으로만 토글하던 점멸/소멸 스크립트를 붙이면 콜라이더만 꺼지고 그림은 남았다.
+- 이동형은 별도 `PlatformPath` 오브젝트가 없으면 움직이지 않았다.
+- 그 결과 "타입 × 스테이지" 조합마다 프리팹을 따로 만들었다(`Foothold_Blinking_Stage2_Jungle`, `MovingPlatform_Stage3_Lava` 등).
+
+### 10.2 구조
+
+| 구성 요소 | 역할 |
+|---|---|
+| 외형 프리팹 (`Platform_GrassStone`, `Platform_Stage3_Lava` 등) | 스프라이트 + 루트 `BoxCollider2D`. 스크립트 없음 = **기본 발판** |
+| [PlatformCore.cs](../Assets/@Scripts/Platform/PlatformCore.cs) | 발판의 "몸통". 루트의 일반 콜라이더 + 하위 모든 `Renderer`를 함께 켜고 끔(외형 구성 무관), Ground 레이어 강제, 남은 `Rigidbody2D`를 Kinematic으로 고정. 타입 스크립트를 붙이면 자동 추가 |
+| [PlatformBehaviour.cs](../Assets/@Scripts/Platform/PlatformBehaviour.cs) | 모든 타입 스크립트의 베이스(구 `FootholdBase`). `[DisallowMultipleComponent]`로 **한 발판에 타입 하나만** 허용. 위에서 밟음 판정 훅(`OnPlayerStand/Leave`) 제공 |
+| 타입 스크립트 | `BlinkingFoothold`(점멸), `DisappearingFoothold`(소멸), `DamageFoothold`(피해), `MovingPlatform`(이동) — 모두 `PlatformBehaviour` 상속 |
+
+### 10.3 사용법
+
+- **타입 변경**: Inspector에서 현재 타입 스크립트를 Remove Component → 원하는 타입 스크립트를 Add Component.
+- **기본 발판으로 되돌리기**: 타입 스크립트만 제거(남는 `PlatformCore`, 이동형이 남긴 Kinematic `Rigidbody2D`는 그대로 둬도 무해).
+- **이동형 경로**: `PlatformPath`를 연결하지 않으면 `localWaypoints`(처음 위치 기준 오프셋, 기본 오른쪽 3유닛 왕복)로 움직임. 발판 선택 시 씬 뷰에 하늘색 경로 표시. 씬에서 드래그로 편집하려면 기존처럼 `PlatformPath` 연결.
+- **이전에 배치된 발판**: 씬/프리팹을 고칠 필요 없음 — `PlatformCore`가 없으면 실행 중 자동으로 붙는다. 클래스 이름이 그대로라 기존 연결도 유지.
+
+### 10.4 검증 (Test000, 2026-10-06)
+
+`Platform_GrassStone` / `Platform_Stage3_Lava` / `Platform_Stage2_Jungle`(스프라이트가 루트에 있는 기본 외형)에 타입 스크립트를 붙여 확인:
+
+- 에디터: 타입 2개 동시 추가 차단, 점멸→피해→이동→기본 교체 정상, 이동형 추가 시 `Rigidbody2D` 자동 Kinematic.
+- 실행: 점멸·소멸 시 콜라이더와 스프라이트가 함께 꺼지고 켜짐, 피해형 체력 감소(100→91), 경로 없는 이동형이 2030→2033 왕복하며 플레이어를 어긋남 없이 운반, 이동형을 뗀 발판은 떨어지지 않음.
+
+### 10.5 타입별 스테이지 프리팹 정리 (2026-10-06)
+
+배치된 타입 프리팹 인스턴스를 "기본 외형 프리팹 + 타입 스크립트"로 변환했다(`PrefabUtility.ReplacePrefabAssetOfPrefabInstance` - 오브젝트 정체성 유지, 타입 스크립트 설정값은 그대로 복사, 원래 콜라이더 크기/색조가 외형 프리팹과 다르면 인스턴스 값으로 보존, 변환 전후 위치·콜라이더 월드 범위·스프라이트·색·타입·설정값이 하나라도 다르면 저장하지 않도록 검증).
+
+| 씬 | 변환 | 결과 |
+|---|---|---|
+| Stage1 | `Foothold_Blinking/Damage/Disappearing` 14개 → `Platform_GrassStone` + 타입 | 차이 0건, 저장 |
+| Stage2 | `Foothold_Disappearing_Stage2_Jungle` 3개 + `MovingPlatform_Stage2_Jungle` 30개 → `Platform_Stage2_Jungle` + 타입 | 차이 0건, 저장 |
+| Stage3 | `Foothold_Damage_Stage3_Lava` 8 / `Foothold_Blinking_Stage3_Lava` 8 / `MovingPlatform_Stage3_Lava` 8 → `Platform_Stage3_Lava` + 타입 | 차이 0건, 저장(사용자 승인으로 Stage3에 열려 있던 미저장 변경도 함께 저장) |
+
+- 타입별 스테이지 프리팹 9개 전부(`Foothold_Blinking`, `Foothold_Damage`, `Foothold_Disappearing`, `Foothold_Blinking_Stage2_Jungle`, `Foothold_Disappearing_Stage2_Jungle`, `MovingPlatform_Stage2_Jungle`, `Foothold_Blinking_Stage3_Lava`, `Foothold_Damage_Stage3_Lava`, `MovingPlatform_Stage3_Lava`)를 프로젝트에서 빼서 `@Backup/RemovedPrefabs_20261006/`로 옮김(`Assets/@ExternalAssets`가 gitignore 대상이라 git으로 복구 불가 - 삭제 대신 이동). 이제 발판 외형 프리팹은 `Platform_*`만 남는다.
+- Stage3의 넓은 리프트 8개(`Lift_3-2_*`)는 외형 자식을 가로 2배로 늘려 쓰던 구조라, 루트 SpriteRenderer를 `Sliced` + 크기 2배(4×2)로 옮겼다(루트 스케일로 늘리면 이동형이 탑승자를 자식으로 붙일 때 플레이어까지 늘어나므로). 렌더링 비교 결과 약 5,200픽셀 중 가장자리 10픽셀만 미세 차이(최대 17/255). 이 스프라이트는 Tight 메시라 Inspector에 Sliced 관련 경고가 보일 수 있으나 표시에는 문제없음.
+- `Foothold_Blinking_3-2_B3` 등 점멸 스크립트가 없던 7개는 사용자 결정에 따라 고정(기본) 발판으로 유지.
+- 주의(변환 중 발견): `ReplacePrefabAssetOfPrefabInstance` 직후의 오버라이드는 옛 프리팹 기준으로 남아 있다가 `RemoveUnusedOverrides`에서 지워질 수 있다 → 교체 직후 정리를 먼저 하고, 필요한 값은 새 외형 프리팹 기본값과 비교해 다시 기록해야 한다(이 순서로 처리하고 저장-재로드 후에도 값 유지 확인).
+
+## 11. 피해형 발판: 주기 전환 + 데미지 이펙트 (2026-10-06)
+
+### 11.1 동작
+
+[DamageFoothold.cs](../Assets/@Scripts/Platform/DamageFoothold.cs)는 이제 일정 주기로 두 상태를 오간다(안전 상태부터 시작).
+
+| 상태 | 시간 필드 | 이펙트 | 피해 |
+|---|---|---|---|
+| 안전 | `safeDuration` (기본 2초) | 방출 멈춤(남은 불꽃은 자연 소멸) | 없음 |
+| 데미지 | `activeDuration` (기본 2초) | 재생 | 서 있으면 `damageDelay`(0.5초) 후부터 `damageInterval`(0.5초)마다 `damageAmount` |
+
+- `cycleOffset`: 주기 시작 위치(초). 여러 발판을 엇갈리게 작동시킬 때 사용.
+- `safeDuration = 0`이면 예전처럼 항상 데미지 상태.
+- 발판 자체는 두 상태 모두 밟을 수 있다(콜라이더/외형은 그대로). 외부에서 상태를 읽을 수 있도록 `IsDamaging` 공개.
+
+### 11.2 이펙트
+
+- 텍스처 `Assets/@ExternalAssets/Effects/T_DamageFlame.png`: VARCO 워크플로우(`GenerateImage`, nano-banana-1, 2장 생성 후 1장 선택)로 제작한 픽셀 아트 불꽃(검은 배경, 1024px - 모델 출력 한계로 4K 지정했으나 1024px). 임포트 최대 256px.
+- 머티리얼 `M_DamageFlame`: URP `Particles/Unlit`, 가산(Additive) 블렌딩 → 검은 배경이 투명하게 보이므로 배경 제거 불필요.
+- 프리팹 `@Prefab/P_DamageFootholdEffect`: 발판 윗면에서 불꽃이 피어올라 작아지며 사라지는 파티클(`scalingMode = Shape`).
+- `DamageFoothold`가 시작 시 이펙트를 자식으로 만들어 콜라이더 윗면 중앙에 두고, 방출 폭·방출량(`effectRatePerUnit` × 폭)을 발판 폭에 맞춘다 → 외형/폭/루트 스케일과 무관하게 동작. 발판 스프라이트보다 한 단계 앞에 그린다.
+- `DamageFoothold.cs`의 기본 참조(Default References)에 이펙트를 지정 → 어떤 발판에든 피해형을 새로 붙이면 이펙트가 자동 연결된다. 기존 배치물(Stage1 4개, Stage3 8개)은 참조를 직접 채워 저장했다.
+
+### 11.3 검증 (Test000)
+
+- 피해 6건 모두 데미지 상태에서만 발생, 안전 상태에서는 0건. 데미지 상태 시작 후 약 0.5초에 첫 피해.
+- 넓은 발판(루트 가로 3배)에서 방출 영역이 발판 폭에 맞고 방출량 3배.
+- 화면 확인 후 크기/높이/상승 속도를 조정해 불꽃 밑동이 발판 윗면에 붙도록 맞춤(용암·잔디 외형 모두 확인).

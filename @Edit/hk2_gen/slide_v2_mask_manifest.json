@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://3d.varco.ai/api/objects/970be3a03c4fa2399d5f15aa8c2f6a42.png",
+    "path": "slide_v2_masks/slide_1.png"
+  },
+  {
+    "url": "https://3d.varco.ai/api/objects/0a10cf60196409247d983cc6089c6f62.png",
+    "path": "slide_v2_masks/slide_2.png"
+  },
+  {
+    "url": "https://3d.varco.ai/api/objects/418163c3dd9744113f285ae2f5b28f34.png",
+    "path": "slide_v2_masks/slide_3.png"
+  },
+  {
+    "url": "https://3d.varco.ai/api/objects/61776276ce908e4286a7a576831d8931.png",
+    "path": "slide_v2_masks/slide_4.png"
+  }
+]

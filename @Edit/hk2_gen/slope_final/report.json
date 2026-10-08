@@ -1,0 +1,42 @@
+﻿[
+    {
+        "Name":  "climb_1.png",
+        "RemovedFringePixels":  3814
+    },
+    {
+        "Name":  "climb_2.png",
+        "RemovedFringePixels":  3873
+    },
+    {
+        "Name":  "climb_3.png",
+        "RemovedFringePixels":  5724
+    },
+    {
+        "Name":  "climb_4.png",
+        "RemovedFringePixels":  4442
+    },
+    {
+        "Name":  "climb_5.png",
+        "RemovedFringePixels":  5295
+    },
+    {
+        "Name":  "climb_6.png",
+        "RemovedFringePixels":  4308
+    },
+    {
+        "Name":  "slide_1.png",
+        "RemovedFringePixels":  4943
+    },
+    {
+        "Name":  "slide_2.png",
+        "RemovedFringePixels":  4327
+    },
+    {
+        "Name":  "slide_3.png",
+        "RemovedFringePixels":  4138
+    },
+    {
+        "Name":  "slide_4.png",
+        "RemovedFringePixels":  5166
+    }
+]

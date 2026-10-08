@@ -1,0 +1,24 @@
+﻿[
+    {
+        "Name":  "damage_left.png",
+        "Width":  1152,
+        "Height":  1536,
+        "BottomY":  1275,
+        "BodyTop":  271,
+        "BodyHeight":  1004,
+        "PivotX":  0.647037,
+        "PivotY":  0.169270828,
+        "PixelsPerUnit":  104.149376
+    },
+    {
+        "Name":  "damage_right.png",
+        "Width":  1152,
+        "Height":  1536,
+        "BottomY":  1253,
+        "BodyTop":  277,
+        "BodyHeight":  976,
+        "PivotX":  0.561604738,
+        "PivotY":  0.18359375,
+        "PixelsPerUnit":  101.244812
+    }
+]

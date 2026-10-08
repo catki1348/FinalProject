@@ -99,6 +99,7 @@ public class StoneSerpentController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D bodyCollider;
     private Boss boss;
+    private BossSound sound;                                  // 보스 사운드(없으면 소리 없이 동작)
     private Transform target;                                 // 추적 대상(GameManager에 등록된 플레이어)
     private float baseVisualScaleX;                           // Visual의 원래 X 스케일 크기(좌우 반전에 사용)
     private bool facingRight = true;
@@ -119,6 +120,7 @@ public class StoneSerpentController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<Collider2D>();
         boss = GetComponent<Boss>();
+        TryGetComponent(out sound);
         if (visual != null) baseVisualScaleX = Mathf.Abs(visual.localScale.x);
         boss.OnDamaged += HandleDamaged;
         boss.OnDied += HandleDied;
@@ -161,6 +163,7 @@ public class StoneSerpentController : MonoBehaviour
             return;
         }
 
+        if (sound != null) sound.StartBattle();
         Face(dx > 0f);
 
         if (Time.time >= nextSpecialTime && dist >= specialMinRange)
@@ -209,6 +212,7 @@ public class StoneSerpentController : MonoBehaviour
         animator.SetTrigger(BiteHash);
 
         yield return new WaitForSeconds(biteHitTime);
+        if (sound != null) sound.Play(BossSfx.Bite);
         DealBoxDamage(biteReach, biteBottom, biteTop, biteDamage);
         yield return new WaitForSeconds(Mathf.Max(0f, biteDuration - biteHitTime));
 
@@ -223,6 +227,7 @@ public class StoneSerpentController : MonoBehaviour
         animator.SetTrigger(TailSwipeHash);
 
         yield return new WaitForSeconds(tailHitTime);
+        if (sound != null) sound.Play(BossSfx.TailSwipe);
         DealBoxDamage(tailReach, 0f, tailHeight, tailDamage);
         yield return new WaitForSeconds(Mathf.Max(0f, tailDuration - tailHitTime));
 
@@ -239,6 +244,7 @@ public class StoneSerpentController : MonoBehaviour
         yield return new WaitForSeconds(breathChargeTime);
 
         if (breathVfx != null) breathVfx.enabled = true;
+        if (sound != null) sound.Play(BossSfx.PoisonBreath);
         float elapsed = 0f;
         float nextTick = 0f;
         while (elapsed < breathFireTime)
@@ -280,6 +286,7 @@ public class StoneSerpentController : MonoBehaviour
 
         yield return new WaitForSeconds(gazeLockTime);
 
+        if (sound != null) sound.Play(BossSfx.PetrifyGaze);
         float beamLength = FireGaze(eye, aim);
         ShowGazeBeam(eye, aim, beamLength);
         yield return new WaitForSeconds(gazeBeamTime);
@@ -303,6 +310,7 @@ public class StoneSerpentController : MonoBehaviour
     private IEnumerator GroggyRoutine()
     {
         SetState(SerpentState.Groggy);
+        if (sound != null) sound.Play(BossSfx.Groggy);
         if (target != null) Face(target.position.x > transform.position.x);
         rb.linearVelocity = Vector2.zero;
         HideVfx();

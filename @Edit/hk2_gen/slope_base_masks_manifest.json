@@ -1,0 +1,12 @@
+[
+  {
+    "name": "climb_1",
+    "path": "slope_masks/climb_1.png",
+    "url": "https://3d.varco.ai/api/objects/cca7b77dc47b08c237bea4c4f5049e81.png"
+  },
+  {
+    "name": "slide_1",
+    "path": "slope_masks/slide_1.png",
+    "url": "https://3d.varco.ai/api/objects/b93603c3657fe61406187b0fa52e0f09.png"
+  }
+]

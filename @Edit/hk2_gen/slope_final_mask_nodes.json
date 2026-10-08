@@ -1,0 +1,52 @@
+[
+  {
+    "name": "climb_1",
+    "id": "ca194752-18db-4e3c-a6bf-942e2bad93e6",
+    "source": "29630146-2e5f-46bd-ba26-c059fd52cc45"
+  },
+  {
+    "name": "slide_1",
+    "id": "5a5aa1a5-42df-471a-b4cf-d19d5ab94930",
+    "source": "0a0d377e-0a58-44b3-9c26-995b792c4b1a"
+  },
+  {
+    "name": "climb_2",
+    "id": "fa9e7a80-1c67-4d18-a5af-e6aa007a6c08",
+    "source": "6e1dd448-efed-4727-98c3-a493d8d8dfa8"
+  },
+  {
+    "name": "climb_3",
+    "id": "0059b3d0-3fa3-45b5-b4d9-8c6bed5bdde1",
+    "source": "2d14687e-273c-4554-b62c-e064e26dccb3"
+  },
+  {
+    "name": "climb_4",
+    "id": "fcb234b6-5346-42ef-9682-5444a4e50726",
+    "source": "5aff9633-2b45-4fc9-847e-421ebed9141d"
+  },
+  {
+    "name": "climb_5",
+    "id": "9e263210-c953-45d5-a9ef-3bbaecefb9b5",
+    "source": "08b89729-f3e6-4cd2-b467-b329fbc8f859"
+  },
+  {
+    "name": "climb_6",
+    "id": "0765c305-8926-41a6-b5fa-87d3ebed2046",
+    "source": "a55d0858-c0c5-4625-9826-0c2336698010"
+  },
+  {
+    "name": "slide_2",
+    "id": "9b55882d-7a71-4b68-9b82-83ed37d52880",
+    "source": "eabb391e-8f9c-4e1c-9fe8-cde4963a1880"
+  },
+  {
+    "name": "slide_3",
+    "id": "cbb3cfbe-bf39-4e47-adb5-5396322b8e9b",
+    "source": "91059012-d6a6-4e1f-8f4e-87503d795f0e"
+  },
+  {
+    "name": "slide_4",
+    "id": "8b3af3d0-34ee-48bb-b074-3f3c8f4e7f05",
+    "source": "cb3b6ffd-558a-4807-94b8-ee800f250bbc"
+  }
+]

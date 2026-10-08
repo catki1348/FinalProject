@@ -1,0 +1,42 @@
+[
+  {
+    "name": "climb_2",
+    "path": "slope_masks/climb_2.png",
+    "url": "https://3d.varco.ai/api/objects/82778da4be3b0b5ae04093246edc055e.png"
+  },
+  {
+    "name": "climb_3",
+    "path": "slope_masks/climb_3.png",
+    "url": "https://3d.varco.ai/api/objects/3b1df854d7c225a832a76ab82fd9bee7.png"
+  },
+  {
+    "name": "climb_4",
+    "path": "slope_masks/climb_4.png",
+    "url": "https://3d.varco.ai/api/objects/90869fce8fa2a44353877c5e5bbe5045.png"
+  },
+  {
+    "name": "climb_5",
+    "path": "slope_masks/climb_5.png",
+    "url": "https://3d.varco.ai/api/objects/567c4072a57f5ed626e28be4a1fab987.png"
+  },
+  {
+    "name": "climb_6",
+    "path": "slope_masks/climb_6.png",
+    "url": "https://3d.varco.ai/api/objects/d0b1bed4706d2ab80a941cc13d0b17db.png"
+  },
+  {
+    "name": "slide_2",
+    "path": "slope_masks/slide_2.png",
+    "url": "https://3d.varco.ai/api/objects/38c80fcee936ac322cf058a640727c0f.png"
+  },
+  {
+    "name": "slide_3",
+    "path": "slope_masks/slide_3.png",
+    "url": "https://3d.varco.ai/api/objects/dd64f9d7c9e8fe9cba038040741d7876.png"
+  },
+  {
+    "name": "slide_4",
+    "path": "slope_masks/slide_4.png",
+    "url": "https://3d.varco.ai/api/objects/f8527a0d42e06c22cd214d5c1a64059a.png"
+  }
+]

@@ -13,12 +13,12 @@
 - [MapDesign_Stage2-2.md](MapDesign_Stage2-2.md) — 신규 작성(폐기됨, 기록용)
 - [MapDesign_Stage2-3.md](MapDesign_Stage2-3.md) — 신규 작성
 - [MapDesign_Stage2-4.md](MapDesign_Stage2-4.md) — 신규 작성
-- [MapDesign_Stage3-4.md](MapDesign_Stage3-4.md) — 신규 작성
+- [MapDesign_Stage3-4.md](MapDesign_Stage3-4.md) — 신규 작성 (Unity 적용 완료, 12항)
 - [MapEdit.md](MapEdit.md) — 원래 위치: 프로젝트 루트
 - [Monster.md](Monster.md) — 신규 작성
 - [PlatformDesign_InteractiveFootholds.md](PlatformDesign_InteractiveFootholds.md) — 신규 작성
 - [TEST_PROTOCOL.md](TEST_PROTOCOL.md) — 원래 위치: `Assets/@Test/TEST_PROTOCOL.md` (Unity 에셋에서 제외, `.meta` 삭제됨)
-- [TrapDesign_SwitchZoneMonster.md](TrapDesign_SwitchZoneMonster.md) — 신규 작성
+- [TrapDesign_SwitchZoneMonster.md](TrapDesign_SwitchZoneMonster.md) — 신규 작성 (스위치/텔레포트 구현, 13항)
 - [UIDesign_HUD_Health.md](UIDesign_HUD_Health.md) — 원래 위치: 프로젝트 루트
 
 새 설계/기획 문서를 작성할 때는 이 폴더에 바로 추가할 것.

@@ -1,0 +1,78 @@
+﻿[
+    {
+        "Name":  "attack_1.png",
+        "RemovedFringePixels":  3890
+    },
+    {
+        "Name":  "attack_2.png",
+        "RemovedFringePixels":  3765
+    },
+    {
+        "Name":  "attack_3.png",
+        "RemovedFringePixels":  2519
+    },
+    {
+        "Name":  "attack_4.png",
+        "RemovedFringePixels":  3282
+    },
+    {
+        "Name":  "attack_5.png",
+        "RemovedFringePixels":  3955
+    },
+    {
+        "Name":  "attack_6.png",
+        "RemovedFringePixels":  4181
+    },
+    {
+        "Name":  "attack_7.png",
+        "RemovedFringePixels":  3452
+    },
+    {
+        "Name":  "attack_8.png",
+        "RemovedFringePixels":  4042
+    },
+    {
+        "Name":  "damage_left.png",
+        "RemovedFringePixels":  4778
+    },
+    {
+        "Name":  "damage_right.png",
+        "RemovedFringePixels":  3858
+    },
+    {
+        "Name":  "dash_1.png",
+        "RemovedFringePixels":  4497
+    },
+    {
+        "Name":  "run_1.png",
+        "RemovedFringePixels":  4659
+    },
+    {
+        "Name":  "run_2.png",
+        "RemovedFringePixels":  3257
+    },
+    {
+        "Name":  "run_3.png",
+        "RemovedFringePixels":  4159
+    },
+    {
+        "Name":  "run_4.png",
+        "RemovedFringePixels":  3343
+    },
+    {
+        "Name":  "run_5.png",
+        "RemovedFringePixels":  4292
+    },
+    {
+        "Name":  "run_6.png",
+        "RemovedFringePixels":  3827
+    },
+    {
+        "Name":  "run_7.png",
+        "RemovedFringePixels":  3289
+    },
+    {
+        "Name":  "run_8.png",
+        "RemovedFringePixels":  3715
+    }
+]

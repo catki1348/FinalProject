@@ -18,7 +18,49 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;     // 좌우 입력값(-1 ~ 1)
     private bool isGrounded;     // 현재 바닥에 닿아있는지 여부
     private Vector2 groundNormal = Vector2.up; // 현재 서 있는 지면의 법선(평지는 (0,1), 경사면이면 기울어진 값)
+    private Vector2 groundPoint; // 같은 접지 검사에서 얻은 표면 위치(경사 애니메이션 발 정렬용)
+    private float slopeSpeed; // 충돌 해석 전 이동 계산이 정한 접선 속도. 이음매의 순간적인 y속도 변화와 구분한다.
     private bool isJumping;      // 점프 버튼으로 상승 중인지(경사면에 부딪혀 생기는 순간적인 튕김과 구분하기 위한 명시적 플래그)
+    [Header("경사 슬라이드")]
+    [SerializeField] private float slideStartAngle = 12f;
+    [SerializeField] private float slideEndAngle = 6f;
+    [SerializeField] private float slideMinSpeed = 3f;
+    [SerializeField] private float slideMaxSpeed = 12f;
+    [SerializeField] private float slideFriction = 8f;
+    [SerializeField] private float slideBrake = 16f;
+    private bool slideEnabled;
+    private bool slideAirborne;
+    private bool hasWalkableGround;
+    private Collider2D bodyCollider;
+    private readonly RaycastHit2D[] slideGroundHits = new RaycastHit2D[8];
+    public bool IsSliding { get; private set; }
+
+    // 실제 접지 법선과 진행 속도를 표시 쪽에 전달한다. 점프/평지의 수직 속도는 등반으로 보지 않는다.
+    public Vector2 GroundNormal => groundNormal;
+    public Vector2 GroundPoint => groundPoint;
+    public float SlopeSpeed => slopeSpeed;
+
+    // 물리 접촉 모서리의 접선을 연장하지 않고, 그림 바로 아래의 실제 곡선 표면을 찾는다.
+    public bool TryGetVisualGround(out RaycastHit2D hit)
+    {
+        Bounds bounds = bodyCollider.bounds;
+        Vector2 origin = new Vector2(transform.position.x, bounds.max.y + 0.1f);
+        hit = Physics2D.Raycast(origin, Vector2.down, bounds.size.y + 0.35f, groundLayer);
+        return hit.collider != null && hit.normal.y > 0.01f;
+    }
+    public bool IsMovingUphill => isGrounded && hasWalkableGround && !isJumping &&
+        Vector2.Angle(groundNormal, Vector2.up) >= 8f && -groundNormal.x * slopeSpeed > 0.1f;
+    public bool IsMovingDownhill => isGrounded && hasWalkableGround && !isJumping &&
+        Vector2.Angle(groundNormal, Vector2.up) >= 8f && -groundNormal.x * slopeSpeed < -0.1f;
+
+    // 영역 전환 시 StageManager가 호출한다. 다른 영역에는 관성 상태를 넘기지 않는다.
+    public void SetSlopeSlideEnabled(bool enabled)
+    {
+        slideEnabled = enabled;
+        IsSliding = false;
+        slideAirborne = false;
+        slopeSpeed = 0f;
+    }
 
     public bool FacingRight { get; private set; } = true; // 현재 캐릭터가 오른쪽을 보고 있는지 여부(외부에서 조회용)
     public float MoveInput => moveInput;   // 좌우 입력값(외부 조회용, 예: 스프라이트 상태 전환)
@@ -29,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        bodyCollider = GetComponent<Collider2D>();
         GameManager.Instance.RegisterPlayer(transform); // 몬스터 크기 산정 등에서 Find 없이 조회할 수 있도록 등록
     }
 
@@ -42,13 +85,17 @@ public class PlayerMovement : MonoBehaviour
         else if (moveInput < 0f && FacingRight) Flip();
 
         // groundCheck 위치를 기준으로 원형 범위 안에 groundLayer가 있으면 접지 상태로 판단
-        isGrounded = groundCheck != null &&
-            Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (!slideEnabled)
+            isGrounded = groundCheck != null &&
+                Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // 점프 버튼 입력 + 접지 상태일 때만 위쪽으로 속도를 부여해 점프
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            slideAirborne = IsSliding;
+            IsSliding = false;
             isJumping = true;
+            isGrounded = false;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             SoundManager.Instance.PlaySfx(jumpSfx);
         }
@@ -63,11 +110,32 @@ public class PlayerMovement : MonoBehaviour
     // 경사면 위에서는 그 접선 방향으로 이동시켜 대각선/곡선 발판 위에서도 자연스럽게 오르내리게 한다.
     private void FixedUpdate()
     {
-        if (MovementLocked) return;
+        slopeSpeed = 0f;
+        if (MovementLocked)
+        {
+            IsSliding = false;
+            slideAirborne = false;
+            return;
+        }
 
         UpdateGroundNormalAndSnap();
 
-        if (isGrounded && groundNormal != Vector2.up)
+        if (slideEnabled && hasWalkableGround && !isJumping)
+        {
+            slideAirborne = false;
+            if (ApplySlopeSlide()) return;
+        }
+        else if (IsSliding)
+        {
+            IsSliding = false;
+            slideAirborne = true;
+        }
+
+        // 슬라이드 점프/이탈 뒤에는 공중에서 수평 관성을 유지한다. 착지하면 일반 조작으로 복귀한다.
+        if (slideAirborne && (!isGrounded || isJumping)) return;
+        slideAirborne = false;
+
+        if (isGrounded && !isJumping && groundNormal != Vector2.up)
         {
             // 접선 방향 = 법선을 -90도 회전한 벡터. 평지(법선 (0,1))일 때는 (1,0)이 되어
             // 이동 속도가 그대로 수평 이동과 같아지므로 기존 평지 동작과 자연스럽게 이어진다.
@@ -75,12 +143,50 @@ public class PlayerMovement : MonoBehaviour
             // 수평 이동량은 줄고 수직 이동량이 늘어 실제 체감 속도가 평지와 비슷하게 유지된다
             // (수평 속도만 고정한 채 y만 눌러 붙이면 경사가 급할수록 이동 거리가 늘어나 부자연스럽다).
             Vector2 slopeDirection = new Vector2(groundNormal.y, -groundNormal.x);
-            rb.linearVelocity = slopeDirection * (moveInput * moveSpeed);
+            slopeSpeed = moveInput * moveSpeed;
+            rb.linearVelocity = slopeDirection * slopeSpeed;
         }
         else
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
+    }
+
+    // 현재 속도를 지면 접선에 투영하고 중력/입력/브레이크를 한 번만 적용한다.
+    // 오르막에서는 중력 성분이 진행 방향 반대로 작용하므로 자연스럽게 감속한다.
+    private bool ApplySlopeSlide()
+    {
+        Vector2 tangent = new Vector2(groundNormal.y, -groundNormal.x);
+        float angle = Vector2.Angle(groundNormal, Vector2.up);
+        float speed = Vector2.Dot(rb.linearVelocity, tangent);
+        float gravity = Vector2.Dot(Physics2D.gravity * rb.gravityScale, tangent);
+        bool downhill = Mathf.Abs(speed) < 0.1f || speed * gravity > 0f;
+        if (!IsSliding)
+        {
+            if (angle < slideStartAngle || !downhill) return false;
+            speed = Mathf.Sign(gravity) * Mathf.Max(Mathf.Abs(speed), slideMinSpeed);
+            IsSliding = true;
+        }
+
+        float dt = Time.fixedDeltaTime;
+        // 급경사에서도 중력 가속에 브레이크가 묻히지 않도록 반대 입력은 순감속으로 적용한다.
+        if (moveInput * speed < 0f)
+            speed = Mathf.MoveTowards(speed, 0f, slideBrake * dt);
+        else speed += (gravity + moveInput * 3f) * dt;
+        if (angle <= slideEndAngle)
+            speed = Mathf.MoveTowards(speed, 0f, slideFriction * dt);
+
+        if ((angle <= slideEndAngle && Mathf.Abs(speed) <= moveSpeed) ||
+            (angle > slideEndAngle && Mathf.Abs(speed) < 0.5f))
+        {
+            IsSliding = false;
+            return false;
+        }
+        speed = Mathf.Clamp(speed, -slideMaxSpeed, slideMaxSpeed);
+        slopeSpeed = speed;
+        rb.linearVelocity = tangent * speed;
+        if ((speed > 0f) != FacingRight) Flip();
+        return true;
     }
 
     // 1-2영역처럼 회전된 발판 여러 개를 이어 붙이거나 Polygon/EdgeCollider2D로 곡선 발판을
@@ -99,7 +205,32 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateGroundNormalAndSnap()
     {
         groundNormal = Vector2.up;
-        if (!isGrounded || isJumping || groundCheck == null) return;
+        hasWalkableGround = false;
+        if (isJumping || groundCheck == null) return;
+
+        // 급경사에서는 발 중앙과 지면 사이가 멀어질 수 있다. 몸 전체를 짧게 내려 검사해야
+        // 박스 모서리 접촉을 놓치지 않고, 중앙 높이로 스냅해 몸을 지형에 파묻는 것도 막는다.
+        if (slideEnabled && bodyCollider != null)
+        {
+            var filter = new ContactFilter2D();
+            filter.SetLayerMask(groundLayer);
+            filter.useTriggers = false;
+            int count = bodyCollider.Cast(Vector2.down, filter, slideGroundHits, 0.25f);
+            float nearest = float.PositiveInfinity;
+            for (int i = 0; i < count; i++)
+            {
+                var contact = slideGroundHits[i];
+                if (Vector2.Angle(contact.normal, Vector2.up) > 80f || contact.distance >= nearest) continue;
+                nearest = contact.distance;
+                groundNormal = contact.normal;
+                groundPoint = contact.point;
+                hasWalkableGround = true;
+            }
+            isGrounded = hasWalkableGround;
+            if (hasWalkableGround) rb.position += Vector2.down * nearest;
+            return;
+        }
+        if (!isGrounded) return;
 
         // groundCheck는 발이 표면에 딱 붙어있는 지점이라, 그 자리에서 바로 레이캐스트를 쏘면 시작점이
         // 이미 콜라이더 안/표면에 있는 것으로 처리되어 Physics2D가 실제 표면 법선 대신 distance=0과
@@ -110,7 +241,10 @@ public class PlayerMovement : MonoBehaviour
         if (hit.collider == null) return;
 
         float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-        if (slopeAngle < 0.5f || slopeAngle > maxWalkableSlopeAngle) return; // 평지거나 걸어 오를 수 없는 급경사면은 보정 생략
+        if (slopeAngle > maxWalkableSlopeAngle) return;
+        hasWalkableGround = true;
+        groundPoint = hit.point;
+        if (slopeAngle < 0.5f) return;
 
         groundNormal = hit.normal;
 

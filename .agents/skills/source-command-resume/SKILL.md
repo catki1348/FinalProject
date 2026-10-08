@@ -1,0 +1,21 @@
+---
+name: "source-command-resume"
+description: "HANDOFF.md를 읽어서 다른 PC에서 이전 작업을 이어감"
+---
+
+# source-command-resume
+
+Use this skill when the user asks to run the migrated source command `resume`.
+
+## Command Template
+
+프로젝트 루트의 `HANDOFF.md` 파일을 읽어라.
+
+파일이 없다면, 그 사실을 알리고 `git log`와 `git status`로 현재 상태만 간단히 요약하라.
+
+파일이 있다면:
+
+1. 내용을 읽고 이전 세션에서 어디까지 진행됐는지, 다음에 할 일이 무엇인지 파악한다.
+2. `git status`와 `git log --oneline -10`을 실행해서 HANDOFF.md에 적힌 내용과 현재 저장소 상태(커밋 여부, 브랜치)가 일치하는지 확인한다.
+   - 어긋나는 부분(예: HANDOFF.md에는 미커밋이라고 적혀 있는데 이미 커밋됨, 또는 그 반대)이 있으면 사용자에게 알린다.
+3. "다음 할 일" 목록을 사용자에게 보여주고, 어디서부터 이어갈지 확인한 뒤 작업을 시작한다.

@@ -1,0 +1,116 @@
+[
+  {
+    "Name": "attack_1.png",
+    "RemovedPixels": 3890,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_2.png",
+    "RemovedPixels": 3765,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_3.png",
+    "RemovedPixels": 2519,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_4.png",
+    "RemovedPixels": 3282,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_5.png",
+    "RemovedPixels": 3955,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_6.png",
+    "RemovedPixels": 4181,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_7.png",
+    "RemovedPixels": 3452,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "attack_8.png",
+    "RemovedPixels": 4042,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "damage_left.png",
+    "RemovedPixels": 4778,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "damage_right.png",
+    "RemovedPixels": 3858,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "dash_1.png",
+    "RemovedPixels": 4497,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_1.png",
+    "RemovedPixels": 4659,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_2.png",
+    "RemovedPixels": 3257,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_3.png",
+    "RemovedPixels": 4159,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_4.png",
+    "RemovedPixels": 3343,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_5.png",
+    "RemovedPixels": 4292,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_6.png",
+    "RemovedPixels": 3827,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_7.png",
+    "RemovedPixels": 3289,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  },
+  {
+    "Name": "run_8.png",
+    "RemovedPixels": 3715,
+    "RetainedRGBUnchanged": true,
+    "CanvasUnchanged": true
+  }
+]

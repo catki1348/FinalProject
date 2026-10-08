@@ -1,0 +1,152 @@
+{
+  "Assets/Sprites/Warrior/Transparent/idle_right.png": [
+    411,
+    329,
+    631,
+    569
+  ],
+  "Assets/Sprites/Warrior/Transparent/idle_left.png": [
+    386,
+    324,
+    606,
+    564
+  ],
+  "Assets/Sprites/Warrior/Transparent/jump_right.png": [
+    350,
+    345,
+    570,
+    585
+  ],
+  "Assets/Sprites/Warrior/Transparent/jump_left.png": [
+    446,
+    404,
+    666,
+    644
+  ],
+  "Assets/Sprites/Warrior/Transparent/pickup_right_1.png": [
+    463,
+    324,
+    683,
+    564
+  ],
+  "Assets/Sprites/Warrior/Transparent/pickup_right_2.png": [
+    326,
+    212,
+    546,
+    452
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_1.png": [
+    604,
+    207,
+    824,
+    447
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_2.png": [
+    589,
+    234,
+    809,
+    474
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_3.png": [
+    627,
+    324,
+    847,
+    564
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_4.png": [
+    485,
+    244,
+    705,
+    484
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_5.png": [
+    512,
+    218,
+    732,
+    458
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_6.png": [
+    545,
+    207,
+    765,
+    447
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_7.png": [
+    605,
+    133,
+    825,
+    373
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/attack_8.png": [
+    718,
+    165,
+    938,
+    405
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/damage_left.png": [
+    703,
+    250,
+    923,
+    490
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/damage_right.png": [
+    353,
+    287,
+    573,
+    527
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/dash_1.png": [
+    636,
+    287,
+    856,
+    527
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_1.png": [
+    573,
+    287,
+    793,
+    527
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_2.png": [
+    558,
+    186,
+    778,
+    426
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_3.png": [
+    549,
+    218,
+    769,
+    458
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_4.png": [
+    645,
+    202,
+    865,
+    442
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_5.png": [
+    609,
+    202,
+    829,
+    442
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_6.png": [
+    541,
+    181,
+    761,
+    421
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_7.png": [
+    542,
+    181,
+    762,
+    421
+  ],
+  "Assets/Sprites/Warrior/HeroKnightTest/run_8.png": [
+    580,
+    202,
+    800,
+    442
+  ]
+}

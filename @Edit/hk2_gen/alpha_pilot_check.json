@@ -1,0 +1,50 @@
+[
+    {
+        "Name":  "attack_3.png",
+        "Width":  1024,
+        "Height":  1536,
+        "MinX":  182,
+        "MinY":  191,
+        "MaxX":  850,
+        "MaxY":  1321,
+        "Opaque":  320109,
+        "Transparent":  1108140,
+        "Partial":  144615,
+        "BorderNonZero":  3,
+        "Components":  1,
+        "SmallComponents":  0,
+        "NearWhite":  4405
+    },
+    {
+        "Name":  "dash_1.png",
+        "Width":  1024,
+        "Height":  1536,
+        "MinX":  38,
+        "MinY":  308,
+        "MaxX":  994,
+        "MaxY":  1146,
+        "Opaque":  264501,
+        "Transparent":  1184578,
+        "Partial":  123785,
+        "BorderNonZero":  0,
+        "Components":  1,
+        "SmallComponents":  0,
+        "NearWhite":  640
+    },
+    {
+        "Name":  "run_1.png",
+        "Width":  1024,
+        "Height":  1536,
+        "MinX":  96,
+        "MinY":  324,
+        "MaxX":  896,
+        "MaxY":  1265,
+        "Opaque":  262975,
+        "Transparent":  1216552,
+        "Partial":  93337,
+        "BorderNonZero":  3,
+        "Components":  4,
+        "SmallComponents":  3,
+        "NearWhite":  2944
+    }
+]

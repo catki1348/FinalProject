@@ -1,0 +1,168 @@
+[
+  {
+    "Name": "climb_1.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 189,
+    "PixelsPerUnit": 108.0,
+    "PivotX": 0.5379166666666666,
+    "PivotY": 0.23977903616222415,
+    "FootPoints": [
+      [
+        391.0,
+        1206
+      ],
+      [
+        724.0,
+        1121
+      ]
+    ],
+    "MeasuredFootLineAngle": 14.31928312501872,
+    "AuthoredGroundAngle": 14
+  },
+  {
+    "Name": "climb_2.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 189,
+    "PixelsPerUnit": 108.0,
+    "PivotX": 0.5422569444444444,
+    "PivotY": 0.2485392237843921,
+    "FootPoints": [
+      [
+        366.0,
+        1208
+      ],
+      [
+        711.0,
+        1094
+      ]
+    ],
+    "MeasuredFootLineAngle": 18.285351827319506,
+    "AuthoredGroundAngle": 14
+  },
+  {
+    "Name": "climb_3.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 195,
+    "PixelsPerUnit": 111.42857142857143,
+    "PivotX": 0.5571428571428572,
+    "PivotY": 0.23252662125835602,
+    "FootPoints": [
+      [
+        533.0,
+        1191
+      ],
+      [
+        657.0,
+        1071
+      ]
+    ],
+    "MeasuredFootLineAngle": 44.060809054264425,
+    "AuthoredGroundAngle": 14
+  },
+  {
+    "Name": "climb_4.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 193,
+    "PixelsPerUnit": 110.28571428571428,
+    "PivotX": 0.5411855158730159,
+    "PivotY": 0.24039029789538505,
+    "FootPoints": [
+      [
+        389.5,
+        1205
+      ],
+      [
+        760.5,
+        1106
+      ]
+    ],
+    "MeasuredFootLineAngle": 14.94102895115812,
+    "AuthoredGroundAngle": 14
+  },
+  {
+    "Name": "climb_5.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 191,
+    "PixelsPerUnit": 109.14285714285714,
+    "PivotX": 0.5417212301587302,
+    "PivotY": 0.2556285055695458,
+    "FootPoints": [
+      [
+        404.0,
+        1184
+      ],
+      [
+        731.5,
+        1090
+      ]
+    ],
+    "MeasuredFootLineAngle": 16.014691306982556,
+    "AuthoredGroundAngle": 14
+  },
+  {
+    "Name": "climb_6.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 184,
+    "PixelsPerUnit": 105.14285714285714,
+    "PivotX": 0.5392559523809524,
+    "PivotY": 0.23760513341431855,
+    "FootPoints": [
+      [
+        433.5,
+        1199
+      ],
+      [
+        680.0,
+        1055
+      ]
+    ],
+    "MeasuredFootLineAngle": 30.292554014212723,
+    "AuthoredGroundAngle": 14
+  },
+  {
+    "Name": "slide_1.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 156,
+    "PixelsPerUnit": 89.14285714285714,
+    "PivotX": 0.49640873015873016,
+    "PivotY": 0.3639322916666667,
+    "AuthoredGroundAngle": 0
+  },
+  {
+    "Name": "slide_2.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 155,
+    "PixelsPerUnit": 88.57142857142857,
+    "PivotX": 0.4966765873015873,
+    "PivotY": 0.3639322916666667,
+    "AuthoredGroundAngle": 0
+  },
+  {
+    "Name": "slide_3.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 156,
+    "PixelsPerUnit": 89.14285714285714,
+    "PivotX": 0.5050892857142857,
+    "PivotY": 0.3522135416666667,
+    "AuthoredGroundAngle": 0
+  },
+  {
+    "Name": "slide_4.png",
+    "Width": 1152,
+    "Height": 1536,
+    "HelmetSpanPixels": 155,
+    "PixelsPerUnit": 88.57142857142857,
+    "PivotX": 0.4966765873015873,
+    "PivotY": 0.3626302083333333,
+    "AuthoredGroundAngle": 0
+  }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "Name":  "damage_left.png",
+        "Width":  1152,
+        "Height":  1536,
+        "MinX":  118,
+        "MinY":  224,
+        "MaxX":  1054,
+        "MaxY":  1275,
+        "Opaque":  440056,
+        "Transparent":  1329416,
+        "Partial":  0,
+        "BorderNonZero":  0,
+        "Components":  1,
+        "SmallComponents":  0,
+        "NearWhite":  2322
+    },
+    {
+        "Name":  "damage_right.png",
+        "Width":  1152,
+        "Height":  1536,
+        "MinX":  62,
+        "MinY":  234,
+        "MaxX":  994,
+        "MaxY":  1253,
+        "Opaque":  490945,
+        "Transparent":  1278527,
+        "Partial":  0,
+        "BorderNonZero":  0,
+        "Components":  1,
+        "SmallComponents":  0,
+        "NearWhite":  8546
+    }
+]

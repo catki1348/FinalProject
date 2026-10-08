@@ -5,7 +5,7 @@ using UnityEngine;
 // 방향별로 별도 제작된 스프라이트를 교체하는 방식으로 처리한다
 // (원본 스프라이트의 오른손=검/왼손=방패 배치를 보존하기 위함).
 // 플레이어의 외관 상태는 "초기 상태"/"장비 상태"(갑옷 장착 여부)이며,
-// 피격 시에는 위 상태와 무관하게 일정 시간 "무장해제" 스프라이트로 덮어써진다.
+// 일반 피격은 피격 포즈만 표시하고, 체력 시스템이 무장해제로 전환된 경우에만 무장해제 외형을 표시한다.
 // 포즈마다 원본 이미지 안에서 캐릭터가 차지하는 위치가 달라(걷기/상자 열기가 대기보다 캔버스 아래쪽에 그려짐)
 // 콜라이더(자식 Visual과 분리되어 있음)는 고정한 채, 포즈별 보정값만큼 Visual만 위아래로 살짝 옮겨
 // 항상 발이 바닥에 붙어 보이도록 맞춘다.
@@ -41,7 +41,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [Header("Damage - 피격 순간 연출(좌우 전용, 무장해제와 별개로 최우선 표시)")]
     [SerializeField] private Sprite damageRight;
     [SerializeField] private Sprite damageLeft;
-    [SerializeField] private float damageFlashDuration = 0.35f; // 피격 리액션 포즈를 보여줄 시간(초) - 이후엔 기존 무장해제 연출로 자연스럽게 이어짐
+    [SerializeField] private float damageFlashDuration = 0.35f; // 일반 피격 포즈 유지 시간(초); 종료 후 기존 무장 동작으로 복귀
 
     [Header("Idle")]
     [SerializeField] private Sprite idleRight;
@@ -87,27 +87,25 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private Sprite boxOpenRightEquipped;
     [SerializeField] private Sprite boxOpenLeftEquipped;
 
-    [Header("Idle - 피격(무장해제)")]
+    [Header("Idle - 무장해제(무장 체력 소진 후)")]
     [SerializeField] private Sprite idleRightDisarmed;
     [SerializeField] private Sprite idleLeftDisarmed;
 
-    [Header("Walk - 피격(무장해제)")]
+    [Header("Walk - 무장해제")]
     [SerializeField] private Sprite walkRightDisarmed;
     [SerializeField] private Sprite walkLeftDisarmed;
 
-    [Header("Run - 피격(무장해제)")]
+    [Header("Run - 무장해제")]
     [SerializeField] private Sprite runRightDisarmed;
     [SerializeField] private Sprite runLeftDisarmed;
 
-    [Header("Jump - 피격(무장해제)")]
+    [Header("Jump - 무장해제")]
     [SerializeField] private Sprite jumpRightDisarmed;
     [SerializeField] private Sprite jumpLeftDisarmed;
 
-    [Header("Box Open - 피격(무장해제)")]
+    [Header("Box Open - 무장해제")]
     [SerializeField] private Sprite boxOpenRightDisarmed;
     [SerializeField] private Sprite boxOpenLeftDisarmed;
-
-    [SerializeField] private float disarmedDuration = 1f; // 피격 후 무장해제 스프라이트를 유지할 시간(초)
 
     [Header("Run 판정")]
     [SerializeField] private KeyCode runKey = KeyCode.LeftShift; // 이 키를 누르고 있으면 걷기 대신 뛰기로 판정
@@ -116,13 +114,16 @@ public class PlayerSpriteAnimator : MonoBehaviour
     private PlayerEquipment equipment;     // 갑옷 장착 여부 조회용 캐시
     private PlayerDash dash;               // 대시 여부 조회용 캐시
     private PlayerCombat combat;           // 검 공격 여부/진행률 조회용 캐시
+    private PlayerHealth health;           // 체력 0으로 실제 무장해제 전환이 일어났는지 조회하는 캐시
     private Animator visualAnimator;       // Visual에 붙은 Animator(걷기 등 다중 프레임 재생용, 그 외 상태에서는 비활성화)
 
     private float boxOpenTimer;    // 상자 열기 포즈 유지 남은 시간(0 이하면 종료)
     private bool isOpeningBox;     // 현재 상자 열기 포즈를 보여주는 중인지 여부
     private bool isEquipped;       // 갑옷(Armor) 장착 여부 - 초기 상태/장비 상태 판정 기준
-    private float disarmedTimer;   // 무장해제 연출 남은 시간(0 이하면 평소 상태로 복귀)
-    private float damageTimer;     // 피격 리액션 포즈 남은 시간(0 이하면 종료) - disarmedTimer와 별개로 동작
+    private float damageTimer;     // 일반 피격 포즈 남은 시간(0 이하면 원래 무장 동작으로 복귀)
+
+    // 타이머나 장비 슬롯 여부가 아니라 체력 시스템의 전환 상태만 무장해제 표시를 결정한다.
+    private bool IsDisarmed => health != null && health.IsDisarmed;
 
     private const string WalkRightAnimState = "Player_Walk_Right";
     private const string WalkLeftAnimState = "Player_Walk_Left";
@@ -133,6 +134,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
         equipment = GetComponent<PlayerEquipment>();
         dash = GetComponent<PlayerDash>();
         combat = GetComponent<PlayerCombat>();
+        health = GetComponent<PlayerHealth>();
         visualAnimator = spriteRenderer.GetComponent<Animator>();
         if (visualAnimator != null) visualAnimator.enabled = false;
     }
@@ -155,24 +157,10 @@ public class PlayerSpriteAnimator : MonoBehaviour
         isEquipped = item != null;
     }
 
-    // 피격 시 외부(체력 스크립트)에서 호출 - 일정 시간 무장해제 스프라이트로 전환
-    public void TriggerDisarmed()
-    {
-        disarmedTimer = disarmedDuration;
-    }
-
-    // 일반 체력이 0이 되어 무장해제 상태로 전환될 때 외부(PlayerHealth)에서 호출 - 이후 계속
-    // 무장해제 스프라이트를 유지해야 하므로 disarmedTimer를 무한대로 설정한다(일정 시간 후 원복되는
-    // TriggerDisarmed의 짧은 피격 연출과 달리, 이 상태는 다시 무장하기 전까지 영구적으로 지속된다)
-    public void SetPermanentlyDisarmed()
-    {
-        disarmedTimer = float.PositiveInfinity;
-    }
-
-    // 피격 시 외부(체력 스크립트)에서 호출 - TriggerDisarmed와 함께 호출되어, 짧은 순간 하던 동작과 무관하게
-    // 최우선으로 피격 리액션 포즈를 보여준 뒤 자연스럽게 무장해제 연출로 이어지게 한다
+    // 체력이 남아 있는 일반 피격에만 짧은 리액션을 표시한다. 무장해제 상태에서는 갑옷 피격 그림을 쓰지 않는다.
     public void TriggerDamage()
     {
+        if (IsDisarmed) return;
         damageTimer = damageFlashDuration;
     }
 
@@ -190,13 +178,12 @@ public class PlayerSpriteAnimator : MonoBehaviour
             if (boxOpenTimer <= 0f) isOpeningBox = false;
         }
 
-        if (disarmedTimer > 0f) disarmedTimer -= Time.deltaTime;
         if (damageTimer > 0f) damageTimer -= Time.deltaTime;
 
         UpdateSprite();
     }
 
-    // 현재 상태(우선순위: 대시 > 피격 > 상자 열기 > 점프 > 뛰기/걷기 > 대기)와 방향, 장비 상태에 맞는 스프라이트를 적용
+    // 무장해제 여부를 먼저 반영하고, 일반 상태에서는 피격 > 대시 > 공격 > 상자 열기 > 이동 순서로 표시한다.
     // 주의: "Right" 스프라이트 원본이 정면, "Left" 스프라이트 원본이 망토가 보이는 뒷모습이라
     // 오른쪽 이동 시 뒷모습(망토)이 보이도록 좌/우 스프라이트를 반대로 매핑한다
     private void UpdateSprite()
@@ -207,23 +194,23 @@ public class PlayerSpriteAnimator : MonoBehaviour
         // 이렇게 해야 Animator가 매 프레임 스프라이트를 덮어써서 SetVisual과 충돌하는 걸 막을 수 있다.
         if (visualAnimator != null) visualAnimator.enabled = false;
 
+        // 전용 좌우 피격 그림이나 무장해제 포즈에 이전 공격/걷기의 반전 값이 남지 않게 한다.
+        spriteRenderer.flipX = false;
+
         // 피격 리액션은 그 순간 어떤 동작 중이었든(대시/공격 포함) 최우선으로 짧게 덮어쓴다
-        if (damageTimer > 0f)
+        if (!IsDisarmed && damageTimer > 0f)
         {
             SetVisual(facingRight ? damageRight : damageLeft, damageVisualOffsetY);
             return;
         }
 
-        // Attack 포즈만 좌우 전용 아트 대신 flipX로 반전하므로, 다른 포즈로 넘어갈 때는 항상 꺼둔다.
-        spriteRenderer.flipX = false;
-
-        if (dash.IsDashing)
+        if (!IsDisarmed && dash.IsDashing)
         {
             SetVisual(facingRight ? dashLeft : dashRight, dashVisualOffsetY);
             return;
         }
 
-        if (combat.IsAttacking)
+        if (!IsDisarmed && combat.IsAttacking)
         {
             // 원본 아트(attack_1~5)는 왼쪽으로 검을 휘두르는 모션으로 제작되어 있어,
             // 오른쪽을 볼 때는 flipX로 반전해야 시야 방향과 스윙 방향이 일치한다.
@@ -235,9 +222,9 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
         if (isOpeningBox)
         {
-            // 초기(비장비) 상태이고 피격 연출 중이 아닐 때만 2프레임(웅크려 줍기 -> 들어올리기) 아이템 습득 연출을 보여준다.
-            // 장비/피격 상태는 아직 전용 2프레임 아트가 없어 기존처럼 정지 스프라이트로 표시한다.
-            if (disarmedTimer <= 0f && !isEquipped)
+            // 초기 상태이고 무장해제 상태가 아닐 때만 2프레임 아이템 습득 연출을 보여준다.
+            // 장비/무장해제 상태는 아직 전용 2프레임 아트가 없어 정지 스프라이트로 표시한다.
+            if (!IsDisarmed && !isEquipped)
             {
                 bool firstHalf = boxOpenTimer > boxOpenDuration * 0.5f;
                 Sprite frame1 = facingRight ? boxOpenLeft : boxOpenRight;
@@ -263,7 +250,8 @@ public class PlayerSpriteAnimator : MonoBehaviour
             return;
         }
 
-        if (Mathf.Abs(movement.MoveInput) > 0.01f)
+        // 경사에서도 별도 등반/슬라이드 그림 대신 기존 이동 모션을 사용한다.
+        if (Mathf.Abs(movement.MoveInput) > 0.01f || movement.IsSliding)
         {
             bool isRunning = Input.GetKey(runKey);
             if (isRunning)
@@ -275,14 +263,14 @@ public class PlayerSpriteAnimator : MonoBehaviour
                 // 무장해제 상태에서는 전용 뛰기 아트가 없어 걷기 아트를 대신 보여주므로
                 // (runRightDisarmed/runLeftDisarmed가 걷기 스프라이트를 그대로 씀), 이때는
                 // 뛰기용 보정값이 아니라 걷기용 보정값을 적용해야 발이 바닥에 맞는다.
-                float offsetY = disarmedTimer > 0f ? walkVisualOffsetY : runVisualOffsetY;
+                float offsetY = IsDisarmed ? walkVisualOffsetY : runVisualOffsetY;
                 SetVisual(sprite, offsetY);
             }
             else
             {
-                // 초기(비장비) 상태이고 피격 연출 중이 아닐 때만 4프레임 걷기 애니메이션을 재생한다.
-                // 장비/피격 상태는 아직 다중 프레임 아트가 없어 기존처럼 정지 스프라이트로 표시한다.
-                bool useAnimatedWalk = visualAnimator != null && disarmedTimer <= 0f && !isEquipped;
+                // 초기 상태이고 무장해제가 아닐 때만 걷기 애니메이션을 재생한다.
+                // 장비/무장해제 상태는 전용 다중 프레임 아트가 없어 정지 스프라이트로 표시한다.
+                bool useAnimatedWalk = visualAnimator != null && !IsDisarmed && !isEquipped;
                 if (useAnimatedWalk)
                 {
                     visualAnimator.enabled = true;
@@ -322,7 +310,8 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
     private Sprite Pick(Sprite initial, Sprite equipped, Sprite disarmed)
     {
-        if (disarmedTimer > 0f) return disarmed;
+        if (IsDisarmed) return disarmed;
         return isEquipped ? equipped : initial;
     }
 }
+

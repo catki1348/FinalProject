@@ -1,0 +1,135 @@
+[
+  {
+    "Name": "attack_1.png",
+    "HelmetSpanPixels": 173,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 98.857143
+  },
+  {
+    "Name": "attack_2.png",
+    "HelmetSpanPixels": 173,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 98.857143
+  },
+  {
+    "Name": "attack_3.png",
+    "HelmetSpanPixels": 143,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 81.714286
+  },
+  {
+    "Name": "attack_4.png",
+    "HelmetSpanPixels": 167,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 95.428571
+  },
+  {
+    "Name": "attack_5.png",
+    "HelmetSpanPixels": 183,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 104.571429
+  },
+  {
+    "Name": "attack_6.png",
+    "HelmetSpanPixels": 179,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 102.285714
+  },
+  {
+    "Name": "attack_7.png",
+    "HelmetSpanPixels": 170,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 97.142857
+  },
+  {
+    "Name": "attack_8.png",
+    "HelmetSpanPixels": 171,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 97.714286
+  },
+  {
+    "Name": "run_1.png",
+    "HelmetSpanPixels": 198,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 113.142857
+  },
+  {
+    "Name": "run_2.png",
+    "HelmetSpanPixels": 199,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 113.714286
+  },
+  {
+    "Name": "run_3.png",
+    "HelmetSpanPixels": 198,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 113.142857
+  },
+  {
+    "Name": "run_4.png",
+    "HelmetSpanPixels": 214,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 122.285714
+  },
+  {
+    "Name": "run_5.png",
+    "HelmetSpanPixels": 215,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 122.857143
+  },
+  {
+    "Name": "run_6.png",
+    "HelmetSpanPixels": 181,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 103.428571
+  },
+  {
+    "Name": "run_7.png",
+    "HelmetSpanPixels": 194,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 110.857143
+  },
+  {
+    "Name": "run_8.png",
+    "HelmetSpanPixels": 191,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 109.142857
+  },
+  {
+    "Name": "dash_1.png",
+    "HelmetSpanPixels": 220,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 125.714286
+  },
+  {
+    "Name": "damage_right.png",
+    "HelmetSpanPixels": 184,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 105.142857
+  },
+  {
+    "Name": "damage_left.png",
+    "HelmetSpanPixels": 194,
+    "ReferenceHelmetSpanPixels": 175,
+    "ReferencePPU": 100,
+    "PixelsPerUnit": 110.857143
+  }
+]

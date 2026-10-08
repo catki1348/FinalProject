@@ -1,0 +1,59 @@
+{
+  "workflowId": "49642cd6-4c2d-4dce-a5c2-88d90a5638d1",
+  "prompt": {
+    "id": "cdda8ddf-023a-4268-8e8b-da3a92a560a0",
+    "prompt": "4K resolution. Exact binary segmentation mask of the supplied knight sprite. Preserve EXACT source canvas size, subject positions and silhouette; NO redraw/recenter/scale. PURE WHITE = original knight armor, boots, cape, horns, shield and sword. PURE BLACK = background and ALL empty enclosed gaps, including between legs, arms, cape and equipment. Exclude white/gray fringe OUTSIDE the dark outline; white foreground stops on the original dark outline. No white halo, no shadow, no terrain, no new marks. Crisp binary mask only."
+  },
+  "masks": [
+    {
+      "name": "climb_1",
+      "id": "ca194752-18db-4e3c-a6bf-942e2bad93e6",
+      "source": "29630146-2e5f-46bd-ba26-c059fd52cc45"
+    },
+    {
+      "name": "climb_2",
+      "id": "d1947323-0a0c-42a2-b15c-4ee62b9fb9c3",
+      "source": "b5e2261d-b533-4335-94ce-75ec2a7114c7"
+    },
+    {
+      "name": "climb_3",
+      "id": "694c6f7f-e21e-4a53-98ff-51c2e41bf339",
+      "source": "e7f62cbd-f726-4ef3-af61-a950e2e2d1fb"
+    },
+    {
+      "name": "climb_4",
+      "id": "30c018cb-0d55-4eb5-84f9-23cd73fa12c4",
+      "source": "954e645e-17cf-434a-93c2-eacf11076a31"
+    },
+    {
+      "name": "climb_5",
+      "id": "ae578b9d-4e49-41eb-8ad0-9f17235f6c2d",
+      "source": "cd11c7d2-ce93-498d-bfd9-461639c5f5ae"
+    },
+    {
+      "name": "climb_6",
+      "id": "1ec86dfe-4691-4d3f-b40e-1fd7f2b73ec5",
+      "source": "37a5a56c-9564-4ab8-b0dd-aed27504609a"
+    },
+    {
+      "name": "slide_1",
+      "id": "5a5aa1a5-42df-471a-b4cf-d19d5ab94930",
+      "source": "0a0d377e-0a58-44b3-9c26-995b792c4b1a"
+    },
+    {
+      "name": "slide_2",
+      "id": "d8cfe4b8-1cd3-40d8-ade0-40a422aa946f",
+      "source": "fed66c24-1528-449b-be42-e0a382d92355"
+    },
+    {
+      "name": "slide_3",
+      "id": "598b3e1c-cd22-4147-9a51-54c346e6872d",
+      "source": "7c6e3901-9104-43cf-8b6f-5a815d6e6553"
+    },
+    {
+      "name": "slide_4",
+      "id": "e1121045-7405-407d-849d-136dac2531af",
+      "source": "3d0e8e8b-c1d9-4fe7-a783-81ea16888840"
+    }
+  ]
+}

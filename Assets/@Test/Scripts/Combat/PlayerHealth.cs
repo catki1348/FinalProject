@@ -110,17 +110,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
             spriteAnimator?.TriggerDamage();
-            spriteAnimator?.TriggerDisarmed();
         }
     }
 
     // 일반 체력이 0이 되었을 때 호출 - 무장해제 상태로 전환하고 별도의 체력을 가득 채운 뒤,
-    // 스프라이트도 무장해제 모습을 계속 유지하도록 만든다(일반 피격의 짧은 연출과 달리 지속 상태)
+    // 표시 스크립트는 IsDisarmed를 참조하므로 회복된 체력과 무장해제 외형이 같은 상태를 따른다.
     private void EnterDisarmedState()
     {
         isDisarmed = true;
         disarmedHealth = disarmedMaxHealth;
-        spriteAnimator?.SetPermanentlyDisarmed();
         OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
     }
 

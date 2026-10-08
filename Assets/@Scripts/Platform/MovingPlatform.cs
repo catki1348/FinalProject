@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// PlatformPath가 정의한 경로를 따라 정해진 패턴으로 반복 이동하는 발판.
-// 경로의 정의/시각화는 PlatformPath가 전담하고, 이 스크립트는 이동 로직만 담당한다(단일 책임).
+// 경로를 따라 정해진 패턴으로 반복 이동하는 발판 타입(PlatformBehaviour - 어떤 발판 외형 프리팹에든 붙여 사용).
+// 경로 지정 방법은 두 가지다:
+// - PlatformPath 연결: 씬에 경로 오브젝트(자식 Transform = 지점)를 따로 두고 연결 - 경로를 씬 뷰에서 드래그로 편집
+// - 연결 안 함: localWaypoints(발판의 처음 위치 기준 오프셋)를 경로로 사용 - 기본 발판에 이 스크립트만 붙여도
+//   바로 움직인다(기본값: 오른쪽으로 3유닛 왕복). 발판을 선택하면 씬 뷰에 경로가 표시된다.
 //
 // 발판 위에 서 있는 대상이 미끄러지지 않고 같이 움직이게 하는 방법: 매 FixedUpdate마다 발판 자신이
 // 이동한 거리(delta)를 계산해서, 좌우 성분은 탑승자의 Rigidbody2D 위치에 더하고 상하 성분은 탑승자의
@@ -39,7 +42,7 @@ using UnityEngine;
 // 이벤트가 그 프레임에 오지 않았어도 기하학적으로 여전히 위에 있으면 계속 탑승자로 유지된다.
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : PlatformBehaviour
 {
     private enum LoopMode
     {
@@ -52,10 +55,19 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private LoopMode loopMode = LoopMode.PingPong;
 
+    // path가 비어 있을 때 사용할 경로 - 발판의 처음 위치를 (0,0)으로 한 오프셋 목록(첫 지점은 보통 (0,0))
+    [SerializeField] private Vector2[] localWaypoints = { Vector2.zero, new Vector2(3f, 0f) };
+    private Vector2 waypointOrigin; // localWaypoints의 기준점 - 이동을 시작하기 전 발판의 월드 위치
+
+    private int PointCount => path != null ? path.PointCount : (localWaypoints != null ? localWaypoints.Length : 0);
+    private Vector2 GetPoint(int index) => path != null ? (Vector2)path.GetPoint(index) : waypointOrigin + localWaypoints[index];
+
     // 첫 이동을 시작하기 전 경로 첫 지점에서 대기하는 시간(초). 이동형 발판을 연속으로 배치할 때
     // 인접한 두 발판이 같은 순간에 출발하지 않도록 서로 다른 값을 지정한다(MapEdit.md 규칙 18).
     // 기본값 0이면 기존과 동일하게 시작 즉시 움직인다.
     [SerializeField] private float startDelay = 0f;
+    // 경로 양 끝에서 승하차할 시간을 확보한다. 0이면 기존 발판의 이동 주기를 그대로 유지한다.
+    [SerializeField, Min(0f)] private float endpointWait = 0f;
     private float delayRemaining;
 
     // "이동 거리 1"의 기준: 플레이어가 1초 동안 이동하는 거리(PlayerMovement.moveSpeed - Player_Base/
@@ -84,9 +96,23 @@ public class MovingPlatform : MonoBehaviour
     private readonly Dictionary<Rigidbody2D, Transform> riders = new Dictionary<Rigidbody2D, Transform>();
 
     // 물리 이동(MovePosition)으로 다뤄야 하므로 Kinematic으로 강제 설정한다.
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         EnsureCached();
+        waypointOrigin = transform.position;
+    }
+
+    // 에디터에서 이 스크립트를 새로 붙이는 순간 RequireComponent로 함께 붙는 Rigidbody2D는 기본값이 Dynamic이다 -
+    // 실행 중에는 EnsureCached가 Kinematic으로 바꾸지만, 저장되는 값도 처음부터 Kinematic으로 맞춰 둔다
+    // (나중에 이 스크립트를 떼어 다른 타입으로 바꿔도 남은 Rigidbody2D가 발판을 떨어뜨리지 않도록).
+    private void Reset()
+    {
+        if (TryGetComponent(out Rigidbody2D body))
+        {
+            body.bodyType = RigidbodyType2D.Kinematic;
+            body.interpolation = RigidbodyInterpolation2D.None;
+        }
     }
 
     // rb/col 캐시가 비어있으면(예: 컴포넌트가 나중에 추가/재생성된 경우) 다시 가져온다.
@@ -146,12 +172,13 @@ public class MovingPlatform : MonoBehaviour
     }
 
     // 시작 시 경로의 첫 지점으로 위치를 맞춘다. 이 지점이 최대 이동 거리 제한의 기준(원점)이 된다.
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         EnsureCached();
         WarnIfExtraColliders();
-        if (path == null || path.PointCount == 0) return;
-        startPosition = path.GetPoint(0);
+        if (PointCount == 0) return;
+        startPosition = GetPoint(0);
         currentPosition = startPosition;
         rb.position = startPosition;
         delayRemaining = startDelay;
@@ -159,7 +186,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (path == null || path.PointCount < 2) return;
+        if (PointCount < 2) return;
         EnsureCached();
 
         // 출발 대기 중이거나 Once 모드로 도착해 멈춘 상태에서도 탑승자 판정과 Y속도 정리는 계속한다
@@ -174,7 +201,7 @@ public class MovingPlatform : MonoBehaviour
         }
 
         Vector2 previousPosition = currentPosition;
-        Vector2 target = path.GetPoint(targetIndex);
+        Vector2 target = GetPoint(targetIndex);
         Vector2 next = Vector2.MoveTowards(currentPosition, target, speed * Time.fixedDeltaTime);
 
         // 시작 지점 기준 MaxTravelDistance를 넘어서는 지점으로는 절대 이동하지 않도록 재클램프.
@@ -309,8 +336,11 @@ public class MovingPlatform : MonoBehaviour
     // 현재 목표 지점에 도착했을 때, 루프 모드에 맞춰 다음 목표 지점을 계산한다.
     private void AdvanceTarget()
     {
-        int count = path.PointCount;
+        int count = PointCount;
         currentIndex = targetIndex;
+        // 왕복의 양 끝에만 대기한다. 중간 웨이포인트에서는 이동을 끊지 않는다.
+        if (currentIndex == 0 || currentIndex == count - 1)
+            delayRemaining = Mathf.Max(0f, endpointWait);
 
         switch (loopMode)
         {
@@ -329,5 +359,22 @@ public class MovingPlatform : MonoBehaviour
                 else targetIndex = currentIndex + 1;
                 break;
         }
+    }
+
+    // PlatformPath를 연결하지 않은 경우, 발판을 선택하면 localWaypoints 경로를 씬 뷰에 표시한다
+    // (PlatformPath를 연결했다면 PlatformPath가 자체적으로 경로를 그린다).
+    private void OnDrawGizmosSelected()
+    {
+        if (path != null || localWaypoints == null || localWaypoints.Length < 2) return;
+
+        Vector2 origin = Application.isPlaying ? waypointOrigin : (Vector2)transform.position;
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < localWaypoints.Length; i++)
+        {
+            Vector2 point = origin + localWaypoints[i];
+            Gizmos.DrawSphere(point, 0.12f);
+            if (i > 0) Gizmos.DrawLine(origin + localWaypoints[i - 1], point);
+        }
+        if (loopMode == LoopMode.Loop) Gizmos.DrawLine(origin + localWaypoints[localWaypoints.Length - 1], origin + localWaypoints[0]);
     }
 }

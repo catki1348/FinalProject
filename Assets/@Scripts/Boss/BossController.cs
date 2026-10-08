@@ -67,6 +67,7 @@ public class BossController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D bodyCollider;
     private Boss boss;
+    private BossSound sound;                             // 보스 사운드(없으면 소리 없이 동작)
     private Transform target;                                // 추적 대상(GameManager에 등록된 플레이어)
     private float defaultGravityScale;                       // 도약 후 복구할 원래 중력 배율
     private float baseVisualScaleX;                          // Visual의 원래 X 스케일 크기(좌우 반전에 사용)
@@ -87,6 +88,7 @@ public class BossController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<Collider2D>();
         boss = GetComponent<Boss>();
+        TryGetComponent(out sound);
         defaultGravityScale = rb.gravityScale;
         if (visual != null) baseVisualScaleX = Mathf.Abs(visual.localScale.x);
         boss.OnDamaged += HandleDamaged;
@@ -129,6 +131,7 @@ public class BossController : MonoBehaviour
             return;
         }
 
+        if (sound != null) sound.StartBattle();
         Face(dx > 0f);
 
         if (Time.time >= nextSpecialTime && dist >= specialMinRange && IsGrounded())
@@ -170,8 +173,10 @@ public class BossController : MonoBehaviour
         animator.SetTrigger(AttackHash);
 
         yield return new WaitForSeconds(firstPunchTime);
+        if (sound != null) sound.Play(BossSfx.Attack);
         DealPunchDamage();
         yield return new WaitForSeconds(secondPunchTime - firstPunchTime);
+        if (sound != null) sound.Play(BossSfx.Attack);
         DealPunchDamage();
         yield return new WaitForSeconds(Mathf.Max(0f, attackDuration - secondPunchTime));
 
@@ -214,6 +219,7 @@ public class BossController : MonoBehaviour
 
         rb.gravityScale = defaultGravityScale;
         rb.linearVelocity = Vector2.zero;
+        if (sound != null) sound.Play(BossSfx.SpecialSlam);
         DealSlamDamage();
 
         float remaining = specialDuration - crouchTime - elapsed;
@@ -228,6 +234,7 @@ public class BossController : MonoBehaviour
     private IEnumerator GroggyRoutine()
     {
         SetState(BossState.Groggy);
+        if (sound != null) sound.Play(BossSfx.Groggy);
         // 공격/도약 도중이거나 뒤에서 맞아 반대쪽을 보고 있을 수 있으므로, 그로기 연출은 항상 플레이어 쪽을 향한 상태로 재생
         if (target != null) Face(target.position.x > transform.position.x);
         rb.gravityScale = defaultGravityScale;

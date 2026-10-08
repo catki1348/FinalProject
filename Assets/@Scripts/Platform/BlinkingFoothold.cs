@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-// 플레이어 상호작용과 무관하게 일정 주기로 나타났다 사라지는 발판
-public class BlinkingFoothold : FootholdBase
+// 플레이어 상호작용과 무관하게 일정 주기로 나타났다 사라지는 발판 타입(어떤 발판 외형 프리팹에든 붙여 사용)
+public class BlinkingFoothold : PlatformBehaviour
 {
     [SerializeField] private float visibleDuration = 1.2f;
     [SerializeField] private float invisibleDuration = 0.8f;
@@ -30,10 +30,10 @@ public class BlinkingFoothold : FootholdBase
 
         while (true)
         {
-            SetFootholdActive(true);
+            SetPlatformActive(true);
             yield return visibleWait;
 
-            SetFootholdActive(false);
+            SetPlatformActive(false);
             yield return invisibleWait;
         }
     }

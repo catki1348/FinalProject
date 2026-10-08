@@ -1,0 +1,55 @@
+{
+  "anchor": "962e0dd0-f4c3-42d2-8f18-b8376a196f45",
+  "text": "007a412a-70f2-4d93-bd39-1e4287d663cd",
+  "prompt": "4K resolution. Create ONE isolated game animation sprite using THIS EXACT knight identity and pixel-art style: same steel armor plates, closed silver helmet with gold visor, red cape, brown boots, gold-crested shield and sword. SIDE PROFILE FACING SCREEN RIGHT. Unmistakable FEET-FIRST GROUND SLIDE: hips almost touching ground, seated low on one folded rear leg, the FRONT LEG FULLY EXTENDED straight SCREEN RIGHT with boot heel on a HORIZONTAL imaginary ground line; torso leans BACK, helmet low behind front knee, shield tucked beside chest, sword held safely backward parallel to ground. Weight rests on folded leg/hip and extended heel. Long red cape trails flat to LEFT, indicating fast sliding RIGHT. This is a compact seated skid, NOT upright crouching, NOT running, NOT lunging, NOT a walking stride, NOT two bent legs. Keep helmet exactly recognizable and similar pixel density to original. Full character incl cape, sword and boot completely inside canvas with generous blank margin. Pure WHITE background; crisp dark silhouette, no white border, no actual floor, no ground line, no shadow, no dust, no particles, no text. Single pose, no sprite sheet. Pose on level ground; engine will rotate entire sprite to actual downhill slope. Motion loop key pose frame 1/4.",
+  "frames": [
+    {
+      "name": "slide_1",
+      "id": "962e0dd0-f4c3-42d2-8f18-b8376a196f45",
+      "text": "007a412a-70f2-4d93-bd39-1e4287d663cd",
+      "prompt": "4K resolution. Create ONE isolated game animation sprite using THIS EXACT knight identity and pixel-art style: same steel armor plates, closed silver helmet with gold visor, red cape, brown boots, gold-crested shield and sword. SIDE PROFILE FACING SCREEN RIGHT. Unmistakable FEET-FIRST GROUND SLIDE: hips almost touching ground, seated low on one folded rear leg, the FRONT LEG FULLY EXTENDED straight SCREEN RIGHT with boot heel on a HORIZONTAL imaginary ground line; torso leans BACK, helmet low behind front knee, shield tucked beside chest, sword held safely backward parallel to ground. Weight rests on folded leg/hip and extended heel. Long red cape trails flat to LEFT, indicating fast sliding RIGHT. This is a compact seated skid, NOT upright crouching, NOT running, NOT lunging, NOT a walking stride, NOT two bent legs. Keep helmet exactly recognizable and similar pixel density to original. Full character incl cape, sword and boot completely inside canvas with generous blank margin. Pure WHITE background; crisp dark silhouette, no white border, no actual floor, no ground line, no shadow, no dust, no particles, no text. Single pose, no sprite sheet. Pose on level ground; engine will rotate entire sprite to actual downhill slope. Motion loop key pose frame 1/4."
+    },
+    {
+      "name": "slide_2",
+      "id": "2efa9f8c-4569-4e08-bd0a-2b69b66f0d9b",
+      "text": "3378ef11-e9b4-40f4-a0e4-ba22eede0e95",
+      "prompt": "4K resolution. LOOP ANIMATION frame 2/4 of this EXACT feet-first seated sliding knight. Preserve exact canvas, pose, helmet location and horns, armor, shield crest, sword, scale, pixel style and colors. Facing RIGHT, front leg FULLY EXTENDED RIGHT, heel planted, rear leg folded UNDER low hips. Keep all leg and hip positions. ONLY cape trailing tips lift slightly and shield tilts backward 3 degrees. No standing, walking or leg cycling. PURE WHITE background, no floor, shadow, particles, text or white rim."
+    },
+    {
+      "name": "slide_3",
+      "id": "cb0c3f64-e072-46d4-8976-65766325c843",
+      "text": "f379e084-50f8-4a28-a351-1a5548d9f9b8",
+      "prompt": "4K resolution. LOOP ANIMATION frame 3/4 of EXACT supplied feet-first seated sliding knight. Preserve canvas, helmet position and horns, scale, armor, shield crest, sword, full extended FRONT leg RIGHT, folded rear leg under hip, planted heel, low hips, exact body dimensions. Side view facing RIGHT. ONLY subtle cape and arm movement: cape tips settle flatter backward, elbow relaxes, shield rotates back toward first pose. Keep torso stable. No stepping, walking, standing, jumping, floor, shadow, dust, text, white rim. PURE WHITE background, dark crisp silhouette."
+    },
+    {
+      "name": "slide_4",
+      "id": "fa66bd50-76c7-487b-b8c3-cdd82a059ce1",
+      "text": "c3be9220-f23d-4432-8338-01cdd77daea5",
+      "prompt": "4K resolution. LOOP ANIMATION frame 4/4 of EXACT supplied feet-first seated sliding knight. Preserve canvas, helmet position and horns, scale, armor, shield crest, sword, full extended FRONT leg RIGHT, folded rear leg under hip, planted heel, low hips, exact body dimensions. Side view facing RIGHT. ONLY subtle cape and arm movement: cape edge curls gently up halfway toward frame 1, shield returns to frame 1. Keep torso stable. No stepping, walking, standing, jumping, floor, shadow, dust, text, white rim. PURE WHITE background, dark crisp silhouette."
+    }
+  ],
+  "maskText": "343c766e-7c89-478f-b8e5-220f59bbd80a",
+  "maskPrompt": "4K resolution. Exact binary segmentation mask of supplied knight sprite. Preserve EXACT canvas size, positions, all armor, boots, cape, horns, sword and shield. PURE WHITE=knight inside original dark outline. PURE BLACK=background and all enclosed empty gaps. Exclude white fringe OUTSIDE dark silhouette, no halo, no shadow, no floor. No redraw/recenter/scale. Crisp binary mask ONLY.",
+  "masks": [
+    {
+      "name": "slide_1",
+      "id": "84838841-181d-41bd-a532-a007ebd6bda1",
+      "source": "962e0dd0-f4c3-42d2-8f18-b8376a196f45"
+    },
+    {
+      "name": "slide_2",
+      "id": "03120d0c-9e87-4ad1-bfa2-d7af69d833ad",
+      "source": "2efa9f8c-4569-4e08-bd0a-2b69b66f0d9b"
+    },
+    {
+      "name": "slide_3",
+      "id": "00e02089-319e-4354-836b-97adf596fb0e",
+      "source": "cb0c3f64-e072-46d4-8976-65766325c843"
+    },
+    {
+      "name": "slide_4",
+      "id": "dcde67e1-b476-4d2d-9a34-2708187c5a23",
+      "source": "fa66bd50-76c7-487b-b8c3-cdd82a059ce1"
+    }
+  ]
+}

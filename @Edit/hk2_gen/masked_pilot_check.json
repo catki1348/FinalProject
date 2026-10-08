@@ -1,0 +1,34 @@
+[
+    {
+        "Name":  "attack_3.png",
+        "Width":  1152,
+        "Height":  1536,
+        "MinX":  212,
+        "MinY":  153,
+        "MaxX":  947,
+        "MaxY":  1335,
+        "Opaque":  543768,
+        "Transparent":  1225704,
+        "Partial":  0,
+        "BorderNonZero":  0,
+        "Components":  1,
+        "SmallComponents":  0,
+        "NearWhite":  4425
+    },
+    {
+        "Name":  "run_1.png",
+        "Width":  1152,
+        "Height":  1536,
+        "MinX":  116,
+        "MinY":  258,
+        "MaxX":  1002,
+        "MaxY":  1245,
+        "Opaque":  421014,
+        "Transparent":  1348458,
+        "Partial":  0,
+        "BorderNonZero":  0,
+        "Components":  17,
+        "SmallComponents":  13,
+        "NearWhite":  9439
+    }
+]
