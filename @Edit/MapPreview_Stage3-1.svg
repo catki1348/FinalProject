@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 480"><rect width="1600" height="480" fill="#121724"/><style>text{font-family:Segoe UI,Malgun Gothic,sans-serif;fill:#eef2ff}.label{font-size:12px;text-anchor:middle}</style><text x="45" y="45" font-size="26">3-1 · 상승 구간 5개</text><text x="45" y="76" font-size="16">기준 거리 50 (400 월드 유닛) · 상승 3점프 → 하강 3점프 × 5회</text>
+<polyline points="65,330 113.55567134171295,294 162.1113426834259,258 210.66701402513885,222 259.2226853668518,258 307.77835670856473,294 356.3340280502777,330 404.8896993919907,294 453.4453707337036,258 502.0010420754166,222 550.5567134171295,258 599.1123847588425,294 647.6680561005554,330 696.2237274422685,294 744.7793987839814,258 793.3350701256944,222 841.8907414674072,258 890.4464128091201,294 939.0020841508332,330 987.5577554925461,294 1036.113426834259,258 1084.669098175972,222 1133.224769517685,258 1181.7804408593981,294 1230.3361122011108,330 1278.8917835428238,294 1327.447454884537,258 1376.0031262262496,222 1424.5587975679628,258 1473.1144689096757,294 1521.6701402513888,330" fill="none" stroke="#aab8dd" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="45.10216432914352" y="330" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="65" y="356">P00</text>
+<rect x="93.65783567085647" y="294" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="113.55567134171295" y="320">P01</text>
+<rect x="142.21350701256944" y="258" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="162.1113426834259" y="284">P02</text>
+<text class="label" x="162.1113426834259" y="248">↔</text>
+<rect x="190.7691783542824" y="222" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="210.66701402513885" y="248">P03</text>
+<rect x="239.32484969599534" y="258" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="259.2226853668518" y="284">P04</text>
+<rect x="287.88052103770826" y="294" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="307.77835670856473" y="320">P05</text>
+<text class="label" x="307.77835670856473" y="284">↔</text>
+<rect x="336.43619237942124" y="330" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="356.3340280502777" y="356">P06</text>
+<rect x="384.9918637211342" y="294" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="404.8896993919907" y="320">P07</text>
+<rect x="433.54753506284715" y="258" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="453.4453707337036" y="284">P08</text>
+<text class="label" x="453.4453707337036" y="248">↔</text>
+<rect x="482.1032064045601" y="222" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="502.0010420754166" y="248">P09</text>
+<rect x="530.658877746273" y="258" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="550.5567134171295" y="284">P10</text>
+<rect x="579.214549087986" y="294" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="599.1123847588425" y="320">P11</text>
+<text class="label" x="599.1123847588425" y="284">↔</text>
+<rect x="627.770220429699" y="330" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="647.6680561005554" y="356">P12</text>
+<rect x="676.325891771412" y="294" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="696.2237274422685" y="320">P13</text>
+<rect x="724.8815631131249" y="258" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="744.7793987839814" y="284">P14</text>
+<text class="label" x="744.7793987839814" y="248">↔</text>
+<rect x="773.437234454838" y="222" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="793.3350701256944" y="248">P15</text>
+<rect x="821.9929057965508" y="258" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="841.8907414674072" y="284">P16</text>
+<rect x="870.5485771382637" y="294" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="890.4464128091201" y="320">P17</text>
+<text class="label" x="890.4464128091201" y="284">↔</text>
+<rect x="919.1042484799767" y="330" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="939.0020841508332" y="356">P18</text>
+<rect x="967.6599198216896" y="294" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="987.5577554925461" y="320">P19</text>
+<rect x="1016.2155911634025" y="258" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="1036.113426834259" y="284">P20</text>
+<text class="label" x="1036.113426834259" y="248">↔</text>
+<rect x="1064.7712625051156" y="222" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="1084.669098175972" y="248">P21</text>
+<rect x="1113.3269338468285" y="258" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="1133.224769517685" y="284">P22</text>
+<rect x="1161.8826051885417" y="294" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="1181.7804408593981" y="320">P23</text>
+<text class="label" x="1181.7804408593981" y="284">↔</text>
+<rect x="1210.4382765302544" y="330" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="1230.3361122011108" y="356">P24</text>
+<rect x="1258.9939478719673" y="294" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="1278.8917835428238" y="320">P25</text>
+<rect x="1307.5496192136804" y="258" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="1327.447454884537" y="284">P26</text>
+<text class="label" x="1327.447454884537" y="248">↔</text>
+<rect x="1356.1052905553931" y="222" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="1376.0031262262496" y="248">P27</text>
+<rect x="1404.6609618971063" y="258" width="39.79567134171295" height="8" rx="2" fill="#fb6b73"/><text class="label" x="1424.5587975679628" y="284">P28</text>
+<rect x="1453.2166332388192" y="294" width="39.79567134171295" height="8" rx="2" fill="#56b9ff"/><text class="label" x="1473.1144689096757" y="320">P29</text>
+<text class="label" x="1473.1144689096757" y="284">↔</text>
+<rect x="1501.7723045805324" y="330" width="39.79567134171295" height="8" rx="2" fill="#8ae0b4"/><text class="label" x="1521.6701402513888" y="356">P30</text>
+<rect x="76.42283567085647" y="315" width="6" height="6" fill="#ffd166"/><path d="M 92.56283567085649 262 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="97.56283567085649" y="249">T01</text>
+<rect x="222.08984969599533" y="207" width="6" height="6" fill="#ffd166"/><path d="M 238.22984969599537 190 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="243.22984969599537" y="177">T02</text>
+<rect x="367.7568637211342" y="315" width="6" height="6" fill="#ffd166"/><path d="M 383.8968637211342 262 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="388.8968637211342" y="249">T03</text>
+<rect x="513.4238777462731" y="207" width="6" height="6" fill="#ffd166"/><path d="M 529.563877746273 190 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="534.563877746273" y="177">T04</text>
+<rect x="659.0908917714119" y="315" width="6" height="6" fill="#ffd166"/><path d="M 675.2308917714118 262 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="680.2308917714118" y="249">T05</text>
+<rect x="804.7579057965509" y="207" width="6" height="6" fill="#ffd166"/><path d="M 820.8979057965507 190 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="825.8979057965507" y="177">T06</text>
+<rect x="950.4249198216896" y="315" width="6" height="6" fill="#ffd166"/><path d="M 966.5649198216896 262 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="971.5649198216896" y="249">T07</text>
+<rect x="1096.0919338468286" y="207" width="6" height="6" fill="#ffd166"/><path d="M 1112.2319338468285 190 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="1117.2319338468285" y="177">T08</text>
+<rect x="1241.7589478719674" y="315" width="6" height="6" fill="#ffd166"/><path d="M 1257.8989478719673 262 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="1262.8989478719673" y="249">T09</text>
+<rect x="1387.4259618971062" y="207" width="6" height="6" fill="#ffd166"/><path d="M 1403.565961897106 190 l 10 -5 v 10 z" fill="#ffd166"/><text class="label" x="1408.565961897106" y="177">T10</text>
+<text x="113.55567134171295" y="130" font-size="18">↑ 상승 1</text>
+<text x="404.8896993919907" y="130" font-size="18">↑ 상승 2</text>
+<text x="696.2237274422685" y="130" font-size="18">↑ 상승 3</text>
+<text x="987.5577554925461" y="130" font-size="18">↑ 상승 4</text>
+<text x="1278.8917835428238" y="130" font-size="18">↑ 상승 5</text>
+<text x="65" y="375" font-size="19">★ 시작</text><text x="1460" y="375" font-size="19">○ 골인</text><text x="45" y="420" font-size="16">초록: 일반 11 · 빨강: 데미지 10 · 파랑: 이동 10 · 노랑: 발사체 함정 10</text><text x="45" y="458" font-size="13">세로축 확대 · 점선은 중립 위치 기준 동선 · Unity 적용 전 설계 미리보기</text></svg>

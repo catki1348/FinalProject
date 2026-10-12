@@ -15,6 +15,9 @@ public class SwitchTrigger : MonoBehaviour
     // 스위치가 눌렸을 때 발생(ProjectileLauncher 등이 구독)
     public event Action OnActivated;
 
+    // 스위치를 밟은 플레이어의 Rigidbody2D를 함께 전달(텔레포트 등 플레이어에게 작용하는 함정용)
+    public event Action<Rigidbody2D> OnActivatedByPlayer;
+
     private void Awake()
     {
         GetComponent<Collider2D>().isTrigger = true;
@@ -36,6 +39,7 @@ public class SwitchTrigger : MonoBehaviour
 
         SoundManager.Instance.PlaySfx(activateSfx);
         OnActivated?.Invoke();
+        OnActivatedByPlayer?.Invoke(body);
 
         if (oneShot) consumed = true;
         else cooldownTimer = cooldown;

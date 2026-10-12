@@ -1,0 +1,295 @@
+{
+  "boss": "Stage3_VolcanicScorpion",
+  "version": 1,
+  "patterns": [
+    {
+      "activeEnd": 0.8,
+      "duration": 1.2,
+      "damage": "12 × 2",
+      "label": "집게 교차 연타",
+      "frames": [
+        {
+          "source": "ClawCombo/01.png",
+          "time": 0
+        },
+        {
+          "source": "ClawCombo/02.png",
+          "time": 0.2
+        },
+        {
+          "source": "ClawCombo/03.png",
+          "time": 0.35
+        },
+        {
+          "source": "ClawCombo/04.png",
+          "time": 0.55
+        },
+        {
+          "source": "ClawCombo/05.png",
+          "time": 0.65
+        },
+        {
+          "source": "ClawCombo/06.png",
+          "time": 0.75
+        },
+        {
+          "source": "ClawCombo/07.png",
+          "time": 0.95
+        },
+        {
+          "source": "ClawCombo/08.png",
+          "time": 1.15
+        }
+      ],
+      "id": "ClawCombo",
+      "dodge": "후퇴, 두 번째 집게 주의",
+      "windup": 0.35,
+      "kind": "일반"
+    },
+    {
+      "activeEnd": 0.85,
+      "duration": 1.4,
+      "damage": "18",
+      "label": "용암 꼬리 찌르기",
+      "frames": [
+        {
+          "source": "TailSting/01.png",
+          "time": 0
+        },
+        {
+          "source": "TailSting/02.png",
+          "time": 0.3
+        },
+        {
+          "source": "TailSting/03.png",
+          "time": 0.65
+        },
+        {
+          "source": "TailSting/04.png",
+          "time": 0.85
+        },
+        {
+          "source": "TailSting/05.png",
+          "time": 1.1
+        },
+        {
+          "source": "TailSting/06.png",
+          "time": 1.3
+        }
+      ],
+      "id": "TailSting",
+      "dodge": "점프 또는 사거리 이탈",
+      "windup": 0.65,
+      "kind": "일반"
+    },
+    {
+      "activeEnd": 1.05,
+      "duration": 1.8,
+      "damage": "20",
+      "label": "화산암 집게 내려찍기",
+      "frames": [
+        {
+          "source": "GroundEruption/01.png",
+          "time": 0
+        },
+        {
+          "source": "GroundEruption/02.png",
+          "time": 0.3
+        },
+        {
+          "source": "GroundEruption/03.png",
+          "time": 0.65
+        },
+        {
+          "source": "GroundEruption/04.png",
+          "time": 0.8
+        },
+        {
+          "source": "GroundEruption/05.png",
+          "time": 1.05
+        },
+        {
+          "source": "GroundEruption/06.png",
+          "time": 1.5
+        }
+      ],
+      "id": "ClawSlam",
+      "dodge": "타격에 맞춰 점프",
+      "windup": 0.8,
+      "kind": "일반"
+    },
+    {
+      "activeEnd": 0.95,
+      "duration": 1.7,
+      "damage": "16",
+      "label": "작열 꼬리 휩쓸기",
+      "frames": [
+        {
+          "source": "TailSting/01.png",
+          "time": 0
+        },
+        {
+          "source": "TailSting/02.png",
+          "time": 0.35
+        },
+        {
+          "source": "TailSting/03.png",
+          "time": 0.7
+        },
+        {
+          "source": "TailSting/04.png",
+          "time": 0.85
+        },
+        {
+          "source": "TailSting/05.png",
+          "time": 1.05
+        },
+        {
+          "source": "TailSting/06.png",
+          "time": 1.45
+        }
+      ],
+      "id": "TailSweep",
+      "dodge": "예고 후 점프",
+      "windup": 0.7,
+      "kind": "일반"
+    },
+    {
+      "activeEnd": 1.2,
+      "duration": 2.1,
+      "damage": "22",
+      "label": "현무암 집게 돌진",
+      "frames": [
+        {
+          "source": "GroundEruption/01.png",
+          "time": 0
+        },
+        {
+          "source": "GroundEruption/02.png",
+          "time": 0.35
+        },
+        {
+          "source": "Walk/01.png",
+          "time": 0.75
+        },
+        {
+          "source": "Walk/02.png",
+          "time": 0.825
+        },
+        {
+          "source": "Walk/03.png",
+          "time": 0.9
+        },
+        {
+          "source": "Walk/04.png",
+          "time": 0.975
+        },
+        {
+          "source": "Walk/05.png",
+          "time": 1.05
+        },
+        {
+          "source": "Walk/06.png",
+          "time": 1.125
+        },
+        {
+          "source": "ClawCombo/03.png",
+          "time": 1.2
+        },
+        {
+          "source": "ClawCombo/07.png",
+          "time": 1.5
+        },
+        {
+          "source": "Idle/01.png",
+          "time": 1.85
+        }
+      ],
+      "id": "BasaltRush",
+      "dodge": "돌진 경로를 점프로 통과",
+      "windup": 0.75,
+      "kind": "일반"
+    },
+    {
+      "activeEnd": 1.55,
+      "duration": 2.3,
+      "damage": "16 / 탄",
+      "label": "용암 꼬리 탄막",
+      "frames": [
+        {
+          "source": "LavaVolley/01.png",
+          "time": 0
+        },
+        {
+          "source": "LavaVolley/02.png",
+          "time": 0.4
+        },
+        {
+          "source": "LavaVolley/03.png",
+          "time": 0.8
+        },
+        {
+          "source": "LavaVolley/04.png",
+          "time": 1.05
+        },
+        {
+          "source": "LavaVolley/05.png",
+          "time": 1.3
+        },
+        {
+          "source": "LavaVolley/06.png",
+          "time": 1.5
+        },
+        {
+          "source": "LavaVolley/07.png",
+          "time": 1.8
+        },
+        {
+          "source": "LavaVolley/08.png",
+          "time": 2.15
+        }
+      ],
+      "id": "LavaVolley",
+      "dodge": "탄 사이로 이동·점프",
+      "windup": 0.8,
+      "kind": "필살기"
+    },
+    {
+      "activeEnd": 1.5,
+      "duration": 2.5,
+      "damage": "22 / 분출",
+      "label": "화산 지맥 폭발",
+      "frames": [
+        {
+          "source": "GroundEruption/01.png",
+          "time": 0
+        },
+        {
+          "source": "GroundEruption/02.png",
+          "time": 0.5
+        },
+        {
+          "source": "GroundEruption/03.png",
+          "time": 0.9
+        },
+        {
+          "source": "GroundEruption/04.png",
+          "time": 1.1
+        },
+        {
+          "source": "GroundEruption/05.png",
+          "time": 1.5
+        },
+        {
+          "source": "GroundEruption/06.png",
+          "time": 2.1
+        }
+      ],
+      "id": "GroundEruption",
+      "dodge": "경고 표식 밖으로 이동",
+      "windup": 1.1,
+      "kind": "필살기"
+    }
+  ],
+  "artwork": "existing-frame recomposition"
+}

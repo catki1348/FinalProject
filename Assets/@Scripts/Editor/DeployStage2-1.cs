@@ -98,16 +98,9 @@ public class DeployStage2_1
         // 씬 저장
         EditorSceneManager.SaveScene(stage2Scene);
 
-        // 배치 모드인 경우 자동 종료, 아니면 다이얼로그 표시
-        if (EditorApplication.isBatchMode)
-        {
-            Debug.Log("✓ Stage 2-1 배치 완료");
-            EditorApplication.Exit(0);
-        }
-        else
-        {
-            EditorUtility.DisplayDialog("완료", "Stage 2-1 배치가 완료되었습니다.", "확인");
-        }
+        // 완료 메시지
+        Debug.Log("✓ Stage 2-1 배치 완료");
+        EditorUtility.DisplayDialog("완료", "Stage 2-1 배치가 완료되었습니다.", "확인");
     }
 
     private static void ClearExistingPlatforms(GameObject parent, string prefix)

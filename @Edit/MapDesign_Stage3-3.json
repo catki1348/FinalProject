@@ -1,0 +1,1630 @@
+﻿{
+    "stage":  "3-3",
+    "status":  "design-only",
+    "unitsPerDesignUnit":  8,
+    "nominalRouteLength":  560.00000000000011,
+    "designRouteLength":  70.000000000000014,
+    "routeMetric":  "sum of surface-centre waypoint distances at moving-platform neutral positions",
+    "start":  {
+                  "y":  0,
+                  "x":  0
+              },
+    "goal":  {
+                 "y":  0,
+                 "x":  558.24293793470554
+             },
+    "bounds":  {
+                   "minX":  -10,
+                   "maxX":  568.24293793470554,
+                   "minY":  -8,
+                   "maxY":  12
+               },
+    "normalPlatformWidth":  4.2165281947981459,
+    "platforms":  [
+                      {
+                          "id":  "P00",
+                          "type":  "Normal",
+                          "role":  "Start",
+                          "x":  0,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P01",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  7.4165281947981461,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P02",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  14.724792292197218,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P03",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  22.03305638959629,
+                          "surfaceY":  0.9,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P04",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  29.341320486995361,
+                          "surfaceY":  1.8,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  0,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P05",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  36.649584584394439,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P06",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  43.957848681793514,
+                          "surfaceY":  2.7,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.3,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P07",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  51.266112779192589,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P08",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  58.574376876591664,
+                          "surfaceY":  3.6,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  0.3,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P09",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  65.882640973990732,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P10",
+                          "type":  "Moving",
+                          "role":  "Special",
+                          "x":  73.1909050713898,
+                          "surfaceY":  3.6,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  3.35,
+                                           "x":  72.7909050713898
+                                       },
+                                       {
+                                           "y":  3.35,
+                                           "x":  73.590905071389813
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  0,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P11",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  80.499169168788882,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P12",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  87.807433266187957,
+                          "surfaceY":  2.7,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.6,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P13",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  95.115697363587032,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P14",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  102.42396146098611,
+                          "surfaceY":  1.8,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  0.6,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P15",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  109.73222555838518,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P16",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  117.04048965578426,
+                          "surfaceY":  0.9,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.89999999999999991,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P17",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  124.34875375318333,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P18",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  131.65701785058241,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  0.89999999999999991,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P19",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  138.96528194798148,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P20",
+                          "type":  "Moving",
+                          "role":  "Special",
+                          "x":  146.27354604538056,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -0.25,
+                                           "x":  145.87354604538055
+                                       },
+                                       {
+                                           "y":  -0.25,
+                                           "x":  146.67354604538056
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  0.7,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P21",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  153.58181014277963,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P22",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  160.99833833757776,
+                          "surfaceY":  0.9,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P23",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  168.4148665323759,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P24",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  175.72313062977497,
+                          "surfaceY":  1.8,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  1.2,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P25",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  183.03139472717405,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P26",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  190.44792292197218,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P27",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  197.86445111677031,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P28",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  205.17271521416939,
+                          "surfaceY":  3.6,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  1.2,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P29",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  212.48097931156846,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P30",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  219.89750750636659,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P31",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  227.31403570116473,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P32",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  234.6222997985638,
+                          "surfaceY":  2.7,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  1.5,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P33",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  241.93056389596288,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P34",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  249.347092090761,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P35",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  256.76362028555917,
+                          "surfaceY":  0.9,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P36",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  264.07188438295822,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  1.5,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P37",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  271.38014848035726,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P38",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  278.79667667515542,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P39",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  286.21320486995359,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P40",
+                          "type":  "Moving",
+                          "role":  "Special",
+                          "x":  293.52146896735263,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -0.25,
+                                           "x":  293.12146896735265
+                                       },
+                                       {
+                                           "y":  -0.25,
+                                           "x":  293.92146896735261
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  1.4,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P41",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  300.82973306475168,
+                          "surfaceY":  0.9,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P42",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  308.24626125954984,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P43",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  315.662789454348,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P44",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  322.97105355174705,
+                          "surfaceY":  2.7,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  1.7999999999999998,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P45",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  330.27931764914609,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P46",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  337.69584584394426,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P47",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  345.11237403874242,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P48",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  352.42063813614146,
+                          "surfaceY":  3.6,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  1.7999999999999998,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P49",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  359.72890223354051,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P50",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  367.14543042833867,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P51",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  374.56195862313683,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P52",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  381.87022272053588,
+                          "surfaceY":  1.8,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  2.1,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P53",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  389.17848681793492,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P54",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  396.59501501273309,
+                          "surfaceY":  0.9,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P55",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  404.01154320753125,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P56",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  411.31980730493029,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  2.1,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P57",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  418.62807140232934,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P58",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  426.0445995971275,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P59",
+                          "type":  "Normal",
+                          "role":  "ArrowSwitch",
+                          "x":  433.46112779192566,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P60",
+                          "type":  "Moving",
+                          "role":  "Special",
+                          "x":  440.76939188932471,
+                          "surfaceY":  0.9,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  0.65,
+                                           "x":  440.36939188932473
+                                       },
+                                       {
+                                           "y":  0.65,
+                                           "x":  441.16939188932469
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  2.0999999999999996,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P61",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  448.07765598672376,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P62",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  455.49418418152192,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P63",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  462.80244827892096,
+                          "surfaceY":  2.7,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  2.4,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P64",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  470.11071237632,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P65",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  477.52724057111817,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P66",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  484.83550466851722,
+                          "surfaceY":  3.6,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  2.4,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P67",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  492.14376876591626,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P68",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  499.56029696071442,
+                          "surfaceY":  3.6,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P69",
+                          "type":  "Damage",
+                          "role":  "Special",
+                          "x":  506.86856105811347,
+                          "surfaceY":  2.7,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  2.6999999999999997,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P70",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  514.17682515551257,
+                          "surfaceY":  2.7,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P71",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  521.59335335031074,
+                          "surfaceY":  1.8,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P72",
+                          "type":  "Blinking",
+                          "role":  "Special",
+                          "x":  528.9016174477099,
+                          "surfaceY":  1.8,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "visibleDuration":  2,
+                                           "startDelay":  2.6999999999999997,
+                                           "invisibleDuration":  1
+                                       }
+                      },
+                      {
+                          "id":  "P73",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  536.209881545109,
+                          "surfaceY":  0.9,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P74",
+                          "type":  "Moving",
+                          "role":  "Special",
+                          "x":  543.51814564250822,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -0.25,
+                                           "x":  543.11814564250824
+                                       },
+                                       {
+                                           "y":  -0.25,
+                                           "x":  543.91814564250819
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  2.8,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P75",
+                          "type":  "Normal",
+                          "role":  "TeleportSwitch",
+                          "x":  550.82640973990738,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P76",
+                          "type":  "Normal",
+                          "role":  "Goal",
+                          "x":  558.24293793470554,
+                          "surfaceY":  0,
+                          "width":  4.2165281947981459,
+                          "thickness":  0.5
+                      }
+                  ],
+    "traps":  [
+                  {
+                      "id":  "A01",
+                      "kind":  "Arrow",
+                      "platform":  "P01",
+                      "switchX":  8.024792292197219,
+                      "switchY":  0.3,
+                      "firePoint":  {
+                                        "y":  0.8,
+                                        "x":  12.424792292197218
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A02",
+                      "kind":  "Arrow",
+                      "platform":  "P03",
+                      "switchX":  22.641320486995362,
+                      "switchY":  1.2,
+                      "firePoint":  {
+                                        "y":  2.6,
+                                        "x":  27.04132048699536
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A03",
+                      "kind":  "Arrow",
+                      "platform":  "P05",
+                      "switchX":  37.257848681793512,
+                      "switchY":  2.1,
+                      "firePoint":  {
+                                        "y":  3.5,
+                                        "x":  41.657848681793517
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A04",
+                      "kind":  "Arrow",
+                      "platform":  "P07",
+                      "switchX":  51.874376876591661,
+                      "switchY":  3,
+                      "firePoint":  {
+                                        "y":  4.4,
+                                        "x":  56.274376876591667
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A05",
+                      "kind":  "Arrow",
+                      "platform":  "P09",
+                      "switchX":  66.4909050713898,
+                      "switchY":  3.9,
+                      "firePoint":  {
+                                        "y":  4.4,
+                                        "x":  70.89090507138981
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A06",
+                      "kind":  "Arrow",
+                      "platform":  "P11",
+                      "switchX":  81.107433266187954,
+                      "switchY":  3.9,
+                      "firePoint":  {
+                                        "y":  4.4,
+                                        "x":  85.507433266187959
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A07",
+                      "kind":  "Arrow",
+                      "platform":  "P13",
+                      "switchX":  95.7239614609861,
+                      "switchY":  3,
+                      "firePoint":  {
+                                        "y":  3.5,
+                                        "x":  100.12396146098611
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A08",
+                      "kind":  "Arrow",
+                      "platform":  "P15",
+                      "switchX":  110.34048965578425,
+                      "switchY":  2.1,
+                      "firePoint":  {
+                                        "y":  2.6,
+                                        "x":  114.74048965578426
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A09",
+                      "kind":  "Arrow",
+                      "platform":  "P17",
+                      "switchX":  124.9570178505824,
+                      "switchY":  0.3,
+                      "firePoint":  {
+                                        "y":  0.8,
+                                        "x":  129.35701785058239
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "A10",
+                      "kind":  "Arrow",
+                      "platform":  "P19",
+                      "switchX":  139.57354604538057,
+                      "switchY":  0.3,
+                      "firePoint":  {
+                                        "y":  0.8,
+                                        "x":  143.97354604538054
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T01",
+                      "kind":  "Teleport",
+                      "platform":  "P21",
+                      "switchX":  153.58181014277963,
+                      "switchY":  0.3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T02",
+                      "kind":  "Teleport",
+                      "platform":  "P22",
+                      "switchX":  160.99833833757776,
+                      "switchY":  1.2,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A11",
+                      "kind":  "Arrow",
+                      "platform":  "P23",
+                      "switchX":  169.02313062977498,
+                      "switchY":  2.1,
+                      "firePoint":  {
+                                        "y":  2.6,
+                                        "x":  173.42313062977496
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T03",
+                      "kind":  "Teleport",
+                      "platform":  "P25",
+                      "switchX":  183.03139472717405,
+                      "switchY":  3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T04",
+                      "kind":  "Teleport",
+                      "platform":  "P26",
+                      "switchX":  190.44792292197218,
+                      "switchY":  3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A12",
+                      "kind":  "Arrow",
+                      "platform":  "P27",
+                      "switchX":  198.4727152141694,
+                      "switchY":  3.9,
+                      "firePoint":  {
+                                        "y":  4.4,
+                                        "x":  202.87271521416938
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T05",
+                      "kind":  "Teleport",
+                      "platform":  "P29",
+                      "switchX":  212.48097931156846,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T06",
+                      "kind":  "Teleport",
+                      "platform":  "P30",
+                      "switchX":  219.89750750636659,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A13",
+                      "kind":  "Arrow",
+                      "platform":  "P31",
+                      "switchX":  227.92229979856381,
+                      "switchY":  3,
+                      "firePoint":  {
+                                        "y":  3.5,
+                                        "x":  232.32229979856379
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T07",
+                      "kind":  "Teleport",
+                      "platform":  "P33",
+                      "switchX":  241.93056389596288,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T08",
+                      "kind":  "Teleport",
+                      "platform":  "P34",
+                      "switchX":  249.347092090761,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A14",
+                      "kind":  "Arrow",
+                      "platform":  "P35",
+                      "switchX":  257.37188438295823,
+                      "switchY":  1.2,
+                      "firePoint":  {
+                                        "y":  1.7000000000000002,
+                                        "x":  261.77188438295821
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T09",
+                      "kind":  "Teleport",
+                      "platform":  "P37",
+                      "switchX":  271.38014848035726,
+                      "switchY":  0.3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T10",
+                      "kind":  "Teleport",
+                      "platform":  "P38",
+                      "switchX":  278.79667667515542,
+                      "switchY":  0.3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A15",
+                      "kind":  "Arrow",
+                      "platform":  "P39",
+                      "switchX":  286.82146896735264,
+                      "switchY":  0.3,
+                      "firePoint":  {
+                                        "y":  0.8,
+                                        "x":  291.22146896735262
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T11",
+                      "kind":  "Teleport",
+                      "platform":  "P41",
+                      "switchX":  300.82973306475168,
+                      "switchY":  1.2,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T12",
+                      "kind":  "Teleport",
+                      "platform":  "P42",
+                      "switchX":  308.24626125954984,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A16",
+                      "kind":  "Arrow",
+                      "platform":  "P43",
+                      "switchX":  316.27105355174706,
+                      "switchY":  2.1,
+                      "firePoint":  {
+                                        "y":  3.5,
+                                        "x":  320.67105355174704
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T13",
+                      "kind":  "Teleport",
+                      "platform":  "P45",
+                      "switchX":  330.27931764914609,
+                      "switchY":  3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T14",
+                      "kind":  "Teleport",
+                      "platform":  "P46",
+                      "switchX":  337.69584584394426,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A17",
+                      "kind":  "Arrow",
+                      "platform":  "P47",
+                      "switchX":  345.72063813614147,
+                      "switchY":  3.9,
+                      "firePoint":  {
+                                        "y":  4.4,
+                                        "x":  350.12063813614145
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T15",
+                      "kind":  "Teleport",
+                      "platform":  "P49",
+                      "switchX":  359.72890223354051,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T16",
+                      "kind":  "Teleport",
+                      "platform":  "P50",
+                      "switchX":  367.14543042833867,
+                      "switchY":  3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A18",
+                      "kind":  "Arrow",
+                      "platform":  "P51",
+                      "switchX":  375.17022272053589,
+                      "switchY":  3,
+                      "firePoint":  {
+                                        "y":  3.5,
+                                        "x":  379.57022272053587
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T17",
+                      "kind":  "Teleport",
+                      "platform":  "P53",
+                      "switchX":  389.17848681793492,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T18",
+                      "kind":  "Teleport",
+                      "platform":  "P54",
+                      "switchX":  396.59501501273309,
+                      "switchY":  1.2,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A19",
+                      "kind":  "Arrow",
+                      "platform":  "P55",
+                      "switchX":  404.6198073049303,
+                      "switchY":  0.3,
+                      "firePoint":  {
+                                        "y":  0.8,
+                                        "x":  409.01980730493028
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T19",
+                      "kind":  "Teleport",
+                      "platform":  "P57",
+                      "switchX":  418.62807140232934,
+                      "switchY":  0.3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T20",
+                      "kind":  "Teleport",
+                      "platform":  "P58",
+                      "switchX":  426.0445995971275,
+                      "switchY":  0.3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "A20",
+                      "kind":  "Arrow",
+                      "platform":  "P59",
+                      "switchX":  434.06939188932472,
+                      "switchY":  0.3,
+                      "firePoint":  {
+                                        "y":  1.7000000000000002,
+                                        "x":  438.4693918893247
+                                    },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "projectileLifetime":  0.8,
+                      "projectileDamage":  8
+                  },
+                  {
+                      "id":  "T21",
+                      "kind":  "Teleport",
+                      "platform":  "P61",
+                      "switchX":  448.07765598672376,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T22",
+                      "kind":  "Teleport",
+                      "platform":  "P62",
+                      "switchX":  455.49418418152192,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T23",
+                      "kind":  "Teleport",
+                      "platform":  "P64",
+                      "switchX":  470.11071237632,
+                      "switchY":  3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T24",
+                      "kind":  "Teleport",
+                      "platform":  "P65",
+                      "switchX":  477.52724057111817,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T25",
+                      "kind":  "Teleport",
+                      "platform":  "P67",
+                      "switchX":  492.14376876591626,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T26",
+                      "kind":  "Teleport",
+                      "platform":  "P68",
+                      "switchX":  499.56029696071442,
+                      "switchY":  3.9,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T27",
+                      "kind":  "Teleport",
+                      "platform":  "P70",
+                      "switchX":  514.17682515551257,
+                      "switchY":  3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T28",
+                      "kind":  "Teleport",
+                      "platform":  "P71",
+                      "switchX":  521.59335335031074,
+                      "switchY":  2.1,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T29",
+                      "kind":  "Teleport",
+                      "platform":  "P73",
+                      "switchX":  536.209881545109,
+                      "switchY":  1.2,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  },
+                  {
+                      "id":  "T30",
+                      "kind":  "Teleport",
+                      "platform":  "P75",
+                      "switchX":  550.82640973990738,
+                      "switchY":  0.3,
+                      "destination":  "ZoneStartPoint",
+                      "cooldown":  3,
+                      "penaltyDamage":  0
+                  }
+              ]
+}

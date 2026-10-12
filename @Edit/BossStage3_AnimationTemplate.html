@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>화산 전갈 · 공격 애니메이션 7종</title>
+<style>
+body{margin:0;background:#151313;color:#eee7dc;font:16px system-ui}main{max-width:1050px;margin:24px auto;padding:20px}h1{font-size:26px}p{color:#c9bcae;line-height:1.6}nav{display:flex;gap:8px;flex-wrap:wrap}button,select{background:#302924;color:inherit;border:1px solid #78624b;border-radius:7px;padding:10px;cursor:pointer}button[aria-pressed=true]{background:#813711}canvas{display:block;width:100%;background:#211c1b;border-radius:12px;margin:18px 0}section{display:flex;align-items:center;gap:12px;flex-wrap:wrap}input{flex:1;min-width:160px;accent-color:#ff9a42}#phase{color:#ffc482}small{color:#b6a79a}
+</style><main>
+<h1>화산 전갈 · 일반 공격 5 / 필살기 2</h1>
+<p>화산암 집게와 용암 꼬리의 준비 → 타격 → 회복. 기존 스프라이트를 조합한 동작 시안입니다.</p>
+<nav id="patterns" aria-label="공격 패턴"></nav>
+<canvas id="stage" width="1000" height="480" aria-label="선택한 보스 공격 애니메이션"></canvas>
+<section><button id="play">정지</button><button id="mirror">방향: 오른쪽</button><label>속도 <select id="speed"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></label><input id="seek" type="range" min="0" max="1000" value="0" aria-label="동작 시점"><output id="phase"></output></section>
+<p id="detail"></p><small>주황 효과: 공격 · 붉은 표식: 예고 · 청색 표식: 플레이어 크기 참고. 충돌 및 피해 계산은 포함하지 않습니다.</small>
+</main><script>
+const patterns=__PATTERNS__, sources=__IMAGES__;
+const images={};let failed=0;
+const loads=Object.entries(sources).map(([key,src])=>new Promise(resolve=>{const im=new Image();im.onload=resolve;im.onerror=()=>{failed++;resolve()};im.src=src;images[key]=im}));
+const c=document.getElementById('stage'),ctx=c.getContext('2d'),seek=document.getElementById('seek'),phase=document.getElementById('phase');
+let index=0,t=0,running=true,sign=1,last=0,ready=false;
+// A single selected timeline controls both body poses and attack effects.
+patterns.forEach((p,i)=>{let b=document.createElement('button');b.textContent=p.kind+' · '+p.label;b.onclick=()=>{index=i;t=0;update()};document.getElementById('patterns').append(b)});
+function update(){const p=patterns[index];document.querySelectorAll('nav button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));document.getElementById('detail').textContent=`${p.label} · 피해 ${p.damage} · 회피: ${p.dodge} · 전체 ${p.duration.toFixed(2)}초`}
+document.getElementById('play').onclick=()=>{running=!running;document.getElementById('play').textContent=running?'정지':'재생'};
+document.getElementById('mirror').onclick=()=>{sign*=-1;document.getElementById('mirror').textContent=sign===1?'방향: 오른쪽':'방향: 왼쪽'};
+seek.oninput=()=>{t=Number(seek.value)/1000*patterns[index].duration};
+// Vector effects are deliberately separate from the original character artwork.
+function ellipse(x,y,rx,ry,color){ctx.fillStyle=color;ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fill()}
+function draw(){const p=patterns[index];ctx.clearRect(0,0,1000,480);ctx.fillStyle='#382923';ctx.fillRect(0,398,1000,82);ctx.strokeStyle='#a76337';ctx.beginPath();ctx.moveTo(0,398);ctx.lineTo(1000,398);ctx.stroke();
+ctx.save();if(sign<0){ctx.translate(1000,0);ctx.scale(-1,1)}
+let shift=p.id==='BasaltRush'?Math.max(0,Math.min(1,(t-.75)/.45))*180:0;
+const frame=p.frames.filter(f=>f.time<=t).at(-1)||p.frames[0];const im=images[frame.source];
+if(im&&im.complete&&im.naturalWidth){ctx.imageSmoothingEnabled=false;ctx.drawImage(im,75+shift,30,540,405)}
+ellipse(720,393,12,5,'#72c5e8');ctx.fillStyle='#72c5e8';ctx.fillRect(714,355,12,36);
+const active=t>=p.windup&&t<=p.activeEnd;
+if(t<p.windup){ellipse(p.id==='BasaltRush'?600:530,394,75,4,'#cf503e');ellipse(340+shift,130,12+8*t/p.windup,12+8*t/p.windup,'#ffa53199')}
+if(active&&['ClawCombo','TailSting'].includes(p.id)){ellipse(530+shift,p.id==='TailSting'?374:322,65,9,'#ffc75bbb')}
+if(active&&p.id==='ClawSlam'){ellipse(520,392,70+(t-.8)*160,9,'#ff9a39');}
+if(active&&p.id==='TailSweep'){ctx.strokeStyle='#ff9a39';ctx.lineWidth=15;ctx.beginPath();ctx.ellipse(345,378,190,14,0,0,Math.PI*2);ctx.stroke()}
+if(active&&p.id==='BasaltRush'){ctx.fillStyle='#ffab4255';ctx.fillRect(160+shift,372,250,22)}
+if(p.id==='LavaVolley'){[.8,1.05,1.3].forEach(start=>{const age=t-start;if(age>=0&&age<1){ellipse(420+age*330,150+age*230,14,14,'#ff7b26');ellipse(420+age*330,150+age*230,6,6,'#ffe585')}})}
+if(p.id==='GroundEruption'){[620,720,820].forEach(x=>{if(t<1.1){ellipse(x,394,24,5,'#f2644988')}else if(t<1.5){const h=130*Math.sin((t-1.1)/.4*Math.PI);ctx.fillStyle='#ff8326';ctx.beginPath();ctx.moveTo(x-24,398);ctx.lineTo(x-12,398-h*.7);ctx.lineTo(x,398-h);ctx.lineTo(x+24,398);ctx.fill()}})}
+ctx.restore();phase.textContent=`${t.toFixed(2)}초 · ${t<p.windup?'준비':t<=p.activeEnd?'타격':'회복'}`;seek.value=Math.round(t/p.duration*1000);
+if(!ready||failed){ctx.fillStyle='#fff';ctx.fillText(failed?'프레임을 불러오지 못했습니다':'프레임 로딩 중',30,35)}}
+// Reset on pattern selection and loop after a short readable recovery pause.
+function tick(now){const dt=last?Math.min((now-last)/1000,.1):0;last=now;if(ready&&running){t+=dt*Number(document.getElementById('speed').value);if(t>patterns[index].duration+.5)t=0}draw();requestAnimationFrame(tick)}
+Promise.all(loads).then(()=>ready=true);update();requestAnimationFrame(tick);
+</script></html>
