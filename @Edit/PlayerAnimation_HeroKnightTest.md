@@ -153,7 +153,7 @@ Hero_Knight_2는 그림을 교체하는 2D 애니메이션이므로 기존 기�
 - Assets/Sprites/Warrior/HeroKnightSlope에 최종 PNG 10장을 저장하고, Player_Warrior 및 P_Player_HeroKnightTest 프리팹에 연결했다. 기존 다중 프레임 검 공격과 같은 스프라이트 배열 방식으로 재생하며 별도 Animator 상태를 늘리지 않았다.
 - Stage1~5 각각의 저장된 의존성에서 새 프레임 10장 연결을 확인했다. Unity 콘솔 오류 0건. 플레이 모드 테스트는 실행하지 않았다.
 - 프롬프트/노드: slope_generation.json, slope_refinement.json, slope_masks.json. 원본/선택/분리/최종: slope_raw, slope_refined, slope_selected, slope_masks, slope_alpha, slope_final. 최종 PPU/피벗/발 위치: slope_import_settings.json.
-- 합성 미리보기: Player_Slope_Preview.gif/png. 실제 PNG/PPU/피벗을 사용한 25도 예시 경사의 좌우 모션 비교이며 게임 플레이 녹화는 아니다.
+- 합성 미리보기: Player_Slope_Preview.gif(`C:\Users\MBC-501-21\Documents\LHS\FinalProject_@Edit\hk2_gen\Player_Slope_Preview.gif`, 3MB 이상 산출물 보관 규칙)/png. 실제 PNG/PPU/피벗을 사용한 25도 예시 경사의 좌우 모션 비교이며 게임 플레이 녹화는 아니다.
 - 최종 발 피벗은 발의 갈색 부분뿐 아니라 검은 부츠 외곽선까지 포함한 실루엣 전체의 접지선 투영 최댓값으로 마무리했다. 설정된 가상 경사 기준선 아래에 부츠/검 외곽 픽셀이 남지 않도록 했다. 10장 모두 가장자리 불투명 픽셀 0, 분리 조각 0을 확인했다. 최종 마스크 노드 대응은 slope_final_mask_nodes.json에 기록했다.
 
 ## 2026-10-08 1-2 경사 모션 판정 보정

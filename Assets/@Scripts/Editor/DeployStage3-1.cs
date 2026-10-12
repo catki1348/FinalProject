@@ -24,8 +24,7 @@ public class DeployStage3_1
     private const float START_X = 1f;          // ZoneStartPoint_3-1 / 플레이어 시작 X (P00 중심)
     private const float OLD_BOUNDARY_1_2_X = 23f;
     private const float NEW_BOUNDARY_1_2_X = 413f;
-    // 콜라이더 기본 크기(Platform_Stage3_Lava 프리팹) - 스케일로 설계 폭/두께에 맞춘다
-    private const float COL_W = 1.1f, COL_H = 1.05f;
+    private const string TILED_SPRITE = "Assets/@ExternalAssets/Tiles/Platform_Stage3_Lava_Tiled.png";
 
     [Serializable] private class V2 { public float x, y; }
     [Serializable] private class Settings
@@ -167,7 +166,17 @@ public class DeployStage3_1
         var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
         go.name = $"Platform_3-1_{p.id}_{kind}";
         go.transform.position = pos;
-        go.transform.localScale = new Vector3(p.width / COL_W, p.thickness / COL_H, 1f);
+        go.transform.localScale = Vector3.one;
+        var renderer = go.GetComponent<SpriteRenderer>();
+        renderer.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(TILED_SPRITE);
+        renderer.drawMode = SpriteDrawMode.Tiled;
+        renderer.tileMode = SpriteTileMode.Continuous;
+        renderer.size = new Vector2(p.width, p.thickness);
+        var collider = go.GetComponent<BoxCollider2D>();
+        // 설계한 충돌 영역을 유지하고 이미지의 불규칙한 윤곽에 자동으로 맞추지 않는다.
+        collider.autoTiling = false;
+        collider.size = renderer.size;
+        collider.offset = Vector2.zero;
 
         if (p.type == "Damage")
         {

@@ -1,0 +1,79 @@
+[
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. Two alternating crescent claw slash trails with sharp impact sparks, directed to the right, no claws or character visible",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_ClawCombo_Effect.png",
+    "id": "ClawCombo",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "594ae28a-1460-4f5b-9cfd-abaca2361858",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_ClawCombo_Effect.png"
+  },
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. A narrow horizontal molten piercing streak aimed right, bright pointed tip and short ember trail",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_TailSting_Effect.png",
+    "id": "TailSting",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "76ff7cee-6d51-4a7e-b369-e9b03b0a1dcf",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_TailSting_Effect.png"
+  },
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. A compact ground impact burst, black basalt fragments and low spreading orange lava crack shockwave",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_ClawSlam_Effect.png",
+    "id": "ClawSlam",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "1d5a6e07-407d-4fdd-9882-dfa2973eb452",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_ClawSlam_Effect.png"
+  },
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. A broad low horizontal sweeping flame arc, flattened crescent with molten orange embers, side view",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_TailSweep_Effect.png",
+    "id": "TailSweep",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "27947b0b-0eaa-4d24-821b-55a25c6b73dc",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_TailSweep_Effect.png"
+  },
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. Horizontal rightward speed streaks, hot basalt dust and ember afterimage trail, no character",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_BasaltRush_Effect.png",
+    "id": "BasaltRush",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "44096069-73c2-444f-af03-88aef0d5d6a5",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_BasaltRush_Effect.png"
+  },
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. One spherical molten lava projectile with white-yellow core, orange crust fragments and a short leftward tail",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_LavaVolley_Effect.png",
+    "id": "LavaVolley",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "8776bf67-26c2-46ba-9cce-ba6f2422adbc",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_LavaVolley_Effect.png"
+  },
+  {
+    "prompt": "4K resolution. Isolated 2D side-scrolling game VFX sprite, chunky pixel art matching the volcanic scorpion boss, crisp square pixels, orange molten lava, yellow-white heat core, charcoal basalt accents, limited palette. True transparent alpha background. Full effect visible with generous transparent margin. No scenery, no boss, no player, no text, no watermark, no frame, no checkerboard drawn into the image. A vertical lava geyser erupting from a small glowing fissure, basalt fragments and upward embers",
+    "workflow": "https://3d.varco.ai/customWorkflow/fe151b90-92e9-4c56-bf67-f6aecbba9ef3",
+    "file": "T_Stage3_GroundEruption_Effect.png",
+    "id": "GroundEruption",
+    "status": "generated_downloaded_alpha_verified",
+    "nodeId": "a9c3cd78-1a7b-4ea6-a81a-47f79eaf57e6",
+    "model": "GPT Image 1.5",
+    "actualSize": "1024x1024",
+    "localPath": "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects/Generated/T_Stage3_GroundEruption_Effect.png"
+  }
+]

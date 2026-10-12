@@ -1,6 +1,7 @@
 # Build a portable animation study from existing frames; never modify Unity assets.
 $ErrorActionPreference = 'Stop'
-$frameRoot = Join-Path $PSScriptRoot '../Assets/Sprites/Bosses/Stage3_Lava/VolcanicScorpion/Frames'
+$externalBossRoot = Join-Path $PSScriptRoot '../Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion'
+$frameRoot = Join-Path $externalBossRoot 'Frames'
 function Frame($motion, $index, $time) {
     @{ source = "$motion/$('{0:D2}' -f $index).png"; time = $time }
 }
@@ -30,10 +31,22 @@ $manifest = @{version=1; boss='Stage3_VolcanicScorpion'; artwork='existing-frame
 $manifest | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $PSScriptRoot 'BossStage3_Patterns.json') -Encoding utf8
 # Embed images for offline playback and portability, preserving the source pixels and alpha.
 $images = @{}
+$effects = @{}
+foreach ($p in $patterns) {
+    $effectPath = Join-Path $externalBossRoot ('Effects/Generated/T_Stage3_' + $p.id + '_Effect.png')
+    if (!(Test-Path $effectPath)) { throw "Missing effect: $effectPath" }
+    $effects[$p.id] = 'data:image/png;base64,' + [Convert]::ToBase64String([IO.File]::ReadAllBytes($effectPath))
+}
 foreach ($p in $patterns) { foreach ($f in $p.frames) {
     if (!$images.ContainsKey($f.source)) { $images[$f.source] = 'data:image/png;base64,' + [Convert]::ToBase64String([IO.File]::ReadAllBytes((Join-Path $frameRoot $f.source))) }
 }}
 $template = Get-Content (Join-Path $PSScriptRoot 'BossStage3_AnimationTemplate.html') -Raw
 $template = $template.Replace('__PATTERNS__', ($patterns | ConvertTo-Json -Depth 8 -Compress)).Replace('__IMAGES__', ($images | ConvertTo-Json -Compress))
-$template | Set-Content (Join-Path $PSScriptRoot 'BossStage3_Animations.html') -Encoding utf8
-Write-Output "Validated 5 normal attacks + 2 ultimate attacks; embedded $($images.Count) existing frames."
+$template = $template.Replace('__EFFECTS__', ($effects | ConvertTo-Json -Compress))
+# Keep the large self-contained preview alongside external assets; retain the old entry link.
+$previewRoot = Join-Path $externalBossRoot 'Previews'
+New-Item -ItemType Directory -Force $previewRoot | Out-Null
+$template | Set-Content (Join-Path $previewRoot 'BossStage3_Animations.html') -Encoding utf8
+$entryHtml = '<!doctype html><html lang="ko"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Previews/BossStage3_Animations.html"><title>화산 전갈 동작 시안</title><a href="../Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Previews/BossStage3_Animations.html">애니메이션 시안 열기</a></html>'
+$entryHtml | Set-Content (Join-Path $PSScriptRoot 'BossStage3_Animations.html') -Encoding utf8
+Write-Output "Validated 5 normal attacks + 2 ultimate attacks; embedded $($images.Count) existing frames and $($effects.Count) generated effects."

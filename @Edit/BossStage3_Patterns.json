@@ -1,12 +1,8 @@
 {
-  "boss": "Stage3_VolcanicScorpion",
   "version": 1,
   "patterns": [
     {
-      "activeEnd": 0.8,
-      "duration": 1.2,
-      "damage": "12 × 2",
-      "label": "집게 교차 연타",
+      "kind": "일반",
       "frames": [
         {
           "source": "ClawCombo/01.png",
@@ -41,16 +37,16 @@
           "time": 1.15
         }
       ],
-      "id": "ClawCombo",
+      "activeEnd": 0.8,
+      "label": "집게 교차 연타",
+      "duration": 1.2,
       "dodge": "후퇴, 두 번째 집게 주의",
       "windup": 0.35,
-      "kind": "일반"
+      "id": "ClawCombo",
+      "damage": "12 × 2"
     },
     {
-      "activeEnd": 0.85,
-      "duration": 1.4,
-      "damage": "18",
-      "label": "용암 꼬리 찌르기",
+      "kind": "일반",
       "frames": [
         {
           "source": "TailSting/01.png",
@@ -77,16 +73,16 @@
           "time": 1.3
         }
       ],
-      "id": "TailSting",
+      "activeEnd": 0.85,
+      "label": "용암 꼬리 찌르기",
+      "duration": 1.4,
       "dodge": "점프 또는 사거리 이탈",
       "windup": 0.65,
-      "kind": "일반"
+      "id": "TailSting",
+      "damage": "18"
     },
     {
-      "activeEnd": 1.05,
-      "duration": 1.8,
-      "damage": "20",
-      "label": "화산암 집게 내려찍기",
+      "kind": "일반",
       "frames": [
         {
           "source": "GroundEruption/01.png",
@@ -113,16 +109,16 @@
           "time": 1.5
         }
       ],
-      "id": "ClawSlam",
+      "activeEnd": 1.05,
+      "label": "화산암 집게 내려찍기",
+      "duration": 1.8,
       "dodge": "타격에 맞춰 점프",
       "windup": 0.8,
-      "kind": "일반"
+      "id": "ClawSlam",
+      "damage": "20"
     },
     {
-      "activeEnd": 0.95,
-      "duration": 1.7,
-      "damage": "16",
-      "label": "작열 꼬리 휩쓸기",
+      "kind": "일반",
       "frames": [
         {
           "source": "TailSting/01.png",
@@ -149,16 +145,16 @@
           "time": 1.45
         }
       ],
-      "id": "TailSweep",
+      "activeEnd": 0.95,
+      "label": "작열 꼬리 휩쓸기",
+      "duration": 1.7,
       "dodge": "예고 후 점프",
       "windup": 0.7,
-      "kind": "일반"
+      "id": "TailSweep",
+      "damage": "16"
     },
     {
-      "activeEnd": 1.2,
-      "duration": 2.1,
-      "damage": "22",
-      "label": "현무암 집게 돌진",
+      "kind": "일반",
       "frames": [
         {
           "source": "GroundEruption/01.png",
@@ -205,16 +201,16 @@
           "time": 1.85
         }
       ],
-      "id": "BasaltRush",
+      "activeEnd": 1.2,
+      "label": "현무암 집게 돌진",
+      "duration": 2.1,
       "dodge": "돌진 경로를 점프로 통과",
       "windup": 0.75,
-      "kind": "일반"
+      "id": "BasaltRush",
+      "damage": "22"
     },
     {
-      "activeEnd": 1.55,
-      "duration": 2.3,
-      "damage": "16 / 탄",
-      "label": "용암 꼬리 탄막",
+      "kind": "필살기",
       "frames": [
         {
           "source": "LavaVolley/01.png",
@@ -249,16 +245,16 @@
           "time": 2.15
         }
       ],
-      "id": "LavaVolley",
+      "activeEnd": 1.55,
+      "label": "용암 꼬리 탄막",
+      "duration": 2.3,
       "dodge": "탄 사이로 이동·점프",
       "windup": 0.8,
-      "kind": "필살기"
+      "id": "LavaVolley",
+      "damage": "16 / 탄"
     },
     {
-      "activeEnd": 1.5,
-      "duration": 2.5,
-      "damage": "22 / 분출",
-      "label": "화산 지맥 폭발",
+      "kind": "필살기",
       "frames": [
         {
           "source": "GroundEruption/01.png",
@@ -285,11 +281,15 @@
           "time": 2.1
         }
       ],
-      "id": "GroundEruption",
+      "activeEnd": 1.5,
+      "label": "화산 지맥 폭발",
+      "duration": 2.5,
       "dodge": "경고 표식 밖으로 이동",
       "windup": 1.1,
-      "kind": "필살기"
+      "id": "GroundEruption",
+      "damage": "22 / 분출"
     }
   ],
-  "artwork": "existing-frame recomposition"
+  "artwork": "existing-frame recomposition",
+  "boss": "Stage3_VolcanicScorpion"
 }

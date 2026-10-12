@@ -40,3 +40,22 @@
 7종 정의, 각 프레임 파일 존재, 시간 오름차순 및 전체 길이 범위를 확인한다. 시안에서 선택·정지·속도·좌우 반전·타임라인 이동을 제공한다. 실제 전투 밸런스·Unity 컴파일·충돌 검수는 아직 수행하지 않았다.
 
 프로젝트 수칙 `LHS_Custumer.md` 9번: “Any work that uses Unity is carried out only after asking the user and receiving an answer.” 11번: “Do not perform any work through Unity unless explicitly instructed to work in Unity.” Unity 적용은 별도 승인을 받은 뒤 진행한다. 새 원화 생성 시에는 18번에 따라 연결된 이미지 워크플로우를 사용한다.
+
+## 공격 이펙트 생성 완료 (2026-10-12)
+사용자가 지정한 GPT_Work_Room 워크플로우 `fe151b90-92e9-4c56-bf67-f6aecbba9ef3`에서 일반 5종·필살기 2종의 공격 이펙트를 각각 독립 노드로 생성했다. Run All은 사용하지 않았다. 처음 Nano Banana Pro 출력의 체크무늬 배경 오류를 확인한 뒤 동일 워크플로우의 GPT Image 1.5로 재생성했다. 돌진은 밝은 진행부가 오른쪽, 잔상이 왼쪽에 오도록 추가 재생성했다.
+
+최종 PNG 7개는 `@Edit/BossStage3_Effects/`에 저장했다. 모두 1024×1024, 32비트 RGBA이며 투명 픽셀과 유효한 그림 픽셀을 샘플링해 확인했다. 4K는 프롬프트 요청이며 실제 4K 출력으로 표시하지 않는다. 전체 외형을 이미지별로 확인했다. 일부 광채와 암석 음영은 부드럽게 표현되어 엄격한 제한 팔레트 픽셀 스프라이트와는 차이가 있다. 단일 공격 이펙트 이미지이며 프레임 애니메이션 시트가 아니다. 집게 연타는 두 베기 효과가 함께 포함되어 있다.
+
+`BossStage3_Effects/index.html`에서 7종을 비교할 수 있다. 워크플로우 노드 ID·모델·실제 크기·저장 경로는 `BossStage3_EffectGenerationJobs.json`에 기록했다. Unity 에셋 폴더에 가져오거나 기존 애니메이션·씬에 적용하지 않았다.
+
+## 생성 이펙트가 포함된 동작 시안
+`BossStage3_Animations.html`에 생성 PNG 7종을 포함하고 공격 타이밍에 맞춰 위치·크기·투명도를 재생한다. 집게는 0.35/0.75초에 각 베기를, 탄막은 0.80/1.05/1.30초에 발사되는 세 용암탄을, 지맥 폭발은 세 경고 위치에서 동시 분출을 표현한다. 7종 순서 재생이 기본이며 개별 패턴 선택 시 해당 동작만 반복한다. 정지·속도·좌우·이펙트 표시·타임라인 이동을 제공한다.
+
+35개 기존 동작 프레임과 7개 생성 이펙트가 모두 포함되는 것을 확인하고 JavaScript 문법 검증을 통과했다. 브라우저 자동 검수는 로컬 file URL 접근 정책에 의해 차단되어 실행하지 못했다. Unity 전투 구현 또는 새 동작 프레임 생성은 포함하지 않는다.
+
+## @ExternalAssets 저장 정리
+사용자 요청에 따라 보스 동작 이미지·기존 효과를 `Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/`로 이동했다. 기존 `.meta` 및 GUID를 보존하고 이동 전후 SHA256을 확인했다. 신규 생성 이펙트 7개는 그 아래 `Effects/Generated/`에 저장한다. 프리팹 5개는 기존 `Assets/@ExternalAssets/@Prefab/` 위치를 유지한다.
+
+고용량 자체 포함 동작 시안은 같은 보스 폴더의 `Previews/BossStage3_Animations.html`에 저장하며, 기존 `@Edit/BossStage3_Animations.html`은 새 위치로 연결하는 작은 진입 파일이다. 생성 스크립트·Unity 에디터 조립 코드·생성 기록·이펙트 갤러리 참조를 갱신했다. 이후 시안을 재생성해도 새 저장 경로를 사용한다. 설계 문서는 `@Edit`에 유지한다.
+
+현재 `.gitignore`는 `Assets/@ExternalAssets` 전체를 제외한다. 이 정책은 변경하지 않았으므로 이동한 이미지와 시안은 Git으로 전달되지 않는다. 다른 PC로 옮길 때 해당 폴더를 별도로 복사해야 한다. 기존 GUID 참조는 로컬에서 유지되며 Git 커밋·푸시는 수행하지 않았다.

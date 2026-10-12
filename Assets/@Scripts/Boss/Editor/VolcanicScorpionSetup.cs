@@ -10,10 +10,10 @@ using UnityEditor.SceneManagement;
 // Reproducible Stage 3 boss asset assembly. This editor utility never runs in the game.
 public static class VolcanicScorpionSetup
 {
-    const string Frames = "Assets/Sprites/Bosses/Stage3_Lava/VolcanicScorpion/Frames";
+    const string Frames = "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Frames";
     const string Animations = "Assets/Animations/Boss/Stage3_VolcanicScorpion";
     const string Prefabs = "Assets/@ExternalAssets/@Prefab";
-    const string Effects = "Assets/Sprites/Bosses/Stage3_Lava/VolcanicScorpion/Effects";
+    const string Effects = "Assets/@ExternalAssets/Bosses/Stage3_VolcanicScorpion/Effects";
     static readonly string[] Names = { "Idle", "Walk", "ClawCombo", "TailSting", "LavaVolley", "GroundEruption", "Hit", "Groggy", "Death" };
     static readonly int[] Counts = { 4, 6, 8, 6, 8, 6, 3, 4, 8 };
     static readonly float[] Durations = { 1f, .6f, 1.2f, 1.4f, 2.3f, 2.5f, .3f, 1f, 1.6f };
