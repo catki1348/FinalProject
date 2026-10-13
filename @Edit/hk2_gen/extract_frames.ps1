@@ -7,7 +7,7 @@ param(
 # 스프라이트 시트를 프레임 단위로 잘라 (1) 흰 배경 위 확대 포즈 레퍼런스 PNG와 (2) 프레임별 캐릭터 바운딩 박스(원본 140px 좌표)를 출력한다
 Add-Type -AssemblyName System.Drawing
 
-$outDir = 'C:\Users\MBC-501-16\Desktop\FinalProject\@Edit\hk2_gen\pose'
+$outDir = "C:\Users\$env:USERNAME\Desktop\FinalProject\@Edit\hk2_gen\pose"
 $sheet = New-Object System.Drawing.Bitmap $SheetPath
 $count = [int]($sheet.Width / $FrameSize)
 $lines = @()

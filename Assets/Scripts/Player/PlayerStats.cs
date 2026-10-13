@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 
 // 플레이어의 공격력/방어력 스탯을 보유하고, 장비에 따른 최종 수치를 계산하는 스크립트
-// (체력은 PlayerHealth가 별도로 관리 - 규칙 39 SRP)
+// (체력은 PlayerHealth가 별도로 관리 - 규칙 35 SRP)
 [RequireComponent(typeof(PlayerEquipment))]
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private int baseAttack = 10;  // 초기 공격력
     [SerializeField] private int baseDefense = 5;  // 초기 방어력
 
-    private PlayerEquipment equipment; // 장착 상태 조회용(같은 오브젝트의 컴포넌트, GetComponent로 캐싱 - 규칙 41)
+    private PlayerEquipment equipment; // 장착 상태 조회용(같은 오브젝트의 컴포넌트, GetComponent로 캐싱 - 규칙 37)
 
     public int FinalAttack { get; private set; }
     public int FinalDefense { get; private set; }

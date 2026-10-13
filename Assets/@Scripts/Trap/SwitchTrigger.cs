@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-// 플레이어가 접촉하면 활성화 이벤트를 발생시키는 스위치. 구독자(발사기 등)를 알지 못한다(규칙 38: 이벤트 기반 통신).
+// 플레이어가 접촉하면 활성화 이벤트를 발생시키는 스위치. 구독자(발사기 등)를 알지 못한다(규칙 36: 이벤트 기반 통신).
 [RequireComponent(typeof(Collider2D))]
 public class SwitchTrigger : MonoBehaviour
 {

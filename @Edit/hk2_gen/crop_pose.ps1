@@ -8,7 +8,7 @@ param(
 # 프레임마다 같은 영역을 쓰므로 레퍼런스끼리 위치/크기 관계(달리기 시 위아래 흔들림 등)가 그대로 보존된다.
 Add-Type -AssemblyName System.Drawing
 
-$outDir = 'C:\Users\MBC-501-16\Desktop\FinalProject\@Edit\hk2_gen\pose'
+$outDir = "C:\Users\$env:USERNAME\Desktop\FinalProject\@Edit\hk2_gen\pose"
 $rows = Get-Content (Join-Path $outDir ("{0}_bbox.csv" -f $Name)) | ForEach-Object { ,($_.Split(',') | ForEach-Object { [int]$_ }) }
 $minX = ($rows | ForEach-Object { $_[1] } | Measure-Object -Minimum).Minimum
 $minY = ($rows | ForEach-Object { $_[2] } | Measure-Object -Minimum).Minimum

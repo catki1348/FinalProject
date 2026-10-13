@@ -11,7 +11,7 @@ using UnityEngine;
 public class FlyingChasePattern : MonoBehaviour, IMonsterPattern
 {
     [SerializeField] private Vector2 detectionSize = new Vector2(8f, 4f); // 플레이어 감지 영역 크기(스폰 위치가 중심)
-    [SerializeField] private LayerMask playerLayer;  // 플레이어로 인식할 레이어(태그/Find 대신 레이어 사용 - 규칙 41)
+    [SerializeField] private LayerMask playerLayer;  // 플레이어로 인식할 레이어(태그/Find 대신 레이어 사용 - 규칙 37)
     [SerializeField] private float moveSpeed = 3f;   // 추적 시 이동 속도
 
     [SerializeField] private PlatformPath path;              // 평소(비추적) 동선을 직접 지정하고 싶을 때만 연결(선택 사항)

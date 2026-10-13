@@ -15,6 +15,7 @@
 - [MapDesign_Stage2-4.md](MapDesign_Stage2-4.md) — 신규 작성
 - [MapDesign_Stage3-3.md](MapDesign_Stage3-3.md) — 신규 작성 (설계만, 77발판·함정 50개, Generate_Stage3-3.ps1로 재생성)
 - [MapDesign_Stage3-4.md](MapDesign_Stage3-4.md) — 신규 작성 (Unity 적용 완료, 12항)
+- [MapDesign_Stage4-1.md](MapDesign_Stage4-1.md) — 신규 작성 (22발판·함정 7·몬스터 15, 발판은 Unity 적용 완료(함정·몬스터는 설계만), 반시계 원형 고리, Generate_Stage4-1.ps1로 재생성)
 - [MapEdit.md](MapEdit.md) — 원래 위치: 프로젝트 루트
 - [Monster.md](Monster.md) — 신규 작성
 - [PlatformDesign_InteractiveFootholds.md](PlatformDesign_InteractiveFootholds.md) — 신규 작성

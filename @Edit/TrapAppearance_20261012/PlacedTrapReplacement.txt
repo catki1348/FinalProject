@@ -1,0 +1,5 @@
+Stage1: 0 replaced (); settings/links/colliders/transforms verified
+Stage2: 0 replaced (); settings/links/colliders/transforms verified
+Stage3: 45 replaced (Switch 20, Launcher 20, Teleport 5); settings/links/colliders/transforms verified
+Stage4: 0 replaced (); settings/links/colliders/transforms verified
+Stage5: 0 replaced (); settings/links/colliders/transforms verified

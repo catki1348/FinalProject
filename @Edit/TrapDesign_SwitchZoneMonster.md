@@ -3,11 +3,11 @@
 > 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트·프리팹 배치 등)은 `LHS_Custumer.md` 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
 > **개정 사유**: 1판을 실제 코드(`Projectile`, `PlayerCameraFollow`, `MovingPlatform`, `MonsterStats` 등)와 3-1·3-4 맵 설계서에 대조한 결과, 그대로 구현하면 동작하지 않거나 게임에 맞지 않는 부분이 발견되어 3항의 표대로 보완했습니다.
 > `LHS_Custumer.md` 반영 사항:
-> - 규칙 46/48: 문서는 `@Edit`, 신규 스크립트는 `Assets/@Scripts/Trap/`.
-> - 규칙 39(SRP): 스위치 / 발사기 / 투사체 / 존 트리거를 각각 분리, 존 진입 판정만 베이스로 추출.
-> - 규칙 40/41: `GameObject.Find`·태그/이름 비교 금지. 플레이어는 `attachedRigidbody.TryGetComponent<PlayerMovement>()`로 식별, 스위치→발사기는 C# `event`.
-> - 규칙 43: `Update` 안 할당 없음, `WaitForSeconds`는 필드 캐싱.
-> - 규칙 44: 각 스크립트에 기능 설명 주석 포함.
+> - 규칙 42/44: 문서는 `@Edit`, 신규 스크립트는 `Assets/@Scripts/Trap/`.
+> - 규칙 35(SRP): 스위치 / 발사기 / 투사체 / 존 트리거를 각각 분리, 존 진입 판정만 베이스로 추출.
+> - 규칙 36/37: `GameObject.Find`·태그/이름 비교 금지. 플레이어는 `attachedRigidbody.TryGetComponent<PlayerMovement>()`로 식별, 스위치→발사기는 C# `event`.
+> - 규칙 39: `Update` 안 할당 없음, `WaitForSeconds`는 필드 캐싱.
+> - 규칙 40: 각 스크립트에 기능 설명 주석 포함.
 
 ## 1. 요구사항 정리
 
@@ -96,7 +96,7 @@ public abstract class ZoneEventTrigger : MonoBehaviour
 세 스크립트로 분리: 접촉 감지 `SwitchTrigger`, 예고+발사 `ProjectileLauncher`, 비행/피해 `TrapProjectile`. 스위치 1개에 발사기 여러 개 연결 가능(이벤트 멀티캐스트).
 
 ```csharp
-// 플레이어가 접촉하면 활성화 이벤트를 발생시키는 스위치. 구독자(발사기 등)를 알지 못한다(규칙 40).
+// 플레이어가 접촉하면 활성화 이벤트를 발생시키는 스위치. 구독자(발사기 등)를 알지 못한다(규칙 36).
 [RequireComponent(typeof(Collider2D))]
 public class SwitchTrigger : MonoBehaviour
 {
@@ -400,7 +400,7 @@ public class MonsterSpawnTrigger : ZoneEventTrigger
 
 ## 9. 확인 필요 사항
 
-1. **프리팹 저장 위치(규칙 충돌)**: 규칙 23은 `@Prefab`, 규칙 42는 `@Resources` 하위를 요구합니다. 규칙 3(번호가 낮은 규칙 우선)에 따르면 `@Prefab`이 우선이지만, 규칙 5에 따라 확인을 요청합니다. 권장: `@Prefab/Trap/`.
+1. **프리팹 저장 위치(규칙 충돌)**: 규칙 23은 `@Prefab`, 규칙 38는 `@Resources` 하위를 요구합니다. 규칙 3(번호가 낮은 규칙 우선)에 따르면 `@Prefab`이 우선이지만, 규칙 5에 따라 확인을 요청합니다. 권장: `@Prefab/Trap/`.
 2. **투사체 피해량**: 기본 15(3-4 권장값)로 잡았습니다. 스테이지별로 다르게 할지(프리팹 변형) 확인 필요.
 3. **텔레포트 벌칙 피해**: 기본 0(순수 복귀)입니다. 3-4의 "진행을 잃는 벌칙형"만으로 충분한지, 소량 피해를 줄지.
 4. **예고 시간 0.5초 / 화면 밖 발사기**: 발사기가 화면 밖(13~26유닛)이라 예고 외형을 플레이어가 못 볼 수 있습니다. 경고음만으로 충분한지, 화면 가장자리 경고 표시가 필요한지.
@@ -409,7 +409,7 @@ public class MonsterSpawnTrigger : ZoneEventTrigger
 
 ## 10. 구현 시 생성/수정할 파일 목록
 
-**신규 스크립트** (`Assets/@Scripts/Trap/`, 규칙 48)
+**신규 스크립트** (`Assets/@Scripts/Trap/`, 규칙 44)
 1. `SwitchTrigger.cs`
 2. `TrapProjectile.cs`
 3. `ProjectileLauncher.cs`

@@ -2,7 +2,7 @@ using UnityEngine;
 
 // 비행 몬스터의 이동 방향(속도 x부호)에 따라 좌우 비행 애니메이션을 전환하고,
 // 공격 애니메이션 트리거를 외부(공격 패턴 스크립트 등)에 메서드로 노출한다.
-// 어떤 패턴 스크립트가 Rigidbody2D를 움직이든 그대로 동작하도록 이동 로직과는 분리한다(Monster.md 규칙 3, LHS_Custumer.md 규칙 39 SRP).
+// 어떤 패턴 스크립트가 Rigidbody2D를 움직이든 그대로 동작하도록 이동 로직과는 분리한다(Monster.md 규칙 3, LHS_Custumer.md 규칙 35 SRP).
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class MonsterFlightAnimator : MonoBehaviour

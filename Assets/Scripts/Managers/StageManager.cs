@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// 스테이지 진행 상태(1영역 시작 지점 스폰, 5영역 종료점 도달 시 클리어/엔딩 처리)를 관리하는 매니저(규칙 39).
+// 스테이지 진행 상태(1영역 시작 지점 스폰, 5영역 종료점 도달 시 클리어/엔딩 처리)를 관리하는 매니저(규칙 35).
 // 카메라 이동/줌 책임은 PlayerCameraFollow + CameraBoundsZone으로 이전됨(팔로우 카메라 구조 도입, @Edit/CameraDesign_FollowCamera.md 참고).
 public class StageManager : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class StageManager : MonoBehaviour
     // 현재 진행 중인 영역(1~5). 골인 지점(ZoneEndPoint)에 도달할 때마다 갱신된다(MapEdit.md 규칙 4).
     public int CurrentArea { get; private set; } = 1;
 
-    // 영역이 바뀔 때 구독자(디버그 UI 등)에게 알리는 이벤트(규칙 40: Find 대신 이벤트 기반 통신)
+    // 영역이 바뀔 때 구독자(디버그 UI 등)에게 알리는 이벤트(규칙 36: Find 대신 이벤트 기반 통신)
     public event System.Action<int> OnAreaChanged;
 
     // "스테이지-영역" 표기(규칙 3), 예: 1스테이지 2영역 -> "1-2"
@@ -38,6 +38,42 @@ public class StageManager : MonoBehaviour
         SoundManager.Instance.PlayAmbience(stageAmbience);
         CurrentArea = ResolveStartArea();
         MovePlayerToStartOfCurrentArea();
+        TryWarpToTestPlatform();
+    }
+
+    // 이름/발판 검증은 WarpManager, 실제 이동과 진행 상태 갱신은 StageManager가 담당한다.
+    public bool TryWarpToTestPlatform()
+    {
+        if (WarpManager.Instance == null ||
+            !WarpManager.Instance.TryGetTestPlatformPosition(player, out Vector2 position)) return false;
+
+        CameraBoundsZone destinationZone = null;
+        if (zoneCameraBounds != null)
+        for (int i = 0; i < zoneCameraBounds.Length; i++)
+        {
+            CameraBoundsZone zone = zoneCameraBounds[i];
+            if (zone == null) continue;
+            Bounds bounds = zone.WorldBounds;
+            if (position.x < bounds.min.x || position.x > bounds.max.x ||
+                position.y < bounds.min.y || position.y > bounds.max.y) continue;
+            CurrentArea = i + 1;
+            destinationZone = zone;
+            break;
+        }
+
+        if (player.TryGetComponent(out PlayerMovement movement))
+            movement.SetSlopeSlideEnabled(enableSection2SlopeSlide && CurrentArea == 2);
+        if (player.TryGetComponent(out Rigidbody2D body))
+        {
+            body.position = position;
+            body.linearVelocity = Vector2.zero;
+            body.angularVelocity = 0f;
+        }
+        else player.position = new Vector3(position.x, position.y, player.position.z);
+
+        if (cameraFollow != null) cameraFollow.SnapTo(position, destinationZone);
+        OnAreaChanged?.Invoke(CurrentArea);
+        return true;
     }
 
     // 시작할 영역(1~5)을 결정한다. WarpManager에 이 스테이지(stageIndex)에 대한 테스트 시작

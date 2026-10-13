@@ -1,5 +1,5 @@
 Add-Type -AssemblyName System.Drawing
-$dir = 'C:\Users\MBC-501-16\Desktop\FinalProject\@Edit\hk2_gen'
+$dir = "C:\Users\$env:USERNAME\Desktop\FinalProject\@Edit\hk2_gen"
 for ($i = 1; $i -le 8; $i++) {
     $p = New-Object System.Drawing.Bitmap (Join-Path $dir ("pose\run_crop_{0}.png" -f $i))
     $o = New-Object System.Drawing.Bitmap(128, 128)

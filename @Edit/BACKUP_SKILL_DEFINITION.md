@@ -1,3 +1,14 @@
+> 2026-10-13 변경: `/BackUp`의 기본 동작은 **Claude + GPT(Codex) 전체 로컬 세션 통합 백업**입니다.
+> 최신 명령 정의는 `.claude/commands/backup.md`, 실행은 `@Scripts/backup-session.ps1 -Verify`입니다.
+> 파일명은 `ai_sessions_backup_*.tar.gz`이며 `.claude`, `.codex`, 통합 `MANIFEST.json`을 포함합니다.
+> Codex 세션 원본·보관 세션·목록·SQLite 온라인 스냅샷을 저장하고 모든 파일의 SHA256을 검증합니다.
+> 기존 선택 세션/Markdown 내보내기 스크립트는 Claude 전용 보조 기능입니다.
+> 아래의 Claude 전용 전체 백업 설명·초기 메뉴·최종 확인 단계는 이전 버전 기록입니다.
+> 기본 명령은 대상 재선택 없이 양쪽을 백업하며, 실행 환경의 외부 경로 권한 승인은 별도로 적용됩니다.
+> Unity 파일과 로그인 인증 정보, ChatGPT 웹/클라우드 대화는 포함하지 않습니다.
+> 복원은 두 앱을 종료한 뒤 실행하며 Codex는 기본 `.codex` 위치에 복원됩니다. 다른 PC의 경로는 자동 치환하지 않습니다.
+> Python 3.12+가 필요하며 Codex 번들 런타임을 자동 탐색합니다.
+
 # /backup 명령어 AI 스킬 정의
 
 **파일**: `.claude/commands/backup.md`  
@@ -61,7 +72,7 @@ option = ask_user_question(
 ```markdown
 **백업 위치를 선택해주세요:**
 
-기본값: C:\Users\MBC-501-21\Documents\LHS\
+기본값: C:\Users\<현재 사용자명>\Documents\LHS\
 
 1. 기본값 사용 (권장)
 2. 다른 위치 입력
@@ -79,7 +90,7 @@ option = ask_user_question(
 AI가 실행:
 ```powershell
 # 세션 목록 자동 조회
-$projectDir = "$env:USERPROFILE\.claude\projects\C--Users-MBC-501-21-Documents-FinalProject"
+$projectDir = "$env:USERPROFILE\.claude\projects\C--Users-<현재 사용자명>-Documents-FinalProject"
 $sessions = Get-ChildItem $projectDir -Directory | Where-Object {$_.Name -notlike "memory"}
 
 # 각 세션의 메타데이터 로드
@@ -260,7 +271,7 @@ AI가 실시간으로 스크립트 출력 표시:
 ✅ **백업 완료!**
 
 **백업 정보:**
-- 파일: C:\Users\MBC-501-21\Documents\LHS\claude_backup_2sessions_2026-10-12_16-54.tar.gz
+- 파일: C:\Users\<현재 사용자명>\Documents\LHS\claude_backup_2sessions_2026-10-12_16-54.tar.gz
 - 크기: 285 MB
 - 세션: 2개 (150 + 1,200 메시지)
 - 소요 시간: 2분 30초
@@ -366,3 +377,4 @@ $cloudPaths = @{
 - `@Scripts/interactive-backup.ps1` - 대화형 스크립트
 - `@Scripts/backup-session.ps1` - 전체 백업
 - `SESSION_BACKUP_DESIGN.md` - 아키텍처
+

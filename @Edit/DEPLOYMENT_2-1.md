@@ -84,7 +84,7 @@
    - 카메라 범위 확인
 
 3. **커밋**
-   - git 커밋은 사용자가 직접 진행한다 (LHS_Custumer.md 규칙 48). Claude는 커밋/푸시하지 않는다.
+   - git 커밋은 사용자가 직접 진행한다 (LHS_Custumer.md 규칙 46). Claude는 커밋/푸시하지 않는다.
 
 ## 참고 문서
 - `MapDesign_Stage2-1.md` — 설계안 상세

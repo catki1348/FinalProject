@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-// Shift 입력으로 짧게 돌진하는 대시를 담당하는 스크립트(규칙 39, SRP - 이동과 분리)
+// Shift 입력으로 짧게 돌진하는 대시를 담당하는 스크립트(규칙 35, SRP - 이동과 분리)
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerDash : MonoBehaviour

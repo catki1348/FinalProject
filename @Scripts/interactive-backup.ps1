@@ -55,12 +55,11 @@ if (-not (Test-Path $projectDir)) {
 }
 
 # LHS_ROOT 동적 결정 (PC 독립)
-$lhsRootCandidates = @(
-    if ($env:OneDrive) { "$env:OneDrive\문서\LHS" },
-    if ($env:OneDrive) { "$env:OneDrive\Documents\LHS" },
-    "$env:USERPROFILE\Documents\LHS",
-    "$env:USERPROFILE\Downloads\LHS"
-)
+$lhsRootCandidates = @()
+if ($env:OneDrive) { $lhsRootCandidates += "$env:OneDrive\문서\LHS" }
+if ($env:OneDrive) { $lhsRootCandidates += "$env:OneDrive\Documents\LHS" }
+$lhsRootCandidates += "$env:USERPROFILE\Documents\LHS"
+$lhsRootCandidates += "$env:USERPROFILE\Downloads\LHS"
 
 $DefaultBackupRoot = $lhsRootCandidates | Where-Object { $_ -and (Test-Path $_) } | Select-Object -First 1
 

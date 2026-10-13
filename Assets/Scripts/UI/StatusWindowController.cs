@@ -4,7 +4,7 @@ using TMPro;
 // Enter 키로 스테이터스 창을 토글하고, 체력(최종 최대체력)/공격력/방어력을 순서대로 표기
 public class StatusWindowController : MonoBehaviour
 {
-    [SerializeField] private PlayerHealth playerHealth; // 체력(최종 최대체력) 조회용 - Inspector 드래그 (규칙 40 - Find 금지)
+    [SerializeField] private PlayerHealth playerHealth; // 체력(최종 최대체력) 조회용 - Inspector 드래그 (규칙 36 - Find 금지)
     [SerializeField] private PlayerStats playerStats;   // 공격력/방어력 조회용 - Inspector 드래그
     [SerializeField] private GameObject statusWindow;   // 토글 대상 UI 루트(기본 비활성 상태로 둘 것)
     [SerializeField] private TMP_Text healthValueText;

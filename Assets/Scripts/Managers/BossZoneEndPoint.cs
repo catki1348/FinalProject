@@ -3,7 +3,7 @@ using UnityEngine;
 // 5영역(보스존)의 골인 지점 마커. 기획 컨셉 이미지의 원(○)에 대응한다.
 // 일반 ZoneEndPoint와 달리 처음에는 비활성 상태이며, Boss.OnBossDefeated 이벤트를 받은 뒤에만
 // 콜라이더가 켜져 실제로 통과할 수 있다(MapEdit.md 규칙 8: 보스를 처치해야 종료점이 생성됨).
-// 규칙 40: GameObject.Find로 보스를 찾지 않고 정적 이벤트 구독만으로 연결한다.
+// 규칙 36: GameObject.Find로 보스를 찾지 않고 정적 이벤트 구독만으로 연결한다.
 [RequireComponent(typeof(BoxCollider2D))]
 public class BossZoneEndPoint : MonoBehaviour
 {

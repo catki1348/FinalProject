@@ -1,3 +1,14 @@
+> 2026-10-13 변경: `/BackUp`의 기본 동작은 **Claude + GPT(Codex) 전체 로컬 세션 통합 백업**입니다.
+> 최신 명령 정의는 `.claude/commands/backup.md`, 실행은 `@Scripts/backup-session.ps1 -Verify`입니다.
+> 파일명은 `ai_sessions_backup_*.tar.gz`이며 `.claude`, `.codex`, 통합 `MANIFEST.json`을 포함합니다.
+> Codex 세션 원본·보관 세션·목록·SQLite 온라인 스냅샷을 저장하고 모든 파일의 SHA256을 검증합니다.
+> 기존 선택 세션/Markdown 내보내기 스크립트는 Claude 전용 보조 기능입니다.
+> 아래의 Claude 전용 전체 백업 설명·초기 메뉴·최종 확인 단계는 이전 버전 기록입니다.
+> 기본 명령은 대상 재선택 없이 양쪽을 백업하며, 실행 환경의 외부 경로 권한 승인은 별도로 적용됩니다.
+> Unity 파일과 로그인 인증 정보, ChatGPT 웹/클라우드 대화는 포함하지 않습니다.
+> 복원은 두 앱을 종료한 뒤 실행하며 Codex는 기본 `.codex` 위치에 복원됩니다. 다른 PC의 경로는 자동 치환하지 않습니다.
+> Python 3.12+가 필요하며 Codex 번들 런타임을 자동 탐색합니다.
+
 # AI 세션 백업/내보내기 도구 설계
 
 **작성**: 2026-10-12  
@@ -30,7 +41,7 @@
 {
   "pid": 1732,
   "sessionId": "2812579a-ecee-485f-bc45-60f1e059f3bb",
-  "cwd": "C:\\Users\\MBC-501-21\\Documents\\FinalProject",
+  "cwd": "C:\\Users\\<현재 사용자명>\\Documents\\FinalProject",
   "startedAt": 1791784915534,
   "procStart": "134362585147530755",
   "version": "2.1.295",
@@ -120,7 +131,7 @@
 **목표**: 포맷 후 완전 복구
 
 ```
-C:\Users\MBC-501-21\Documents\LHS\
+C:\Users\<현재 사용자명>\Documents\LHS\
 ├── claude_backup_YYYYMMDD_HHMMSS.tar.gz
 │   ├── .claude/
 │   │   ├── sessions/
@@ -172,7 +183,7 @@ session_export_{sessionId}/
 
 #### 선택 백업 (옵션)
 ```
-- C:\Users\MBC-501-21\Documents\LHS\  (지정된 백업 경로)
+- C:\Users\<현재 사용자명>\Documents\LHS\  (지정된 백업 경로)
 - ~/.claude/plugins/                  (플러그인)
 - ~/.claude/skills/                   (스킬)
 ```
@@ -196,7 +207,7 @@ session_export_{sessionId}/
   "sessionId": "2812579a-ecee-485f-bc45-60f1e059f3bb",
   "pid": 1732,
   "name": "수칙 추가",
-  "project": "C:\\Users\\MBC-501-21\\Documents\\FinalProject",
+  "project": "C:\\Users\\<현재 사용자명>\\Documents\\FinalProject",
   "startedAt": "2026-10-12T05:25:23.054Z",
   "updatedAt": "2026-10-12T05:32:38.972Z",
   "status": "idle",
@@ -321,13 +332,13 @@ cp -r backup_raw_2026-10-12/\.claude/projects/{project}/* \
 
 ```
 프로젝트 루트:
-C:\Users\MBC-501-21\Documents\FinalProject
+C:\Users\<현재 사용자명>\Documents\FinalProject
 
 Claude 홈:
-C:\Users\MBC-501-21\.claude\
+C:\Users\<현재 사용자명>\.claude\
 
 백업 저장 경로:
-C:\Users\MBC-501-21\Documents\LHS\
+C:\Users\<현재 사용자명>\Documents\LHS\
 
 이 설계 문서:
 @Edit/SESSION_BACKUP_DESIGN.md
@@ -358,3 +369,4 @@ C:\Users\MBC-501-21\Documents\LHS\
 - 프로젝트별 세션: 6-7개
 - 파일 히스토리 용량: ~50KB
 - 자동 백업: 5개 (각 ~60KB)
+

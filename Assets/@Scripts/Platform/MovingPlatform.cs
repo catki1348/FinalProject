@@ -78,6 +78,57 @@ public class MovingPlatform : PlatformBehaviour
 
     [SerializeField] private float riderDetectMargin = 0.15f; // 발판 윗면 기준 이 두께만큼 위쪽까지 겹침 판정(탑승자 인식용)
 
+    // (선택 기능) 플레이어 시야 밖에서는 기본 속도(speed)의 offscreenSpeedMultiplier배로 움직인다. 이동 속도뿐
+    // 아니라 출발 대기/양 끝 대기 시간도 같은 배율로 빨리 흐른다.
+    // 기본값은 1(끔)이다 - 시야 밖 발판만 빨리 움직이면 인접 이동 발판끼리 맞춰 둔 위상(주기)이 어긋난 채 시야에
+    // 들어와, 두 발판이 서로 가까워지는 순간이 영영 오지 않아 플레이어가 하염없이 기다리게 될 수 있다(Test001
+    // 에서 05~07 발판으로 확인). 그래서 인접한 발판이 "이동형인 경우"에는 이 기능이 아니라 이동 경로가 교차하고
+    // 점프 가능 시점이 반드시 오는 쌍 배치로 대기를 줄이고(MapEdit.md 20~23, MovingPlatform_IdealLayout.md),
+    // 인접한 발판이 이동형이 아닌 경우(위상을 맞출 상대가 없음)에만 이 값을 올려 플레이어가 시야 밖 발판을
+    // 기다리는 시간을 줄인다(Stage3 3-2 승강/대각/수평 발판에 사용 - 앞뒤가 모두 일반/데미지/점멸 발판).
+    // 시야 판정은 카메라 가시 영역을 여유 거리만큼 넓혀서 한다 - 화면에 들어오는 순간 고속인 채로 보이지 않도록,
+    // 배율은 화면 밖 여유 구간에서 이미 기본 속도로 복귀한다. 여유 거리 = offscreenMargin + 감속에 필요한 거리
+    // (고속에서 기본 속도로 돌아오는 동안 이동하는 거리 - 속도가 빠른 발판일수록 자동으로 커진다).
+    // 탑승자가 있으면 항상 기본 속도(탑승자 위치 보정이 고속 이동을 따라가지 못하므로).
+    [SerializeField, Min(1f)] private float offscreenSpeedMultiplier = 1f;
+    [SerializeField, Min(0f)] private float offscreenMargin = 2f;
+    [SerializeField, Min(0f)] private float speedBlendRate = 20f; // 배율이 목표값으로 수렴하는 속도(배율/초)
+    private float currentSpeedMultiplier = 1f;
+    private Camera viewCamera;
+
+    // 발판 콜라이더가 (여유를 더한) 카메라 가시 영역과 겹치면 시야 안으로 본다. 카메라가 없으면 항상 시야 안.
+    private bool IsInPlayerView()
+    {
+        if (viewCamera == null || !viewCamera.isActiveAndEnabled) viewCamera = Camera.main;
+        if (viewCamera == null) return true;
+
+        Bounds b = col.bounds;
+        if (viewCamera.orthographic)
+        {
+            // 감속 거리: 배율이 (mult -> 1)로 줄어드는 시간 (mult-1)/blendRate 동안 평균 속도 speed*(mult+1)/2로 이동
+            float slowDownDistance = speedBlendRate > 0f
+                ? speed * (offscreenSpeedMultiplier + 1f) * 0.5f * (offscreenSpeedMultiplier - 1f) / speedBlendRate
+                : 0f;
+            float margin = offscreenMargin + slowDownDistance;
+            float halfH = viewCamera.orthographicSize + margin;
+            float halfW = viewCamera.orthographicSize * viewCamera.aspect + margin;
+            Vector3 c = viewCamera.transform.position;
+            return b.max.x >= c.x - halfW && b.min.x <= c.x + halfW &&
+                   b.max.y >= c.y - halfH && b.min.y <= c.y + halfH;
+        }
+
+        Vector3 vp = viewCamera.WorldToViewportPoint(b.center);
+        return vp.z > 0f && vp.x > -0.2f && vp.x < 1.2f && vp.y > -0.2f && vp.y < 1.2f;
+    }
+
+    private float UpdateSpeedMultiplier()
+    {
+        bool boost = riders.Count == 0 && !IsInPlayerView();
+        float goal = boost ? offscreenSpeedMultiplier : 1f;
+        currentSpeedMultiplier = Mathf.MoveTowards(currentSpeedMultiplier, goal, speedBlendRate * Time.fixedDeltaTime);
+        return currentSpeedMultiplier;
+    }
+
     private Rigidbody2D rb;
     private BoxCollider2D col;
     private Vector2 startPosition;
@@ -189,12 +240,14 @@ public class MovingPlatform : PlatformBehaviour
         if (PointCount < 2) return;
         EnsureCached();
 
+        float speedMultiplier = UpdateSpeedMultiplier();
+
         // 출발 대기 중이거나 Once 모드로 도착해 멈춘 상태에서도 탑승자 판정과 Y속도 정리는 계속한다
         // (대기 중 올라탄 대상도 탑승자로 인식해 두고, 올라가던 발판이 멈춘 순간 탑승자에게 남은
         // 상승 속도를 정리해 튀어 오르지 않게 하기 위함).
         if (finished || delayRemaining > 0f)
         {
-            if (delayRemaining > 0f) delayRemaining -= Time.fixedDeltaTime;
+            if (delayRemaining > 0f) delayRemaining -= Time.fixedDeltaTime * speedMultiplier;
             CarryRiders(Vector2.zero);
             UpdateRiders(currentPosition);
             return;
@@ -202,7 +255,7 @@ public class MovingPlatform : PlatformBehaviour
 
         Vector2 previousPosition = currentPosition;
         Vector2 target = GetPoint(targetIndex);
-        Vector2 next = Vector2.MoveTowards(currentPosition, target, speed * Time.fixedDeltaTime);
+        Vector2 next = Vector2.MoveTowards(currentPosition, target, speed * speedMultiplier * Time.fixedDeltaTime);
 
         // 시작 지점 기준 MaxTravelDistance를 넘어서는 지점으로는 절대 이동하지 않도록 재클램프.
         // 경로가 이보다 길게 설계되어도 발판은 이 경계에서 멈춘다(다음 지점으로 넘어가지 않음).
@@ -296,7 +349,10 @@ public class MovingPlatform : PlatformBehaviour
             if (!riders.ContainsKey(otherRb))
             {
                 riders.Add(otherRb, otherRb.transform.parent);
-                Vector3 worldPosBeforeReparent = otherRb.transform.position;
+                // Transform이 아니라 rb.position을 기준으로 삼는다 - 워프/텔레포트처럼 rb.position만 먼저 옮겨진
+                // 직후에는 transform.position이 물리 스텝 전이라 옛 위치를 가리켜, 그 값으로 복원하면 이동이
+                // 취소된다(WarpManager 발판 워프가 이동형 발판에서 동작하지 않던 원인, Test001 추적으로 확인).
+                Vector3 worldPosBeforeReparent = new Vector3(otherRb.position.x, otherRb.position.y, otherRb.transform.position.z);
                 otherRb.transform.SetParent(transform, false);
                 otherRb.transform.position = worldPosBeforeReparent;
                 otherRb.position = worldPosBeforeReparent;
@@ -325,7 +381,7 @@ public class MovingPlatform : PlatformBehaviour
             riders.Remove(leavingRb);
             if (leavingRb != null)
             {
-                Vector3 worldPosBeforeUnparent = leavingRb.transform.position;
+                Vector3 worldPosBeforeUnparent = new Vector3(leavingRb.position.x, leavingRb.position.y, leavingRb.transform.position.z);
                 leavingRb.transform.SetParent(originalParent, false);
                 leavingRb.transform.position = worldPosBeforeUnparent;
                 leavingRb.position = worldPosBeforeUnparent;

@@ -29,7 +29,7 @@
   - `FinalMaxHealth = baseHealth + Σ(장착 아이템.healthBonus)`
   - `FinalAttack = baseAttack + Σ(장착 아이템.attackBonus)`
   - `FinalDefense = baseDefense + Σ(장착 아이템.defenseBonus)`
-- 이벤트(규칙 40 - 이벤트 기반, `Find` 금지):
+- 이벤트(규칙 36 - 이벤트 기반, `Find` 금지):
   - `event Action<int,int> OnHealthChanged` (currentHealth, finalMaxHealth) → 체력 게이지 HUD 갱신용
   - `event Action<int,int,int> OnStatsChanged` (finalMaxHealth, finalAttack, finalDefense) → 스테이터스 창 갱신용
 - 재계산 트리거: `Awake()`에서 `PlayerEquipment.OnEquipmentChanged += (_, _) => RecalculateStats()` 구독, 시작 시 1회 초기 계산.
@@ -95,7 +95,7 @@ Canvas
 
 ### 스크립트: `Assets/Scripts/UI/StatusWindowController.cs`
 
-- `PlayerStats` 참조(Inspector 드래그, `Find` 금지 - 규칙 40/41).
+- `PlayerStats` 참조(Inspector 드래그, `Find` 금지 - 규칙 36/37).
 - `Update()`에서 Enter 입력 감지 → `ToggleWindow()`.
 - `ToggleWindow()`: `StatusWindow` GameObject의 `SetActive` 토글. 열릴 때 `PlayerStats.OnStatsChanged` 최신값으로 3개 행 갱신(또는 상시 구독해두고 열려있을 때만 반영).
 - 각 행(`StatRow_*`)은 Label 고정 텍스트 + Value만 갱신하는 단순 구조 — 별도 `StatRowView` 컴포넌트로 분리하면 재사용 가능(선택 사항).

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 플레이어를 연속으로 추적하되, 현재 활성 구간(CameraBoundsZone) 범위를 벗어나지 않도록 클램프하는 카메라 컨트롤러.
-// 구간 전환은 SectionEdgeTrigger가 SetActiveZone 호출로 알려준다(규칙 40: 이벤트/직접 호출 기반, Find 금지).
+// 구간 전환은 SectionEdgeTrigger가 SetActiveZone 호출로 알려준다(규칙 36: 이벤트/직접 호출 기반, Find 금지).
 [RequireComponent(typeof(Camera))]
 public class PlayerCameraFollow : MonoBehaviour
 {

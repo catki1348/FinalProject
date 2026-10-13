@@ -32,7 +32,7 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$SessionId,
 
-    [string]$ProjectPath = "C:\Users\MBC-501-21\Documents\FinalProject",
+    [string]$ProjectPath = (Join-Path $env:USERPROFILE "Documents\FinalProject"),
     [string]$OutputPath,
     [ValidateSet('markdown', 'json', 'both')]
     [string]$Format = 'both'
@@ -40,9 +40,7 @@ param(
 
 # 상수
 $ClaudeHome = "$env:USERPROFILE\.claude"
-$ProjectDir = Join-Path $ClaudeHome "projects" ((Split-Path $ProjectPath -Leaf).Replace('\', '-') + "-$($ProjectPath.GetHashCode())")
-# 수정: 실제 프로젝트 디렉토리명 계산 (URL 인코딩된 형태)
-$ProjectDir = Join-Path $ClaudeHome "projects" "C--Users-MBC-501-21-Documents-FinalProject"
+$ProjectDir = Join-Path $ClaudeHome "projects" ($ProjectPath -replace '[:\\/]', '-')
 
 if (-not $OutputPath) {
     $OutputPath = ".\session_export_$($SessionId.Substring(0, 8))"

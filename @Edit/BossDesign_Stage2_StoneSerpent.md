@@ -4,7 +4,7 @@
 > 일반 공격 2종 + 특수 공격 2종으로 확장한 설계.
 > **2026-10-02 Unity 적용 완료**(사용자 요청). 에셋·스크립트·프리팹 생성, 플레이어 프리팹에 석화 컴포넌트 추가, Stage2 2-5 보스존 배치 및 임시 씬 플레이 테스트까지 완료(아래 7장).
 > 적용 전 원본 패키지(Unity `Assets` 구조 그대로):
-> `C:\Users\MBC-501-16\Downloads\LHS\컨셉\@Boss_Stage2_Serpent\UnityReady\Assets\`
+> `C:\Users\<현재 사용자명>\Downloads\LHS\컨셉\@Boss_Stage2_Serpent\UnityReady\Assets\`
 
 원본 테마 이미지: `Assets/Sprites/Bosses/Stage2_Transition/05_StoneSerpent_pixel.png`(보스 컨셉 생성 때 최종 채택된 도트 버전)
 
@@ -43,7 +43,7 @@
 ### 석화 상태이상 (`IPetrifiable` / `PlayerPetrify.cs`)
 - 광선이 맞은 대상에 `IPetrifiable`이 있으면 `Petrify(1.5초)` 호출(공격 측은 플레이어 타입을 모름 - `IDamageable`과 같은 방식).
 - `PlayerPetrify`: 석화 동안 `PlayerMovement`/`PlayerCombat`/`PlayerDash`를 꺼서 이동·공격·대시 불가, 좌우 속도 0 고정(중력 낙하는 유지), 스프라이트 회색. 피해는 그대로 받음(무적 아님). 기존 플레이어 스크립트는 **수정하지 않음**.
-- 시작/해제를 `OnPetrifyChanged` 이벤트로 알림(UI·사운드 연결용, 규칙 40).
+- 시작/해제를 `OnPetrifyChanged` 이벤트로 알림(UI·사운드 연결용, 규칙 36).
 
 ## 3. 애니메이션
 
@@ -97,7 +97,7 @@
 1. `UnityReady\Assets\` 아래 폴더를 프로젝트 `Assets\`에 그대로 복사(.meta 포함 → GUID가 이미 연결되어 있어 클립·컨트롤러 참조가 바로 유지됨).
    - `Assets/Sprites/Bosses/Stage2_Transition/StoneSerpent/` (프레임 18 + VFX 2)
    - `Assets/Animations/Boss/Stage2_StoneSerpent/` (클립 8 + 컨트롤러)
-   - `Assets/@Scripts/Boss/StoneSerpentController.cs`, `IPetrifiable.cs`, `Assets/@Scripts/Player/PlayerPetrify.cs` (규칙 48)
+   - `Assets/@Scripts/Boss/StoneSerpentController.cs`, `IPetrifiable.cs`, `Assets/@Scripts/Player/PlayerPetrify.cs` (규칙 44)
 2. 프리팹 `Boss_Stage2_StoneSerpent`를 `@Prefab`에 생성(규칙 23, 트렌트 프리팹과 같은 구성):
 
 ```
@@ -138,7 +138,7 @@ Boss_Stage2_StoneSerpent  (Layer: 트렌트와 동일 9)
   - `03_move_1`: 똬리가 완전히 풀려 `04`와 형태 차이가 커 이동 루프가 튐 → 똬리 유지한 채 앞으로 기운 자세로 재생성
 - 원본/후보 이미지: `@Boss_Stage2_Serpent\_work\` (`raw` 원본, `retry` 재생성 후보, `frames_src` 채택본, `norm2` 정렬본)
 - 사용 크레딧: 약 520 (이미지 1장 20 × 26장: 기준 프레임 3 + 본 생성 19 + 재생성 후보 4)
-- 워크플로우 노드: x 42000~43800 구역(ImageInput `fe9f8464…`이 기준 프레임 v2a). 재생성 시 해당 TextInput 프롬프트만 수정해 재사용(규칙 27).
+- 워크플로우 노드: x 42000~43800 구역(ImageInput `fe9f8464…`이 기준 프레임 v2a). 재생성 시 해당 TextInput 프롬프트만 수정해 재사용.
 
 ## 7. Unity 적용 결과 (2026-10-02)
 

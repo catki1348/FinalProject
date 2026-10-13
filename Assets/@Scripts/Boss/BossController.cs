@@ -6,7 +6,7 @@ using UnityEngine;
 // - 근접하면 양손을 번갈아 주먹질(일반 공격)
 // - 일정 쿨다운마다 플레이어 쪽으로 점프해 내려찍기(특수 공격, 지면 충격파)
 // - 짧은 시간에 큰 피해가 누적되면 그로기(스턴) 상태가 되어 잠시 무방비
-// 체력/사망은 Boss.cs가 담당하고(SRP, 규칙 39), 이 스크립트는 Boss의 이벤트를 구독해 행동만 결정한다.
+// 체력/사망은 Boss.cs가 담당하고(SRP, 규칙 35), 이 스크립트는 Boss의 이벤트를 구독해 행동만 결정한다.
 // 원점(transform.position)은 보스의 발밑 중앙이며, 애니메이션은 자식 Visual의 Animator가 재생한다.
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Boss))]
@@ -77,7 +77,7 @@ public class BossController : MonoBehaviour
     private float nextSpecialTime;
     private float staggerGauge;                              // 누적 피해량(그로기 게이지)
     private float groggyImmuneUntil;
-    private readonly Collider2D[] hitBuffer = new Collider2D[8]; // 판정 결과 버퍼(매번 새로 할당하지 않기 위해 캐싱 - 규칙 43)
+    private readonly Collider2D[] hitBuffer = new Collider2D[8]; // 판정 결과 버퍼(매번 새로 할당하지 않기 위해 캐싱 - 규칙 39)
     private readonly Rigidbody2D[] hitBodies = new Rigidbody2D[8]; // 한 번의 판정에서 같은 대상을 중복 타격하지 않기 위한 목록
 
     public BossState State { get; private set; } = BossState.Idle;

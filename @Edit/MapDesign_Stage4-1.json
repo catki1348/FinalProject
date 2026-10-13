@@ -1,0 +1,849 @@
+﻿{
+    "stage":  "4-1",
+    "status":  "design-only",
+    "unitsPerDesignUnit":  8,
+    "nominalRouteLength":  479.99999999999989,
+    "designRouteLength":  59.999999999999986,
+    "routeMetric":  "sum of distances between platform centres; each mover contributes its path (end to end); counter-clockwise ring, start at ring bottom",
+    "ring":  {
+                 "shape":  "tangent octagon around a circle",
+                 "tangentRadius":  67.403827868681958,
+                 "centre":  {
+                                "y":  67.403827868681958,
+                                "x":  0
+                            },
+                 "direction":  "counter-clockwise",
+                 "tangentAngleDeg":  55
+             },
+    "budget":  {
+                   "Normal":  11,
+                   "Moving":  6,
+                   "Disappearing":  3,
+                   "Damage":  2
+               },
+    "start":  {
+                  "y":  0,
+                  "x":  0
+              },
+    "goal":  {
+                 "y":  0,
+                 "x":  -33.088211869497343
+             },
+    "bounds":  {
+                   "minX":  -86.403827868681958,
+                   "maxX":  86.403827868681958,
+                   "minY":  -8,
+                   "maxY":  147.80765573736392
+               },
+    "platforms":  [
+                      {
+                          "id":  "P00",
+                          "name":  "Start(2-1)",
+                          "type":  "Normal",
+                          "x":  0,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P01",
+                          "name":  "Stone(2-1)",
+                          "type":  "Normal",
+                          "x":  5,
+                          "surfaceY":  0,
+                          "width":  1,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P02",
+                          "name":  "Hill(2-1)",
+                          "type":  "Normal",
+                          "x":  9.5,
+                          "surfaceY":  0.8,
+                          "width":  3,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P03",
+                          "name":  "H1",
+                          "type":  "Damage",
+                          "x":  14,
+                          "surfaceY":  0,
+                          "width":  2,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P04",
+                          "name":  "V1",
+                          "type":  "Normal",
+                          "x":  28.294105934748682,
+                          "surfaceY":  0,
+                          "width":  21.588211869497364,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P05",
+                          "name":  "M1",
+                          "type":  "Moving",
+                          "x":  42.588211869497364,
+                          "surfaceY":  0,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "travel":  49.292899096958017,
+                          "path":  [
+                                       {
+                                           "y":  -0.25,
+                                           "x":  42.588211869497364
+                                       },
+                                       {
+                                           "y":  45.901482575879044,
+                                           "x":  59.903827868681944
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  0,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  6,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P06",
+                          "name":  "V2",
+                          "type":  "Normal",
+                          "x":  67.403827868681944,
+                          "surfaceY":  46.151482575879044,
+                          "width":  8,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P07",
+                          "name":  "M2",
+                          "type":  "Moving",
+                          "x":  74.903827868681944,
+                          "surfaceY":  46.151482575879044,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "travel":  42.5046905856058,
+                          "path":  [
+                                       {
+                                           "y":  45.901482575879044,
+                                           "x":  74.903827868681944
+                                       },
+                                       {
+                                           "y":  88.406173161484844,
+                                           "x":  74.903827868681958
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  0.7,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  6.5,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P08",
+                          "name":  "V3",
+                          "type":  "Normal",
+                          "x":  67.403827868681958,
+                          "surfaceY":  88.656173161484844,
+                          "width":  8,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P09",
+                          "name":  "M3",
+                          "type":  "Moving",
+                          "x":  59.903827868681958,
+                          "surfaceY":  88.656173161484844,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "travel":  49.292899096958045,
+                          "path":  [
+                                       {
+                                           "y":  88.406173161484844,
+                                           "x":  59.903827868681958
+                                       },
+                                       {
+                                           "y":  134.55765573736392,
+                                           "x":  42.588211869497364
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  1.4,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  7,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P10",
+                          "name":  "V4",
+                          "type":  "Normal",
+                          "x":  24.069105934748684,
+                          "surfaceY":  134.80765573736392,
+                          "width":  30.038211869497356,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P11",
+                          "name":  "D1",
+                          "type":  "Disappearing",
+                          "x":  5.9500000000000082,
+                          "surfaceY":  135.80765573736392,
+                          "width":  1.2000000000000002,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "respawnDelay":  2,
+                                           "vanishDelay":  0.4
+                                       }
+                      },
+                      {
+                          "id":  "P12",
+                          "name":  "D2",
+                          "type":  "Disappearing",
+                          "x":  2.2500000000000075,
+                          "surfaceY":  134.80765573736392,
+                          "width":  1.2,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "respawnDelay":  2,
+                                           "vanishDelay":  0.4
+                                       }
+                      },
+                      {
+                          "id":  "P13",
+                          "name":  "D3",
+                          "type":  "Disappearing",
+                          "x":  -1.4499999999999922,
+                          "surfaceY":  135.80765573736392,
+                          "width":  1.2,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "respawnDelay":  2,
+                                           "vanishDelay":  0.4
+                                       }
+                      },
+                      {
+                          "id":  "P14",
+                          "name":  "H2",
+                          "type":  "Damage",
+                          "x":  -5.5499999999999918,
+                          "surfaceY":  134.80765573736392,
+                          "width":  2,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.3,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P15",
+                          "name":  "V5",
+                          "type":  "Normal",
+                          "x":  -24.06910593474867,
+                          "surfaceY":  134.80765573736392,
+                          "width":  30.03821186949736,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P16",
+                          "name":  "M4",
+                          "type":  "Moving",
+                          "x":  -42.58821186949735,
+                          "surfaceY":  134.80765573736392,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "travel":  49.292899096957989,
+                          "path":  [
+                                       {
+                                           "y":  134.55765573736392,
+                                           "x":  -42.58821186949735
+                                       },
+                                       {
+                                           "y":  88.4061731614849,
+                                           "x":  -59.903827868681944
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  2.1,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  7.5,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P17",
+                          "name":  "V6",
+                          "type":  "Normal",
+                          "x":  -67.403827868681944,
+                          "surfaceY":  88.6561731614849,
+                          "width":  8,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P18",
+                          "name":  "M5",
+                          "type":  "Moving",
+                          "x":  -74.903827868681944,
+                          "surfaceY":  88.6561731614849,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "travel":  42.5046905856058,
+                          "path":  [
+                                       {
+                                           "y":  88.4061731614849,
+                                           "x":  -74.903827868681944
+                                       },
+                                       {
+                                           "y":  45.9014825758791,
+                                           "x":  -74.903827868681958
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  2.8,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  8,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P19",
+                          "name":  "V7",
+                          "type":  "Normal",
+                          "x":  -67.403827868681958,
+                          "surfaceY":  46.1514825758791,
+                          "width":  8,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P20",
+                          "name":  "M6",
+                          "type":  "Moving",
+                          "x":  -59.903827868681958,
+                          "surfaceY":  46.1514825758791,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "travel":  49.292899096958074,
+                          "path":  [
+                                       {
+                                           "y":  45.9014825758791,
+                                           "x":  -59.903827868681958
+                                       },
+                                       {
+                                           "y":  -0.25,
+                                           "x":  -42.588211869497343
+                                       }
+                                   ],
+                          "settings":  {
+                                           "startDelay":  3.5,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  8.5,
+                                           "loopMode":  "PingPong"
+                                       }
+                      },
+                      {
+                          "id":  "P21",
+                          "name":  "V8(goal)",
+                          "type":  "Normal",
+                          "x":  -33.088211869497343,
+                          "surfaceY":  0,
+                          "width":  12,
+                          "thickness":  0.5
+                      }
+                  ],
+    "traps":  [
+                  {
+                      "id":  "T1",
+                      "kind":  "SwitchProjectile",
+                      "mover":  "M1",
+                      "tSwitch":  0.6,
+                      "switchPos":  {
+                                        "x":  52.9776,
+                                        "y":  28.5909
+                                    },
+                      "launcher":  {
+                                       "x":  61.1333,
+                                       "y":  50.3284
+                                   },
+                      "direction":  [
+                                        -0.35128012992551227,
+                                        -0.93627040448767518
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  14,
+                      "projectileLifetime":  2,
+                      "projectileDamage":  15,
+                      "closestApproach":  0.017
+                  },
+                  {
+                      "id":  "T2",
+                      "kind":  "SwitchProjectile",
+                      "mover":  "M2",
+                      "tSwitch":  0.5,
+                      "switchPos":  {
+                                        "x":  74.9038,
+                                        "y":  68.3038
+                                    },
+                      "launcher":  {
+                                       "x":  74.9038,
+                                       "y":  92.1562
+                                   },
+                      "direction":  [
+                                        0,
+                                        -1
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  14,
+                      "projectileLifetime":  2,
+                      "projectileDamage":  15,
+                      "closestApproach":  0.102
+                  },
+                  {
+                      "id":  "T3",
+                      "kind":  "SwitchProjectile",
+                      "mover":  null,
+                      "tSwitch":  0,
+                      "switchPos":  {
+                                        "x":  10.55,
+                                        "y":  135.5077
+                                    },
+                      "launcher":  {
+                                       "x":  -10.55,
+                                       "y":  136.1077
+                                   },
+                      "direction":  [
+                                        1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  14,
+                      "projectileLifetime":  2,
+                      "projectileDamage":  15,
+                      "closestApproach":  0.404
+                  },
+                  {
+                      "id":  "T4",
+                      "kind":  "SwitchProjectile",
+                      "mover":  "M4",
+                      "tSwitch":  0.25,
+                      "switchPos":  {
+                                        "x":  -46.9171,
+                                        "y":  124.1698
+                                    },
+                      "launcher":  {
+                                       "x":  -60.1163,
+                                       "y":  115.643
+                                   },
+                      "direction":  [
+                                        1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  14,
+                      "projectileLifetime":  2,
+                      "projectileDamage":  15,
+                      "closestApproach":  0.077
+                  },
+                  {
+                      "id":  "T5",
+                      "kind":  "SwitchProjectile",
+                      "mover":  "M5",
+                      "tSwitch":  0.25,
+                      "switchPos":  {
+                                        "x":  -74.9038,
+                                        "y":  78.93
+                                    },
+                      "launcher":  {
+                                       "x":  -81.9038,
+                                       "y":  70.93
+                                   },
+                      "direction":  [
+                                        1,
+                                        0
+                                    ],
+                      "windupSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  14,
+                      "projectileLifetime":  2,
+                      "projectileDamage":  15,
+                      "closestApproach":  0
+                  },
+                  {
+                      "id":  "TP1",
+                      "kind":  "SwitchTeleport",
+                      "zone":  {
+                                   "x":  0,
+                                   "y":  124.80765573736392,
+                                   "width":  16,
+                                   "height":  2
+                               },
+                      "destination":  {
+                                          "x":  36.0882,
+                                          "y":  134.9077
+                                      },
+                      "destinationPlatform":  "V4",
+                      "penaltyDamage":  0,
+                      "note":  "under the top disappearing bridge",
+                      "zoneBox":  [
+                                      -8,
+                                      123.80765573736392,
+                                      8,
+                                      125.80765573736392
+                                  ]
+                  },
+                  {
+                      "id":  "TP2",
+                      "kind":  "SwitchTeleport",
+                      "zone":  {
+                                   "x":  75,
+                                   "y":  31.151482575879044,
+                                   "width":  5,
+                                   "height":  2
+                               },
+                      "destination":  {
+                                          "x":  65.4038,
+                                          "y":  46.2515
+                                      },
+                      "destinationPlatform":  "V2",
+                      "penaltyDamage":  0,
+                      "note":  "below the right lift M2",
+                      "zoneBox":  [
+                                      72.5,
+                                      30.151482575879044,
+                                      77.5,
+                                      32.151482575879044
+                                  ]
+                  }
+              ],
+    "monsters":  [
+                     {
+                         "id":  "G1",
+                         "class":  "Ground",
+                         "pattern":  "PatrolPattern",
+                         "platform":  "V1",
+                         "spawn":  {
+                                       "x":  24,
+                                       "y":  0.35
+                                   },
+                         "areaX":  [
+                                       20.5,
+                                       27.5
+                                   ],
+                         "footprint":  [
+                                           20.5,
+                                           0,
+                                           27.5,
+                                           1.3
+                                       ]
+                     },
+                     {
+                         "id":  "G2",
+                         "class":  "Ground",
+                         "pattern":  "RandomWanderPattern",
+                         "platform":  "V1",
+                         "spawn":  {
+                                       "x":  32.8,
+                                       "y":  0.35
+                                   },
+                         "areaX":  [
+                                       29.5,
+                                       36.1
+                                   ],
+                         "footprint":  [
+                                           29.5,
+                                           0,
+                                           36.1,
+                                           1.3
+                                       ]
+                     },
+                     {
+                         "id":  "G3",
+                         "class":  "Ground",
+                         "pattern":  "PathPatrolPattern",
+                         "platform":  "V3",
+                         "spawn":  {
+                                       "x":  67.5,
+                                       "y":  89.0062
+                                   },
+                         "areaX":  [
+                                       65,
+                                       70
+                                   ],
+                         "path":  [
+                                      {
+                                          "x":  65.5,
+                                          "y":  89.0062
+                                      },
+                                      {
+                                          "x":  69.5,
+                                          "y":  89.0062
+                                      }
+                                  ],
+                         "footprint":  [
+                                           65,
+                                           88.656173161484844,
+                                           70,
+                                           89.956173161484841
+                                       ]
+                     },
+                     {
+                         "id":  "G4",
+                         "class":  "Ground",
+                         "pattern":  "ChasePattern",
+                         "platform":  "V4",
+                         "spawn":  {
+                                       "x":  17,
+                                       "y":  135.1577
+                                   },
+                         "areaX":  [
+                                       14,
+                                       20
+                                   ],
+                         "footprint":  [
+                                           14,
+                                           134.80765573736392,
+                                           20,
+                                           136.10765573736393
+                                       ]
+                     },
+                     {
+                         "id":  "G5",
+                         "class":  "Ground",
+                         "pattern":  "PatrolPattern",
+                         "platform":  "V4",
+                         "spawn":  {
+                                       "x":  27.5,
+                                       "y":  135.1577
+                                   },
+                         "areaX":  [
+                                       24,
+                                       31
+                                   ],
+                         "footprint":  [
+                                           24,
+                                           134.80765573736392,
+                                           31,
+                                           136.10765573736393
+                                       ]
+                     },
+                     {
+                         "id":  "G6",
+                         "class":  "Ground",
+                         "pattern":  "RandomWanderPattern",
+                         "platform":  "V5",
+                         "spawn":  {
+                                       "x":  -33,
+                                       "y":  135.1577
+                                   },
+                         "areaX":  [
+                                       -36,
+                                       -30
+                                   ],
+                         "footprint":  [
+                                           -36,
+                                           134.80765573736392,
+                                           -30,
+                                           136.10765573736393
+                                       ]
+                     },
+                     {
+                         "id":  "G7",
+                         "class":  "Ground",
+                         "pattern":  "ChasePattern",
+                         "platform":  "V5",
+                         "spawn":  {
+                                       "x":  -22,
+                                       "y":  135.1577
+                                   },
+                         "areaX":  [
+                                       -26,
+                                       -18
+                                   ],
+                         "footprint":  [
+                                           -26,
+                                           134.80765573736392,
+                                           -18,
+                                           136.10765573736393
+                                       ]
+                     },
+                     {
+                         "id":  "G8",
+                         "class":  "Ground",
+                         "pattern":  "PatrolPattern",
+                         "platform":  "V7",
+                         "spawn":  {
+                                       "x":  -67.4,
+                                       "y":  46.5015
+                                   },
+                         "areaX":  [
+                                       -69.5,
+                                       -65.3
+                                   ],
+                         "footprint":  [
+                                           -69.5,
+                                           46.1514825758791,
+                                           -65.3,
+                                           47.4514825758791
+                                       ]
+                     },
+                     {
+                         "id":  "F1",
+                         "class":  "Flying",
+                         "pattern":  "FlyingPatrolPattern",
+                         "spawn":  {
+                                       "x":  14,
+                                       "y":  10
+                                   },
+                         "areaSize":  [
+                                          6,
+                                          2
+                                      ],
+                         "footprint":  [
+                                           11,
+                                           9,
+                                           17,
+                                           11
+                                       ]
+                     },
+                     {
+                         "id":  "F2",
+                         "class":  "Flying",
+                         "pattern":  "FlyingChasePattern",
+                         "spawn":  {
+                                       "x":  36,
+                                       "y":  30
+                                   },
+                         "orbitRadius":  2,
+                         "detectSize":  [
+                                            8,
+                                            4
+                                        ],
+                         "footprint":  [
+                                           32,
+                                           28,
+                                           40,
+                                           32
+                                       ]
+                     },
+                     {
+                         "id":  "F3",
+                         "class":  "Flying",
+                         "pattern":  "FlyingRandomWanderPattern",
+                         "spawn":  {
+                                       "x":  50,
+                                       "y":  70
+                                   },
+                         "areaSize":  [
+                                          6,
+                                          4
+                                      ],
+                         "footprint":  [
+                                           47,
+                                           68,
+                                           53,
+                                           72
+                                       ]
+                     },
+                     {
+                         "id":  "F4",
+                         "class":  "Flying",
+                         "pattern":  "FlyingPathPatrolPattern",
+                         "spawn":  {
+                                       "x":  30,
+                                       "y":  100
+                                   },
+                         "path":  [
+                                      {
+                                          "x":  30,
+                                          "y":  100
+                                      },
+                                      {
+                                          "x":  30,
+                                          "y":  110
+                                      }
+                                  ],
+                         "footprint":  [
+                                           29.5,
+                                           99.5,
+                                           30.5,
+                                           110.5
+                                       ]
+                     },
+                     {
+                         "id":  "F5",
+                         "class":  "Flying",
+                         "pattern":  "FlyingPatrolPattern",
+                         "spawn":  {
+                                       "x":  0,
+                                       "y":  114
+                                   },
+                         "areaSize":  [
+                                          8,
+                                          1.2
+                                      ],
+                         "footprint":  [
+                                           -4,
+                                           113.4,
+                                           4,
+                                           114.6
+                                       ]
+                     },
+                     {
+                         "id":  "F6",
+                         "class":  "Flying",
+                         "pattern":  "FlyingChasePattern",
+                         "spawn":  {
+                                       "x":  -30,
+                                       "y":  100
+                                   },
+                         "orbitRadius":  2,
+                         "detectSize":  [
+                                            8,
+                                            4
+                                        ],
+                         "footprint":  [
+                                           -34,
+                                           98,
+                                           -26,
+                                           102
+                                       ]
+                     },
+                     {
+                         "id":  "F7",
+                         "class":  "Flying",
+                         "pattern":  "FlyingRandomWanderPattern",
+                         "spawn":  {
+                                       "x":  -30,
+                                       "y":  30
+                                   },
+                         "areaSize":  [
+                                          6,
+                                          4
+                                      ],
+                         "footprint":  [
+                                           -33,
+                                           28,
+                                           -27,
+                                           32
+                                       ]
+                     }
+                 ]
+}

@@ -122,7 +122,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
     }
 
-    // 무장해제 상태의 체력까지 모두 소진되었을 때 호출 - 게임오버 연출을 띄운다(규칙 39: GameOverManager를 통해 처리)
+    // 무장해제 상태의 체력까지 모두 소진되었을 때 호출 - 게임오버 연출을 띄운다(규칙 35: GameOverManager를 통해 처리)
     private void Die()
     {
         OnDied?.Invoke();

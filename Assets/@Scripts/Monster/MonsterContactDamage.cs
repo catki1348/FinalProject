@@ -2,11 +2,11 @@ using System;
 using UnityEngine;
 
 // 몬스터가 플레이어(또는 targetLayer에 속한 대상)와 물리적으로 충돌하면 공격력만큼 피해를 입히는 스크립트
-// 피해 판정만 담당하도록 스탯/패턴 스크립트와 분리한다(규칙 39 SRP)
+// 피해 판정만 담당하도록 스탯/패턴 스크립트와 분리한다(규칙 35 SRP)
 [RequireComponent(typeof(MonsterStats))]
 public class MonsterContactDamage : MonoBehaviour
 {
-    [SerializeField] private LayerMask targetLayer;     // 피해를 줄 대상으로 인식할 레이어(태그 비교 대신 사용 - 규칙 41)
+    [SerializeField] private LayerMask targetLayer;     // 피해를 줄 대상으로 인식할 레이어(태그 비교 대신 사용 - 규칙 37)
     [SerializeField] private float attackCooldown = 1f; // 충돌 공격 재사용 간격(초) - 붙어 있는 동안 이 간격마다 공격
 
     private MonsterStats stats;

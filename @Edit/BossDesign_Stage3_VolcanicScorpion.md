@@ -87,7 +87,7 @@ Animator는 Visual의 스케일과 flipX를 애니메이션 키로 덮어쓰지 
 4K는 생성 요청 해상도이며 실제 출력 해상도는 결과 확인 후 기록한다.
 워크플로우 Run All은 사용하지 않는다. 기준 프레임 승인 후 이를 참조하는 독립 노드를 병렬 실행하고 실패한 노드만 개별 처리한다.
 Point 필터와 동일 PPU를 사용한다. 프레임별 임의 크기 조절로 몸체가 흔들리지 않도록 한다.
-완성 검수는 공통 수칙 27의 다섯 방향 기준을 따르되, 2D 스프라이트 검수 방식과 충돌하면 사용자에게 적용 방법을 확인한다. 검수용 임시 캡처는 확인 후 삭제한다.
+완성 검수는 2D 스프라이트에 맞는 방식으로 진행하고, 적용 방법이 불분명하면 사용자에게 확인한다. 검수용 임시 캡처는 확인 후 삭제한다.
 
 ## 7. 사운드 지정 필드 설계
 기존 BossSound의 battleBgm 및 sfxEntries(type, AudioClip[] clips)를 확장한다.
@@ -124,7 +124,7 @@ Death 사운드는 기존 BossSound의 사망 이벤트 처리에서 한 번만 
 - 신규 스크립트: Assets/@Scripts/Boss/
 - 보스 및 효과 프리팹: 프로젝트 @Prefab 폴더, P_ 접두사.
 - 설계 문서: @Edit/BossDesign_Stage3_VolcanicScorpion.md
-- 생성 이미지: 기존 사용자 지정 C:/Users/MBC-501-16/Downloads/LHS/컨셉/@Boss/ 아래 Stage3 식별 이름으로 저장.
+- 생성 이미지: 기존 사용자 지정 C:/Users/<현재 사용자명>/Downloads/LHS/컨셉/@Boss/ 아래 Stage3 식별 이름으로 저장.
 - Assets 내 10MB 초과 파일은 @ExternalAssets로 이동하고 참조를 갱신.
 - GameObject.Find 및 이름·태그 문자열 비교로 대상 탐색하지 않는다. 로컬 구성은 GetComponent, 외부 대상은 Manager 캐시 또는 명시 참조 사용.
 - 각 기능과 함수에 설명 주석을 작성하고 Update에서 반복 할당을 피한다.
@@ -153,7 +153,7 @@ Unity 전투 검수는 사용자 요청 시 실행한다.
 - 생성된 단색 자홍색 배경을 제거하여 실제 RGBA PNG로 저장했다.
 - 53개 프레임을 외곽선 기준으로 분리하고 공통 캔버스 1536×1152와 접지선 y=1050을 적용했다. 모션 내에서는 동일 배율을 사용했다.
 - 오른쪽 프레임을 반전한 왼쪽 53개를 추가로 저장했다. 원본 반전으로 좌우 외형을 일치시킨다.
-- 저장: C:/Users/MBC-501-16/Downloads/LHS/컨셉/@Boss/Stage3_VolcanicScorpion/Final/
+- 저장: C:/Users/<현재 사용자명>/Downloads/LHS/컨셉/@Boss/Stage3_VolcanicScorpion/Final/
 - animation_manifest.json에 길이·반복·피벗·노드 식별자를 기록했다. Preview.html로 프레임 순서와 좌우 방향을 재생할 수 있다.
 - Unity 클립/사운드 필드/전투 동작은 아직 미구현이다. 게임 내 크기·피벗 미세 조정과 실제 공격 타이밍 검수가 남아 있다.
 

@@ -5,7 +5,7 @@
 > **비행형 전환(2026-09-29 추가, 1차)**: 사용자 지시 "발판이 없는 장소의 몬스터는 비행형으로 설정해라"에 따라 처리했습니다. `Monster_2-3_13~30`(18마리)은 실제로는 "발판" 위가 아니라 **이동형 발판 경로의 중간 경유점(P1~P3)** 위치에 배치된 것들인데, 이 지점들은 발판이 항상 머무는 자리가 아니라 그 발판이 왕복하며 스쳐 지나갈 뿐인 지점이라(대부분의 시간엔 그 자리에 아무 발판도 없음) 사실상 "발판 없는 장소"에 해당합니다. 1차로는 `Rigidbody2D.gravityScale`을 3→0으로만 바꿔 기존 `PatrolPattern`을 그대로 재사용했습니다.
 >
 > **몬스터 설계 규칙 갱신 반영(2026-09-29 추가, 2차)**: 사용자 지시 "몬스터 설계 변경된 내용 새로 적용해라"로 재확인한 결과 `Monster.md`에 규칙 8~12가 신설되어 있었습니다 — 몬스터를 지상종/비행종으로 대분류하고(규칙8), 비행종은 발판 없이 공중에서 스폰되어 중력 없이 이동하며(규칙10), 정찰형/공격형/랜덤형 각 패턴을 지상종용과 비행종용(`Flying` 접두사)으로 분리 제공해야 하고(규칙11), 몬스터 동선도 `PlatformPath`로 지정할 수 있어야 한다(규칙12)는 내용입니다. 이에 따라:
-> - 신규 스크립트 5개를 `Assets/@Scripts/Monster/`에 작성(규칙48): `FlyingPatrolPattern`·`FlyingChasePattern`·`FlyingRandomWanderPattern`(각각 기존 지상형 패턴의 비행형 버전, 상하좌우 모두 사용) + `PathPatrolPattern`·`FlyingPathPatrolPattern`(`PlatformPath`로 동선을 지정하는 지상/비행 겸용 패턴 — 지상형은 경로의 X좌표만 따라가고 Y는 중력이 결정, 비행형은 X·Y 모두 그대로 따라감).
+> - 신규 스크립트 5개를 `Assets/@Scripts/Monster/`에 작성(규칙44): `FlyingPatrolPattern`·`FlyingChasePattern`·`FlyingRandomWanderPattern`(각각 기존 지상형 패턴의 비행형 버전, 상하좌우 모두 사용) + `PathPatrolPattern`·`FlyingPathPatrolPattern`(`PlatformPath`로 동선을 지정하는 지상/비행 겸용 패턴 — 지상형은 경로의 X좌표만 따라가고 Y는 중력이 결정, 비행형은 X·Y 모두 그대로 따라감).
 > - 1차에서 `gravityScale`만 0으로 바꿨던 18마리(`Monster_2-3_13~30`)의 컴포넌트를 `PatrolPattern` → **`FlyingPatrolPattern`**으로 교체(정찰 영역 크기·이동속도는 유지)해, "지상형 스크립트 + 중력만 끄기"가 아니라 규칙11이 요구하는 **전용 비행형 스크립트**를 쓰도록 정정했습니다. `MonsterController`가 `GetComponent<IMonsterPattern>()`으로 자동 인식하는 구조라 별도 배선 변경은 불필요했습니다.
 > - 실제 발판 위의 12마리(`Monster_2-3_1~12`)는 이미 지상종 요건(발판 위 스폰+중력 적용+`PatrolPattern`)을 만족하고 있어 변경하지 않았습니다.
 > - 컴파일 에러 없음, 콘솔 에러 없음, 씬 저장 완료.

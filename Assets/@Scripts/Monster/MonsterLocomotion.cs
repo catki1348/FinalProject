@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 몬스터의 대분류(지상종/비행종)에 따라 중력 적용 여부를 설정하는 스크립트(Monster.md 규칙 8~10)
-// 스탯/패턴과는 분리해 이동 환경(중력) 설정만 담당한다(규칙 39 SRP)
+// 스탯/패턴과는 분리해 이동 환경(중력) 설정만 담당한다(규칙 35 SRP)
 [RequireComponent(typeof(Rigidbody2D))]
 public class MonsterLocomotion : MonoBehaviour
 {

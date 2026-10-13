@@ -30,14 +30,14 @@
 - 작업 트리에는 다른 세션의 Unity 변경이 다수 있다. 이번 세션은 이를 작성하거나 검증하지 않았다. 기존 handoff 스킬의 전체 작업 트리 커밋 절차에 따라 함께 보존하며 Unity 테스트는 수행하지 않았다.
 
 ## 관련 파일 경로
-- 프로젝트: C:\Users\MBC-501-21\Documents\FinalProject
-- Codex 홈: C:\Users\MBC-501-21\.codex
+- 프로젝트: C:\Users\<현재 사용자명>\Documents\FinalProject
+- Codex 홈: C:\Users\<현재 사용자명>\.codex
   - sessions/, archived_sessions/, session_index.jsonl
   - state_5.sqlite, thread_history_1.sqlite와 WAL/SHM 파일
   - goals_1.sqlite, memories_1.sqlite, queue_1.sqlite, sqlite/
   - .codex-global-state.json, config.toml, skills/, visualizations/, plugins/
   - auth.json이 존재함: 인증파일은 별도 취급
-- Claude 홈: C:\Users\MBC-501-21\.claude
+- Claude 홈: C:\Users\<현재 사용자명>\.claude
   - projects/, sessions/, file-history/, backups/, skills/ 등이 존재
 - .claude/commands/handoff.md, handon.md, resume.md
 - .agents/skills/source-command-handoff/SKILL.md

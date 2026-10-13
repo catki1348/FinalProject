@@ -143,8 +143,15 @@ function Restore-FromDirectory {
     }
 
     try {
-        $sourceClaude = Join-Path $SourcePath ".claude"
-        Copy-Item -Path $sourceClaude -Destination "$DestPath\.claude" -Recurse -Force
+        foreach ($provider in @('.claude', '.codex')) {
+            $sourceProvider = Join-Path $SourcePath $provider
+            if (Test-Path -LiteralPath $sourceProvider) {
+                New-Item -ItemType Directory -Path (Join-Path $DestPath $provider) -Force | Out-Null
+                Get-ChildItem -LiteralPath $sourceProvider -Force | ForEach-Object {
+                    Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $DestPath $provider) -Recurse -Force
+                }
+            }
+        }
 
         Write-Status "복사 성공" "success"
         return $true
@@ -263,6 +270,17 @@ $backupType = if ($BackupFile -like "*.tar.gz") {
 }
 
 Write-Status "백업 파일: $BackupFile (형식: $backupType)"
+$isUnified = (Split-Path $BackupFile -Leaf) -like 'ai_sessions_backup_*' -or
+    ($backupType -eq 'directory' -and (Test-Path (Join-Path $BackupFile 'MANIFEST.json')))
+if ($isUnified) {
+    . (Join-Path $PSScriptRoot 'session-python.ps1')
+    $sessionPython = Get-SessionPython
+    & $sessionPython (Join-Path $PSScriptRoot 'session-backup.py') verify $BackupFile
+    if ($LASTEXITCODE -ne 0) { throw '통합 백업 검증 실패: 복원을 중단합니다.' }
+    Write-Status '복원 전 Claude와 Codex를 종료하세요. Codex는 기본 .codex 위치로 복원됩니다.'
+    Backup-ExistingClaude -DestPath (Join-Path $Destination '.codex')
+    if (-not $DryRun) { New-Item -ItemType Directory -Path $Destination -Force | Out-Null }
+}
 
 # 2. 기존 .claude 백업
 Backup-ExistingClaude -DestPath $ClaudeHome
@@ -292,14 +310,15 @@ if ($UpdatePaths -and $OldPath -and $NewPath) {
 
 # 5. 검증
 Write-Status "최종 검증..."
-$verifyResult = Verify-Manifest -ClaudePath $ClaudeHome
+$verifyResult = if ($isUnified) { $true } else { Verify-Manifest -ClaudePath $ClaudeHome }
 
 # 6. 완료
 if ($verifyResult) {
     Write-Status "✅ 복원 완료!" "success"
     Write-Host ""
     Write-Host "복원된 Claude 홈: $ClaudeHome"
-    Write-Host "복원된 세션 수: $(((Get-ChildItem (Join-Path $ClaudeHome 'sessions') -Filter '*.json').Count))"
+    if ($isUnified) { Write-Host "복원된 GPT(Codex) 홈: $(Join-Path $Destination '.codex')" }
+    else { Write-Host "복원된 세션 수: $(((Get-ChildItem (Join-Path $ClaudeHome 'sessions') -Filter '*.json').Count))" }
 } else {
     Write-Status "⚠️ 복원 완료했으나 일부 검증 실패" "warning"
     Write-Status "수동으로 파일을 확인해주세요" "warning"

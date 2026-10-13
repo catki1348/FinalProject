@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 게임오버 연출을 담당하는 매니저(규칙 39). 오버레이 UI를 코드로 직접 구성해
+// 게임오버 연출을 담당하는 매니저(규칙 35). 오버레이 UI를 코드로 직접 구성해
 // 씬마다 별도로 UI를 만들어두지 않아도 모든 스테이지에서 동일하게 동작한다
 public class GameOverManager : MonoBehaviour
 {

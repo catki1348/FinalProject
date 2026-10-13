@@ -1,0 +1,246 @@
+{
+  "patterns": [
+    {
+      "id": "ClawSlash",
+      "name": "발톱 베기",
+      "duration": 0.7,
+      "hitTime": 0.35,
+      "frames": [
+        {
+          "file": "ClawSlash_01.png",
+          "sourceBounds": [
+            176,
+            81,
+            882,
+            951
+          ],
+          "removedGreenFraction": 0.705723762512207,
+          "uniformScale": 1.324137931034483,
+          "footCenter": 511.5
+        },
+        {
+          "file": "ClawSlash_02.png",
+          "sourceBounds": [
+            60,
+            195,
+            835,
+            826
+          ],
+          "removedGreenFraction": 0.7806015014648438,
+          "uniformScale": 1.4689655172413794,
+          "footCenter": 390.0
+        }
+      ],
+      "canvas": [
+        1432,
+        1198
+      ],
+      "pivot": [
+        0.5,
+        0.006678
+      ]
+    },
+    {
+      "id": "LowSweep",
+      "name": "하단 휩쓸기",
+      "duration": 0.8,
+      "hitTime": 0.4,
+      "frames": [
+        {
+          "file": "LowSweep_01.png",
+          "sourceBounds": [
+            105,
+            181,
+            919,
+            874
+          ],
+          "removedGreenFraction": 0.6992301940917969,
+          "uniformScale": 1.2987012987012987,
+          "footCenter": 436.0
+        },
+        {
+          "file": "LowSweep_02.png",
+          "sourceBounds": [
+            36,
+            280,
+            1003,
+            771
+          ],
+          "removedGreenFraction": 0.8062067031860352,
+          "uniformScale": 1.5064935064935063,
+          "footCenter": 339.0
+        }
+      ],
+      "canvas": [
+        2200,
+        1198
+      ],
+      "pivot": [
+        0.5,
+        0.006678
+      ]
+    },
+    {
+      "id": "SonicRoar",
+      "name": "음파 포효",
+      "duration": 1.9,
+      "hitTime": 0.5,
+      "frames": [
+        {
+          "file": "SonicRoar_01.png",
+          "sourceBounds": [
+            126,
+            160,
+            873,
+            918
+          ],
+          "removedGreenFraction": 0.7250804901123047,
+          "uniformScale": 1.187335092348285,
+          "footCenter": 469.5
+        },
+        {
+          "file": "SonicRoar_02.png",
+          "sourceBounds": [
+            186,
+            230,
+            868,
+            867
+          ],
+          "removedGreenFraction": 0.7909145355224609,
+          "uniformScale": 1.3654353562005277,
+          "footCenter": 460.0
+        }
+      ],
+      "canvas": [
+        1432,
+        1198
+      ],
+      "pivot": [
+        0.5,
+        0.006678
+      ]
+    },
+    {
+      "id": "CaveCollapse",
+      "name": "천장 낙석",
+      "duration": 1.4,
+      "hitTime": 0.8,
+      "frames": [
+        {
+          "file": "CaveCollapse_01.png",
+          "sourceBounds": [
+            17,
+            197,
+            490,
+            787
+          ],
+          "removedGreenFraction": 0.7771244049072266,
+          "uniformScale": 1.9220338983050846,
+          "footCenter": 242.5
+        },
+        {
+          "file": "CaveCollapse_02.png",
+          "sourceBounds": [
+            23,
+            357,
+            488,
+            787
+          ],
+          "removedGreenFraction": 0.7961254119873047,
+          "uniformScale": 1.9220338983050846,
+          "footCenter": 226.5
+        }
+      ],
+      "canvas": [
+        1432,
+        1198
+      ],
+      "pivot": [
+        0.5,
+        0.006678
+      ]
+    },
+    {
+      "id": "Jump",
+      "name": "점프",
+      "duration": 0.8,
+      "hitTime": 0.3,
+      "frames": [
+        {
+          "file": "Jump_01.png",
+          "sourceBounds": [
+            121,
+            238,
+            949,
+            845
+          ],
+          "removedGreenFraction": 0.7135829925537109,
+          "uniformScale": 1.3047775947281712,
+          "footCenter": 539.5
+        },
+        {
+          "file": "Jump_02.png",
+          "sourceBounds": [
+            84,
+            192,
+            976,
+            771
+          ],
+          "removedGreenFraction": 0.7953147888183594,
+          "uniformScale": 1.4085667215815485,
+          "footCenter": 219.0
+        }
+      ],
+      "canvas": [
+        2200,
+        1198
+      ],
+      "pivot": [
+        0.5,
+        0.006678
+      ]
+    },
+    {
+      "id": "Charge",
+      "name": "돌진",
+      "duration": 1.5,
+      "hitTime": 0.6,
+      "frames": [
+        {
+          "file": "Charge_01.png",
+          "sourceBounds": [
+            66,
+            208,
+            960,
+            801
+          ],
+          "removedGreenFraction": 0.7234392166137695,
+          "uniformScale": 1.3659359190556493,
+          "footCenter": 511.0
+        },
+        {
+          "file": "Charge_02.png",
+          "sourceBounds": [
+            48,
+            282,
+            933,
+            782
+          ],
+          "removedGreenFraction": 0.8079843521118164,
+          "uniformScale": 1.3659359190556493,
+          "footCenter": 393.0
+        }
+      ],
+      "canvas": [
+        2200,
+        1198
+      ],
+      "pivot": [
+        0.5,
+        0.006678
+      ]
+    }
+  ],
+  "source": "VARCO GPT_Work_Room, GPT Image 1.5",
+  "notes": "Two generated key poses per attack; chroma key and foot alignment only. No Unity integration."
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "Boss 4 sound slots. Every 'clip' is empty on purpose: empty = silent. Fill in an audio asset later; do not change the 'id' values. New BossSfx numbers go at the end of the enum.",
+  "boss": "BlindCaveHorror",
+  "fields": [
+    {"id": "idle_breath",     "motion": "Idle",         "timing": "loop 0.0",  "clip": "", "volume": 1.0, "loop": true},
+    {"id": "walk_step",       "motion": "Walk",         "timing": "0.0, 0.25", "clip": "", "volume": 1.0, "loop": false},
+    {"id": "claw_windup",     "motion": "ClawSlash",    "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "claw_hit",        "motion": "ClawSlash",    "timing": "0.35",      "clip": "", "volume": 1.0, "loop": false},
+    {"id": "sweep_windup",    "motion": "LowSweep",     "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "sweep_hit",       "motion": "LowSweep",     "timing": "0.4",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "roar_charge",     "motion": "SonicRoar",    "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "roar_release",    "motion": "SonicRoar",    "timing": "0.5",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "collapse_charge", "motion": "CaveCollapse", "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "rock_impact",     "motion": "CaveCollapse", "timing": "0.8",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "groggy",          "motion": "Groggy",       "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "death",           "motion": "Death",        "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false, "playOnce": true},
+    {"id": "jump_windup",     "motion": "Jump",         "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "jump_takeoff",    "motion": "Jump",         "timing": "0.3",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "jump_land",       "motion": "Jump",         "timing": "0.8",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "charge_windup",   "motion": "Charge",       "timing": "0.0",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "charge_run",      "motion": "Charge",       "timing": "0.6",       "clip": "", "volume": 1.0, "loop": true},
+    {"id": "charge_stop",     "motion": "Charge",       "timing": "1.5",       "clip": "", "volume": 1.0, "loop": false},
+    {"id": "battle_bgm",      "motion": "Battle",       "timing": "start",     "clip": "", "volume": 1.0, "loop": true}
+  ]
+}

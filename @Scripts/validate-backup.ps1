@@ -27,8 +27,7 @@ Claude 백업 검증 도구
 
 param(
     [Parameter(Mandatory=$true)]
-    [string]$BackupFile,
-    [switch]$Verbose
+    [string]$BackupFile
 )
 
 # 함수
@@ -51,7 +50,7 @@ function Validate-Tar {
         if ($LASTEXITCODE -eq 0) {
             Write-Status "TAR 파일 무결성: OK" "success"
 
-            if ($Verbose) {
+            if ($VerboseMode) {
                 Write-Host ""
                 Write-Host "TAR 파일 내용:" -ForegroundColor Cyan
                 tar -tzf $FilePath | Select-Object -First 20 | ForEach-Object {
@@ -222,7 +221,15 @@ function Validate-FileSize {
 }
 
 # 메인 로직
-$VerboseMode = $Verbose
+$VerboseMode = $VerbosePreference -eq 'Continue'
+if ((Split-Path $BackupFile -Leaf) -like 'ai_sessions_backup_*' -or
+    ((Test-Path -LiteralPath $BackupFile -PathType Container) -and
+     (Test-Path -LiteralPath (Join-Path $BackupFile 'MANIFEST.json')))) {
+    . (Join-Path $PSScriptRoot 'session-python.ps1')
+    $sessionPython = Get-SessionPython
+    & $sessionPython (Join-Path $PSScriptRoot 'session-backup.py') verify $BackupFile
+    exit $LASTEXITCODE
+}
 
 Write-Status "Claude 백업 검증 도구 시작"
 Write-Host ""

@@ -10,11 +10,11 @@
 > 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트 배치 등)은 `LHS_Custumer.md` 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
 > **구현 준비 목적의 문서**이므로, "구현해" 지시만 받으면 6항의 파일 목록대로 바로 작업을 시작할 수 있을 만큼 구체적으로 작성합니다.
 > `LHS_Custumer.md`(작업 수칙) 참고 완료 — 관련 반영 사항:
-> - 규칙 46/48: `.md` 문서는 `@Edit`, 신규 스크립트는 `Assets/@Scripts` 하위에 저장 → 이 문서 위치, 6항의 스크립트 경로 모두 부합.
-> - 규칙 39(SRP): 발판 종류별로 스크립트를 분리하고, "켜짐/꺼짐 + 탑승 판정"이라는 공통 로직만 베이스 클래스로 추출.
-> - 규칙 40/41: 크로스 오브젝트 참조(플레이어 등)는 `GameObject.Find`/태그 비교 금지, Inspector 연결 또는 물리 콜백으로 얻은 `Rigidbody2D`에서 `GetComponent`(`TryGetComponent`)로 조회.
-> - 규칙 43: 반복 코루틴에서 매 주기 `WaitForSeconds`를 새로 만들지 않도록 필드에 캐싱.
-> - 규칙 44: 각 스크립트에 기능 설명 주석 포함 예정.
+> - 규칙 42/44: `.md` 문서는 `@Edit`, 신규 스크립트는 `Assets/@Scripts` 하위에 저장 → 이 문서 위치, 6항의 스크립트 경로 모두 부합.
+> - 규칙 35(SRP): 발판 종류별로 스크립트를 분리하고, "켜짐/꺼짐 + 탑승 판정"이라는 공통 로직만 베이스 클래스로 추출.
+> - 규칙 36/37: 크로스 오브젝트 참조(플레이어 등)는 `GameObject.Find`/태그 비교 금지, Inspector 연결 또는 물리 콜백으로 얻은 `Rigidbody2D`에서 `GetComponent`(`TryGetComponent`)로 조회.
+> - 규칙 39: 반복 코루틴에서 매 주기 `WaitForSeconds`를 새로 만들지 않도록 필드에 캐싱.
+> - 규칙 40: 각 스크립트에 기능 설명 주석 포함 예정.
 
 ## 1. 요구사항 정리
 
@@ -34,7 +34,7 @@
 | [MovingPlatform.cs](Assets/@Scripts/Platform/MovingPlatform.cs) | 경로를 따라 `Kinematic` + `MovePosition`으로 이동. 탑승자 판정은 플랫폼이 직접 하지 않고, 자신이 이번 프레임 이동한 거리(`DeltaThisFrame`)만 공개 | 이동형은 "발판이 스스로 움직이며 Physics2D 쿼리로 탑승자를 찾으면 간헐적으로 놓치는 문제"가 있어 판정 방식을 바꿨다는 기록. 반면 2~4번 발판은 **발판 자체가 움직이지 않으므로** 이 문제가 발생하지 않아 일반적인 충돌 콜백을 그대로 써도 안전함. |
 | [PlayerPlatformRider.cs](Assets/@Scripts/Player/PlayerPlatformRider.cs), [PlayerMovement.cs](Assets/Scripts/Player/PlayerMovement.cs) | `PlayerMovement.IsGrounded` / `GroundCollider`가 `groundCheck` 지점의 `Physics2D.OverlapCircle(groundLayer)`로 접지 판정 | 발판 쪽에서 별도로 접지 판정 로직을 새로 만들 필요는 없지만, "발판이 능동적으로 탑승자를 아는" 방식(충돌 콜백)과 "플레이어가 능동적으로 바닥을 아는" 방식(OverlapCircle) 두 갈래가 이미 공존함. 이번 설계는 발판 쪽 판정(충돌 콜백)을 사용 — 발판 종류가 늘어나도 `PlayerMovement`를 수정할 필요가 없어 결합도가 낮음. |
 | [IDamageable.cs](Assets/Scripts/Combat/IDamageable.cs), [PlayerHealth.cs](Assets/@Test/Scripts/Combat/PlayerHealth.cs) | `void TakeDamage(int amount)`. `PlayerHealth`는 `invincibleDuration`(기본 1초) 동안 재피격을 자체적으로 무시함 | 피해형 발판은 별도 쿨다운을 만들 필요 없이, 머무는 동안 짧은 주기로 `TakeDamage`를 계속 호출해도 `PlayerHealth`가 알아서 걸러줌. |
-| `OutOfBoundsTrigger.cs`, `Projectile.cs`의 패턴 | `Rigidbody2D body = other.attachedRigidbody; body.TryGetComponent<PlayerMovement>(out _)` 방식으로 플레이어 식별 | 태그/이름 비교(규칙 41 위반) 대신 이 패턴을 그대로 재사용. |
+| `OutOfBoundsTrigger.cs`, `Projectile.cs`의 패턴 | `Rigidbody2D body = other.attachedRigidbody; body.TryGetComponent<PlayerMovement>(out _)` 방식으로 플레이어 식별 | 태그/이름 비교(규칙 37 위반) 대신 이 패턴을 그대로 재사용. |
 
 ## 3. 공통 베이스 클래스: `FootholdBase`
 
@@ -180,7 +180,7 @@ public class BlinkingFoothold : FootholdBase
     [SerializeField] private float invisibleDuration = 1f;
     [SerializeField] private float startDelay = 0f; // 여러 발판을 시차를 두고 배치할 때 사용
 
-    private WaitForSeconds visibleWait;   // 규칙 43: 매 주기 새로 할당하지 않도록 캐싱
+    private WaitForSeconds visibleWait;   // 규칙 39: 매 주기 새로 할당하지 않도록 캐싱
     private WaitForSeconds invisibleWait;
 
     protected override void Awake()
@@ -277,7 +277,7 @@ public class DamageFoothold : FootholdBase
 
 승인 후 아래 순서로 진행 예정:
 
-**신규 스크립트** (`Assets/@Scripts/Platform/` — 규칙 48)
+**신규 스크립트** (`Assets/@Scripts/Platform/` — 규칙 44)
 1. `Assets/@Scripts/Platform/FootholdBase.cs`
 2. `Assets/@Scripts/Platform/DisappearingFoothold.cs`
 3. `Assets/@Scripts/Platform/BlinkingFoothold.cs`
@@ -286,7 +286,7 @@ public class DamageFoothold : FootholdBase
 **기존 스크립트**: 수정 없음. [MovingPlatform.cs](Assets/@Scripts/Platform/MovingPlatform.cs), [PlatformPath.cs](Assets/@Scripts/Platform/PlatformPath.cs), [PlayerMovement.cs](Assets/Scripts/Player/PlayerMovement.cs), [PlayerHealth.cs](Assets/@Test/Scripts/Combat/PlayerHealth.cs) 모두 그대로 재사용.
 
 **씬/프리팹 작업 (Unity, 규칙 9/11에 따라 승인 후)**
-5. 발판별 프리팹 제작(규칙 42: `P_` 접두사, `@Resources` 하위 카테고리 폴더에 저장) — `Collider2D` + `SpriteRenderer` + 해당 스크립트 부착.
+5. 발판별 프리팹 제작(규칙 38: `P_` 접두사, `@Resources` 하위 카테고리 폴더에 저장) — `Collider2D` + `SpriteRenderer` + 해당 스크립트 부착.
 6. 각 프리팹의 Inspector 필드(지속 시간, 피해량 등) 값 설정.
 7. 규칙 24에 따라 `Test000` 임시 씬에서 3종 발판 동작(소멸/재생성, 점멸 주기, 피해 반복) 테스트 후 정리.
 

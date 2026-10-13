@@ -3,7 +3,7 @@
 > 이 문서는 설계만 다룹니다. 실제 Unity 작업(스크립트 생성/수정, 씬 오브젝트 배치 등)은 `LHS_Custumer.md` 규칙 9, 11에 따라 사용자 승인 후 별도로 진행합니다.
 > **구현 준비 목적의 문서**이므로, "구현해" 지시만 받으면 6항의 파일 목록대로 바로 작업을 시작할 수 있을 만큼 구체적으로 작성합니다.
 > `LHS_Custumer.md`(작업 수칙), `MapEdit.md`(맵 제작 수칙) 참고 완료 — 관련 반영 사항:
-> - `LHS_Custumer.md` 규칙 46: `.md` 파일은 `@Edit` 폴더에 보관 → 이 문서 위치가 이미 `@Edit/CameraDesign_FollowCamera.md`로 규칙에 부합.
+> - `LHS_Custumer.md` 규칙 42: `.md` 파일은 `@Edit` 폴더에 보관 → 이 문서 위치가 이미 `@Edit/CameraDesign_FollowCamera.md`로 규칙에 부합.
 > - `MapEdit.md` 규칙 2, 3: 스테이지당 1~5영역, 표기는 `스테이지-영역`(예: `1-1`~`1-5`) → 이하 본문에서 기존 `Section_n` 표현을 이 표기에 맞춰 정리.
 > - `MapEdit.md` 규칙 4: 영역 시작(★)/골인(○) 지점 통과 시 다음 영역으로 전환 → 기존 `SectionEdgeTrigger`의 경계 통과 방식과 그대로 일치, 별도 수정 불필요.
 > - `MapEdit.md` 규칙 5: 5영역(`1-5`)에는 보스존이 별도 존재 → 3.7항에 보스존 카메라 처리 방침 추가.
@@ -40,7 +40,7 @@
 
 - **CameraBoundsZone**: 각 배경(구간)마다 하나씩 배치하는 "카메라가 갈 수 있는 배경의 실제 월드 범위" 마커. 배경 스프라이트의 실제 가로/세로 크기와 동일하게 배치.
 - **PlayerCameraFollow**: 메인 카메라에 부착. 매 프레임 플레이어를 따라가되, 현재 `CameraBoundsZone` 범위를 벗어나지 않도록 카메라 중심 좌표를 클램프.
-- 두 요소를 분리하는 이유(규칙 39, SRP): 카메라 스스로는 "어떻게 따라갈지"만 알고, "어디까지 갈 수 있는지"는 구간(레벨) 데이터가 갖도록 책임을 분리 — 레벨 디자이너가 배경을 바꿔도 카메라 스크립트를 건드릴 필요 없음.
+- 두 요소를 분리하는 이유(규칙 35, SRP): 카메라 스스로는 "어떻게 따라갈지"만 알고, "어디까지 갈 수 있는지"는 구간(레벨) 데이터가 갖도록 책임을 분리 — 레벨 디자이너가 배경을 바꿔도 카메라 스크립트를 건드릴 필요 없음.
 
 ### 3.2 CameraBoundsZone 설계
 
@@ -70,7 +70,7 @@ public class CameraBoundsZone : MonoBehaviour
 ```csharp
 public class PlayerCameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;              // 플레이어 Transform (Inspector 연결, Find 금지 - 규칙 40/41)
+    [SerializeField] private Transform target;              // 플레이어 Transform (Inspector 연결, Find 금지 - 규칙 36/37)
     [SerializeField] private Vector2 offset;                 // 필요 시 화면상 여유(look-ahead) 오프셋
     [SerializeField] private float followLerpSpeed = 8f;     // 값이 클수록 즉각 추적(오버슈트 없는 Lerp)
     [SerializeField] private float zoomLerpSpeed = 4f;        // 구간 전환 시 orthographicSize를 부드럽게 전환하는 속도
@@ -159,7 +159,7 @@ public class SectionEdgeTrigger : MonoBehaviour
 ### 3.6 StageManager 역할 축소
 
 - 카메라 이동/줌 책임은 `PlayerCameraFollow`로 이전.
-- `StageManager`는 "5구간 진행 상태 관리 + 보스 처치 시 다음 스테이지 로드"라는 **게임 진행 매니저 본연의 역할만** 남기는 것을 권장(규칙 39: Manager는 상태 관리 전담).
+- `StageManager`는 "5구간 진행 상태 관리 + 보스 처치 시 다음 스테이지 로드"라는 **게임 진행 매니저 본연의 역할만** 남기는 것을 권장(규칙 35: Manager는 상태 관리 전담).
 
 ### 3.7 보스존(1-5영역) 카메라 처리 (MapEdit.md 규칙 5 반영)
 

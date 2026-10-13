@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-// 플레이어의 석화 상태이상을 담당하는 스크립트(규칙 39, SRP - 이동/전투 스크립트는 수정하지 않고 이 스크립트가 잠시 꺼둔다).
+// 플레이어의 석화 상태이상을 담당하는 스크립트(규칙 35, SRP - 이동/전투 스크립트는 수정하지 않고 이 스크립트가 잠시 꺼둔다).
 // 석화 중에는 이동(PlayerMovement)·공격(PlayerCombat)·대시(PlayerDash)를 비활성화하고 좌우 속도를 0으로 고정하며,
 // 스프라이트를 회색으로 물들인다. 피해는 그대로 받는다(석화는 행동 불가일 뿐 무적이 아님).
 // 사용법: Player 루트(Rigidbody2D와 같은 오브젝트)에 이 컴포넌트를 추가하고 tintTarget에 플레이어 SpriteRenderer를 지정.
@@ -17,9 +17,9 @@ public class PlayerPetrify : MonoBehaviour, IPetrifiable
     private float petrifiedUntil;
 
     public bool IsPetrified { get; private set; }
-    public event Action<bool> OnPetrifyChanged; // 석화 시작(true)/해제(false) 알림 - UI/사운드가 구독(규칙 40)
+    public event Action<bool> OnPetrifyChanged; // 석화 시작(true)/해제(false) 알림 - UI/사운드가 구독(규칙 36)
 
-    // 같은 오브젝트의 이동/공격/대시 컴포넌트를 미리 캐싱(GetComponent 우선 - 규칙 41)
+    // 같은 오브젝트의 이동/공격/대시 컴포넌트를 미리 캐싱(GetComponent 우선 - 규칙 37)
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

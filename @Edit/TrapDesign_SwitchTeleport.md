@@ -19,14 +19,14 @@
 | 콜라이더 | 필요(발동 영역) | 불필요(스위치가 감지) |
 
 기존 `TeleportTrap`과 3-4의 텔레포트 5개(낙하 포착형)는 **수정하지 않습니다.**
-스위치의 발동 감지는 이미 `SwitchTrigger`가 하므로 새 컴포넌트는 "누가 밟았는가 → 어디로 보낼 것인가"만 담당합니다(규칙 39).
+스위치의 발동 감지는 이미 `SwitchTrigger`가 하므로 새 컴포넌트는 "누가 밟았는가 → 어디로 보낼 것인가"만 담당합니다(규칙 35).
 
 ## 3. 시작점의 정의
 
 기본 목적지는 **플레이어가 해당 영역(Zone)에 처음 들어올 때 서는 지점**, 곧 그 영역의 `ZoneStartPoint`입니다.
 `StageManager.MovePlayerToStartOfCurrentArea`가 사망 후 재시작과 영역 진입에 같은 지점을 사용하므로 기준이 일치합니다.
 
-- 인스펙터에 `ZoneStartPoint startPoint`를 연결(`Find` 금지, 규칙 40).
+- 인스펙터에 `ZoneStartPoint startPoint`를 연결(`Find` 금지, 규칙 36).
 - 별도 지정이 필요하면 `Transform customDestination`을 채운다. 값이 있으면 `startPoint`보다 우선한다.
 - 3-1 등 신규 영역은 영역마다 `ZoneStartPoint`가 이미 있으므로 새 오브젝트가 필요 없다.
 
@@ -74,7 +74,7 @@ public class SwitchTeleportTrap : MonoBehaviour
 | 결정 | 이유 |
 |---|---|
 | 기존 `TeleportTrap` 비수정, 신규 클래스 | 3-4에 이미 5개가 배치·검증되어 있어 회귀 위험을 피함 |
-| 쿨다운·1회성은 스위치에 위임 | 같은 기능을 두 곳에 두지 않기 위함(SRP, 규칙 39) |
+| 쿨다운·1회성은 스위치에 위임 | 같은 기능을 두 곳에 두지 않기 위함(SRP, 규칙 35) |
 | 예고 없음 | 사용자 확정(즉시 발동) |
 | 벌칙 피해 기본 0 | `[SerializeField] penaltyDamage`로 함정마다 조절(사용자 확정) |
 | 목적지는 `ZoneStartPoint` | 사망/영역 진입 시 시작 위치와 일치해 플레이어가 예측 가능 |

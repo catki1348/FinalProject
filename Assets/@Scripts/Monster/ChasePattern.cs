@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChasePattern : MonoBehaviour, IMonsterPattern
 {
     [SerializeField] private Vector2 detectionSize = new Vector2(8f, 4f); // 플레이어 감지 영역 크기(스폰 위치가 중심)
-    [SerializeField] private LayerMask playerLayer;     // 플레이어로 인식할 레이어(태그/Find 대신 레이어 사용 - 규칙 41)
+    [SerializeField] private LayerMask playerLayer;     // 플레이어로 인식할 레이어(태그/Find 대신 레이어 사용 - 규칙 37)
     [SerializeField] private float moveSpeed = 3f;      // 추적 시 좌우 이동 속도
     [SerializeField] private float jumpForce = 7f;      // 점프 시 가하는 상승 힘
     [SerializeField] private float jumpInterval = 0.8f; // 점프 재사용 간격(초)

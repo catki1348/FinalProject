@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 엔딩 연출을 담당하는 매니저(규칙 39). GameOverManager와 동일하게 오버레이 UI를 코드로
+// 엔딩 연출을 담당하는 매니저(규칙 35). GameOverManager와 동일하게 오버레이 UI를 코드로
 // 직접 구성한다. MapEdit.md 규칙 10: 5-5(최종 스테이지의 최종 영역)에서 종료점에 도달하면
 // 다음 스테이지로 넘어가는 대신 이 엔딩 화면을 띄우고 게임을 정지한다.
 public class EndingManager : MonoBehaviour

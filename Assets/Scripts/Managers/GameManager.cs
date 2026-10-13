@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// 씬 전환 등 게임 전역 상태를 담당하는 매니저(규칙 39: 싱글톤은 매니저 클래스에만 허용)
+// 씬 전환 등 게임 전역 상태를 담당하는 매니저(규칙 35: 싱글톤은 매니저 클래스에만 허용)
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 플레이어의 Transform 캐시(몬스터 크기 산정 등에서 GameObject.Find 없이 참조하기 위함 - 규칙 40, 41)
+    // 플레이어의 Transform 캐시(몬스터 크기 산정 등에서 GameObject.Find 없이 참조하기 위함 - 규칙 36, 37)
     public Transform PlayerTransform { get; private set; }
 
     private void Awake()

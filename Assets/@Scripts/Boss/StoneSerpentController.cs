@@ -10,7 +10,7 @@ using UnityEngine;
 // - 일반 공격 2: 꼬리치기(Tail)   - 조금 먼 거리, 꼬리로 전방 바닥을 쓸어 지면 판정 1회(점프로 회피 가능)
 // - 특수 공격 1: 독 브레스        - 입에서 전방으로 독 가스를 일정 시간 분사, 범위 안에 있으면 주기적으로 피해
 // - 특수 공격 2: 석화 광선        - 눈에 빛을 모은 뒤 플레이어 방향으로 광선 발사, 맞으면 피해 + 일정 시간 석화(행동 불가)
-// 체력/사망은 Boss.cs가 담당하고(SRP, 규칙 39), 이 스크립트는 Boss의 이벤트를 구독해 행동만 결정한다.
+// 체력/사망은 Boss.cs가 담당하고(SRP, 규칙 35), 이 스크립트는 Boss의 이벤트를 구독해 행동만 결정한다.
 // 원점(transform.position)은 보스의 발밑(똬리 아래) 중앙이며, 애니메이션은 자식 Visual의 Animator가 재생한다.
 // 스프라이트는 모두 오른쪽을 보는 옆모습 기준이며, 왼쪽을 볼 때는 Visual의 X 스케일을 반전한다.
 [RequireComponent(typeof(Rigidbody2D))]
@@ -109,7 +109,7 @@ public class StoneSerpentController : MonoBehaviour
     private float nextSpecialTime;
     private float staggerGauge;                               // 누적 피해량(그로기 게이지)
     private float groggyImmuneUntil;
-    private readonly Collider2D[] hitBuffer = new Collider2D[8];   // 판정 결과 버퍼(매번 새로 할당하지 않기 위해 캐싱 - 규칙 43)
+    private readonly Collider2D[] hitBuffer = new Collider2D[8];   // 판정 결과 버퍼(매번 새로 할당하지 않기 위해 캐싱 - 규칙 39)
     private readonly Rigidbody2D[] hitBodies = new Rigidbody2D[8]; // 한 번의 판정에서 같은 대상을 중복 타격하지 않기 위한 목록
 
     public SerpentState State { get; private set; } = SerpentState.Idle;
