@@ -52,7 +52,7 @@
 ✅ **전체 세션 백업 선택**
 
 **백업 위치:**
-- 기본: C:\Users\MBC-501-21\Documents\LHS\
+- 기본: <LHS_ROOT>\ (PC마다 자동 결정)
 - 변경하려면 경로 입력 (또는 엔터 기본값)
 
 **백업 형식:**
@@ -135,18 +135,35 @@
 
 ```powershell
 # AI가 실행 (사용자에게 보이지 않음)
-$projectDir = "$env:USERPROFILE\.claude\projects\C--Users-MBC-501-21-Documents-FinalProject"
-$sessions = Get-ChildItem $projectDir -Directory | Where-Object {$_.Name -notlike "memory"}
+# PC/폴더 독립: 현재 작업 폴더를 Claude 프로젝트 폴더명 규칙(영숫자 외 문자 → '-')으로 변환
+$projectsRoot = Join-Path $env:USERPROFILE ".claude\projects"
+$encoded = (Get-Location).Path -replace '[^a-zA-Z0-9]', '-'
+$projectDir = Join-Path $projectsRoot $encoded
 
-foreach ($session in $sessions) {
-    $metaFile = "$env:USERPROFILE\.claude\sessions\*.json" | 
-                Where-Object {(Get-Content $_ | ConvertFrom-Json).sessionId -eq $session.Name}
-    
-    if (Test-Path $metaFile) {
-        $meta = Get-Content $metaFile | ConvertFrom-Json
-        Write-Output "$($meta.name) ($($meta.pid))"
+# 현재 폴더에 해당하는 프로젝트가 없으면 존재하는 모든 프로젝트 폴더를 대상으로 사용
+$projectDirs = if (Test-Path $projectDir) { @(Get-Item $projectDir) } else { Get-ChildItem $projectsRoot -Directory }
+
+# 메타데이터: sessionId -> meta
+$metaMap = @{}
+Get-ChildItem (Join-Path $env:USERPROFILE ".claude\sessions") -Filter *.json -File -ErrorAction SilentlyContinue | ForEach-Object {
+    try { $m = Get-Content $_.FullName -Raw -Encoding UTF8 | ConvertFrom-Json; if ($m.sessionId) { $metaMap[$m.sessionId] = $m } } catch {}
+}
+
+# 세션 = <id>.jsonl (대화 기록, 필수) + <id>\ 폴더(있으면)
+$sessions = foreach ($pd in $projectDirs) {
+    Get-ChildItem $pd.FullName -Filter *.jsonl -File | ForEach-Object {
+        $id = $_.BaseName
+        $dir = Join-Path $pd.FullName $id
+        [pscustomobject]@{
+            Id = $id; Project = $pd.Name; Transcript = $_.FullName
+            Dir = if (Test-Path $dir) { $dir } else { $null }
+            Name = $metaMap[$id].name; Pid = $metaMap[$id].pid
+        }
     }
 }
+
+# 백업 시 각 세션의 Transcript(.jsonl)와 Dir를 projects\<Project>\ 아래로 함께 복사
+# 주의: 현재 활성 세션의 .jsonl은 계속 기록되므로 백업 시점까지의 내용만 포함됨
 ```
 
 ---
@@ -172,7 +189,7 @@ foreach ($session in $sessions) {
 
 **대상**: 선택된 세션 (N개)
 **형식**: [TAR/7z/복사]
-**위치**: [경로]
+**위치**: <LHS_ROOT>\[경로]
 **내보내기**: [예/아니오]
 **검증**: [예/아니오]
 
@@ -207,7 +224,7 @@ foreach ($session in $sessions) {
 ✅ **백업 완료!**
 
 **백업 정보:**
-- 파일: C:\Users\...\Claude\backups\claude_backup_2026-10-12_16-54.tar.gz
+- 파일: <LHS_ROOT>\claude_backup_2026-10-12_16-54.tar.gz
 - 크기: 145 MB
 - 세션: 3개
 - 메시지: 1,630개
@@ -317,11 +334,16 @@ Claude 홈:
 C:\Users\[username]\.claude\
 
 프로젝트:
-C:\Users\[username]\.claude\projects\C--Users-MBC-501-21-Documents-FinalProject
+C:\Users\[username]\.claude\projects\<현재 작업 폴더 경로를 '-'로 변환한 이름>
+(고정 경로 금지 - PC마다 다르므로 스크립트가 동적으로 계산)
 
-세션 메타:
+메타데이터:
 C:\Users\[username]\.claude\sessions\*.json
 
-백업 기본 경로:
-C:\Users\[username]\Claude\backups\
+백업 기본 경로 (LHS_ROOT - PC 독립):
+$env:OneDrive\문서\LHS
+$env:OneDrive\Documents\LHS
+$env:USERPROFILE\Documents\LHS
+$env:USERPROFILE\Downloads\LHS
+(위 순서대로 첫 존재하는 폴더 사용)
 ```

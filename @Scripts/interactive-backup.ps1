@@ -42,8 +42,32 @@ param(
 
 # 상수
 $ClaudeHome = "$env:USERPROFILE\.claude"
-$ProjectDir = Join-Path $ClaudeHome "projects" "C--Users-MBC-501-21-Documents-FinalProject"
-$DefaultBackupRoot = "C:\Users\MBC-501-21\Documents\LHS"
+
+# 현재 작업 폴더를 Claude 프로젝트 폴더명으로 변환 (영숫자 외 문자 → '-')
+$projectsRoot = Join-Path $ClaudeHome "projects"
+$encoded = (Get-Location).Path -replace '[^a-zA-Z0-9]', '-'
+$projectDir = Join-Path $projectsRoot $encoded
+
+# 현재 폴더에 해당하는 프로젝트가 없으면 모든 프로젝트 폴더 대상
+if (-not (Test-Path $projectDir)) {
+    Write-Status "현재 폴더 프로젝트 없음, 모든 프로젝트 대상으로 사용" "warning"
+    $projectDir = $null
+}
+
+# LHS_ROOT 동적 결정 (PC 독립)
+$lhsRootCandidates = @(
+    if ($env:OneDrive) { "$env:OneDrive\문서\LHS" },
+    if ($env:OneDrive) { "$env:OneDrive\Documents\LHS" },
+    "$env:USERPROFILE\Documents\LHS",
+    "$env:USERPROFILE\Downloads\LHS"
+)
+
+$DefaultBackupRoot = $lhsRootCandidates | Where-Object { $_ -and (Test-Path $_) } | Select-Object -First 1
+
+if (-not $DefaultBackupRoot) {
+    $DefaultBackupRoot = "$env:USERPROFILE\Documents\LHS"
+    New-Item -ItemType Directory -Path $DefaultBackupRoot -Force | Out-Null
+}
 
 if (-not $BackupPath) {
     $BackupPath = $DefaultBackupRoot
@@ -62,33 +86,37 @@ function Write-Status {
 }
 
 function Get-AllSessions {
-    param([string]$ProjectDirPath)
+    param([string[]]$ProjectDirPaths)
 
     $sessions = @()
 
-    Get-ChildItem -Path $ProjectDirPath -Directory -Force |
-        Where-Object {$_.Name -notlike "memory"} |
-        ForEach-Object {
-            $sessionId = $_.Name
-            $metaFiles = Get-ChildItem -Path (Join-Path $ClaudeHome "sessions") -Filter "*.json"
+    # 메타데이터 맵 구성
+    $metaMap = @{}
+    Get-ChildItem -Path (Join-Path $ClaudeHome "sessions") -Filter "*.json" -File -ErrorAction SilentlyContinue | ForEach-Object {
+        try {
+            $m = Get-Content $_.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
+            if ($m.sessionId) { $metaMap[$m.sessionId] = $m }
+        } catch {}
+    }
 
-            foreach ($metaFile in $metaFiles) {
-                $meta = Get-Content $metaFile | ConvertFrom-Json
+    # 각 프로젝트 폴더에서 세션 찾기
+    foreach ($projPath in $ProjectDirPaths) {
+        if (-not (Test-Path $projPath)) { continue }
 
-                if ($meta.sessionId -eq $sessionId) {
-                    $sessions += @{
-                        id       = $sessionId
-                        pid      = $meta.pid
-                        name     = $meta.name
-                        cwd      = $meta.cwd
-                        status   = $meta.status
-                        startedAt = $meta.startedAt
-                        updatedAt = $meta.updatedAt
-                    }
-                    break
-                }
+        Get-ChildItem -Path $projPath -Filter "*.jsonl" -File | ForEach-Object {
+            $sessionId = $_.BaseName
+            $sessionDir = Join-Path $projPath $sessionId
+
+            $sessions += @{
+                Id        = $sessionId
+                Project   = (Split-Path $projPath -Leaf)
+                Transcript = $_.FullName
+                Dir       = if (Test-Path $sessionDir) { $sessionDir } else { $null }
+                Name      = $metaMap[$sessionId].name
+                Pid       = $metaMap[$sessionId].pid
             }
         }
+    }
 
     return $sessions
 }
@@ -185,8 +213,9 @@ Write-Status "대화형 세션 백업 시작"
 # 1. 모든 세션 확인
 if ($SessionIds -contains "all") {
     Write-Status "모든 세션 선택..."
-    $allSessions = Get-AllSessions -ProjectDirPath $ProjectDir
-    $SessionIds = $allSessions.id
+    $projectDirs = if ($projectDir) { @(Get-Item $projectDir) } else { Get-ChildItem $projectsRoot -Directory }
+    $allSessions = Get-AllSessions -ProjectDirPaths $projectDirs.FullName
+    $SessionIds = $allSessions.Id
     Write-Status "총 $($SessionIds.Count)개 세션 선택됨" "success"
 } else {
     Write-Status "$($SessionIds.Count)개 세션 선택됨" "success"

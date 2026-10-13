@@ -39,7 +39,22 @@ param(
 
 # 상수
 $ClaudeHome = "$env:USERPROFILE\.claude"
-$DefaultBackupRoot = "C:\Users\MBC-501-21\Documents\LHS"  # 지정된 백업 경로
+
+# LHS_ROOT 동적 결정 (PC 독립)
+$lhsRootCandidates = @(
+    if ($env:OneDrive) { "$env:OneDrive\문서\LHS" },
+    if ($env:OneDrive) { "$env:OneDrive\Documents\LHS" },
+    "$env:USERPROFILE\Documents\LHS",
+    "$env:USERPROFILE\Downloads\LHS"
+)
+
+$DefaultBackupRoot = $lhsRootCandidates | Where-Object { $_ -and (Test-Path $_) } | Select-Object -First 1
+
+if (-not $DefaultBackupRoot) {
+    $DefaultBackupRoot = "$env:USERPROFILE\Documents\LHS"
+    New-Item -ItemType Directory -Path $DefaultBackupRoot -Force | Out-Null
+}
+
 $Timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
 $BackupName = "claude_backup_$Timestamp"
 
@@ -161,7 +176,8 @@ function Backup-AsCopy {
 # 메인 로직
 Write-Status "AI 세션 백업 도구 시작"
 Write-Status "📌 주의: AI 세션 데이터만 백업합니다 (Unity 파일 제외)"
-Write-Status "백업 경로: $BackupPath"
+Write-Status "기본 LHS_ROOT: $DefaultBackupRoot"
+Write-Status "현재 백업 경로: $BackupPath"
 Write-Status "백업 형식: $Format"
 
 # 1. 검증
