@@ -1,0 +1,6 @@
+warning=True;active=True;actualFloorContact=True;platformSafe=False
+0.009 Special/warning=True/active=False hp=40
+0.694 Special/warning=False/active=True hp=40
+1.306 Idle/warning=False/active=True hp=40
+1.452 Idle/warning=False/active=False hp=40
+2.365 Special/warning=True/active=False hp=40

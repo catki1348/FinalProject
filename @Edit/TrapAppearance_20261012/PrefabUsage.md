@@ -8,7 +8,8 @@
 |---|---|---|
 | P_Trap_Switch_* | SwitchTrigger, 트리거 BoxCollider2D | 발판 위에 놓고 연결할 함정에서 참조 |
 | P_Trap_Projectile_* | TrapProjectile, 기존 Rigidbody2D/충돌/피해/수명 설정 | 직접 놓기보다 발사기로 생성 |
-| P_Trap_Launcher_* | ProjectileLauncher, 자식 테마 Switch 프리팹, 해당 테마 Projectile 프리팹 | 자식 스위치 위치를 원하는 발판으로 이동. 기본 +X 발사, FirePoint는 열린 공간 유지 |
+| P_Trap_Launcher_* | ProjectileLauncher + LauncherAppearance, 수직 시점 이미지, 테마 Projectile | 외부 스위치를 switchTrigger에 연결. 기본 +X 발사, 루트/FirePoint가 총구 위치 |
+| P_Trap_Arrow_* | Switch와 Launcher 중첩 프리팹, 내부 연결 완료 | 바로 배치 가능. 자식 Switch/Launcher의 위치를 조절 |
 | P_Trap_Teleport_* | SwitchTrigger + SwitchTeleportTrap, 스위치 그림 + TeleportRune 그림 | startPoint 또는 customDestination, cameraFollow, destinationZone 지정 |
 
 발사기는 0.5초 경고 후 발사, 스위치는 기존 3초 쿨다운을 유지한다. 텔레포트는 즉시 발동하며 기본 penaltyDamage=0이다. 효과음은 기존처럼 비어 있다. 텔레포트 룬 자식은 외관이고 접촉 판정은 루트 스위치에만 있다.

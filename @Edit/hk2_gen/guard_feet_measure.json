@@ -1,0 +1,58 @@
+{
+ "guard_1_start": {
+  "ground_y_from_top": 1158,
+  "boot_x_min": 223,
+  "boot_x_max": 749,
+  "boot_center_x": 486.0,
+  "W": 1152,
+  "H": 1536,
+  "bbox": [
+   0,
+   332,
+   892,
+   1168
+  ]
+ },
+ "guard_2_raised": {
+  "ground_y_from_top": 1163,
+  "boot_x_min": 217,
+  "boot_x_max": 761,
+  "boot_center_x": 489.0,
+  "W": 1152,
+  "H": 1536,
+  "bbox": [
+   5,
+   338,
+   932,
+   1172
+  ]
+ },
+ "guard_3_holdA": {
+  "ground_y_from_top": 1167,
+  "boot_x_min": 220,
+  "boot_x_max": 758,
+  "boot_center_x": 489.0,
+  "W": 1152,
+  "H": 1536,
+  "bbox": [
+   11,
+   349,
+   930,
+   1176
+  ]
+ },
+ "guard_4_holdB": {
+  "ground_y_from_top": 1105,
+  "boot_x_min": 218,
+  "boot_x_max": 755,
+  "boot_center_x": 486.5,
+  "W": 1152,
+  "H": 1536,
+  "bbox": [
+   7,
+   236,
+   931,
+   1115
+  ]
+ }
+}

@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float lifeTime = 2f; // 아무것도 맞추지 못했을 때 자동 소멸까지의 시간
 
     private Rigidbody2D rb;
+    private Collider2D attackerBody;
+    private bool consumed;
 
     private void Awake()
     {
@@ -18,6 +20,13 @@ public class Projectile : MonoBehaviour
     // 발사 방향을 지정해 투사체를 활성화(방향은 정규화해 사용)
     public void Launch(Vector2 direction)
     {
+        Launch(direction, null);
+    }
+
+    // OpenAI Codex (GPT-6), 2026-10-14: 발사자 몸을 보존하여 명중 시점 거리를 사용한다.
+    public void Launch(Vector2 direction, Collider2D attacker)
+    {
+        attackerBody = attacker;
         rb.linearVelocity = direction.normalized * speed;
         Destroy(gameObject, lifeTime);
     }
@@ -25,6 +34,7 @@ public class Projectile : MonoBehaviour
     // 발사한 플레이어 자신은 무시하고, 피해를 받을 수 있는 대상이면 피해를 입힌 뒤 항상 스스로 파괴됨(벽에 맞아도 소멸)
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (consumed) return;
         if (other.attachedRigidbody != null && other.attachedRigidbody.TryGetComponent<PlayerMovement>(out _))
         {
             return;
@@ -32,9 +42,11 @@ public class Projectile : MonoBehaviour
 
         if (other.attachedRigidbody != null && other.attachedRigidbody.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.TakeDamage(damage);
+            consumed = true;
+            DamageDelivery.Deliver(damageable, damage, attackerBody);
         }
 
+        consumed = true;
         Destroy(gameObject);
     }
 }

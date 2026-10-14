@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 // 보스 행동에서 재생할 효과음 종류. 보스마다 쓰는 종류만 BossSound에 연결하면 된다.
-public enum BossSfx { Attack = 0, SpecialSlam = 1, Bite = 2, TailSwipe = 3, PoisonBreath = 4, PetrifyGaze = 5, Groggy = 6, Death = 7, Idle = 8, Walk = 9, ClawWindup = 10, ClawStrike = 11, TailWindup = 12, TailStrike = 13, LavaCharge = 14, LavaLaunch = 15, LavaImpact = 16, EruptionCharge = 17, EruptionBurst = 18, Hit = 19 }
+public enum BossSfx { Attack = 0, SpecialSlam = 1, Bite = 2, TailSwipe = 3, PoisonBreath = 4, PetrifyGaze = 5, Groggy = 6, Death = 7, Idle = 8, Walk = 9, ClawWindup = 10, ClawStrike = 11, TailWindup = 12, TailStrike = 13, LavaCharge = 14, LavaLaunch = 15, LavaImpact = 16, EruptionCharge = 17, EruptionBurst = 18, Hit = 19, SweepWindup = 20, SweepStrike = 21, SonicCharge = 22, SonicRelease = 23, CollapseCharge = 24, CollapseImpact = 25, JumpCrouch = 26, JumpTakeoff = 27, JumpLand = 28, ChargeWindup = 29, ChargeRun = 30 }
 
 // 한 보스의 사운드(전투 BGM + 행동별 효과음)를 담당하는 컴포넌트(규칙 35: 행동 결정은 컨트롤러, 소리는 여기).
 // 실제 재생은 SoundManager를 거치므로 볼륨/채널은 SoundManager가 일괄 관리한다.
@@ -59,4 +59,5 @@ public class BossSound : MonoBehaviour
         if (battleStarted) SoundManager.Instance.EndBossBgm();
     }
 }
+
 

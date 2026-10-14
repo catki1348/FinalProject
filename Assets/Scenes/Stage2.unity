@@ -371,6 +371,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1068189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,14 +986,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -1066,6 +1061,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -1528,14 +1531,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -1611,6 +1606,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -1733,14 +1736,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -1816,6 +1811,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -2069,6 +2072,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &150618139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3095,6 +3101,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &293755689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3432,6 +3441,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &334805322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3881,14 +3893,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -3964,6 +3968,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -4082,6 +4094,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &382018140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4678,14 +4693,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -4761,6 +4768,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -5045,14 +5060,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -5128,6 +5135,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -5497,6 +5512,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &498919249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5687,6 +5705,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &509922480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6150,6 +6171,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &546972109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6246,14 +6270,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -6329,6 +6345,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -6764,6 +6788,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &579144055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7023,6 +7050,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &596901535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7101,14 +7131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -7184,6 +7206,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -7985,6 +8015,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &733238776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8695,6 +8728,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &809761571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10104,14 +10140,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -10187,6 +10215,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -10327,14 +10363,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -10410,6 +10438,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -10582,6 +10618,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &972142752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10718,6 +10757,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &976669457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10849,6 +10891,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &984591169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11085,6 +11130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c745e3449e4489e4d96386101fb96557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+--- !u!114 &1032624858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6923854665365393073, guid: ca420f4923676ee40b96b689748df5b7, type: 3}
+  m_PrefabInstance: {fileID: 1032624855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9c7926442ccfe47bbe2e05f8e02a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDefense
 --- !u!4 &1035433161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8845382518379234072, guid: fa8edc9ec75699144b3e815e527f0bfe, type: 3}
@@ -12059,6 +12115,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1135414770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13019,14 +13078,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -13102,6 +13153,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -13467,6 +13526,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1245707166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13895,6 +13957,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1302464204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14642,6 +14707,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1336228518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15466,6 +15534,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1415823117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15575,14 +15646,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -15658,6 +15721,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -16104,14 +16175,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -16187,6 +16250,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -16659,6 +16730,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1523270807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17285,14 +17359,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -17368,6 +17434,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -17540,6 +17614,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1602936974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17826,6 +17903,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1617092293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18324,6 +18404,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1659356018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18491,6 +18574,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1674685777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18868,14 +18954,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -18951,6 +19029,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -19133,14 +19219,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -19216,6 +19294,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -19803,14 +19889,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -19886,6 +19964,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -20036,6 +20122,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1863285726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20233,6 +20322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WarpManager
   testStartZone: 2-3
+  testPlatformName: 
 --- !u!4 &1874725675
 Transform:
   m_ObjectHideFlags: 0
@@ -20700,6 +20790,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1903542043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21083,6 +21176,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1933302430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21389,14 +21485,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060187307}
     m_Modifications:
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
-      propertyPath: areaSize.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 524911817641023250, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.093905106
@@ -21472,6 +21560,14 @@ PrefabInstance:
     - target: {fileID: 8293832250987289302, guid: df599b6a688ac4347979255ac4cc8e19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
+      propertyPath: areaSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8000298795612566082, guid: b9a90d586fad7f846b79ee5fd7973695, type: 3}
@@ -21639,6 +21735,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &1963127555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21905,6 +22004,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1032624857}
+    - target: {fileID: 8821830566793450166, guid: fb1c6c17787d7c347970896f3b2e283f, type: 3}
+      propertyPath: playerDefense
+      value: 
+      objectReference: {fileID: 1032624858}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22976,6 +23079,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!114 &2104535260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23228,6 +23334,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &5922351531891696685
 Rigidbody2D:
   serializedVersion: 5
@@ -23293,6 +23402,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &5933735701295860221
 Rigidbody2D:
   serializedVersion: 5
@@ -23353,6 +23465,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &6423353323364321881
 Rigidbody2D:
   serializedVersion: 5
@@ -23423,6 +23538,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &7224786532374764803
 Rigidbody2D:
   serializedVersion: 5
@@ -23488,6 +23606,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &8411326897361608717
 Rigidbody2D:
   serializedVersion: 5
@@ -23548,6 +23669,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &8781389454803935054
 Rigidbody2D:
   serializedVersion: 5
@@ -23613,6 +23737,9 @@ MonoBehaviour:
   startDelay: 0
   endpointWait: 0
   riderDetectMargin: 0.15
+  offscreenSpeedMultiplier: 1
+  offscreenMargin: 2
+  speedBlendRate: 20
 --- !u!50 &9020617469826241411
 Rigidbody2D:
   serializedVersion: 5

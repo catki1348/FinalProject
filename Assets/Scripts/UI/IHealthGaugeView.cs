@@ -3,4 +3,5 @@
 public interface IHealthGaugeView
 {
     void SetRatio(float ratio); // 0~1, 현재체력/최대체력
+    void SetTempHealth(float tempHealth, float remainingSeconds); // 완벽 방어 임시 체력(0이면 표시 끔)
 }

@@ -4,7 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;         // 좌우 이동 속도
+    [SerializeField] private float moveSpeed = 5f;         // 좌우 이동 속도(기본값)
+    // 이동속도 배율 - 아이템 버프(PlayerSpeedBuff)가 설정한다. 1이면 기본 속도. 실제 속도 = moveSpeed * SpeedMultiplier
+    public float SpeedMultiplier { get; set; } = 1f;
+    private float CurrentMoveSpeed => moveSpeed * SpeedMultiplier;
     [SerializeField] private float jumpForce = 6f;         // 점프 시 가하는 상승 힘
     [SerializeField] private Transform groundCheck;         // 바닥 감지 기준점(발밑에 배치)
     [SerializeField] private float groundCheckRadius = 0.1f; // 바닥 감지 원의 반지름
@@ -65,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     public bool FacingRight { get; private set; } = true; // 현재 캐릭터가 오른쪽을 보고 있는지 여부(외부에서 조회용)
     public float MoveInput => moveInput;   // 좌우 입력값(외부 조회용, 예: 스프라이트 상태 전환)
     public bool IsGrounded => isGrounded;  // 접지 여부(외부 조회용, 예: 스프라이트 상태 전환)
+    // OpenAI Codex (GPT-6), 2026-10-14: 통과 중인 발판을 접지로 다시 감지하지 않는다.
+    public bool GroundingSuppressed { get; set; }
     public bool MovementLocked { get; set; } // true인 동안 FixedUpdate의 좌우 속도 적용을 건너뜀(대시 등 다른 스크립트가 속도를 직접 제어할 때 사용)
 
     // 시작 시 Rigidbody2D 컴포넌트를 미리 캐싱(매 프레임 GetComponent 호출 방지)
@@ -86,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
         // groundCheck 위치를 기준으로 원형 범위 안에 groundLayer가 있으면 접지 상태로 판단
         if (!slideEnabled)
-            isGrounded = groundCheck != null &&
+            isGrounded = !GroundingSuppressed && groundCheck != null &&
                 Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // 점프 버튼 입력 + 접지 상태일 때만 위쪽으로 속도를 부여해 점프
@@ -143,12 +148,12 @@ public class PlayerMovement : MonoBehaviour
             // 수평 이동량은 줄고 수직 이동량이 늘어 실제 체감 속도가 평지와 비슷하게 유지된다
             // (수평 속도만 고정한 채 y만 눌러 붙이면 경사가 급할수록 이동 거리가 늘어나 부자연스럽다).
             Vector2 slopeDirection = new Vector2(groundNormal.y, -groundNormal.x);
-            slopeSpeed = moveInput * moveSpeed;
+            slopeSpeed = moveInput * CurrentMoveSpeed;
             rb.linearVelocity = slopeDirection * slopeSpeed;
         }
         else
         {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(moveInput * CurrentMoveSpeed, rb.linearVelocity.y);
         }
     }
 
@@ -176,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
         if (angle <= slideEndAngle)
             speed = Mathf.MoveTowards(speed, 0f, slideFriction * dt);
 
-        if ((angle <= slideEndAngle && Mathf.Abs(speed) <= moveSpeed) ||
+        if ((angle <= slideEndAngle && Mathf.Abs(speed) <= CurrentMoveSpeed) ||
             (angle > slideEndAngle && Mathf.Abs(speed) < 0.5f))
         {
             IsSliding = false;
@@ -206,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
     {
         groundNormal = Vector2.up;
         hasWalkableGround = false;
+        if (GroundingSuppressed) { isGrounded = false; return; }
         if (isJumping || groundCheck == null) return;
 
         // 급경사에서는 발 중앙과 지면 사이가 멀어질 수 있다. 몸 전체를 짧게 내려 검사해야

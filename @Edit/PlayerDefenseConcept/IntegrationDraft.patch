@@ -1,0 +1,99 @@
+diff --git a/Assets/Scripts/Player/PlayerCombat.cs b/Assets/Scripts/Player/PlayerCombat.cs
+index cc6a8e7..808d8f6 100644
+--- a/Assets/Scripts/Player/PlayerCombat.cs
++++ b/Assets/Scripts/Player/PlayerCombat.cs
+@@ -3,6 +3,8 @@ using UnityEngine;
+ // 플레이어의 검 공격(근접)과 쿨다운이 있는 특수 액션을 담당하는 스크립트
+ [RequireComponent(typeof(PlayerMovement))]
+ [RequireComponent(typeof(PlayerStats))]
++[RequireComponent(typeof(PlayerDefense))]
++[RequireComponent(typeof(PlayerDefenseFeedback))]
+ public class PlayerCombat : MonoBehaviour
+ {
+     [SerializeField] private Transform attackPoint;              // 검 공격 판정의 중심점(캐릭터 자식, 정면에 배치)
+@@ -35,14 +37,14 @@ public class PlayerCombat : MonoBehaviour
+         if (attackPoint != null) attackPointBaseLocalPos = attackPoint.localPosition;
+     }
+ 
+-    // 매 프레임 입력을 읽어 좌클릭은 검 공격, 우클릭은 특수 액션을 시도
++    // 좌클릭은 PlayerDefense에서 방어, X는 검 공격, 우클릭은 특수 액션.
+     private void Update()
+     {
+         UpdateAttackPointFacing();
+ 
+         if (attackVisualTimer > 0f) attackVisualTimer -= Time.deltaTime;
+ 
+-        if (Input.GetMouseButtonDown(0))
++        if (Input.GetKeyDown(KeyCode.X) && !GetComponent<PlayerDefense>().IsGuarding)
+         {
+             TryPerformSwordAttack();
+         }
+diff --git a/Assets/Scripts/Player/PlayerSpriteAnimator.cs b/Assets/Scripts/Player/PlayerSpriteAnimator.cs
+index 4160d1d..129ee88 100644
+--- a/Assets/Scripts/Player/PlayerSpriteAnimator.cs
++++ b/Assets/Scripts/Player/PlayerSpriteAnimator.cs
+@@ -125,6 +125,12 @@ public class PlayerSpriteAnimator : MonoBehaviour
+     // 타이머나 장비 슬롯 여부가 아니라 체력 시스템의 전환 상태만 무장해제 표시를 결정한다.
+     private bool IsDisarmed => health != null && health.IsDisarmed;
+ 
++    [Header("VARCO 방어 모션: 방향별 Sprite 프레임, 미할당 시 대기 포즈")]
++    [SerializeField] private Sprite[] guardRightFrames;
++    [SerializeField] private Sprite[] guardLeftFrames;
++    [SerializeField, Min(1f)] private float guardFramesPerSecond = 12f;
++    [SerializeField] private float guardVisualOffsetY;
++    private PlayerDefense defense;
+     private const string WalkRightAnimState = "Player_Walk_Right";
+     private const string WalkLeftAnimState = "Player_Walk_Left";
+ 
+@@ -134,6 +140,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
+         equipment = GetComponent<PlayerEquipment>();
+         dash = GetComponent<PlayerDash>();
+         combat = GetComponent<PlayerCombat>();
++        defense = GetComponent<PlayerDefense>();
+         health = GetComponent<PlayerHealth>();
+         visualAnimator = spriteRenderer.GetComponent<Animator>();
+         if (visualAnimator != null) visualAnimator.enabled = false;
+@@ -204,6 +211,17 @@ public class PlayerSpriteAnimator : MonoBehaviour
+             return;
+         }
+ 
++        if (!IsDisarmed && defense != null && defense.IsGuarding)
++        {
++            Sprite[] frames = facingRight ? guardRightFrames : guardLeftFrames;
++            Sprite fallback = facingRight ? Pick(idleLeft, idleLeftEquipped, idleLeftDisarmed)
++                : Pick(idleRight, idleRightEquipped, idleRightDisarmed);
++            Sprite pose = frames != null && frames.Length > 0
++                ? frames[Mathf.FloorToInt(Time.time * guardFramesPerSecond) % frames.Length] : fallback;
++            SetVisual(pose != null ? pose : fallback, guardVisualOffsetY);
++            return;
++        }
++
+         if (!IsDisarmed && dash.IsDashing)
+         {
+             SetVisual(facingRight ? dashLeft : dashRight, dashVisualOffsetY);
+diff --git a/Assets/Scripts/Player/PlayerStats.cs b/Assets/Scripts/Player/PlayerStats.cs
+index 9a55b07..3b8f03b 100644
+--- a/Assets/Scripts/Player/PlayerStats.cs
++++ b/Assets/Scripts/Player/PlayerStats.cs
+@@ -11,6 +11,12 @@ public class PlayerStats : MonoBehaviour
+ 
+     private PlayerEquipment equipment; // 장착 상태 조회용(같은 오브젝트의 컴포넌트, GetComponent로 캐싱 - 규칙 37)
+ 
++    private float defenseAttackBonus;
++    public void SetDefenseAttackBonus(float bonus)
++    {
++        defenseAttackBonus = Mathf.Max(0f, bonus);
++        RecalculateStats();
++    }
+     public int FinalAttack { get; private set; }
+     public int FinalDefense { get; private set; }
+ 
+@@ -52,7 +58,7 @@ public class PlayerStats : MonoBehaviour
+             defenseBonus += item.DefenseBonus;
+         }
+ 
+-        FinalAttack = baseAttack + attackBonus;
++        FinalAttack = Mathf.RoundToInt((baseAttack + attackBonus) * (1f + defenseAttackBonus));
+         FinalDefense = baseDefense + defenseBonus;
+         OnStatsChanged?.Invoke(FinalAttack, FinalDefense);
+     }

@@ -1,0 +1,1304 @@
+{
+    "entries": [
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1220428739",
+            "name": "Trap_3-1_T01_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 5.151458740234375,
+                "y": 0.2999999523162842,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-693234680",
+            "name": "Trap_3-1_T01_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1220428739;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 8.351455688476563,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 8.351455688476563,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1342606788",
+            "name": "Trap_3-1_T02_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 45.06024169921875,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-546449071",
+            "name": "Trap_3-1_T02_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1342606788;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 48.260223388671878,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 48.260223388671878,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1709682987",
+            "name": "Trap_3-1_T03_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 84.96900177001953,
+                "y": 0.2999999523162842,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1731872317",
+            "name": "Trap_3-1_T03_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1709682987;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 88.16900634765625,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 88.16900634765625,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1394886046",
+            "name": "Trap_3-1_T04_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 124.87777709960938,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1712574623",
+            "name": "Trap_3-1_T04_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1394886046;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 128.07777404785157,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 128.07777404785157,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-591883507",
+            "name": "Trap_3-1_T05_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 164.7865447998047,
+                "y": 0.2999999523162842,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-676602838",
+            "name": "Trap_3-1_T05_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-591883507;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 167.98654174804688,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 167.98654174804688,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1001508007",
+            "name": "Trap_3-1_T06_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 204.6953125,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1123066854",
+            "name": "Trap_3-1_T06_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1001508007;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 207.8953094482422,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 207.8953094482422,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1286560602",
+            "name": "Trap_3-1_T07_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 244.6040802001953,
+                "y": 0.2999999523162842,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1958654658",
+            "name": "Trap_3-1_T07_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1286560602;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 247.80409240722657,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 247.80409240722657,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1193735851",
+            "name": "Trap_3-1_T08_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 284.5128479003906,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1248894780",
+            "name": "Trap_3-1_T08_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1193735851;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 287.7128601074219,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 287.7128601074219,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-887456123",
+            "name": "Trap_3-1_T09_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 324.421630859375,
+                "y": 0.2999999523162842,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-855316152",
+            "name": "Trap_3-1_T09_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-887456123;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 327.62164306640627,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 327.62164306640627,
+                "y": 1.7000000476837159,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1536532367",
+            "name": "Trap_3-1_T10_Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 364.3304138183594,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-80107460",
+            "name": "Trap_3-1_T10_Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-da9fae48781b09a44ac0e91e0a73cf70-5853921177788695284-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1536532367;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 367.5303955078125,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 367.5303955078125,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-945348303",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.6999988555908203,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1076231180",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-945348303;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 13.0,
+                "y": 0.7999992370605469,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 657.0,
+                "y": 2.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1504048590",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1784202698",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1504048590;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 13.0,
+                "y": 2.200000762939453,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 676.0,
+                "y": 3.6000003814697267,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1660290202",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1795317992",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(0.00, -1.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1660290202;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 0.0,
+                "y": 18.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 686.0,
+                "y": 24.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -0.7071068286895752,
+                "w": 0.7071068286895752
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1824249291",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-832589269",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1824249291;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 13.5,
+                "y": 1.3999977111816407,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 711.0,
+                "y": 36.79999923706055,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1964294705",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-185621945",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1964294705;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 24.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 755.0,
+                "y": 37.70000076293945,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1889729989",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1029440346",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-0.84, 0.54);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1889729989;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 26.399993896484376,
+                "y": -14.740001678466797,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 808.9000244140625,
+                "y": 25.459999084472658,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.9601244926452637,
+                "w": 0.2795727849006653
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1261463062",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1575252945",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(0.00, -1.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1261463062;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 3.5,
+                "y": 17.200000762939454,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 863.0,
+                "y": 22.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -0.7071068286895752,
+                "w": 0.7071068286895752
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1193107142",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-556635096",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-1.00, 0.00);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1193107142;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 15.0,
+                "y": 2.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 934.0,
+                "y": 44.20000076293945,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": -4.371138828673793e-8
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1770024685",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-1073034991",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-0.80, 0.60);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-1770024685;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 19.9000244140625,
+                "y": -12.840002059936524,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 957.4000244140625,
+                "y": 30.559999465942384,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.9486833214759827,
+                "w": 0.31622782349586489
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-896122664",
+            "name": "Switch",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 0.0,
+                "y": 0.7000007629394531,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-8059099806139636066-156099438",
+            "name": "Launcher",
+            "values": "fireSfx=null;launchDirection=(-0.72, 0.69);projectilePrefab=GlobalObjectId_V1-1-ddc56bdb849a62c4884c773fcf36bc3c-155541968002640420-0;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-6027955451643263601-896122664;warningColor=RGBA(1.000, 0.000, 0.000, 1.000);warningSfx=null;windupSeconds=0.5",
+            "position": {
+                "x": 24.0,
+                "y": -19.969999313354493,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 1036.0,
+                "y": 4.030000686645508,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.9287025928497315,
+                "w": 0.3708254396915436
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-2090157780",
+            "name": "Trap_3-4_T1",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 76.25,
+                "y": 6.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-5961362286856868914-2090157780",
+            "name": "Trap_3-4_T1",
+            "values": "cameraFollow=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-100005-0;customDestination=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-43038805-0;destinationZone=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1100208022-0;penaltyDamage=0;startPoint=null;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-2090157780;teleportSfx=null",
+            "position": {
+                "x": 76.25,
+                "y": 6.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-1340471563",
+            "name": "Trap_3-4_T2",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 111.5,
+                "y": 6.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-5961362286856868914-1340471563",
+            "name": "Trap_3-4_T2",
+            "values": "cameraFollow=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-100005-0;customDestination=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1393276173-0;destinationZone=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1100208022-0;penaltyDamage=0;startPoint=null;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-1340471563;teleportSfx=null",
+            "position": {
+                "x": 111.5,
+                "y": 6.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-1414335145",
+            "name": "Trap_3-4_T3",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 236.75,
+                "y": -22.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-5961362286856868914-1414335145",
+            "name": "Trap_3-4_T3",
+            "values": "cameraFollow=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-100005-0;customDestination=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-236971759-0;destinationZone=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1100208022-0;penaltyDamage=0;startPoint=null;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-1414335145;teleportSfx=null",
+            "position": {
+                "x": 236.75,
+                "y": -22.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-686566189",
+            "name": "Trap_3-4_T4",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 266.0,
+                "y": 11.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-5961362286856868914-686566189",
+            "name": "Trap_3-4_T4",
+            "values": "cameraFollow=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-100005-0;customDestination=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1422320950-0;destinationZone=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1100208022-0;penaltyDamage=0;startPoint=null;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-686566189;teleportSfx=null",
+            "position": {
+                "x": 266.0,
+                "y": 11.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-2036946246",
+            "name": "Trap_3-4_T5",
+            "values": "activateSfx=null;cooldown=3;oneShot=False",
+            "position": {
+                "x": 296.0,
+                "y": 12.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "id": "GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-5961362286856868914-2036946246",
+            "name": "Trap_3-4_T5",
+            "values": "cameraFollow=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-100005-0;customDestination=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1579281781-0;destinationZone=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-1100208022-0;penaltyDamage=0;startPoint=null;switchTrigger=GlobalObjectId_V1-2-737eceb5a515ed0b5c24b18d68a5ec4f-2870261968157098277-2036946246;teleportSfx=null",
+            "position": {
+                "x": 296.0,
+                "y": 12.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "fire": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        }
+    ]
+}

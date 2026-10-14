@@ -39,3 +39,31 @@ VARCO 원본 워크플로우가 브라우저에서 열렸다. WebMCP 제공 도�
 ### 재확인 결과
 
 사용자의 재확인 요청 후 같은 워크플로우를 점검했다. DOM 조회, 화면 캡처, 노드 이동은 정상 응답한다. 추가해 둔 EditImage 노드를 화면 안으로 이동했다. 그러나 Source Image의 Add Image 버튼을 눌러도 입력창이 나타나지 않고, 파일 선택 이벤트를 기다리는 방식도 10초 후 시간 초과로 실패했다. WebMCP 도구는 여전히 없다. 실행 중 노드 2개 표시가 다시 나타났으므로 생성 작업 완료 여부는 확정할 수 없다. 새 플레이어 이미지 생성 및 게임 적용은 여전히 미완료다.
+
+## 2026-10-14 재개 기록 (CLAUDE_Work_Room2)
+
+작업 플로우: VARCO `CLAUDE_Work_Room2` (flowId 3aa4abe3-dd0c-43a6-b858-dc54b3ed8204). 기존 URL 워크플로우의 입력 문제는 MCP `upload_image`/`set_node_input`으로 우회했다.
+
+구성: 외형 참조 ImageInput(NoEquip idle_right 축소본) + 원본 프레임 ImageInput → EditImage(nano-banana-pro, 1:1) sourceImage/reference/referenceText 연결. 프롬프트는 위 공통 프롬프트를 "원본 자세·위치·크기 유지, 갑옷/투구/뿔/망토/검/방패 제거" 위주로 변형.
+
+- 주의: `@Edit/hk2_gen/download_identity.ps1`의 run_1~ URL은 이름과 달리 돌진 자세 원본이라 자세 기준으로 쓰면 안 된다. 실제 `Assets/Sprites/Warrior/HeroKnightTest/*.png`를 축소(공통 크롭, 흰 배경, 8bpp, 약 10KB)해 업로드해야 한다. 업로드는 base64 직접 전달이라 원본 크기(1~2MB)는 불가.
+- 축소본: `@Edit/disarmed_gen/tiny/run_1~8.png` (run 공통 크롭 상자 x57 y156 w1057 h1168, 0.2배).
+- 파일럿 run_1: 자세/방향/발 위치 일치, 외형 일치. 결과 `@Edit/disarmed_gen/pilot2_run_1.png`(1024x1024, 흰 배경). 무기 팔 자세는 원본과 약간 다름(맨손 재해석).
+- 미완료: run_2~8, attack_1~8, dash, damage 좌우, idle/jump/pickup, 투명 배경 분리, 크기/피벗 정렬, 게임 연결.
+
+### 2026-10-14 진행 결과 (이동·공격)
+
+- 결과 폴더: `@Edit/disarmed_gen/out/` (run_1~8 완료, attack_1·2·3·6·7·8 완료). 1024x1024(이동)/1200x896(공격), 흰 배경, 아직 투명 분리·정렬 전.
+- 이동 run_1~8: 다리 위상·방향·외형 일치 확인(`out/contact_run_all.png`). 무기 팔은 맨손으로 재해석됨.
+- 공격: "공격 위상"만 지시하면 모두 주먹 뻗기로 바뀌므로 프레임별로 팔 위치를 명시한 프롬프트를 사용해야 한다(attack_1 첫 시도가 이 문제). 현재 프레임별 TextInput 노드가 플로우에 있다.
+- **업로드 주의**: `upload_image`는 base64를 직접 옮기는 방식이라 1~3바이트가 틀려 PNG CRC가 깨지는 경우가 있었다(run_6/7, attack_4/5 4건이 서버에서 "Task failed"로 반복 실패한 원인). 업로드 후 반드시 다시 내려받아 `cmp`로 원본과 대조한다. 같은 파일을 다시 올려도 같은 위치가 틀리면 해시가 동일하므로, 그땐 크기를 조금 바꿔 다시 만든다(attack_5 → `tiny/attack_5b.png`).
+- 남은 프레임: attack_4(소스 업로드 검증 완료 `.../6cbe26fe546a0422d684701b923717fc.png`), attack_5(`.../8fc72d4828860dfcba7b2608c7ebf49e.png`, 검증 완료). 플로우의 attack_5 소스 노드(8fff843b)는 아직 손상 파일을 가리키므로 위 URL로 교체 필요. 편집기가 "Run is being prepared" 상태로 잠겨 있어 탭 새로고침이 필요하다.
+- 미완료: dash, damage 좌우, idle, jump, pickup, 투명 분리, 크기/피벗 정렬, 게임 연결.
+
+### 2026-10-14 공격 8프레임 완료
+
+- attack_1~8 모두 `@Edit/disarmed_gen/out/attack_N.png`에 있음(attack_1은 `attack_1_v2` 사본). 비교: `out/contact_attack_all.png`.
+- 위상 순서(준비→머리 위 최고점→전방 상승→수평 뻗기→아래 타격→낮은 후속→복귀 서기)가 원본과 일치. 외형 일관.
+- 프레임마다 캔버스 안 인물 크기가 다르다(특히 attack_2는 크고, attack_7·8은 정면 서기라 키가 큼). 투명 분리 후 머리 크기/발 피벗 기준으로 재정렬 필요.
+- 편집기 잠금은 탭 새로고침으로 해소됨. 플로우에 사용자 추가로 보이는 노드(a34e84b3, cd53c7b5, bd0698bf)가 있으니 건드리지 않는다.
+- 남은 프레임: dash, damage 좌우, idle(좌우), jump(좌우), pickup(좌우 각 2장).

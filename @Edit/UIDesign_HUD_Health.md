@@ -9,6 +9,7 @@
 - 초기(기본) 수치: **체력 100, 공격력 10, 방어력 5**.
 - **최종 수치 = 초기 수치 + 장착 중인 방어구들의 관련 수치 합**. (예: 최종 체력 = 100 + 장착한 모든 장비의 체력 보너스 합)
 - 체력은 좌측 상단 HUD에 세로 게이지 + 숫자로 상시 표기(이전 설계, 4항).
+- **완벽 방어 성공으로 임시 체력을 얻으면** 체력바에 황금색 오라 효과가 생기고, 체력 숫자 옆에 `+숫자`로 임시 체력이 표시된다(4-1항). 임시 체력 데이터는 `PlayerDefense.OnBuffChanged`(`PlayerDesign_Defense.md`)를 사용한다.
 - **Enter 키를 누르면 스테이터스 창이 열린다.** 스테이터스 창에는 플레이어의 모든 스탯이 **체력 → 공격력 → 방어력** 순서로 표기된다(5항).
 - 현재 프로젝트 확인 결과:
   - `PlayerHealth`/`PlayerStats` 같은 스탯 보유 스크립트는 아직 없음(`PlayerCombat.cs`는 공격 판정만 담당, `IDamageable.cs`는 인터페이스만 존재).
@@ -71,6 +72,35 @@ Canvas (Screen Space - Overlay, Canvas Scaler: Scale With Screen Size, 기준 �
 - 확장성: `HealthGaugeSlot`은 `IHealthGaugeView.SetRatio(float ratio)` 인터페이스로 갱신 → 추후 에셋 교체 시 구현체만 바꾸면 됨(`FillImageHealthGaugeView` → `SpriteHealthGaugeView` 등).
 - 데이터 연동: `HealthUIController.cs`가 `PlayerStats.OnHealthChanged` 구독 → `SetRatio(current/max)` + 숫자 텍스트 갱신. (2항의 `PlayerStats`로 연동 대상이 `PlayerHealth`에서 변경됨)
 
+### 4-1. 임시 체력 표시 (완벽 방어 보상, 기능 추가)
+
+**레이아웃 변경** — `HealthValueSlot`을 가로 배치로 바꿔 숫자 옆에 임시 체력 텍스트를 추가하고, 게이지 슬롯에 오라 이미지를 추가한다.
+
+```
+HealthDisplay
+ ├─ HealthGaugeSlot
+ │    ├─ GaugeFill        (기존 Filled Image)
+ │    └─ GoldAura         (신규, Image, 게이지보다 한 둘레 크게, Raycast Target 끔, 기본 비활성)
+ └─ HealthValueSlot       (Horizontal Layout Group, 가운데 정렬, spacing 6)
+      ├─ HealthValueText  (기존, 흰색 - 현재 체력)
+      └─ TempHealthText   (신규, TMP_Text, "+15" 형식, 오라와 같은 금색 계열, 기본 비활성)
+```
+
+**표시 규칙**
+- 표시 조건: `OnBuffChanged(tempHealth, remaining)`에서 `tempHealth > 0`이면 `GoldAura`와 `TempHealthText`를 켜고, `0`이면(5초 만료 또는 전부 소비) 둘 다 끈다.
+- 숫자: `+{Mathf.CeilToInt(tempHealth)}` — 임시 체력은 소수로 보존되므로 올림 표기(예: 14.5 → `+15`). 피격으로 줄어들면 즉시 갱신.
+- 현재 체력 게이지/숫자는 임시 체력과 무관하게 유지(임시 체력은 게이지를 채우지 않고 별도 표기). 최대 체력 초과 표기 없음.
+- 황금색 오라 연출 — **메인 메뉴의 선택 오라(`MenuSelectionAura`, `OpeningDesign.md` 222~230행)와 동일한 효과를 재사용**한다:
+  - 스프라이트: 메인 메뉴 `Assets/Sprites/Opening/Menu_Aura.png`(`@Edit/OpeningPreview/export_menu_aura.py`로 생성, 판 둘레 라운드 사각형 거리장 기반 지수 감쇠 금색 글로우 + 얇고 밝은 테두리 + 안쪽 옅은 반짝임)와 같은 방식. 단 메뉴 오라는 가로로 긴 판(1200x200) 기준이라 세로 게이지에 그대로 쓸 수 없으므로, 같은 스크립트를 게이지 크기(세로형)로 돌려 `HealthGauge_Aura.png`를 만든다(색·글로우 감쇠·테두리 두께 동일).
+  - 동작: 메뉴 오라와 같은 값 — 서서히 켜지고 꺼짐(`fadeSpeed` 6/초), 알파 0.55~1 맥동(1.4Hz, `pulseSpeed` 1.4), 크기 2.5% 맥동(`pulseScale` 0.025), `Time.unscaledTime` 기준. 오라 이미지는 raycast 제외, 저장 상태는 항상 알파 0·비활성.
+  - 구현: `MenuSelectionAura`는 EventSystem 선택에 묶여 있어 재사용 불가 → 동일한 맥동 로직을 `FillImageHealthGaugeView`에 두고, "선택됨" 조건을 "임시 체력 > 0"으로 바꾼다(가능하면 맥동 계산부를 공용 헬퍼로 분리해 두 곳에서 공유).
+  - 임시 체력이 교체(연속 완벽 방어)될 때는 오라를 끄지 않고 계속 켜 둔다(`level`이 1 유지).
+- 확장성: `IHealthGaugeView`에 `SetTempHealth(float tempHealth, float remainingSeconds)`를 추가하고 `FillImageHealthGaugeView`가 오라/텍스트 갱신을 담당 → 에셋 교체 시 구현체만 교체.
+
+**데이터 연동**
+- `HealthUIController`가 `PlayerDefense.OnBuffChanged` 구독(Inspector 참조, `Find` 금지) → `gaugeView.SetTempHealth(...)`. `OnDisable`에서 구독 해제.
+- `PlayerDefense`가 없는 씬에서도 동작하도록 참조는 선택 사항(null이면 임시 체력 UI는 항상 꺼진 상태).
+
 ## 5. 스테이터스 창 설계 (신규)
 
 ### 입력
@@ -106,9 +136,9 @@ Canvas
 
 **신규 스크립트**
 1. `Assets/Scripts/Player/PlayerStats.cs`
-2. `Assets/Scripts/UI/IHealthGaugeView.cs`
-3. `Assets/Scripts/UI/FillImageHealthGaugeView.cs`
-4. `Assets/Scripts/UI/HealthUIController.cs`
+2. `Assets/Scripts/UI/IHealthGaugeView.cs` (`SetTempHealth` 포함)
+3. `Assets/Scripts/UI/FillImageHealthGaugeView.cs` (메인 메뉴와 같은 금색 오라 맥동 + `+숫자` 텍스트 포함, 세로형 `HealthGauge_Aura.png` 스프라이트 신규 생성)
+4. `Assets/Scripts/UI/HealthUIController.cs` (`PlayerDefense.OnBuffChanged` 구독 포함)
 5. `Assets/Scripts/UI/StatusWindowController.cs`
 
 **기존 스크립트 수정**
@@ -116,7 +146,7 @@ Canvas
 7. `Assets/Scripts/Player/PlayerCombat.cs` — `attackDamage` 필드를 제거하고 `PlayerStats.FinalAttack` 참조로 변경
 
 **씬/프리팹 작업 (Unity)**
-8. Stage1.unity(또는 공용 HUD 프리팹)에 `Canvas/HUD_TopLeft/HealthDisplay` 오브젝트 생성 및 배치
+8. Stage1.unity(또는 공용 HUD 프리팹)에 `Canvas/HUD_TopLeft/HealthDisplay` 오브젝트 생성 및 배치 (`GoldAura`, `TempHealthText` 포함, 기본 비활성)
 9. `StatusWindow` UI 오브젝트 생성(3개 스탯 행 포함), 기본 비활성화 처리
 10. 각 컨트롤러 스크립트를 해당 오브젝트에 부착하고 Inspector 참조 연결
 11. 규칙 24에 따라 `Test000` 등 임시 씬에서 Enter 토글 및 체력 변화 반영 테스트 후 정리
@@ -124,3 +154,12 @@ Canvas
 ## 7. 다음 단계
 
 이 설계안대로 구현 진행을 승인해주시면 규칙 9, 11에 따라 확인 후 6항 순서로 실제 작업을 시작합니다.
+
+## 8. 임시 체력 표시 구현 결과 (2026-10-14)
+
+- `IHealthGaugeView.SetTempHealth`, `FillImageHealthGaugeView`(금색 오라 맥동 + `+숫자`), `HealthUIController`(`PlayerDefense.OnBuffChanged` 구독, 선택 참조) 구현.
+- 스프라이트 `Assets/Sprites/Opening/HealthGauge_Aura.png`(384x912, 메인 메뉴 `Menu_Aura.png`의 색·감쇠 프로파일을 세로 게이지용으로 새로 생성; 원본 `export_menu_aura.py`는 저장소에 없어 같은 수치로 재작성).
+- 프리팹 `HUD_HealthUI`: `HealthGaugePanel/GoldAura`(맨 뒤, 게이지보다 사방 24px 큼), `TempHealthText`(체력 숫자 오른쪽, 기본 비활성) 추가 및 연결.
+- 검증: 컴파일 오류 없음, `SetTempHealth(14.5)` → `+15` 표시, `0` → 숨김 확인. 오라 맥동의 실제 플레이 화면은 확인하지 못함.
+- **연결 완료**: `PlayerHealth.TakeDamage`의 `TryBlock/AbsorbDamage` 호출과 `Player_Warrior` 프리팹의 `PlayerDefense` 부착은 이미 되어 있었음. Stage1~5, Test001의 `HealthUIController.playerDefense`를 같은 플레이어의 `PlayerDefense`로 연결.
+- 플레이 검증: 완벽 방어 상황(피해 30) → 임시 체력 15, `+15` 표시, 오라 켜짐(알파 약 0.99, 크기 맥동). 실제 우클릭 입력과 눈으로 본 화면은 확인하지 못함.

@@ -16,6 +16,8 @@ public class PlayerCombat : MonoBehaviour
     private readonly Collider2D[] hitBuffer = new Collider2D[8]; // 공격 판정 결과를 담을 버퍼(매 공격마다 새로 할당하지 않기 위해 캐싱)
     private PlayerMovement movement;             // 바라보는 방향(FacingRight)을 참조하기 위한 캐시
     private PlayerStats stats;                   // 공격력(FinalAttack, 장비 반영)을 참조하기 위한 캐시
+    private Collider2D attackerBody;
+    private readonly Rigidbody2D[] hitBodies = new Rigidbody2D[8];
     private Vector3 attackPointBaseLocalPos;      // attackPoint의 원래(오른쪽 기준) 로컬 위치 - 좌우 반전 시 x부호만 뒤집어 재사용
     private float lastAttackTime = -999f;        // 마지막으로 검 공격을 사용한 시각(쿨다운 계산용)
     private float lastSpecialActionTime = -999f; // 마지막으로 특수 액션을 사용한 시각(쿨다운 계산용)
@@ -32,6 +34,7 @@ public class PlayerCombat : MonoBehaviour
     {
         movement = GetComponent<PlayerMovement>();
         stats = GetComponent<PlayerStats>();
+        attackerBody = GetComponent<Collider2D>();
         if (attackPoint != null) attackPointBaseLocalPos = attackPoint.localPosition;
     }
 
@@ -83,12 +86,19 @@ public class PlayerCombat : MonoBehaviour
         if (attackPoint == null) return;
 
         int hitCount = Physics2D.OverlapCircleNonAlloc(attackPoint.position, attackRange, hitBuffer, enemyLayer);
+        int uniqueCount = 0;
         for (int i = 0; i < hitCount; i++)
         {
-            if (hitBuffer[i].attachedRigidbody != null &&
-                hitBuffer[i].attachedRigidbody.TryGetComponent<IDamageable>(out var damageable))
+            // OpenAI Codex (GPT-6), 2026-10-14: 검 한 번당 동일 몸에 단일 피해.
+            Rigidbody2D targetBody = hitBuffer[i].attachedRigidbody;
+            if (targetBody == null) continue;
+            bool duplicate = false;
+            for (int j = 0; j < uniqueCount; j++) if (hitBodies[j] == targetBody) { duplicate = true; break; }
+            if (duplicate) continue;
+            if (targetBody.TryGetComponent<IDamageable>(out var damageable))
             {
-                damageable.TakeDamage(stats.FinalAttack);
+                hitBodies[uniqueCount++] = targetBody;
+                DamageDelivery.Deliver(damageable, stats.FinalAttack, attackerBody);
             }
         }
     }

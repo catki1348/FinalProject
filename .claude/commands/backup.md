@@ -3,6 +3,11 @@
 `/BackUp` 또는 `/backup`을 입력하면 두 앱의 전체 로컬 세션을 함께 백업한다.
 추가 대상 선택 질문 없이 기본 TAR 형식으로 실행한다.
 
+백업은 파일 복사·압축·검증·결과 보고로 끝낸다. 백업 전후에 `git add`,
+`git commit`, `git push`를 실행하지 않는다. 자동 커밋을 수행하는 `/handoff`
+절차를 백업의 일부로 호출하지 않는다. Git 커밋은 사용자가 직접 한다.
+적용 기록: GPT(Codex), 2026-10-14.
+
 ```powershell
 & '.\@Scripts\backup-session.ps1' -Verify
 ```

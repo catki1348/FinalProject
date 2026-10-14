@@ -1,5 +1,7 @@
 # 1-5 보스존 설계 (Stage1 Section_5)
 
+> 2026-10-14 재설계안: [보스 설계1 — 좌우 5단 발판과 머리 근접 피해](BossDesign_Stage1_Treant_Redesign.md). 새 설계는 Unity 미적용이며, 아래 내용은 기존 적용 상태 기록이다. 작성: OpenAI Codex (GPT-6).
+
 > MapEdit.md 규칙 6·8·13 반영. Stage1.unity에 적용 완료(사용자 요청, 2026-09-30).
 > 좌표는 월드 기준. Section_5 위치 (14.78, -50), 배경(Background_Forest) 범위 X 0 ~ 29.56, Y -58.45 ~ -41.55.
 

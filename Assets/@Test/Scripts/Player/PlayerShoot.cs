@@ -11,11 +11,13 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private KeyCode shootKey = KeyCode.Z;  // 사격 입력 키(록맨 스타일)
 
     private PlayerMovement movement;
+    private Collider2D attackerBody;
     private float lastFireTime = -999f;
 
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+        attackerBody = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -54,6 +56,7 @@ public class PlayerShoot : MonoBehaviour
 
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Vector2 direction = movement.FacingRight ? Vector2.right : Vector2.left;
-        projectileObject.GetComponent<Projectile>().Launch(direction);
+        // OpenAI Codex (GPT-6), 2026-10-14: 실제 발사자를 투사체에 전달한다.
+        projectileObject.GetComponent<Projectile>().Launch(direction, attackerBody);
     }
 }

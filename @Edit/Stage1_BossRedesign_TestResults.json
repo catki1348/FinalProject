@@ -1,0 +1,341 @@
+{
+    "passed": 67,
+    "failed": 0,
+    "results": [
+        {
+            "check": "30 ledges",
+            "pass": true,
+            "detail": "actual prefab instances"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier1_Ledge_-1_1_0",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier1_Ledge_-1_1_1",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier1_Ledge_-1_1_2",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier1_Ledge_-1_1_3",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier1_Ledge_-1_1_4",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier1_Ledge_1_1_0",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier1_Ledge_1_1_1",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier1_Ledge_1_1_2",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier1_Ledge_1_1_3",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier1_Ledge_1_1_4",
+            "pass": true,
+            "detail": "foot=-48.33501;top=-48.35;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier2_Ledge_-1_2_0",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier2_Ledge_-1_2_1",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier2_Ledge_-1_2_2",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier2_Ledge_-1_2_3",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier2_Ledge_1_2_0",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier2_Ledge_1_2_1",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier2_Ledge_1_2_2",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier2_Ledge_1_2_3",
+            "pass": true,
+            "detail": "foot=-47.68501;top=-47.7;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier3_Ledge_-1_3_0",
+            "pass": true,
+            "detail": "foot=-47.03501;top=-47.05;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier3_Ledge_-1_3_1",
+            "pass": true,
+            "detail": "foot=-47.03501;top=-47.05;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier3_Ledge_-1_3_2",
+            "pass": true,
+            "detail": "foot=-47.03501;top=-47.05;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier3_Ledge_1_3_0",
+            "pass": true,
+            "detail": "foot=-47.03501;top=-47.05;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier3_Ledge_1_3_1",
+            "pass": true,
+            "detail": "foot=-47.03501;top=-47.05;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier3_Ledge_1_3_2",
+            "pass": true,
+            "detail": "foot=-47.03501;top=-47.05;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier4_Ledge_-1_4_0",
+            "pass": true,
+            "detail": "foot=-46.38501;top=-46.4;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier4_Ledge_-1_4_1",
+            "pass": true,
+            "detail": "foot=-46.38501;top=-46.4;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier4_Ledge_1_4_0",
+            "pass": true,
+            "detail": "foot=-46.38501;top=-46.4;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier4_Ledge_1_4_1",
+            "pass": true,
+            "detail": "foot=-46.38501;top=-46.4;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_L_Tier5_Ledge_-1_5_0",
+            "pass": true,
+            "detail": "foot=-45.73501;top=-45.75;grounded=True"
+        },
+        {
+            "check": "landing Platform_1-5_R_Tier5_Ledge_1_5_0",
+            "pass": true,
+            "detail": "foot=-45.73501;top=-45.75;grounded=True"
+        },
+        {
+            "check": "80% ascent Platform_1-5_L_Tier1_Ledge_-1_1_0",
+            "pass": true,
+            "detail": "foot=-48.33501;target=-48.35"
+        },
+        {
+            "check": "80% ascent Platform_1-5_L_Tier2_Ledge_-1_2_0",
+            "pass": true,
+            "detail": "foot=-47.68501;target=-47.7"
+        },
+        {
+            "check": "80% ascent Platform_1-5_L_Tier3_Ledge_-1_3_0",
+            "pass": true,
+            "detail": "foot=-47.03501;target=-47.05"
+        },
+        {
+            "check": "80% ascent Platform_1-5_L_Tier4_Ledge_-1_4_0",
+            "pass": true,
+            "detail": "foot=-46.38501;target=-46.4"
+        },
+        {
+            "check": "80% ascent Platform_1-5_L_Tier5_Ledge_-1_5_0",
+            "pass": true,
+            "detail": "foot=-45.73501;target=-45.75"
+        },
+        {
+            "check": "80% ascent Platform_1-5_R_Tier1_Ledge_1_1_0",
+            "pass": true,
+            "detail": "foot=-48.33501;target=-48.35"
+        },
+        {
+            "check": "80% ascent Platform_1-5_R_Tier2_Ledge_1_2_0",
+            "pass": true,
+            "detail": "foot=-47.68501;target=-47.7"
+        },
+        {
+            "check": "80% ascent Platform_1-5_R_Tier3_Ledge_1_3_0",
+            "pass": true,
+            "detail": "foot=-47.03501;target=-47.05"
+        },
+        {
+            "check": "80% ascent Platform_1-5_R_Tier4_Ledge_1_4_0",
+            "pass": true,
+            "detail": "foot=-46.38501;target=-46.4"
+        },
+        {
+            "check": "80% ascent Platform_1-5_R_Tier5_Ledge_1_5_0",
+            "pass": true,
+            "detail": "foot=-45.73501;target=-45.75"
+        },
+        {
+            "check": "boss passes all tiers",
+            "pass": true,
+            "detail": "foot=-48.98501"
+        },
+        {
+            "check": "actual floor contact",
+            "pass": true,
+            "detail": "Collider2D.IsTouching arenaFloor"
+        },
+        {
+            "check": "head distance 0.5",
+            "pass": true,
+            "detail": "damage=20"
+        },
+        {
+            "check": "head distance 0.75",
+            "pass": true,
+            "detail": "damage=20"
+        },
+        {
+            "check": "head distance 1",
+            "pass": true,
+            "detail": "damage=19"
+        },
+        {
+            "check": "head distance 2",
+            "pass": true,
+            "detail": "damage=16"
+        },
+        {
+            "check": "head distance 3",
+            "pass": true,
+            "detail": "damage=13"
+        },
+        {
+            "check": "head distance 4",
+            "pass": true,
+            "detail": "damage=10"
+        },
+        {
+            "check": "head distance 6",
+            "pass": true,
+            "detail": "damage=10"
+        },
+        {
+            "check": "missing attacker base damage",
+            "pass": true,
+            "detail": "damage=10"
+        },
+        {
+            "check": "environment no bonus",
+            "pass": true,
+            "detail": "delta=10"
+        },
+        {
+            "check": "context damage once",
+            "pass": true,
+            "detail": "delta=20"
+        },
+        {
+            "check": "whole floor x=1.779999",
+            "pass": true,
+            "detail": "damage after defense=20;duplicate delta=0"
+        },
+        {
+            "check": "whole floor x=14.78",
+            "pass": true,
+            "detail": "damage after defense=20;duplicate delta=0"
+        },
+        {
+            "check": "whole floor x=27.78",
+            "pass": true,
+            "detail": "damage after defense=20;duplicate delta=0"
+        },
+        {
+            "check": "safe tier 1",
+            "pass": true,
+            "detail": "hp=100"
+        },
+        {
+            "check": "safe tier 2",
+            "pass": true,
+            "detail": "hp=100"
+        },
+        {
+            "check": "safe tier 3",
+            "pass": true,
+            "detail": "hp=100"
+        },
+        {
+            "check": "safe tier 4",
+            "pass": true,
+            "detail": "hp=100"
+        },
+        {
+            "check": "safe tier 5",
+            "pass": true,
+            "detail": "hp=100"
+        },
+        {
+            "check": "minimum warning",
+            "pass": true,
+            "detail": "activation rejected before 0.8 seconds"
+        },
+        {
+            "check": "attack expires",
+            "pass": true,
+            "detail": "state cleared"
+        },
+        {
+            "check": "drop to lower tier",
+            "pass": true,
+            "detail": "foot=-47.03501"
+        },
+        {
+            "check": "drop restore",
+            "pass": true,
+            "detail": "grounding enabled"
+        },
+        {
+            "check": "exit locked",
+            "pass": true,
+            "detail": "before boss death"
+        },
+        {
+            "check": "death unlocks exit",
+            "pass": true,
+            "detail": "after boss death"
+        }
+    ]
+}

@@ -6,7 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Boss), typeof(Rigidbody2D), typeof(BossSound))]
 public class VolcanicScorpionController : MonoBehaviour
 {
-    public enum ScorpionState { Idle, Walk, ClawCombo, TailSting, LavaVolley, GroundEruption, Hit, Groggy, Death }
+    public enum ScorpionState { Idle, Walk, ClawCombo, TailSting, LavaVolley, GroundEruption, Hit, Groggy, Death, ClawSlam, TailSweep, BasaltRush }
+    private enum StrikeFx { ClawFirst, ClawSecond, TailSting, ClawSlam, TailSweep, BasaltRush }
+    private enum Normal { ClawCombo, TailSting, ClawSlam, TailSweep, BasaltRush, None }
     [Header("Visual and arena")]
     [SerializeField] private Animator animator;
     [SerializeField] private Transform visual;
@@ -23,10 +25,16 @@ public class VolcanicScorpionController : MonoBehaviour
     [SerializeField] private int tailDamage = 18;
     [SerializeField] private int lavaDamage = 16;
     [SerializeField] private int eruptionDamage = 22;
+    [SerializeField] private int slamDamage = 20;
+    [SerializeField] private int sweepDamage = 16;
+    [SerializeField] private int rushDamage = 22;
     [SerializeField] private float attackCooldown = 1.4f;
     [SerializeField] private float specialCooldown = 8f;
     [SerializeField] private BossScorpionHazard lavaPrefab;
     [SerializeField] private BossScorpionHazard eruptionPrefab;
+    [Header("Strike effects (visual only, indexed by StrikeFx)")]
+    [SerializeField] private BossScorpionStrikeEffect strikeEffectPrefab;
+    [SerializeField] private BossScorpionStrikeEffect.Spec[] strikeEffects;
     [Header("Hit and groggy")]
     [SerializeField] private float hitAnimationCooldown = 1f;
     [SerializeField] private int bigHitDamage = 20;
@@ -38,10 +46,12 @@ public class VolcanicScorpionController : MonoBehaviour
         Animator.StringToHash("Boss_Idle"), Animator.StringToHash("Boss_Walk"),
         Animator.StringToHash("Boss_ClawCombo"), Animator.StringToHash("Boss_TailSting"),
         Animator.StringToHash("Boss_LavaVolley"), Animator.StringToHash("Boss_GroundEruption"),
-        Animator.StringToHash("Boss_Hit"), Animator.StringToHash("Boss_Groggy"), Animator.StringToHash("Boss_Death")
+        Animator.StringToHash("Boss_Hit"), Animator.StringToHash("Boss_Groggy"), Animator.StringToHash("Boss_Death"),
+        Animator.StringToHash("Boss_ClawSlam"), Animator.StringToHash("Boss_TailSweep"), Animator.StringToHash("Boss_BasaltRush")
     };
     private readonly Collider2D[] hits = new Collider2D[16];
     private readonly Rigidbody2D[] hitBodies = new Rigidbody2D[16];
+    private readonly List<Rigidbody2D> struck = new List<Rigidbody2D>(4);
     private readonly List<BossScorpionHazard> hazards = new List<BossScorpionHazard>(16);
     private Boss boss;
     private BossSound sound;
@@ -49,8 +59,11 @@ public class VolcanicScorpionController : MonoBehaviour
     private Collider2D bodyCollider;
     private Transform target;
     private float visualScale, nextAttack, nextSpecial, nextHit, hitEnd, immuneUntil, stagger, nextStep, nextIdle;
-    private int facing = 1;
-    private bool engaged, nextClaw = true, nextVolley = true;
+    private const float rushSpeed = 9f, rushMaxDistance = 4f;
+    private float crossedAt = float.NegativeInfinity;
+    private int facing = 1, lastSide, closeIndex;
+    private Normal lastNormal = Normal.None;
+    private bool engaged, nextVolley = true, rushing;
     public ScorpionState State { get; private set; }
 
     // Cache local components and subscribe once to health events.
@@ -81,18 +94,22 @@ public class VolcanicScorpionController : MonoBehaviour
         float dx = target.position.x - transform.position.x, distance = Mathf.Abs(dx);
         if (distance > detectRange) { SetState(ScorpionState.Idle); return; }
         if (!engaged) { engaged = true; nextSpecial = Time.time + 4f; sound.StartBattle(); }
-        if (Mathf.Abs(dx) > 0.05f) Face(dx > 0 ? 1 : -1);
+        if (Mathf.Abs(dx) > 0.05f)
+        {
+            int side = dx > 0 ? 1 : -1;
+            if (lastSide != 0 && side != lastSide) crossedAt = Time.time;
+            lastSide = side; Face(side);
+        }
         if (Time.time >= nextSpecial && distance >= 3f && distance <= 14f)
         {
             bool volley = (nextVolley && distance >= 4f) || distance > 12f;
             nextVolley = !volley;
             StartCoroutine(volley ? VolleyRoutine() : EruptionRoutine()); return;
         }
-        if (Time.time >= nextAttack && distance <= 4.2f)
+        if (Time.time >= nextAttack)
         {
-            bool claw = distance <= 2.8f && nextClaw;
-            nextClaw = !claw;
-            StartCoroutine(claw ? ClawRoutine() : TailRoutine()); return;
+            Normal pick = ChooseNormal(distance);
+            if (pick != Normal.None) { lastNormal = pick; StartCoroutine(NormalRoutine(pick)); return; }
         }
         float probe = transform.position.x + facing * 2.8f;
         bool ground = Physics2D.Raycast(new Vector2(probe, transform.position.y + .5f), Vector2.down, 1.5f, groundLayer);
@@ -104,7 +121,8 @@ public class VolcanicScorpionController : MonoBehaviour
     // Keep physics on the root; only Visual is mirrored.
     private void FixedUpdate()
     {
-        body.linearVelocity = new Vector2(State == ScorpionState.Walk ? facing * moveSpeed : 0, body.linearVelocity.y);
+        float speed = State == ScorpionState.Walk ? moveSpeed : State == ScorpionState.BasaltRush && rushing ? rushSpeed : 0;
+        body.linearVelocity = new Vector2(facing * speed, body.linearVelocity.y);
     }
 
     private void Face(int direction)
@@ -125,9 +143,9 @@ public class VolcanicScorpionController : MonoBehaviour
     {
         SetState(ScorpionState.ClawCombo); sound.Play(BossSfx.ClawWindup);
         yield return new WaitForSeconds(.35f);
-        sound.Play(BossSfx.ClawStrike); DamageBox(2.8f, 0f, 2.3f, clawDamage);
+        sound.Play(BossSfx.ClawStrike); DamageBox(2.8f, 0f, 2.3f, clawDamage); PlayStrikeFx(StrikeFx.ClawFirst);
         yield return new WaitForSeconds(.4f);
-        sound.Play(BossSfx.ClawStrike); DamageBox(2.8f, 0f, 2.3f, clawDamage);
+        sound.Play(BossSfx.ClawStrike); DamageBox(2.8f, 0f, 2.3f, clawDamage); PlayStrikeFx(StrikeFx.ClawSecond);
         yield return new WaitForSeconds(.45f); FinishAttack(false);
     }
 
@@ -136,8 +154,96 @@ public class VolcanicScorpionController : MonoBehaviour
     {
         SetState(ScorpionState.TailSting); sound.Play(BossSfx.TailWindup);
         yield return new WaitForSeconds(.65f);
-        sound.Play(BossSfx.TailStrike); DamageBox(4.2f, 0f, 1.15f, tailDamage);
+        sound.Play(BossSfx.TailStrike); DamageBox(4.2f, 0f, 1.15f, tailDamage); PlayStrikeFx(StrikeFx.TailSting);
         yield return new WaitForSeconds(.75f); FinishAttack(false);
+    }
+
+    // Never repeat the previous normal. Close range cycles claw/tail/slam; a recent cross-over invites a sweep.
+    private Normal ChooseNormal(float distance)
+    {
+        if (Time.time - crossedAt <= 1.5f && distance <= 3.4f && lastNormal != Normal.TailSweep) return Normal.TailSweep;
+        if (distance <= 2.8f)
+        {
+            Normal[] cycle = { Normal.ClawCombo, Normal.TailSting, Normal.ClawSlam };
+            for (int i = 0; i < cycle.Length; i++)
+            {
+                Normal candidate = cycle[(closeIndex + i) % cycle.Length];
+                if (candidate == lastNormal) continue;
+                closeIndex = (closeIndex + i + 1) % cycle.Length; return candidate;
+            }
+            return Normal.None;
+        }
+        if (distance <= 3.2f && lastNormal == Normal.TailSting) return Normal.ClawSlam;
+        if (distance <= 4.2f) return lastNormal == Normal.TailSting ? Normal.None : Normal.TailSting;
+        if (distance >= 4f && distance <= 9f && lastNormal != Normal.BasaltRush && CanRush()) return Normal.BasaltRush;
+        return Normal.None;
+    }
+
+    private IEnumerator NormalRoutine(Normal pick)
+    {
+        switch (pick)
+        {
+            case Normal.ClawCombo: return ClawRoutine();
+            case Normal.TailSting: return TailRoutine();
+            case Normal.ClawSlam: return SlamRoutine();
+            case Normal.TailSweep: return SweepRoutine();
+            default: return RushRoutine();
+        }
+    }
+
+    // Slam: two claws raised, one low ground hit at 0.8s; dodged by jumping at the strike.
+    private IEnumerator SlamRoutine()
+    {
+        SetState(ScorpionState.ClawSlam); sound.Play(BossSfx.ClawWindup);
+        yield return new WaitForSeconds(.8f);
+        sound.Play(BossSfx.ClawStrike); DamageBox(3.2f, 0f, .5f, slamDamage); PlayStrikeFx(StrikeFx.ClawSlam);
+        yield return new WaitForSeconds(1f); FinishAttack(false);
+    }
+
+    // Sweep: hits both sides during 0.70~0.95s, once per player; the player must stay airborne.
+    private IEnumerator SweepRoutine()
+    {
+        SetState(ScorpionState.TailSweep); sound.Play(BossSfx.TailWindup);
+        yield return new WaitForSeconds(.7f);
+        sound.Play(BossSfx.TailStrike); struck.Clear(); PlayStrikeFx(StrikeFx.TailSweep);
+        for (float t = 0; t <= .25f; t += .05f)
+        {
+            DamageBox(3.4f, 0f, .7f, sweepDamage, true, struck);
+            yield return new WaitForSeconds(.05f);
+        }
+        struck.Clear(); yield return new WaitForSeconds(.75f); FinishAttack(false);
+    }
+
+    // Rush needs ground and room ahead; direction is locked from windup until recovery.
+    private bool CanRush()
+    {
+        float end = transform.position.x + facing * rushMaxDistance;
+        return end > arenaLimits.x + .6f && end < arenaLimits.y - .6f && StepClear();
+    }
+
+    private bool StepClear()
+    {
+        Vector2 ahead = new Vector2(transform.position.x + facing * 1.6f, transform.position.y + .5f);
+        return Physics2D.Raycast(ahead, Vector2.down, 1.5f, groundLayer)
+            && !Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .5f), Vector2.right * facing, 1.6f, groundLayer);
+    }
+
+    // Rush: 0.75s windup, up to 4 units in 0.45s, stops at walls/cliffs/arena edge, then 0.9s recovery.
+    private IEnumerator RushRoutine()
+    {
+        SetState(ScorpionState.BasaltRush); sound.Play(BossSfx.ClawWindup);
+        yield return new WaitForSeconds(.75f);
+        sound.Play(BossSfx.ClawStrike); struck.Clear();
+        float startX = transform.position.x, end = Time.time + .45f;
+        rushing = true; PlayStrikeFx(StrikeFx.BasaltRush);
+        while (Time.time < end && Mathf.Abs(transform.position.x - startX) < rushMaxDistance && StepClear()
+            && transform.position.x > arenaLimits.x + .6f && transform.position.x < arenaLimits.y - .6f)
+        {
+            DamageBox(2.4f, 0f, 2f, rushDamage, false, struck);
+            yield return null;
+        }
+        rushing = false; struck.Clear();
+        yield return new WaitForSeconds(.9f); FinishAttack(false);
     }
 
     // Aim once after the windup; projectiles never track the player after launch.
@@ -173,8 +279,17 @@ public class VolcanicScorpionController : MonoBehaviour
         yield return new WaitForSeconds(2.5f); FinishAttack(true);
     }
 
+    // Spawn one visual strike effect; missing prefab or spec simply skips it.
+    private void PlayStrikeFx(StrikeFx fx)
+    {
+        int index = (int)fx;
+        if (!strikeEffectPrefab || strikeEffects == null || index >= strikeEffects.Length || strikeEffects[index] == null || !strikeEffects[index].sprite) return;
+        Instantiate(strikeEffectPrefab, transform.position, Quaternion.identity).Initialize(boss, strikeEffects[index], facing, transform);
+    }
+
     private void FinishAttack(bool special)
     {
+        rushing = false;
         nextAttack = Time.time + attackCooldown;
         if (special) nextSpecial = Time.time + specialCooldown;
         SetState(ScorpionState.Idle);
@@ -191,19 +306,21 @@ public class VolcanicScorpionController : MonoBehaviour
     }
 
     // Only PlayerMovement rigidbodies are eligible; multiple colliders cannot duplicate a strike.
-    private void DamageBox(float reach, float bottom, float top, int damage)
+    // both = hit front and back; registry = bodies already struck this action (one hit per action).
+    private void DamageBox(float reach, float bottom, float top, int damage, bool both = false, List<Rigidbody2D> registry = null)
     {
-        Vector2 center = (Vector2)transform.position + new Vector2(facing * reach * .5f, (bottom + top) * .5f);
-        int count = Physics2D.OverlapBoxNonAlloc(center, new Vector2(reach, top - bottom), 0, hits, targetLayer);
+        float width = both ? reach * 2f : reach;
+        Vector2 center = (Vector2)transform.position + new Vector2(both ? 0f : facing * reach * .5f, (bottom + top) * .5f);
+        int count = Physics2D.OverlapBoxNonAlloc(center, new Vector2(width, top - bottom), 0, hits, targetLayer);
         int used = 0;
         for (int i = 0; i < count; i++)
         {
             Rigidbody2D victim = hits[i].attachedRigidbody;
             if (!victim || !victim.TryGetComponent<PlayerMovement>(out _) || !victim.TryGetComponent<IDamageable>(out var health)) continue;
-            bool duplicate = false;
+            bool duplicate = registry != null && registry.Contains(victim);
             for (int j = 0; j < used; j++) if (hitBodies[j] == victim) duplicate = true;
             if (duplicate) continue;
-            hitBodies[used++] = victim; health.TakeDamage(damage);
+            hitBodies[used++] = victim; registry?.Add(victim); health.TakeDamage(damage);
         }
     }
 
@@ -214,7 +331,7 @@ public class VolcanicScorpionController : MonoBehaviour
         stagger += amount;
         if (Time.time >= immuneUntil && (amount >= bigHitDamage || stagger >= staggerThreshold))
         {
-            StopAllCoroutines(); CancelHazards(); stagger = 0;
+            StopAllCoroutines(); CancelHazards(); stagger = 0; rushing = false;
             StartCoroutine(GroggyRoutine()); return;
         }
         if (Time.time < nextHit || (State != ScorpionState.Idle && State != ScorpionState.Walk && State != ScorpionState.Hit)) return;
@@ -234,7 +351,7 @@ public class VolcanicScorpionController : MonoBehaviour
     // Death interrupts everything once; BossSound already plays the death sound via its event.
     private void OnDied()
     {
-        StopAllCoroutines(); CancelHazards(); SetState(ScorpionState.Death);
+        StopAllCoroutines(); CancelHazards(); rushing = false; SetState(ScorpionState.Death);
         body.linearVelocity = Vector2.zero; body.simulated = false;
         if (bodyCollider) bodyCollider.enabled = false;
     }

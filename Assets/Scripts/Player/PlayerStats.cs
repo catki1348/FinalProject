@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int baseAttack = 10;  // 초기 공격력
     [SerializeField] private int baseDefense = 5;  // 초기 방어력
 
+    private float defenseAttackBonus; // 완벽 방어 버프의 공격력 증가율(0이면 영향 없음). PlayerDefense가 설정
     private PlayerEquipment equipment; // 장착 상태 조회용(같은 오브젝트의 컴포넌트, GetComponent로 캐싱 - 규칙 37)
 
     public int FinalAttack { get; private set; }
@@ -16,6 +17,13 @@ public class PlayerStats : MonoBehaviour
 
     // (finalAttack, finalDefense) - 스테이터스 창 갱신용
     public event Action<int, int> OnStatsChanged;
+
+    // 방어 버프 공격력 보너스(예: 0.2 = +20%)를 교체하고 장비 포함 최종 공격력을 다시 계산한다.
+    public void SetDefenseAttackBonus(float bonus)
+    {
+        defenseAttackBonus = Mathf.Max(0f, bonus);
+        RecalculateStats();
+    }
 
     private void Awake()
     {
@@ -52,7 +60,7 @@ public class PlayerStats : MonoBehaviour
             defenseBonus += item.DefenseBonus;
         }
 
-        FinalAttack = baseAttack + attackBonus;
+        FinalAttack = Mathf.RoundToInt((baseAttack + attackBonus) * (1f + defenseAttackBonus));
         FinalDefense = baseDefense + defenseBonus;
         OnStatsChanged?.Invoke(FinalAttack, FinalDefense);
     }

@@ -115,6 +115,9 @@ public class PlayerSpriteAnimator : MonoBehaviour
     private PlayerDash dash;               // 대시 여부 조회용 캐시
     private PlayerCombat combat;           // 검 공격 여부/진행률 조회용 캐시
     private PlayerHealth health;           // 체력 0으로 실제 무장해제 전환이 일어났는지 조회하는 캐시
+    private PlayerDefense defense;       // 방어 상태 조회용 캐시(없으면 방어 모션을 표시하지 않음)
+    private bool wasGuarding;              // 직전 프레임에 방어 중이었는지(방어 시작 시각 기록용)
+    private float guardStartTime;          // 이번 방어를 시작한 시각(진입->유지 재생 기준)
     private Animator visualAnimator;       // Visual에 붙은 Animator(걷기 등 다중 프레임 재생용, 그 외 상태에서는 비활성화)
 
     private float boxOpenTimer;    // 상자 열기 포즈 유지 남은 시간(0 이하면 종료)
@@ -124,6 +127,14 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
     // 타이머나 장비 슬롯 여부가 아니라 체력 시스템의 전환 상태만 무장해제 표시를 결정한다.
     private bool IsDisarmed => health != null && health.IsDisarmed;
+
+    [Header("방어 모션(VARCO): 진입 프레임을 한 번 재생한 뒤 유지 프레임을 반복. 미할당 시 대기 포즈")]
+    [SerializeField] private Sprite[] guardRightFrames;      // 오른쪽을 볼 때의 방어 프레임(진입 -> 유지 순서)
+    [SerializeField] private Sprite[] guardLeftFrames;       // 왼쪽을 볼 때의 방어 프레임(같은 그림을 쓰면 아래 flip 옵션 사용)
+    [SerializeField] private bool guardLeftFlipX = true;     // 왼쪽 방향일 때 그림을 좌우 반전해서 표시(발 피벗 기준으로 반전됨)
+    [SerializeField, Min(0)] private int guardEntryFrames = 2; // 앞에서부터 몇 장이 '진입' 모션인지(한 번만 재생)
+    [SerializeField, Min(1f)] private float guardFramesPerSecond = 12f;
+    [SerializeField] private float guardVisualOffsetY;       // 발 피벗을 맞춰 두었으므로 기본 0
 
     private const string WalkRightAnimState = "Player_Walk_Right";
     private const string WalkLeftAnimState = "Player_Walk_Left";
@@ -135,6 +146,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
         dash = GetComponent<PlayerDash>();
         combat = GetComponent<PlayerCombat>();
         health = GetComponent<PlayerHealth>();
+        defense = GetComponent<PlayerDefense>();
         visualAnimator = spriteRenderer.GetComponent<Animator>();
         if (visualAnimator != null) visualAnimator.enabled = false;
     }
@@ -201,6 +213,16 @@ public class PlayerSpriteAnimator : MonoBehaviour
         if (!IsDisarmed && damageTimer > 0f)
         {
             SetVisual(facingRight ? damageRight : damageLeft, damageVisualOffsetY);
+            return;
+        }
+
+        // 방어: 무장해제 중에는 표시하지 않는다. 방어 상태가 끝나면 시작 시각을 초기화해 다음 방어가 진입 모션부터 시작되게 한다.
+        bool guarding = !IsDisarmed && defense != null && defense.IsGuarding;
+        if (guarding && !wasGuarding) guardStartTime = Time.time;
+        wasGuarding = guarding;
+        if (guarding)
+        {
+            ShowGuard(facingRight);
             return;
         }
 
@@ -298,6 +320,27 @@ public class PlayerSpriteAnimator : MonoBehaviour
             ? Pick(idleLeft, idleLeftEquipped, idleLeftDisarmed)
             : Pick(idleRight, idleRightEquipped, idleRightDisarmed);
         SetVisual(idleSprite, idleVisualOffsetY);
+    }
+
+    // 방어 프레임을 표시한다. 진입 프레임(앞 guardEntryFrames장)은 방어 시작부터 한 번만 재생하고,
+    // 이후에는 나머지 유지 프레임을 반복한다. 프레임이 없으면 대기 포즈로 대신한다.
+    private void ShowGuard(bool facingRight)
+    {
+        Sprite[] frames = facingRight ? guardRightFrames : guardLeftFrames;
+        if (frames == null || frames.Length == 0)
+        {
+            Sprite fallback = facingRight ? Pick(idleLeft, idleLeftEquipped, idleLeftDisarmed)
+                : Pick(idleRight, idleRightEquipped, idleRightDisarmed);
+            SetVisual(fallback, guardVisualOffsetY);
+            return;
+        }
+
+        int step = Mathf.FloorToInt((Time.time - guardStartTime) * guardFramesPerSecond);
+        int entry = Mathf.Clamp(guardEntryFrames, 0, frames.Length - 1);
+        int index = step < entry ? step : entry + (step - entry) % (frames.Length - entry);
+
+        spriteRenderer.flipX = !facingRight && guardLeftFlipX;
+        SetVisual(frames[index], guardVisualOffsetY);
     }
 
     private void SetVisual(Sprite sprite, float offsetY)

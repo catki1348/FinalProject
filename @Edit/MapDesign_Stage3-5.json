@@ -1,0 +1,16 @@
+{
+  "stage": "3-5", "status": "design-only", "date": "2026-10-14",
+  "unitsPerDesignUnit": 8, "designWidth": 6.5,
+  "zone": {"centerX":512,"centerY":-296,"width":60,"height":24},
+  "floor": {"centerX":512,"surfaceY":-300,"width":52,"thickness":1,"scale":[1,1,1],"drawMode":"Tiled","tileMode":"Continuous","autoTiling":false},
+  "walls": [{"x":485.5,"centerY":-294,"width":1,"height":12},{"x":538.5,"centerY":-294,"width":1,"height":12}],
+  "player": {"startX":492,"groundY":-300,"speed":8,"width":0.9830704,"height":1.286454,"jumpVelocity":9,"gravityScale":3},
+  "boss": {"startX":520,"groundY":-300,"health":180,"speed":2,"canvasWidth":8.448,"canvasHeight":6.336,"colliderWidth":3,"colliderHeight":1.7,"rootLimits":[491.3,532.7],"turnDistanceFromWall":5.3,"rushMaxTravel":4},
+  "exit": {"x":535,"groundY":-300,"spawnWhen":"boss_death_completed","next":"Stage4"},
+  "fallBoundary": {"centerX":512,"centerY":-309,"width":64,"height":2},
+  "camera": {"orthographicSize":10,"centerY":-296,"horizontalTarget":"midpoint of boss and player while engaged, player otherwise","minimumAspect":1.333333,"horizontalClamp":"floor edges minus camera half-width"},
+  "eruption": {"centersOffset":[-2.5,0,2.5],"proposedWidth":0.9,"height":2.5,"warningSeconds":1.1,"activeSeconds":0.4,"centerLimits":[487.2,536.8],"minimumGap":1.6,"requiredGap":1.4830704,"edgePolicy":"translate the complete three-mark group inward before merging; do not independently clamp each mark"},
+  "attacks": [{"id":"ClawCombo","reach":2.8,"height":2.3},{"id":"TailSting","reach":4.2,"height":1.15},{"id":"ClawSlam","reach":3.2,"height":0.5},{"id":"TailSweep","reachFront":3.4,"reachBack":3.4,"height":0.7},{"id":"BasaltRush","travel":4,"proposedHitHeight":0.9,"selectionDistance":[4,9]},{"id":"LavaVolley","selectionDistance":[4,14],"speed":8,"radius":0.3},{"id":"GroundEruption","selectionDistance":[3,12]}],
+  "adjacentZoneExclusion": {"observedLowestY":-266,"proposedTopY":-284,"verticalGap":18,"placement":"below sections 1-4, centered on current stage span approximately x=-10..1034"},
+  "implementationRequired": ["extend runtime from 2 normal attacks to 5","replace hard-coded arena x/y limits","direction-aware body collider offset","rush wall braking and low attack hitbox separate from body","eruption width and grouped edge placement","camera aspect framing","relocate section 5 entry and death-gated exit"]
+}

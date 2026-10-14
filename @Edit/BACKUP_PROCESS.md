@@ -1,3 +1,9 @@
+> 2026-10-14 백업 동작 규칙: 백업은 파일 복사·압축·검증·결과 보고로 종료한다.
+> 백업 전후에 `git add`, `git commit`, `git push`를 실행하지 않는다.
+> 자동 커밋을 수행하는 `/handoff` 절차를 백업의 일부로 호출하지 않는다.
+> Git 커밋은 사용자가 직접 한다. 이 규칙은 아래의 이전 백업 절차에도 적용한다.
+> 수정 기록: GPT(Codex), 2026-10-14.
+
 > 2026-10-13 변경: `/BackUp`의 기본 동작은 **Claude + GPT(Codex) 전체 로컬 세션 통합 백업**입니다.
 > 최신 명령 정의는 `.claude/commands/backup.md`, 실행은 `@Scripts/backup-session.ps1 -Verify`입니다.
 > 파일명은 `ai_sessions_backup_*.tar.gz`이며 `.claude`, `.codex`, 통합 `MANIFEST.json`을 포함합니다.
@@ -358,4 +364,5 @@ $env:USERPROFILE\Documents\LHS
 $env:USERPROFILE\Downloads\LHS
 (위 순서대로 첫 존재하는 폴더 사용)
 ```
+
 

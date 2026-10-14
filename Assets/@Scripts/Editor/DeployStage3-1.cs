@@ -16,9 +16,12 @@ public class DeployStage3_1
     private const string JSON_PATH = "@Edit/MapDesign_Stage3-1.json"; // 프로젝트 루트 기준
     private const string PLATFORM_PREFAB = "Assets/@ExternalAssets/@Prefab/Platform_Stage3_Lava.prefab";
     private const string EFFECT_PREFAB = "Assets/@ExternalAssets/@Prefab/P_DamageFootholdEffect.prefab";
-    private const string SWITCH_PREFAB = "Assets/@ExternalAssets/@Prefab/Trap/P_Trap_Switch.prefab";
-    private const string PROJECTILE_BASE = "Assets/@ExternalAssets/@Prefab/Trap/P_Trap_Projectile.prefab";
-    private const string PROJECTILE_VARIANT = "Assets/@ExternalAssets/@Prefab/Trap/P_Trap_Projectile_3-1.prefab";
+    // OpenAI Codex (GPT-6), 2026-10-14: 재배치해도 새 이미지 표준 프리팹을 사용한다.
+    private const string TRAP_THEME = "Assets/@ExternalAssets/@Prefab/Trap/Themed/Stage3_Lava/";
+    private const string SWITCH_PREFAB = TRAP_THEME + "P_Trap_Switch_Stage3_Lava.prefab";
+    private const string PROJECTILE_BASE = TRAP_THEME + "P_Trap_Projectile_Stage3_Lava.prefab";
+    private const string PROJECTILE_VARIANT = TRAP_THEME + "P_Trap_Projectile_Stage3_Lava_3-1.prefab";
+    private const string LAUNCHER_PREFAB = TRAP_THEME + "P_Trap_Launcher_Stage3_Lava.prefab";
 
     private const string ROOT_NAME = "Generated_3-1";
     private const float START_X = 1f;          // ZoneStartPoint_3-1 / 플레이어 시작 X (P00 중심)
@@ -235,25 +238,19 @@ public class DeployStage3_1
         swSo.FindProperty("cooldown").floatValue = t.cooldown;
         swSo.ApplyModifiedProperties();
 
-        // 발사기: 공중 고정, 콜라이더 없음(점프 통로를 막지 않음). 외형은 스위치 스프라이트를 재사용
-        var launcher = new GameObject($"Trap_3-1_{t.id}_Launcher");
-        launcher.transform.SetParent(parent, false);
+        // 표준 수직 시점 프리팹의 총구 기준점을 설계 좌표에 맞춘다.
+        var launcher = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(LAUNCHER_PREFAB), parent);
+        launcher.name = $"Trap_3-1_{t.id}_Launcher";
         launcher.transform.position = new Vector3(START_X + t.firePoint.x, t.firePoint.y, 0f);
         launcher.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
-        var sr = launcher.AddComponent<SpriteRenderer>();
-        sr.sprite = switchPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
-        sr.color = new Color(1f, 0.45f, 0.2f);
-        sr.sortingOrder = 10;
-
-        var pl = launcher.AddComponent<ProjectileLauncher>();
+        var pl = launcher.GetComponent<ProjectileLauncher>();
         var so = new SerializedObject(pl);
         so.FindProperty("switchTrigger").objectReferenceValue = sw.GetComponent<SwitchTrigger>();
         so.FindProperty("projectilePrefab").objectReferenceValue = projectilePrefab.GetComponent<TrapProjectile>();
-        so.FindProperty("firePoint").objectReferenceValue = launcher.transform;
         so.FindProperty("launchDirection").vector2Value = new Vector2(t.direction[0], t.direction[1]);
         so.FindProperty("windupSeconds").floatValue = t.windupSeconds;
-        so.FindProperty("warningTarget").objectReferenceValue = sr;
         so.ApplyModifiedProperties();
+        StandardizeArrowTrapPrefabs.ConfigureInstance(pl, launcher.transform.position);
     }
 
     private static void SetWorld(Transform t, float x, float y)

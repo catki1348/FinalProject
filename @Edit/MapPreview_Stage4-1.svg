@@ -1,51 +1,51 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" width="558" height="507" viewBox="0 0 558 507" font-family="sans-serif" font-size="11">
 <rect width="100%" height="100%" fill="#14161c"/>
 <circle cx="279.2" cy="261.2" r="202.2" fill="none" stroke="#556" stroke-dasharray="6 4"/>
-<rect x="273.2" y="463.4" width="12.0" height="3.0" fill="#8a8f9c"/>
-<text x="279.2" y="458.4" fill="#ccd" text-anchor="middle">Start(2-1)</text>
-<rect x="292.7" y="463.4" width="3.0" height="3.0" fill="#8a8f9c"/>
-<text x="294.2" y="458.4" fill="#ccd" text-anchor="middle">Stone(2-1)</text>
-<rect x="303.2" y="461.0" width="9.0" height="3.0" fill="#8a8f9c"/>
-<text x="307.7" y="456.0" fill="#ccd" text-anchor="middle">Hill(2-1)</text>
-<rect x="318.2" y="463.4" width="6.0" height="3.0" fill="#d9534f"/>
-<text x="321.2" y="458.4" fill="#ccd" text-anchor="middle">H1</text>
-<rect x="331.7" y="463.4" width="64.8" height="3.0" fill="#8a8f9c"/>
-<text x="364.1" y="458.4" fill="#ccd" text-anchor="middle">V1</text>
-<line x1="407.0" y1="463.4" x2="458.9" y2="325.0" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
-<text x="413.0" y="457.4" fill="#9cc4f5">M1</text>
-<rect x="469.4" y="325.0" width="24.0" height="3.0" fill="#8a8f9c"/>
-<text x="481.4" y="320.0" fill="#ccd" text-anchor="middle">V2</text>
-<line x1="503.9" y1="325.0" x2="503.9" y2="197.5" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
-<text x="509.9" y="319.0" fill="#9cc4f5">M2</text>
-<rect x="469.4" y="197.5" width="24.0" height="3.0" fill="#8a8f9c"/>
-<text x="481.4" y="192.5" fill="#ccd" text-anchor="middle">V3</text>
-<line x1="458.9" y1="197.5" x2="407.0" y2="59.0" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
-<text x="464.9" y="191.5" fill="#9cc4f5">M3</text>
-<rect x="306.4" y="59.0" width="90.1" height="3.0" fill="#8a8f9c"/>
-<text x="351.4" y="54.0" fill="#ccd" text-anchor="middle">V4</text>
-<rect x="295.3" y="56.0" width="3.6" height="3.0" fill="#e0a030"/>
-<text x="297.1" y="51.0" fill="#ccd" text-anchor="middle">D1</text>
-<rect x="284.2" y="59.0" width="3.6" height="3.0" fill="#e0a030"/>
-<text x="286.0" y="54.0" fill="#ccd" text-anchor="middle">D2</text>
-<rect x="273.1" y="56.0" width="3.6" height="3.0" fill="#e0a030"/>
-<text x="274.9" y="51.0" fill="#ccd" text-anchor="middle">D3</text>
-<rect x="259.6" y="59.0" width="6.0" height="3.0" fill="#d9534f"/>
-<text x="262.6" y="54.0" fill="#ccd" text-anchor="middle">H2</text>
-<rect x="161.9" y="59.0" width="90.1" height="3.0" fill="#8a8f9c"/>
-<text x="207.0" y="54.0" fill="#ccd" text-anchor="middle">V5</text>
-<line x1="151.4" y1="59.0" x2="99.5" y2="197.5" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
-<text x="157.4" y="53.0" fill="#9cc4f5">M4</text>
-<rect x="65.0" y="197.5" width="24.0" height="3.0" fill="#8a8f9c"/>
-<text x="77.0" y="192.5" fill="#ccd" text-anchor="middle">V6</text>
-<line x1="54.5" y1="197.5" x2="54.5" y2="325.0" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
-<text x="60.5" y="191.5" fill="#9cc4f5">M5</text>
+<rect x="161.9" y="59.0" width="36.0" height="3.0" fill="#8a8f9c"/>
+<text x="179.9" y="54.0" fill="#ccd" text-anchor="middle">V5(start)</text>
+<line x1="151.4" y1="59.0" x2="99.5" y2="197.4" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
+<text x="157.4" y="53.0" fill="#9cc4f5">M1</text>
+<rect x="65.0" y="197.4" width="24.0" height="3.0" fill="#8a8f9c"/>
+<text x="77.0" y="192.4" fill="#ccd" text-anchor="middle">V6</text>
+<line x1="54.5" y1="197.4" x2="54.5" y2="325.0" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
+<text x="60.5" y="191.4" fill="#9cc4f5">M2</text>
 <rect x="65.0" y="325.0" width="24.0" height="3.0" fill="#8a8f9c"/>
 <text x="77.0" y="320.0" fill="#ccd" text-anchor="middle">V7</text>
 <line x1="99.5" y1="325.0" x2="151.4" y2="463.4" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
-<text x="105.5" y="319.0" fill="#9cc4f5">M6</text>
-<rect x="161.9" y="463.4" width="36.0" height="3.0" fill="#8a8f9c"/>
-<text x="179.9" y="458.4" fill="#ccd" text-anchor="middle">V8(goal)</text>
-<text x="259.2" y="485.4" fill="#fff" font-size="14">★ Start</text>
-<text x="179.9" y="485.4" fill="#fff" font-size="14" text-anchor="middle">○ Goal</text>
+<text x="105.5" y="319.0" fill="#9cc4f5">M3</text>
+<rect x="161.9" y="463.4" width="94.0" height="3.0" fill="#8a8f9c"/>
+<text x="208.9" y="458.4" fill="#ccd" text-anchor="middle">V8</text>
+<rect x="263.5" y="463.4" width="3.0" height="3.0" fill="#8a8f9c"/>
+<text x="265.0" y="458.4" fill="#ccd" text-anchor="middle">Stone(2-1)</text>
+<rect x="274.0" y="461.0" width="9.0" height="3.0" fill="#8a8f9c"/>
+<text x="278.5" y="456.0" fill="#ccd" text-anchor="middle">Hill(2-1)</text>
+<rect x="289.0" y="463.4" width="6.0" height="3.0" fill="#d9534f"/>
+<text x="292.0" y="458.4" fill="#ccd" text-anchor="middle">H1</text>
+<rect x="302.5" y="463.4" width="94.0" height="3.0" fill="#8a8f9c"/>
+<text x="349.5" y="458.4" fill="#ccd" text-anchor="middle">V1</text>
+<line x1="407.0" y1="463.4" x2="458.9" y2="325.0" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
+<text x="413.0" y="457.4" fill="#9cc4f5">M4</text>
+<rect x="469.4" y="325.0" width="24.0" height="3.0" fill="#8a8f9c"/>
+<text x="481.4" y="320.0" fill="#ccd" text-anchor="middle">V2</text>
+<line x1="503.9" y1="325.0" x2="503.9" y2="197.4" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
+<text x="509.9" y="319.0" fill="#9cc4f5">M5</text>
+<rect x="469.4" y="197.4" width="24.0" height="3.0" fill="#8a8f9c"/>
+<text x="481.4" y="192.4" fill="#ccd" text-anchor="middle">V3</text>
+<line x1="458.9" y1="197.4" x2="407.0" y2="59.0" stroke="#4a90e2" stroke-width="9.0" stroke-opacity="0.35" stroke-linecap="round"/>
+<text x="464.9" y="191.4" fill="#9cc4f5">M6</text>
+<rect x="351.5" y="59.0" width="45.0" height="3.0" fill="#8a8f9c"/>
+<text x="374.0" y="54.0" fill="#ccd" text-anchor="middle">V4</text>
+<rect x="340.4" y="56.0" width="3.6" height="3.0" fill="#e0a030"/>
+<text x="342.2" y="51.0" fill="#ccd" text-anchor="middle">D1</text>
+<rect x="329.3" y="59.0" width="3.6" height="3.0" fill="#e0a030"/>
+<text x="331.1" y="54.0" fill="#ccd" text-anchor="middle">D2</text>
+<rect x="318.2" y="56.0" width="3.6" height="3.0" fill="#e0a030"/>
+<text x="320.0" y="51.0" fill="#ccd" text-anchor="middle">D3</text>
+<rect x="304.7" y="59.0" width="6.0" height="3.0" fill="#d9534f"/>
+<text x="307.7" y="54.0" fill="#ccd" text-anchor="middle">H2</text>
+<rect x="261.2" y="59.0" width="36.0" height="3.0" fill="#8a8f9c"/>
+<text x="279.2" y="54.0" fill="#ccd" text-anchor="middle">Goal(12h)</text>
+<text x="159.9" y="49.0" fill="#fff" font-size="14">★ Start</text>
+<text x="279.2" y="81.0" fill="#fff" font-size="14" text-anchor="middle">○ Goal</text>
 </svg>
 

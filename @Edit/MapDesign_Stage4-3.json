@@ -1,0 +1,642 @@
+﻿{
+    "stage":  "4-3",
+    "status":  "design-only",
+    "unitsPerDesignUnit":  8,
+    "nominalRouteLength":  480,
+    "designRouteLength":  60,
+    "routeMetric":  "sum of surface-centre waypoint distances",
+    "start":  {
+                  "y":  0,
+                  "x":  0
+              },
+    "goal":  {
+                 "y":  0,
+                 "x":  479.41146192371269
+             },
+    "bounds":  {
+                   "minX":  -10,
+                   "maxX":  495.74920071379006,
+                   "minY":  -8,
+                   "maxY":  14
+               },
+    "normalPlatformWidth":  12.675477580154705,
+    "damagePlatformWidth":  5,
+    "platforms":  [
+                      {
+                          "id":  "P00",
+                          "type":  "Normal",
+                          "x":  0,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P01",
+                          "type":  "Damage",
+                          "x":  12.037738790077352,
+                          "surfaceY":  0,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P02",
+                          "type":  "Normal",
+                          "x":  24.075477580154704,
+                          "surfaceY":  0.9,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P03",
+                          "type":  "Normal",
+                          "x":  39.950955160309412,
+                          "surfaceY":  1.8,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P04",
+                          "type":  "Damage",
+                          "x":  51.988693950386768,
+                          "surfaceY":  1.8,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.3,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P05",
+                          "type":  "Normal",
+                          "x":  64.026432740464116,
+                          "surfaceY":  2.7,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P06",
+                          "type":  "Normal",
+                          "x":  79.901910320618825,
+                          "surfaceY":  2.7,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P07",
+                          "type":  "Damage",
+                          "x":  91.93964911069618,
+                          "surfaceY":  2.7,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.6,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P08",
+                          "type":  "Normal",
+                          "x":  103.97738790077354,
+                          "surfaceY":  1.8,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P09",
+                          "type":  "Normal",
+                          "x":  119.85286548092824,
+                          "surfaceY":  1.8,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P10",
+                          "type":  "Damage",
+                          "x":  131.8906042710056,
+                          "surfaceY":  0.9,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.89999999999999991,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P11",
+                          "type":  "Normal",
+                          "x":  143.92834306108296,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P12",
+                          "type":  "Normal",
+                          "x":  159.80382064123765,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P13",
+                          "type":  "Damage",
+                          "x":  171.84155943131498,
+                          "surfaceY":  0,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  1.2,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P14",
+                          "type":  "Normal",
+                          "x":  183.87929822139233,
+                          "surfaceY":  0.9,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P15",
+                          "type":  "Normal",
+                          "x":  199.75477580154703,
+                          "surfaceY":  0.9,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P16",
+                          "type":  "Damage",
+                          "x":  211.79251459162435,
+                          "surfaceY":  1.8,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  1.5,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P17",
+                          "type":  "Normal",
+                          "x":  223.83025338170171,
+                          "surfaceY":  2.7,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P18",
+                          "type":  "Normal",
+                          "x":  239.7057309618564,
+                          "surfaceY":  2.7,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P19",
+                          "type":  "Damage",
+                          "x":  251.74346975193373,
+                          "surfaceY":  2.7,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  1.7999999999999998,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P20",
+                          "type":  "Normal",
+                          "x":  263.78120854201109,
+                          "surfaceY":  1.8,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P21",
+                          "type":  "Normal",
+                          "x":  279.65668612216581,
+                          "surfaceY":  1.8,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P22",
+                          "type":  "Damage",
+                          "x":  291.69442491224316,
+                          "surfaceY":  0.9,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  2.1,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P23",
+                          "type":  "Normal",
+                          "x":  303.73216370232052,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P24",
+                          "type":  "Normal",
+                          "x":  319.60764128247519,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P25",
+                          "type":  "Damage",
+                          "x":  331.64538007255254,
+                          "surfaceY":  0,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  2.4,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P26",
+                          "type":  "Normal",
+                          "x":  343.6831188626299,
+                          "surfaceY":  0.9,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P27",
+                          "type":  "Normal",
+                          "x":  359.55859644278456,
+                          "surfaceY":  0.9,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P28",
+                          "type":  "Damage",
+                          "x":  371.59633523286192,
+                          "surfaceY":  1.8,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  2.6999999999999997,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P29",
+                          "type":  "Normal",
+                          "x":  383.63407402293927,
+                          "surfaceY":  2.7,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P30",
+                          "type":  "Normal",
+                          "x":  399.50955160309394,
+                          "surfaceY":  2.7,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P31",
+                          "type":  "Damage",
+                          "x":  411.54729039317129,
+                          "surfaceY":  2.7,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  3,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P32",
+                          "type":  "Normal",
+                          "x":  423.58502918324865,
+                          "surfaceY":  1.8,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P33",
+                          "type":  "Normal",
+                          "x":  439.46050676340332,
+                          "surfaceY":  0.9,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P34",
+                          "type":  "Damage",
+                          "x":  451.49824555348067,
+                          "surfaceY":  0.9,
+                          "width":  5,
+                          "thickness":  0.5,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  3.3,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P35",
+                          "type":  "Normal",
+                          "x":  463.535984343558,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      },
+                      {
+                          "id":  "P36",
+                          "type":  "Normal",
+                          "x":  479.41146192371269,
+                          "surfaceY":  0,
+                          "width":  12.675477580154705,
+                          "thickness":  0.5
+                      }
+                  ],
+    "traps":  [
+                  {
+                      "id":  "S01",
+                      "kind":  "MonsterSpawn",
+                      "routeFrom":  0,
+                      "routeTo":  80,
+                      "zone":  {
+                                   "minX":  -10,
+                                   "maxX":  79.907314806224875,
+                                   "minY":  -8,
+                                   "maxY":  14
+                               },
+                      "spawnPoints":  [
+                                          {
+                                              "y":  6,
+                                              "x":  25.962925922489951
+                                          },
+                                          {
+                                              "y":  7,
+                                              "x":  34.953657403112437
+                                          },
+                                          {
+                                              "y":  8,
+                                              "x":  43.944388883734923
+                                          }
+                                      ],
+                      "monsterPrefab":  "FlyingChase",
+                      "detectionSize":  {
+                                            "y":  18,
+                                            "x":  108
+                                        },
+                      "wave":  {
+                                   "interval":  5,
+                                   "firstWaveOnEntry":  true,
+                                   "count":  3
+                               },
+                      "spawnBlockAliveAtLeast":  10
+                  },
+                  {
+                      "id":  "S02",
+                      "kind":  "MonsterSpawn",
+                      "routeFrom":  80,
+                      "routeTo":  160,
+                      "zone":  {
+                                   "minX":  79.907314806224875,
+                                   "maxX":  159.80652288404062,
+                                   "minY":  -8,
+                                   "maxY":  14
+                               },
+                      "spawnPoints":  [
+                                          {
+                                              "y":  6,
+                                              "x":  111.86699803735118
+                                          },
+                                          {
+                                              "y":  7,
+                                              "x":  119.85691884513275
+                                          },
+                                          {
+                                              "y":  8,
+                                              "x":  127.84683965291433
+                                          }
+                                      ],
+                      "monsterPrefab":  "FlyingChase",
+                      "detectionSize":  {
+                                            "y":  18,
+                                            "x":  96
+                                        },
+                      "wave":  {
+                                   "interval":  5,
+                                   "firstWaveOnEntry":  true,
+                                   "count":  3
+                               },
+                      "spawnBlockAliveAtLeast":  10
+                  },
+                  {
+                      "id":  "S03",
+                      "kind":  "MonsterSpawn",
+                      "routeFrom":  160,
+                      "routeTo":  240,
+                      "zone":  {
+                                   "minX":  159.80652288404062,
+                                   "maxX":  239.70573096185635,
+                                   "minY":  -8,
+                                   "maxY":  14
+                               },
+                      "spawnPoints":  [
+                                          {
+                                              "y":  6,
+                                              "x":  191.76620611516691
+                                          },
+                                          {
+                                              "y":  7,
+                                              "x":  199.75612692294848
+                                          },
+                                          {
+                                              "y":  8,
+                                              "x":  207.74604773073006
+                                          }
+                                      ],
+                      "monsterPrefab":  "FlyingChase",
+                      "detectionSize":  {
+                                            "y":  18,
+                                            "x":  96
+                                        },
+                      "wave":  {
+                                   "interval":  5,
+                                   "firstWaveOnEntry":  true,
+                                   "count":  3
+                               },
+                      "spawnBlockAliveAtLeast":  10
+                  },
+                  {
+                      "id":  "S04",
+                      "kind":  "MonsterSpawn",
+                      "routeFrom":  240,
+                      "routeTo":  320,
+                      "zone":  {
+                                   "minX":  239.70573096185635,
+                                   "maxX":  319.6049390396721,
+                                   "minY":  -8,
+                                   "maxY":  14
+                               },
+                      "spawnPoints":  [
+                                          {
+                                              "y":  6,
+                                              "x":  271.66541419298267
+                                          },
+                                          {
+                                              "y":  7,
+                                              "x":  279.65533500076424
+                                          },
+                                          {
+                                              "y":  8,
+                                              "x":  287.64525580854581
+                                          }
+                                      ],
+                      "monsterPrefab":  "FlyingChase",
+                      "detectionSize":  {
+                                            "y":  18,
+                                            "x":  96
+                                        },
+                      "wave":  {
+                                   "interval":  5,
+                                   "firstWaveOnEntry":  true,
+                                   "count":  3
+                               },
+                      "spawnBlockAliveAtLeast":  10
+                  },
+                  {
+                      "id":  "S05",
+                      "kind":  "MonsterSpawn",
+                      "routeFrom":  320,
+                      "routeTo":  400,
+                      "zone":  {
+                                   "minX":  319.6049390396721,
+                                   "maxX":  399.50414711748783,
+                                   "minY":  -8,
+                                   "maxY":  14
+                               },
+                      "spawnPoints":  [
+                                          {
+                                              "y":  6,
+                                              "x":  351.5646222707984
+                                          },
+                                          {
+                                              "y":  7,
+                                              "x":  359.55454307857997
+                                          },
+                                          {
+                                              "y":  8,
+                                              "x":  367.54446388636154
+                                          }
+                                      ],
+                      "monsterPrefab":  "FlyingChase",
+                      "detectionSize":  {
+                                            "y":  18,
+                                            "x":  96
+                                        },
+                      "wave":  {
+                                   "interval":  5,
+                                   "firstWaveOnEntry":  true,
+                                   "count":  3
+                               },
+                      "spawnBlockAliveAtLeast":  10
+                  },
+                  {
+                      "id":  "S06",
+                      "kind":  "MonsterSpawn",
+                      "routeFrom":  400,
+                      "routeTo":  480,
+                      "zone":  {
+                                   "minX":  399.50414711748783,
+                                   "maxX":  495.74920071379006,
+                                   "minY":  -8,
+                                   "maxY":  14
+                               },
+                      "spawnPoints":  [
+                                          {
+                                              "y":  6,
+                                              "x":  438.00216855600871
+                                          },
+                                          {
+                                              "y":  7,
+                                              "x":  447.62667391563895
+                                          },
+                                          {
+                                              "y":  8,
+                                              "x":  457.25117927526918
+                                          }
+                                      ],
+                      "monsterPrefab":  "FlyingChase",
+                      "detectionSize":  {
+                                            "y":  18,
+                                            "x":  116
+                                        },
+                      "wave":  {
+                                   "interval":  5,
+                                   "firstWaveOnEntry":  true,
+                                   "count":  3
+                               },
+                      "spawnBlockAliveAtLeast":  10
+                  }
+              ]
+}

@@ -17,6 +17,10 @@ public class ProjectileLauncher : MonoBehaviour
     private WaitForSeconds windupWait;
     private bool isFiring;
 
+    // 외관 컴포넌트가 실제 발사 좌표와 방향을 읽어 그림의 총구를 맞춘다.
+    public Transform FirePoint => firePoint;
+    public Vector2 LaunchDirection => launchDirection;
+
     private void Awake()
     {
         windupWait = new WaitForSeconds(windupSeconds);

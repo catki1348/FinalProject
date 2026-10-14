@@ -1,0 +1,1 @@
+swordDuplicatePass=True;swordDelta=20;projectileDuplicatePass=True;projectileDelta=20

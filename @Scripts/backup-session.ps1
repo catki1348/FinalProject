@@ -5,6 +5,8 @@ Claude + GPT(Codex) 전체 세션 통합 백업.
 .DESCRIPTION
 Claude 기록 및 Codex 대화 원본, 세션 목록, SQLite 스냅샷을 저장합니다.
 Unity 파일과 로그인 인증 정보는 기본 제외합니다. 저장 후 SHA256 검증은 항상 실행합니다.
+백업은 복사·압축·검증으로 종료하며 Git 스테이징·커밋·푸시를 실행하지 않습니다.
+수정: GPT(Codex), 2026-10-14.
 #>
 param(
     [string]$BackupPath,

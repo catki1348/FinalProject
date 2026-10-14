@@ -18,15 +18,21 @@ public class SwitchTrigger : MonoBehaviour
     // 스위치를 밟은 플레이어의 Rigidbody2D를 함께 전달(텔레포트 등 플레이어에게 작용하는 함정용)
     public event Action<Rigidbody2D> OnActivatedByPlayer;
 
+    // 쿨다운이 끝나 다시 발동 가능해진 순간(반복형 스위치만 발생, 복귀 연출용)
+    public event Action OnReady;
+
     private void Awake()
     {
         GetComponent<Collider2D>().isTrigger = true;
     }
 
-    // 쿨다운 타이머 감소
+    // 쿨다운 타이머 감소, 끝나는 프레임에 OnReady 1회 발생
     private void Update()
     {
-        if (cooldownTimer > 0f) cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer <= 0f) return;
+
+        cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer <= 0f) OnReady?.Invoke();
     }
 
     // 플레이어가 닿으면 효과음 + 이벤트 발생, 이후 레버형이면 소진/반복형이면 쿨다운 시작

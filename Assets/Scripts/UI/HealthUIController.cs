@@ -7,6 +7,7 @@ public class HealthUIController : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;      // Inspector 드래그로 연결 (규칙 36 - Find 금지)
     [SerializeField] private MonoBehaviour healthGaugeView;  // IHealthGaugeView를 구현한 컴포넌트를 드래그로 연결
     [SerializeField] private TMP_Text healthValueText;       // 현재 체력 숫자 표기
+    [SerializeField] private PlayerDefense playerDefense;    // 선택 사항: 완벽 방어 임시 체력 표시용(없으면 임시 체력 UI는 꺼진 상태)
 
     private IHealthGaugeView gaugeView;
 
@@ -17,6 +18,11 @@ public class HealthUIController : MonoBehaviour
 
     private void OnEnable()
     {
+        if (playerDefense != null)
+        {
+            playerDefense.OnBuffChanged += HandleBuffChanged;
+            HandleBuffChanged(playerDefense.TemporaryHealth, playerDefense.BuffRemaining);
+        }
         if (playerHealth == null) return;
         playerHealth.OnHealthChanged += HandleHealthChanged;
         HandleHealthChanged(playerHealth.CurrentHealth, playerHealth.FinalMaxHealth);
@@ -24,8 +30,14 @@ public class HealthUIController : MonoBehaviour
 
     private void OnDisable()
     {
+        if (playerDefense != null) playerDefense.OnBuffChanged -= HandleBuffChanged;
         if (playerHealth == null) return;
         playerHealth.OnHealthChanged -= HandleHealthChanged;
+    }
+
+    private void HandleBuffChanged(float tempHealth, float remaining)
+    {
+        gaugeView?.SetTempHealth(tempHealth, remaining);
     }
 
     private void HandleHealthChanged(int current, int max)

@@ -1,0 +1,9 @@
+{
+ "base": "4K resolution. Make a MINIMAL pose edit of this EXACT supplied original knight game sprite. Preserve the original enclosed round helmet, small curved brown-gold horns, original gold face opening, broad dark neutral steel armor, red scarf/cape, brown leather, kite shield with embossed GOLD FACE/CREST and sword. Same original grainy pixel-art shading, pixel density, outline, colors, proportions and character scale. No new helmet, skull face, cyan armor, photorealistic smoothing, blood, magic glow, energy barrier, shield aura or effects. One single full body sprite, same 3:4 canvas, same feet position on the canvas. SOLID PURE WHITE background, no checkerboard, no ground, no shadow. The knight faces SCREEN RIGHT in side profile. GUARD / BLOCK animation, ",
+ "frames": {
+  "guard_1": "frame 1 of 4, GUARD START: the shield arm begins rising, kite shield lifted to chest height in front of the body, sword arm lowering the sword down and back, knees slightly bent, weight starting to shift forward, cape trailing left.",
+  "guard_2": "frame 2 of 4, GUARD RAISED: kite shield thrust fully forward and up in front of the chest and face toward screen right, gold crest clearly visible on the shield, body braced low with knees bent and front foot planted, sword held low and back, cape pushed back to the left.",
+  "guard_3": "frame 3 of 4, GUARD HOLD A: the same fully braced guard stance as the raised pose, shield held steady in front of chest and face, firmly planted legs, torso leaning slightly into the shield, sword low behind the body.",
+  "guard_4": "frame 4 of 4, GUARD HOLD B: the same braced guard stance as hold A with only tiny differences, shield a few pixels lower and pressed slightly harder forward, cape tip swaying slightly differently, body and feet in the same place so the loop reads as steady holding."
+ }
+}

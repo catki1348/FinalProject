@@ -1,0 +1,46 @@
+{
+ "decision": "B안 확정(2026-10-14, 사용자 선택). 머리~발 높이 기준 목표 9.0유닛, 4장 공통 PPU. Unity 미적용(컨셉).",
+ "source_dir": "@Edit/hk2_gen/guard_alpha_final",
+ "frames": [
+  {
+   "Name": "guard_1_start.png",
+   "Width": 1152,
+   "Height": 1536,
+   "PixelsPerUnit": 87.472,
+   "PivotX": 0.421875,
+   "PivotY": 0.246094,
+   "PivotX_LeftFlipped": 0.578125,
+   "HeadTopToGroundUnits": 9.02
+  },
+  {
+   "Name": "guard_2_raised.png",
+   "Width": 1152,
+   "Height": 1536,
+   "PixelsPerUnit": 87.472,
+   "PivotX": 0.424479,
+   "PivotY": 0.242839,
+   "PivotX_LeftFlipped": 0.575521,
+   "HeadTopToGroundUnits": 8.99
+  },
+  {
+   "Name": "guard_3_holdA.png",
+   "Width": 1152,
+   "Height": 1536,
+   "PixelsPerUnit": 87.472,
+   "PivotX": 0.424479,
+   "PivotY": 0.240234,
+   "PivotX_LeftFlipped": 0.575521,
+   "HeadTopToGroundUnits": 8.94
+  },
+  {
+   "Name": "guard_4_holdB.png",
+   "Width": 1152,
+   "Height": 1536,
+   "PixelsPerUnit": 87.472,
+   "PivotX": 0.422309,
+   "PivotY": 0.280599,
+   "PivotX_LeftFlipped": 0.577691,
+   "HeadTopToGroundUnits": 9.05
+  }
+ ]
+}

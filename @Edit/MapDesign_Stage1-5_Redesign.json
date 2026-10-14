@@ -1,0 +1,419 @@
+﻿{
+    "status":  "concept_only",
+    "author":  "OpenAI Codex (GPT-6)",
+    "date":  "2026-10-14",
+    "origin":  {
+                   "y":  -49,
+                   "x":  14.78
+               },
+    "floor":  {
+                  "thickness":  1,
+                  "width":  28,
+                  "top":  0
+              },
+    "player":  {
+                   "gravityScale":  3,
+                   "speed":  8,
+                   "jumpVelocity":  9
+               },
+    "jump":  {
+                 "twoTiersReachable":  false,
+                 "safeApex80":  0.88073394495412849,
+                 "oneTierReachable":  true,
+                 "fullApex":  1.3761467889908257
+             },
+    "boss":  {
+                 "height":  7,
+                 "visualScale":  0.6889763779527559,
+                 "bodyHalfWidth":  1.2,
+                 "headBottom":  4.95,
+                 "bodyTop":  4.95,
+                 "standingReachTier5":  5.39322752,
+                 "headTop":  7,
+                 "headHittableOnlyFromTier":  5,
+                 "standingReachTier4":  4.59322752
+             },
+    "geometry":  {
+                     "shape":  "two_equilateral_triangles",
+                     "baseLength":  3.6950417228136052,
+                     "definition":  "outer_platform_centers",
+                     "spacing":  0.9237604307034013,
+                     "height":  3.2,
+                     "rowRise":  0.8,
+                     "centers":  [
+                                     -4,
+                                     4
+                                 ],
+                     "edgeLength":  3.6950417228136052
+                 },
+    "bossPlatformInteraction":  {
+                                    "groundQueries":  false,
+                                    "triggerInteraction":  false,
+                                    "physicalCollision":  false,
+                                    "landingQueries":  false,
+                                    "standing":  false
+                                },
+    "slam":  {
+                 "hazardHeight":  0.25,
+                 "minimumHorizontalRange":  0,
+                 "activeDuration":  0.75,
+                 "hitsPerPlayerPerSlam":  1,
+                 "xMax":  14,
+                 "requiresActualFloorLanding":  true,
+                 "damage":  25,
+                 "warningMinimum":  0.8,
+                 "groundTop":  0,
+                 "xMin":  -14,
+                 "cooldown":  8
+             },
+    "damage":  {
+                   "sample":  "player_collider_center_at_hit",
+                   "farDistance":  4,
+                   "maximumMultiplier":  2,
+                   "nearDistance":  0.75
+               },
+    "platforms":  [
+                      {
+                          "id":  "Ledge_-1_1_0",
+                          "side":  -1,
+                          "tier":  1,
+                          "x":  -5.847520861406803,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_1_1",
+                          "side":  -1,
+                          "tier":  1,
+                          "x":  -4.9237604307034015,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_1_2",
+                          "side":  -1,
+                          "tier":  1,
+                          "x":  -4,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_1_3",
+                          "side":  -1,
+                          "tier":  1,
+                          "x":  -3.0762395692965985,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_1_4",
+                          "side":  -1,
+                          "tier":  1,
+                          "x":  -2.1524791385931974,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_1_0",
+                          "side":  1,
+                          "tier":  1,
+                          "x":  2.1524791385931974,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_1_1",
+                          "side":  1,
+                          "tier":  1,
+                          "x":  3.0762395692965985,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_1_2",
+                          "side":  1,
+                          "tier":  1,
+                          "x":  4,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_1_3",
+                          "side":  1,
+                          "tier":  1,
+                          "x":  4.9237604307034015,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_1_4",
+                          "side":  1,
+                          "tier":  1,
+                          "x":  5.847520861406803,
+                          "top":  0.8,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_2_0",
+                          "side":  -1,
+                          "tier":  2,
+                          "x":  -5.3856406460551014,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_2_1",
+                          "side":  -1,
+                          "tier":  2,
+                          "x":  -4.4618802153517008,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_2_2",
+                          "side":  -1,
+                          "tier":  2,
+                          "x":  -3.5381197846482992,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_2_3",
+                          "side":  -1,
+                          "tier":  2,
+                          "x":  -2.6143593539448982,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_2_0",
+                          "side":  1,
+                          "tier":  2,
+                          "x":  2.6143593539448982,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_2_1",
+                          "side":  1,
+                          "tier":  2,
+                          "x":  3.5381197846482992,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_2_2",
+                          "side":  1,
+                          "tier":  2,
+                          "x":  4.4618802153517008,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_2_3",
+                          "side":  1,
+                          "tier":  2,
+                          "x":  5.3856406460551014,
+                          "top":  1.6,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_3_0",
+                          "side":  -1,
+                          "tier":  3,
+                          "x":  -4.9237604307034015,
+                          "top":  2.4000000000000004,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_3_1",
+                          "side":  -1,
+                          "tier":  3,
+                          "x":  -4,
+                          "top":  2.4000000000000004,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_3_2",
+                          "side":  -1,
+                          "tier":  3,
+                          "x":  -3.0762395692965985,
+                          "top":  2.4000000000000004,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_3_0",
+                          "side":  1,
+                          "tier":  3,
+                          "x":  3.0762395692965985,
+                          "top":  2.4000000000000004,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_3_1",
+                          "side":  1,
+                          "tier":  3,
+                          "x":  4,
+                          "top":  2.4000000000000004,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_3_2",
+                          "side":  1,
+                          "tier":  3,
+                          "x":  4.9237604307034015,
+                          "top":  2.4000000000000004,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_4_0",
+                          "side":  -1,
+                          "tier":  4,
+                          "x":  -4.4618802153517008,
+                          "top":  3.2,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_4_1",
+                          "side":  -1,
+                          "tier":  4,
+                          "x":  -3.5381197846482992,
+                          "top":  3.2,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_4_0",
+                          "side":  1,
+                          "tier":  4,
+                          "x":  3.5381197846482992,
+                          "top":  3.2,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_4_1",
+                          "side":  1,
+                          "tier":  4,
+                          "x":  4.4618802153517008,
+                          "top":  3.2,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_-1_5_0",
+                          "side":  -1,
+                          "tier":  5,
+                          "x":  -4,
+                          "top":  4,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      },
+                      {
+                          "id":  "Ledge_1_5_0",
+                          "side":  1,
+                          "tier":  5,
+                          "x":  4,
+                          "top":  4,
+                          "width":  0.6,
+                          "thickness":  0.36
+                      }
+                  ],
+    "ascentChecks":  [
+                         {
+                             "tier":  1,
+                             "centerDistance":  0,
+                             "horizontalReach80":  2.5497541977438516,
+                             "rise":  0.8,
+                             "side":  -1
+                         },
+                         {
+                             "tier":  2,
+                             "centerDistance":  0.46188021535170165,
+                             "horizontalReach80":  2.5497541977438516,
+                             "rise":  0.8,
+                             "side":  -1
+                         },
+                         {
+                             "tier":  3,
+                             "centerDistance":  0.46188021535169987,
+                             "horizontalReach80":  2.5497541977438507,
+                             "rise":  0.80000000000000027,
+                             "side":  -1
+                         },
+                         {
+                             "tier":  4,
+                             "centerDistance":  0.46188021535170076,
+                             "horizontalReach80":  2.5497541977438529,
+                             "rise":  0.79999999999999982,
+                             "side":  -1
+                         },
+                         {
+                             "tier":  5,
+                             "centerDistance":  0.46188021535170076,
+                             "horizontalReach80":  2.5497541977438529,
+                             "rise":  0.79999999999999982,
+                             "side":  -1
+                         },
+                         {
+                             "tier":  1,
+                             "centerDistance":  0,
+                             "horizontalReach80":  2.5497541977438516,
+                             "rise":  0.8,
+                             "side":  1
+                         },
+                         {
+                             "tier":  2,
+                             "centerDistance":  0.46188021535170076,
+                             "horizontalReach80":  2.5497541977438516,
+                             "rise":  0.8,
+                             "side":  1
+                         },
+                         {
+                             "tier":  3,
+                             "centerDistance":  0.46188021535170032,
+                             "horizontalReach80":  2.5497541977438507,
+                             "rise":  0.80000000000000027,
+                             "side":  1
+                         },
+                         {
+                             "tier":  4,
+                             "centerDistance":  0.46188021535170076,
+                             "horizontalReach80":  2.5497541977438529,
+                             "rise":  0.79999999999999982,
+                             "side":  1
+                         },
+                         {
+                             "tier":  5,
+                             "centerDistance":  0.46188021535170076,
+                             "horizontalReach80":  2.5497541977438529,
+                             "rise":  0.79999999999999982,
+                             "side":  1
+                         }
+                     ]
+}

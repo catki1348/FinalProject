@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="500" viewBox="0 0 1100 500">
+<rect width="1100" height="500" fill="#191617"/>
+<g font-family="sans-serif" fill="#f3e9d9"><text x="40" y="44" font-size="26">3-5 화산 전갈 보스존 · 재설계</text><text x="40" y="76" font-size="16">연속 바닥 52 · 보스 이동 범위 41.4 · 일반 5종 / 필살기 2종</text>
+<rect x="30" y="112" width="1040" height="282" fill="none" stroke="#806759" stroke-dasharray="6 6"/>
+<rect x="100" y="160" width="216" height="210" fill="#284437" opacity=".5"/><rect x="316" y="160" width="504" height="210" fill="#65341e" opacity=".4"/><rect x="820" y="160" width="216" height="210" fill="#284437" opacity=".5"/>
+<text x="128" y="190">완충 12</text><text x="505" y="190">중앙 전투 28</text><text x="867" y="190">완충 12</text>
+<rect x="100" y="370" width="936" height="20" fill="#a14b23"/><rect x="82" y="154" width="18" height="236" fill="#67504a"/><rect x="1036" y="154" width="18" height="236" fill="#67504a"/>
+<line x1="195.4" y1="205" x2="940.6" y2="205" stroke="#ffd296" stroke-width="2"/><text x="365" y="230">보스 루트: 491.3 ~ 532.7 (벽 여유 5.3)</text>
+<rect x="202" y="347" width="18" height="23" fill="#76c4e3"/><text x="164" y="326">★ 진입 492</text>
+<rect x="636" y="256" width="152" height="114" fill="#aa5524" opacity=".4" stroke="#ffa14e"/><rect x="674" y="339" width="54" height="31" fill="#b65a29"/><text x="640" y="245">보스 시작 520</text><text x="641" y="283" font-size="13">캔버스 8.45 × 6.34</text>
+<line x1="712" y1="309" x2="784" y2="309" stroke="#ffbc52" stroke-width="5"/><text x="797" y="312" font-size="14">돌진 4</text>
+<line x1="460" y1="299" x2="712" y2="299" stroke="#ee873f" stroke-dasharray="5 5"/><text x="465" y="288" font-size="14">필살기 거리 14</text>
+<circle cx="982" cy="355" r="14" fill="none" stroke="#99e19a" stroke-width="3"/><text x="877" y="338">○ 처치 후 종료 535</text>
+<text x="90" y="417">486</text><text x="996" y="417">538</text><text x="399" y="417">표면 Y -300 · 새 영역은 본선 아래 중앙</text>
+<text x="40" y="461" font-size="16">분출: 중심 간격 2.5 − 판정 폭 0.9 = 안전 간격 1.6 ≥ 플레이어 폭 0.98 + 여유 0.5</text>
+<text x="40" y="488" font-size="14" fill="#bcb0a5">설계 도식 · Unity 미적용 · 주황 큰 상자는 투명 여백을 포함한 보수적 크기</text></g></svg>

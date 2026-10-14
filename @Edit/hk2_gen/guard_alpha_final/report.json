@@ -1,0 +1,18 @@
+﻿[
+    {
+        "Name":  "guard_1_start.png",
+        "RemovedFringePixels":  5142
+    },
+    {
+        "Name":  "guard_2_raised.png",
+        "RemovedFringePixels":  6211
+    },
+    {
+        "Name":  "guard_3_holdA.png",
+        "RemovedFringePixels":  7084
+    },
+    {
+        "Name":  "guard_4_holdB.png",
+        "RemovedFringePixels":  6625
+    }
+]

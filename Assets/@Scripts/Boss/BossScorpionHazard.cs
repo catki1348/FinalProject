@@ -7,6 +7,8 @@ public class BossScorpionHazard : MonoBehaviour
     [SerializeField] private bool projectile;
     [SerializeField] private float radius = .3f;
     [SerializeField] private Vector2 eruptionSize = new Vector2(1.4f, 2.5f);
+    [Tooltip("Eruption only: flat marker shown during the warning; the prefab sprite is the burst art.")]
+    [SerializeField] private Sprite warningSprite;
     private readonly Collider2D[] hits = new Collider2D[16];
     private Boss owner;
     private BossSound sound;
@@ -18,14 +20,32 @@ public class BossScorpionHazard : MonoBehaviour
     private bool active, dealt;
     private BossSfx effectSound;
     private Vector3 fullScale;
+    private Sprite burstSprite;
 
     // Set ownership, immutable aim and timing immediately after spawning.
     public void Initialize(Boss source, BossSound audio, LayerMask targetMask, LayerMask groundMask, Vector2 speed, int amount, float warning, float duration, BossSfx sfx)
     {
         owner = source; sound = audio; targets = targetMask; ground = groundMask;
         velocity = speed; damage = amount; delay = warning; lifetime = duration; effectSound = sfx;
-        visual = GetComponent<SpriteRenderer>(); fullScale = transform.localScale;
-        if (!projectile) { transform.localScale = new Vector3(fullScale.x, fullScale.y * .06f, 1); visual.color = new Color(1f, .8f, .1f, .75f); }
+        visual = GetComponent<SpriteRenderer>(); burstSprite = visual.sprite;
+        if (projectile && speed.sqrMagnitude > 0f)
+        {
+            // Projectile art points right: rotate it along the flight line and keep it upright when flying left.
+            transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(speed.y, speed.x) * Mathf.Rad2Deg);
+            if (speed.x < 0f) transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1f);
+        }
+        fullScale = transform.localScale;
+        if (!projectile)
+        {
+            if (warningSprite)
+            {
+                // Flat marker exactly as wide as the hit area, sitting on the ground.
+                Vector2 marker = warningSprite.bounds.size;
+                visual.sprite = warningSprite; transform.localScale = new Vector3(eruptionSize.x / marker.x, .15f / marker.y, 1f);
+            }
+            else transform.localScale = new Vector3(fullScale.x, fullScale.y * .06f, 1);
+            visual.color = new Color(1f, .8f, .1f, .75f);
+        }
     }
 
     // No homing and no per-frame allocations; warnings stay fixed at their original positions.
@@ -36,7 +56,7 @@ public class BossScorpionHazard : MonoBehaviour
         if (!active && age >= delay)
         {
             active = true;
-            if (!projectile) { transform.localScale = fullScale; visual.color = Color.white; if (sound) sound.Play(effectSound); }
+            if (!projectile) { visual.sprite = burstSprite; transform.localScale = fullScale; visual.color = Color.white; if (sound) sound.Play(effectSound); }
         }
         if (!active) return;
         if (age >= delay + lifetime) { Destroy(gameObject); return; }

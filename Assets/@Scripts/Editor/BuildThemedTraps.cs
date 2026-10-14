@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public static class BuildThemedTraps
     // 기존 프리팹의 동작 설정을 복제하며 테마별 내부 참조를 연결한다.
     public static string Build()
     {
+        // OpenAI Codex (GPT-6), 2026-10-14: 기존 자산을 재생성해 구형 그림으로 되돌리지 않는다.
+        if (Themes.All(t => Kinds.All(k => AssetDatabase.LoadAssetAtPath<GameObject>(Output + "/" + t + "/P_Trap_" + k + "_" + t + ".prefab"))))
+            return StandardizeArrowTrapPrefabs.Rebuild();
         Directory.CreateDirectory(Output);
         AssetDatabase.Refresh();
         var shader = Shader.Find("Traps/WhiteKeySprite");
@@ -37,19 +41,8 @@ public static class BuildThemedTraps
             var projectileAsset = Save(projectile, folder, "Projectile", theme);
 
             var launcher = Copy("Launcher", theme, folder);
-            var render = SetVisual(launcher, sprites[1], mat, 1.6f, false);
-            var switchAsset = AssetDatabase.LoadAssetAtPath<GameObject>(folder + "/P_Trap_Switch_" + theme + ".prefab");
-            var childSwitch = (GameObject)PrefabUtility.InstantiatePrefab(switchAsset, launcher.transform);
-            childSwitch.transform.localPosition = new Vector3(-2, -.5f, 0);
-            var serial = new SerializedObject(launcher.GetComponent<ProjectileLauncher>());
-            serial.FindProperty("switchTrigger").objectReferenceValue = childSwitch.GetComponent<SwitchTrigger>();
-            serial.FindProperty("projectilePrefab").objectReferenceValue = projectileAsset.GetComponent<TrapProjectile>();
-            serial.FindProperty("warningTarget").objectReferenceValue = render;
-            serial.FindProperty("launchDirection").vector2Value = Vector2.right;
-            var muzzle = serial.FindProperty("firePoint").objectReferenceValue as Transform;
-            muzzle.localPosition = new Vector3(.95f, 0, 0);
-            serial.ApplyModifiedPropertiesWithoutUndo();
             Save(launcher, folder, "Launcher", theme);
+            StandardizeArrowTrapPrefabs.BuildLauncher(StandardizeArrowTrapPrefabs.LauncherPath(theme), theme);
 
             var teleport = Copy("Teleport", theme, folder);
             SetVisual(teleport, sprites[0], mat, 1.1f, true);
@@ -62,7 +55,7 @@ public static class BuildThemedTraps
             Save(teleport, folder, "Teleport", theme);
         }
         AssetDatabase.SaveAssets();
-        return "Created 20 themed trap prefabs";
+        return "Created 20 themed trap prefabs; " + StandardizeArrowTrapPrefabs.Rebuild();
     }
 
     // 각 사분면의 흰 여백을 제외한 영역을 측정해 독립 Sprite asset을 만든다.
@@ -78,6 +71,11 @@ public static class BuildThemedTraps
         var result = new Sprite[4];
         for (int k = 0; k < 4; k++)
         {
+            // 수직 시점 발사장치 Sprite를 포함해 이미 정의된 표준 Sprite는 재사용한다.
+            string standardPath = "Assets/Sprites/Traps/Themed/T_Trap_" + Kinds[k] + "_" + theme + ".asset";
+            var standard = AssetDatabase.LoadAssetAtPath<Sprite>(standardPath);
+            if (standard) { result[k] = standard; continue; }
+            if (k == 1) throw new Exception("Import standard overhead launcher sprites before building prefabs");
             int x0 = k % 2 * texture.width / 2, y0 = (k < 2 ? 1 : 0) * texture.height / 2;
             int minX = texture.width, minY = texture.height, maxX = 0, maxY = 0;
             for (int y = y0; y < y0 + texture.height / 2; y++)

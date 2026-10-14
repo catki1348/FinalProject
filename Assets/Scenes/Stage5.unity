@@ -703,6 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WarpManager
   testStartZone: 
+  testPlatformName: 
 --- !u!4 &918977446
 Transform:
   m_ObjectHideFlags: 0
@@ -1408,6 +1409,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c745e3449e4489e4d96386101fb96557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+--- !u!114 &1373448616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6923854665365393073, guid: ca420f4923676ee40b96b689748df5b7, type: 3}
+  m_PrefabInstance: {fileID: 1373448613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9c7926442ccfe47bbe2e05f8e02a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDefense
 --- !u!4 &1389540538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2709369895995715926, guid: 7fc425f644951414eb362eac3f89ee4a, type: 3}
@@ -2112,6 +2124,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1373448615}
+    - target: {fileID: 8821830566793450166, guid: fb1c6c17787d7c347970896f3b2e283f, type: 3}
+      propertyPath: playerDefense
+      value: 
+      objectReference: {fileID: 1373448616}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

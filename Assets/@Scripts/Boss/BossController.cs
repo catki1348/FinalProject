@@ -32,10 +32,21 @@ public class BossController : MonoBehaviour
     [SerializeField] private int punchDamage = 10;            // 주먹 1회 피해량
     [SerializeField] private float punchReach = 2.6f;         // 주먹 판정 상자의 전방 길이
     [SerializeField] private float punchHeight = 3f;          // 주먹 판정 상자의 높이(발밑부터)
+    [SerializeField] private float punchMinHeight = 0f;       // 주먹 판정 상자의 하단(발밑부터). 1-5는 1.4: 발치의 플레이어는 하단 공격이 맡는다
     [SerializeField] private float firstPunchTime = 0.2f;     // 공격 시작 후 왼손 타격이 들어가는 시각(클립: 왼손 준비 0.2초 뒤)
     [SerializeField] private float secondPunchTime = 0.55f;   // 오른손 타격이 들어가는 시각
     [SerializeField] private float attackDuration = 0.72f;    // Boss_Attack 클립 전체 길이
     [SerializeField] private float attackCooldown = 1.2f;     // 일반 공격 종료 후 재사용 대기시간
+
+    [Header("하단 공격(뿌리 쓸기, 보스 발치의 플레이어 대응)")]
+    [SerializeField] private bool lowAttackEnabled = false;   // 1-5 보스만 사용(적용 도구가 켠다)
+    [SerializeField] private float lowTargetMaxFootHeight = 1f; // 플레이어 발이 보스 발보다 이 높이 미만이면 하단 공격 선택(바닥·1단)
+    [SerializeField] private float lowStartRange = 4.4f;      // 하단 공격을 시작하는 수평 거리
+    [SerializeField] private float lowReach = 4.6f;           // 판정 상자의 전방 길이(보스 중심부터)
+    [SerializeField] private float lowHeight = 0.9f;          // 판정 상자 높이(발밑부터). 점프 정점 1.376이라 타이밍을 맞춘 점프로 회피 가능
+    [SerializeField] private int lowDamage = 18;              // 하단 공격 피해량
+    [SerializeField] private float lowStrikeTime = 0.6f;      // 시작 후 뿌리가 솟고 판정이 들어가는 시각(이전까지 경고 띠 표시)
+    [SerializeField] private float lowDuration = 1.25f;       // Boss_LowAttack 클립 전체 길이
 
     [Header("특수 공격 (점프 내려찍기)")]
     [SerializeField] private float specialCooldown = 8f;      // 특수 공격 재사용 대기시간
@@ -61,6 +72,7 @@ public class BossController : MonoBehaviour
     private static readonly int IsWalkingHash = Animator.StringToHash("IsWalking");
     private static readonly int IsGroggyHash = Animator.StringToHash("IsGroggy");
     private static readonly int AttackHash = Animator.StringToHash("Attack");
+    private static readonly int LowAttackHash = Animator.StringToHash("LowAttack");
     private static readonly int SpecialAttackHash = Animator.StringToHash("SpecialAttack");
     private static readonly int DieHash = Animator.StringToHash("Die");
 
@@ -68,6 +80,8 @@ public class BossController : MonoBehaviour
     private Collider2D bodyCollider;
     private Boss boss;
     private BossSound sound;                             // 보스 사운드(없으면 소리 없이 동작)
+    private BossRootSweepVfx rootVfx;                    // 하단 공격(뿌리 쓸기) 표현(1-5 보스에만 있음)
+    private BossArenaGroundSlam groundSlam;              // 1-5의 지면 전체 공격(다른 보스에는 선택적)
     private Transform target;                                // 추적 대상(GameManager에 등록된 플레이어)
     private float defaultGravityScale;                       // 도약 후 복구할 원래 중력 배율
     private float baseVisualScaleX;                          // Visual의 원래 X 스케일 크기(좌우 반전에 사용)
@@ -89,6 +103,8 @@ public class BossController : MonoBehaviour
         bodyCollider = GetComponent<Collider2D>();
         boss = GetComponent<Boss>();
         TryGetComponent(out sound);
+        TryGetComponent(out groundSlam);
+        TryGetComponent(out rootVfx);
         defaultGravityScale = rb.gravityScale;
         if (visual != null) baseVisualScaleX = Mathf.Abs(visual.localScale.x);
         boss.OnDamaged += HandleDamaged;
@@ -105,6 +121,16 @@ public class BossController : MonoBehaviour
         if (boss == null) return;
         boss.OnDamaged -= HandleDamaged;
         boss.OnDied -= HandleDied;
+    }
+
+    // OpenAI Codex (GPT-6), 2026-10-14: 영역을 떠나 비활성화되면 공격/경고를 정리한다.
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        if (groundSlam != null) groundSlam.Cancel();
+        if (rootVfx != null) rootVfx.Cancel();
+        if (rb != null) rb.gravityScale = defaultGravityScale;
+        if (State != BossState.Dead && animator != null) SetState(BossState.Idle);
     }
 
     // 매 프레임 그로기 게이지를 줄이고, 자유로운 상태(Idle/Chase)일 때만 다음 행동을 결정
@@ -134,9 +160,13 @@ public class BossController : MonoBehaviour
         if (sound != null) sound.StartBattle();
         Face(dx > 0f);
 
-        if (Time.time >= nextSpecialTime && dist >= specialMinRange && IsGrounded())
+        if (Time.time >= nextSpecialTime && (groundSlam != null || dist >= specialMinRange) && IsGrounded())
         {
             StartCoroutine(SpecialRoutine());
+        }
+        else if (lowAttackEnabled && dist <= lowStartRange && Time.time >= nextAttackTime && IsTargetLow())
+        {
+            StartCoroutine(LowAttackRoutine());
         }
         else if (dist <= meleeRange && Time.time >= nextAttackTime)
         {
@@ -184,11 +214,48 @@ public class BossController : MonoBehaviour
         SetState(BossState.Idle);
     }
 
+    // 하단 공격(뿌리 쓸기): 웅크려 경고 띠 표시 → 땅을 내리쳐 앞쪽 지면에서 뿌리가 솟으며 낮은 판정이 한 번 들어간다.
+    // 보스가 커서 발치의 플레이어는 주먹(가슴~머리 높이)이 머리 위로 지나가므로 이 패턴이 대신 맡는다.
+    private IEnumerator LowAttackRoutine()
+    {
+        SetState(BossState.Attack);
+        animator.SetTrigger(LowAttackHash);
+        float dir = facingRight ? 1f : -1f;            // 시작 시 방향 고정(루틴 중에는 Face가 호출되지 않는다)
+        float footY = bodyCollider.bounds.min.y;
+        if (sound != null) sound.Play(BossSfx.Attack);
+        if (rootVfx != null) rootVfx.ShowWarning(footY, dir, lowReach, lowHeight);
+
+        yield return new WaitForSeconds(lowStrikeTime);
+        if (sound != null) sound.Play(BossSfx.SpecialSlam);
+        if (rootVfx != null) rootVfx.Erupt(footY, dir, lowReach);
+        DealLowDamage(dir, footY);
+        yield return new WaitForSeconds(Mathf.Max(0f, lowDuration - lowStrikeTime));
+
+        nextAttackTime = Time.time + attackCooldown;
+        SetState(BossState.Idle);
+    }
+
+    // 플레이어 발이 보스 발 높이에서 lowTargetMaxFootHeight 미만(바닥·1단)이면 하단 공격 대상
+    private bool IsTargetLow()
+    {
+        if (target == null || !target.TryGetComponent<Collider2D>(out var col)) return false;
+        return col.bounds.min.y - bodyCollider.bounds.min.y < lowTargetMaxFootHeight;
+    }
+
+    // 보스 중심에서 전방 lowReach, 발밑부터 lowHeight 높이 상자 안의 대상에게 한 번 피해를 준다
+    private void DealLowDamage(float dir, float footY)
+    {
+        Vector2 center = new Vector2(transform.position.x + dir * lowReach * 0.5f, footY + lowHeight * 0.5f);
+        int count = Physics2D.OverlapBoxNonAlloc(center, new Vector2(lowReach, lowHeight), 0f, hitBuffer, targetLayer);
+        ApplyDamage(count, lowDamage, false, footY);
+    }
+
     // 특수 공격: 웅크림 → 플레이어 위치로 도약 → 착지 시 충격파. 타이밍은 Boss_SpecialSlam 클립(웅크림→공중→내려찍기)과 맞춘다
     private IEnumerator SpecialRoutine()
     {
         SetState(BossState.Special);
         animator.SetTrigger(SpecialAttackHash);
+        if (groundSlam != null) groundSlam.BeginWarning();
 
         yield return new WaitForSeconds(crouchTime);
 
@@ -197,6 +264,13 @@ public class BossController : MonoBehaviour
         // 플레이어 몸 위에 그대로 내려앉지 않도록 landingStandoff만큼 앞에서 착지(충격파 반경 안이라 피해는 그대로 닿는다)
         dx = Mathf.Abs(dx) > landingStandoff ? dx - Mathf.Sign(dx) * landingStandoff : 0f;
         dx = Mathf.Clamp(dx, -maxLeapDistance, maxLeapDistance);
+        if (groundSlam != null && groundSlam.ArenaFloor != null)
+        {
+            // 최하단 지면 안에서 몸 반폭까지 포함하여 착지하고 상층 발판은 탐색하지 않는다.
+            Bounds floor = groundSlam.ArenaFloor.bounds;
+            float halfWidth = bodyCollider.bounds.extents.x + 0.1f;
+            dx = Mathf.Clamp(transform.position.x + dx, floor.min.x + halfWidth, floor.max.x - halfWidth) - transform.position.x;
+        }
         // 착지 지점에 바닥이 없으면(발판 밖) 바닥이 있는 지점까지 도약 거리를 줄인다
         while (Mathf.Abs(dx) > 0.5f && !HasGroundAt(transform.position.x + dx + Mathf.Sign(dx) * edgeProbeDistance))
         {
@@ -210,17 +284,27 @@ public class BossController : MonoBehaviour
 
         // 지면에 닿을 때까지 대기(상승 직후의 오판을 막기 위해 최소 시간 이후부터 판정, 최대 시간 초과 시 강제 종료)
         float elapsed = 0f;
+        bool landed = false;
         while (elapsed < airTime * 2.5f)
         {
             elapsed += Time.deltaTime;
-            if (elapsed > airTime * 0.5f && rb.linearVelocity.y <= 0f && IsGrounded()) break;
+            if (elapsed > airTime * 0.5f && rb.linearVelocity.y <= 0f && IsGrounded()) { landed = true; break; }
             yield return null;
         }
 
         rb.gravityScale = defaultGravityScale;
-        rb.linearVelocity = Vector2.zero;
-        if (sound != null) sound.Play(BossSfx.SpecialSlam);
-        DealSlamDamage();
+        rb.linearVelocity = landed ? Vector2.zero : new Vector2(0, rb.linearVelocity.y);
+        if (landed)
+        {
+            if (sound != null) sound.Play(BossSfx.SpecialSlam);
+            if (groundSlam != null)
+            {
+                // 최소 경고 시간이 부족하면 실제 착지 상태를 유지하며 기다린다.
+                while (!groundSlam.Activate()) yield return null;
+            }
+            else DealSlamDamage();
+        }
+        else if (groundSlam != null) groundSlam.Cancel();
 
         float remaining = specialDuration - crouchTime - elapsed;
         if (remaining > 0f) yield return new WaitForSeconds(remaining);
@@ -240,7 +324,9 @@ public class BossController : MonoBehaviour
         rb.gravityScale = defaultGravityScale;
         rb.linearVelocity = Vector2.zero;
         animator.ResetTrigger(AttackHash);
+        animator.ResetTrigger(LowAttackHash);
         animator.ResetTrigger(SpecialAttackHash);
+        if (rootVfx != null) rootVfx.Cancel();
         animator.SetBool(IsGroggyHash, true);
 
         yield return new WaitForSeconds(groggyDuration);
@@ -262,6 +348,7 @@ public class BossController : MonoBehaviour
         if (!shouldStagger || Time.time < groggyImmuneUntil) return;
 
         StopAllCoroutines();
+        if (groundSlam != null && groundSlam.IsWarning) groundSlam.Cancel();
         StartCoroutine(GroggyRoutine());
     }
 
@@ -269,10 +356,13 @@ public class BossController : MonoBehaviour
     private void HandleDied()
     {
         StopAllCoroutines();
+        if (groundSlam != null) groundSlam.Cancel();
         rb.gravityScale = defaultGravityScale;
         rb.linearVelocity = Vector2.zero;
         animator.ResetTrigger(AttackHash);
+        animator.ResetTrigger(LowAttackHash);
         animator.ResetTrigger(SpecialAttackHash);
+        if (rootVfx != null) rootVfx.Cancel();
         animator.SetBool(IsWalkingHash, false);
         animator.SetBool(IsGroggyHash, false);
         animator.SetTrigger(DieHash);
@@ -287,8 +377,9 @@ public class BossController : MonoBehaviour
     {
         Vector2 feet = new Vector2(transform.position.x, bodyCollider.bounds.min.y);
         float dir = facingRight ? 1f : -1f;
-        Vector2 center = feet + new Vector2(dir * punchReach * 0.5f, punchHeight * 0.5f);
-        int count = Physics2D.OverlapBoxNonAlloc(center, new Vector2(punchReach, punchHeight), 0f, hitBuffer, targetLayer);
+        float boxHeight = punchHeight - punchMinHeight;
+        Vector2 center = feet + new Vector2(dir * punchReach * 0.5f, punchMinHeight + boxHeight * 0.5f);
+        int count = Physics2D.OverlapBoxNonAlloc(center, new Vector2(punchReach, boxHeight), 0f, hitBuffer, targetLayer);
         ApplyDamage(count, punchDamage, false, feet.y);
     }
 
@@ -325,6 +416,9 @@ public class BossController : MonoBehaviour
     // 발밑에 바닥 레이어가 있는지 확인
     private bool IsGrounded()
     {
+        // 지면 전체 충격파는 최하단 바닥의 실제 접촉만 착지로 인정한다.
+        if (groundSlam != null && groundSlam.ArenaFloor != null)
+            return bodyCollider.IsTouching(groundSlam.ArenaFloor) && rb.linearVelocity.y <= 0.1f;
         Bounds b = bodyCollider.bounds;
         Vector2 center = new Vector2(b.center.x, b.min.y - 0.05f);
         return Physics2D.OverlapBox(center, new Vector2(b.size.x * 0.8f, 0.12f), 0f, groundLayer) != null;
@@ -333,6 +427,11 @@ public class BossController : MonoBehaviour
     // 주어진 x 좌표 발밑 근처에 바닥이 있는지 확인(발판 가장자리 낙사 방지용)
     private bool HasGroundAt(float x)
     {
+        if (groundSlam != null && groundSlam.ArenaFloor != null)
+        {
+            Bounds floor = groundSlam.ArenaFloor.bounds;
+            return x >= floor.min.x && x <= floor.max.x;
+        }
         Vector2 origin = new Vector2(x, bodyCollider.bounds.min.y + 0.5f);
         return Physics2D.Raycast(origin, Vector2.down, 1.5f, groundLayer).collider != null;
     }

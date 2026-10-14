@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4-5 보스존 미리보기</title>
+<style>
+body{margin:0;background:#17131c;color:#f0e7ee;font:15px system-ui}
+main{max-width:1500px;margin:auto;padding:20px}
+h1{font-size:25px;margin:0 0 6px}
+p{color:#c0adc4;line-height:1.6;margin:4px 0}
+canvas{width:100%;background:#211b29;border-radius:12px;display:block;margin-top:12px}
+.row{display:flex;flex-wrap:wrap;gap:14px 22px;margin:12px 0;align-items:center}
+label{display:flex;align-items:center;gap:6px;cursor:pointer}
+input[type=range]{accent-color:#c595e0;width:240px}
+input[type=checkbox]{accent-color:#c595e0}
+.k{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+output{color:#d7b6ea;min-width:3.5em;display:inline-block}
+.note{font-size:13px}
+</style>
+<main>
+<h1>스테이지4 · 4-5 보스존 재설계 미리보기</h1>
+<p>새 아레나: 바닥 폭 48, 벽 높이 14, 은신 지붕 2개(밑면 1.5, 낙석 차단). 점선 회색 상자가 현재 아레나(폭 20)입니다. 월드 유닛 기준, 플레이어 1초 이동 거리 = 8. 설계 문서: <code>MapDesign_Stage4-5_BossArena.md</code> (Unity 적용 완료)</p>
+<canvas id="c" width="1500" height="520" aria-label="보스존 측면도"></canvas>
+<div class="row">
+<label>플레이어 위치 <input id="px" type="range" min="-23" max="23" step="0.5" value="-21"><output id="pxo"></output></label>
+<label>보스 위치 <input id="bx" type="range" min="-22" max="22" step="0.5" value="18"><output id="bxo"></output></label>
+<label><input id="py" type="checkbox"> 플레이어를 가까운 지붕 아래에 두기</label>
+</div>
+<div class="row">
+<label><input id="oRange" type="checkbox" checked><span class="k" style="background:#e8a0a0"></span>공격 사거리</label>
+<label><input id="oMove" type="checkbox" checked><span class="k" style="background:#f0c070"></span>점프·돌진</label>
+<label><input id="oDetect" type="checkbox" checked><span class="k" style="background:#8fb8e8"></span>감지 거리 16</label>
+<label><input id="oCam" type="checkbox" checked><span class="k" style="background:#9be39b"></span>카메라 시야(줌 5.5)</label>
+<label><input id="oOld" type="checkbox" checked><span class="k" style="background:#888"></span>현재 아레나(폭 20)</label>
+</div>
+<p id="dist"></p>
+<p class="note">그림은 설계 확인용입니다. 사거리 상자는 보스가 플레이어 쪽을 바라볼 때의 설계 수치이며 실제 충돌 판정이 아닙니다. 플레이어 점프 최고 높이는 실측 1.39입니다. 지붕은 천장 낙석만 막고 다른 공격은 막지 않습니다.</p>
+</main>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const U=24,X0=cv.width/2,GY=410;            // 1 world unit = 24 px, ground surface y=0 at GY
+const sx=x=>X0+x*U, sy=y=>GY-y*U;
+const boss=new Image();boss.src='Stage4_Attacks/LowSweep_01.png';
+const $=id=>document.getElementById(id);
+let ready=false;boss.onload=()=>{ready=true;draw()};boss.onerror=()=>{draw()};
+function box(x0,x1,y0,y1,fill,stroke,dash){ctx.fillStyle=fill;ctx.fillRect(sx(x0),sy(y1),(x1-x0)*U,(y1-y0)*U);if(stroke){ctx.setLineDash(dash||[]);ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.strokeRect(sx(x0),sy(y1),(x1-x0)*U,(y1-y0)*U);ctx.setLineDash([])}}
+function label(t,x,y,c){ctx.fillStyle=c||'#c0adc4';ctx.font='13px system-ui';ctx.fillText(t,x,y)}
+function draw(){
+  let P=+$('px').value;const B=+$('bx').value;
+  let py=0;
+  // On the ledge option the player snaps to the nearest ledge centre so it never floats.
+  if($('py').checked){py=0;P=Math.abs(P+12)<Math.abs(P-12)?-12:12;}
+  $('pxo').textContent=P;$('bxo').textContent=B;
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.fillStyle='#241d2c';ctx.fillRect(0,0,cv.width,cv.height);
+  // ruler: one tick per 4 units, labeled every 8 (= 1 player-second)
+  ctx.strokeStyle='#3c3045';ctx.lineWidth=1;ctx.fillStyle='#8f7a98';ctx.font='11px system-ui';
+  for(let x=-28;x<=28;x+=4){ctx.beginPath();ctx.moveTo(sx(x),GY+24);ctx.lineTo(sx(x),GY+(x%8===0?36:30));ctx.stroke();if(x%8===0)ctx.fillText(x,sx(x)-8,GY+50)}
+  label('월드 유닛 (8 = 플레이어 1초)',sx(-28),GY+68);
+  // old arena
+  if($('oOld').checked){box(-10,10,0,6,'rgba(150,150,150,.06)','#888',[6,6]);label('현재 폭 20',sx(-10)+6,sy(6)+16,'#9a9a9a')}
+  // camera
+  if($('oCam').checked){const hw=5.5*16/9,cx=Math.max(-24.5+hw,Math.min(24.5-hw,P)),cy=Math.max(5.5-1,2.5);
+    box(cx-hw,cx+hw,cy-5.5,cy+5.5,'rgba(155,227,155,.05)','#9be39b',[8,6]);label('카메라 시야',sx(cx-hw)+6,sy(cy+5.5)+16,'#9be39b')}
+  // walls, floor, ledges
+  box(-24.5,-24,0,14,'#4b3b57',null);box(24,24.5,0,14,'#4b3b57',null);
+  box(-24,24,-1,0,'#6a5278','#9268a2');
+  [-12,12].forEach(c=>{box(c-3,c+3,1.5,2.0,'#8a6aa0','#c595e0')});
+  label('은신 지붕 (밑면 1.5)',sx(-15),sy(2.0)-8,'#c595e0');label('은신 지붕',sx(10),sy(2.0)-8,'#c595e0');
+  label('바닥 폭 48',sx(-3),sy(0)+20,'#d7b6ea');
+  // detection
+  const dir=P<B?-1:1;
+  if($('oDetect').checked){ctx.strokeStyle='#8fb8e8';ctx.lineWidth=2;ctx.setLineDash([3,6]);ctx.beginPath();ctx.moveTo(sx(B-16),sy(.2));ctx.lineTo(sx(B+16),sy(.2));ctx.stroke();ctx.setLineDash([]);
+    ctx.beginPath();[B-16,B+16].forEach(x=>{ctx.moveTo(sx(x),sy(0));ctx.lineTo(sx(x),sy(1.2))});ctx.stroke();label('감지 ±16',sx(B-16)+4,sy(1.4),'#8fb8e8')}
+  // attack ranges in front of the boss
+  if($('oRange').checked){
+    const f=(a,b)=>dir<0?[B-b,B-a]:[B+a,B+b];
+    let r=f(0,3.6);box(r[0],r[1],0,1.0,'rgba(232,160,160,.22)','#e8a0a0');
+    r=f(0,2.6);box(r[0],r[1],0.8,2.6,'rgba(232,160,160,.14)','#e8a0a0',[5,4]);
+    r=f(0,6.5);box(r[0],r[1],0,2.2,'rgba(202,157,224,.10)','#ca9de0',[4,4]);
+    label('발톱 2.6 / 휩쓸기 3.6 / 포효 6.5',Math.min(sx(B),sx(P))+6,sy(7.2),'#e8a0a0');
+    const rx=Math.max(-23.1,Math.min(23.1,P));box(rx-.9,rx+.9,0,2.4,'rgba(223,109,144,.28)','#df6d90');label('낙석 폭 1.8',sx(rx)-28,sy(2.4)-6,'#df6d90')}
+  if($('oMove').checked){
+    // charge warning line (8) and travel (~6.3)
+    const x1=B+dir*8;ctx.strokeStyle='#f0c070';ctx.lineWidth=4;ctx.setLineDash([12,8]);ctx.beginPath();ctx.moveTo(sx(B),sy(.1));ctx.lineTo(sx(Math.max(-24,Math.min(24,x1))),sy(.1));ctx.stroke();ctx.setLineDash([]);
+    label('돌진 경고선 8',sx(B+dir*4)-30,sy(3.1),'#f0c070');
+    // jump arc: 6 horizontal, 2.2 high
+    ctx.beginPath();for(let t=0;t<=1.001;t+=.05){const x=B+dir*6*t,y=2.2*4*t*(1-t)+.01;t?ctx.lineTo(sx(x),sy(y)):ctx.moveTo(sx(x),sy(y))}ctx.strokeStyle='#f0c070';ctx.lineWidth=2;ctx.stroke();label('점프 6 / 높이 2.2',sx(B+dir*3)-40,sy(3.9),'#f0c070')}
+  // boss sprite (LowSweep windup as stand-in): 272 px per unit in the source image
+  if(ready){const k=U/272,w=2200*k,h=1198*k;ctx.save();ctx.translate(sx(B),0);if(dir<0)ctx.scale(-1,1);
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(boss,-w/2,sy(0)-h*1190/1198,w,h);ctx.restore()}
+  else{box(B-1.7,B+1.7,0,3.3,'#8a6aa0','#c595e0');}
+  label('보스',sx(B)-12,sy(0)-3.6*U-8,'#d7b6ea');
+  // player
+  box(P-.45,P+.45,py,py+1.8,'#4aa3d8','#a6dcf5');label('플레이어',sx(P)-22,sy(py+1.8)-8,'#a6dcf5');
+  $('dist').textContent=`보스–플레이어 거리 ${Math.abs(B-P).toFixed(1)} · 감지 ${Math.abs(B-P)<=16?'범위 안':'범위 밖'} · 돌진 ${Math.abs(B-P)>=3.4&&Math.abs(B-P)<=10?'가능':'불가'} · 점프 ${Math.abs(B-P)>=3.4&&Math.abs(B-P)<=8?'가능':'불가'} · 포효 ${Math.abs(B-P)>=2.5&&Math.abs(B-P)<=7?'가능':'불가'}`;
+}
+['px','bx','py','oRange','oMove','oDetect','oCam','oOld'].forEach(id=>$(id).addEventListener('input',draw));
+draw();
+</script>
+</html>
