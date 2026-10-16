@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Codex (GPT-6), 2026-10-15. Schematic preview of the implemented 4-4 schedule, not a Unity gameplay recording. -->
+<html lang="ko"><meta charset="utf-8"><title>4-4 초질주 미리보기</title>
+<style>body{margin:0;background:#111722;color:#e8eff8;font:16px system-ui;padding:28px;max-width:1100px;margin:auto}h1{font-size:26px}p{color:#b8c6d8;line-height:1.6}canvas{width:100%;background:#1c2637;border-radius:12px}button,select{padding:9px 15px;background:#314665;color:white;border:0;border-radius:7px;margin-right:10px}input{width:100%;margin:20px 0}#state{font-variant-numeric:tabular-nums;margin:14px 0;color:#8ee8df}</style>
+<h1>4-4 초질주</h1><p>발판 150개 · 거리 150 · 최대 가속 유지<br>시작 1초 후부터 매초 발판 하나가 낙하합니다. 청록색 표식은 최대 가속으로 계속 전진하는 기준 경로입니다.</p>
+<canvas id="view" width="1100" height="390"></canvas><div id="state"></div>
+<button id="play">일시정지</button><button id="reset">처음부터</button><select id="rate"><option value="1">1배속</option><option value="5">5배속</option><option value="10" selected>10배속</option></select><input id="time" type="range" min="0" max="150" step="0.1" value="0">
+<p>순서·시간·지형을 확인하는 도식입니다. 몬스터 30마리의 제안 배치도 표시합니다. Unity의 실제 전투·점프 동작을 재생하는 영상은 아닙니다.</p>
+<script>
+const c=document.querySelector('canvas'),g=c.getContext('2d'),slider=document.querySelector('#time'),state=document.querySelector('#state');let t=0,playing=true,last=0;
+// Map relative world positions into the full-route overview without changing the distance scale.
+const X=x=>36+(x+4)/1208*1028;
+function draw(){g.clearRect(0,0,1100,390);g.fillStyle='#b5c7de';g.font='16px system-ui';g.fillText('★ 시작',28,55);g.fillText('○ 종료 → 4-5',940,55);g.fillText('발판 낙하 순서 →',28,92);
+for(let i=1;i<=150;i++){const left=i===1?-4:8*(i-1),right=i===150?1204:8*i,age=Math.max(0,t-i),fallen=t>=i,drop=Math.min(160,10*age*age*8);g.fillStyle=fallen?'#e3a36c':'#7f94b2';g.globalAlpha=fallen?Math.max(.12,1-age/3):1;g.fillRect(X(left),180+drop,Math.max(2,X(right)-X(left)-1),20);}g.globalAlpha=1;
+for(let i=0;i<15;i++)for(const dx of [32,64]){g.fillStyle='#eb8282';g.fillRect(X(80*i+dx)-2,151,4,6);}
+const pos=Math.min(1200,10*t);g.fillStyle='#7df1dc';g.beginPath();g.moveTo(X(pos),133);g.lineTo(X(pos)-6,122);g.lineTo(X(pos)+6,122);g.fill();
+g.fillStyle='#dbe7f5';g.fillText(t>=120?'기준 경로: 종료점 도착':'최대 가속 기준 전진 중',Math.min(850,Math.max(30,X(pos)-70)),113);
+g.fillStyle='#a8b8ce';for(let i=0;i<=150;i+=25){g.fillText('거리 '+i,X(i*8)-20,235);}g.fillText('청록: 기준 플레이어  /  붉은 점: 몬스터  /  주황: 낙하 발판',28,295);
+state.textContent=`경과 ${t.toFixed(1)}초  ·  낙하 ${Math.min(150,Math.floor(t))}/150개  ·  기준 진행 ${Math.min(150,t*1.25).toFixed(1)}/150  ·  가속 5중첩 유지`;slider.value=t;}
+function frame(now){if(last&&playing)t=Math.min(150,t+(now-last)/1000*Number(document.querySelector('#rate').value));last=now;if(t>=150)playing=false;draw();requestAnimationFrame(frame);}requestAnimationFrame(frame);
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'일시정지':'재생';};document.querySelector('#reset').onclick=()=>{t=0;playing=true;document.querySelector('#play').textContent='일시정지';};slider.oninput=()=>{t=Number(slider.value);playing=false;document.querySelector('#play').textContent='재생';draw();};
+</script></html>

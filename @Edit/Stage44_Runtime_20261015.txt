@@ -1,0 +1,16 @@
+Entry grants maximum speed and starts sequence after teleport
+All four maximum acceleration effects
+Normal pickup expiry cannot remove zone maximum
+No immediate fall at t=0
+t=1 only first support loses collision
+Slow-frame catch-up preserves absolute one-second order
+Merged physics surface removes fallen inputs without ghost support
+Pause does not advance the fall clock
+t=150 removes all 150 supports including the goal support
+4-4 ordinary enemy dies in two baseline attacks
+Actual movement + 2D physics traverses all seams and triggers 4-5 goal; last position=(1103.30, -60.00)
+Full route travel approximately 120s: 119.94
+4-5 transition removes zone maximum without leakage
+Exit preserves unexpired ordinary pickup source
+Fall/game-over event revokes zone source before pause
+Attempt remains one-shot until scene restart

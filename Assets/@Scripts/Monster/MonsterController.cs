@@ -13,12 +13,16 @@ public class MonsterController : MonoBehaviour
 
     private MonsterStats stats;
     private IMonsterPattern pattern;
+    private Rigidbody2D body;
+    private float knockbackUntil;
+    private float knockbackVelocity;
 
     // 시작 시 같은 오브젝트에 붙은 스탯/패턴 컴포넌트를 캐싱(GameObject.Find 미사용 - 규칙 36, 37)
     private void Awake()
     {
         stats = GetComponent<MonsterStats>();
         pattern = GetComponent<IMonsterPattern>();
+        body = GetComponent<Rigidbody2D>();
 
         stats.OnDeath += HandleDeath;
 
@@ -77,7 +81,25 @@ public class MonsterController : MonoBehaviour
     private void Update()
     {
         if (stats.IsDead) return;
+        if (Time.time < knockbackUntil) return;
         pattern?.UpdatePattern();
+    }
+
+    // OpenAI Codex (GPT-6), 2026-10-16: 짧은 수평 밀림 동안 AI의 속도 덮어쓰기를 멈춘다.
+    // 물리 이동을 사용하므로 벽 충돌과 기존 수직 속도는 유지된다.
+    public void ApplyKnockback(float direction, float speed, float duration)
+    {
+        if (stats.IsDead || body == null || body.bodyType != RigidbodyType2D.Dynamic ||
+            speed <= 0f || duration <= 0f) return;
+        knockbackVelocity = Mathf.Sign(direction) * speed;
+        knockbackUntil = Time.time + duration;
+        body.linearVelocity = new Vector2(knockbackVelocity, body.linearVelocity.y);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!stats.IsDead && body != null && Time.time < knockbackUntil)
+            body.linearVelocity = new Vector2(knockbackVelocity, body.linearVelocity.y);
     }
 
     // 사망 시 더 이상 패턴을 갱신하지 않도록 참조를 정리

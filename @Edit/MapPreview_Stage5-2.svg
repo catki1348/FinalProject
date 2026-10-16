@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720">
+<!-- Codex (GPT-6), 2026-10-16. Native diagram of the validated fixed 5-2 coordinates. -->
+<rect width="1440" height="720" fill="#111b26"/>
+<style>text{font-family:Segoe UI,Malgun Gothic,sans-serif;fill:#e8f0f8}</style>
+<text x="25" y="38" font-size="25">5-2 수정 배치 · 5구간 × 15 = 75</text>
+<text x="25" y="68" font-size="17">P1·F1 공통주기 4초 / B4 경로 분리 / F1 머리 공간 확보 / 400초 충돌 모델</text>
+<path d="M 63.14 142.52 H 218.91" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 230.64 180.04 H 284.58" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 230.64 210.19 H 284.58" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 199.15 242.01 H 284.58" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 199.15 274.51 H 284.58" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 41.70 335.82 H 284.58" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 41.70 335.82 H 631.30" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 627.95 364.29 H 729.79" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 627.95 453.07 H 798.80" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 560.95 550.55 H 1122.08" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 1166.63 589.08 H 1284.89" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 1138.83 548.88 H 1199.46" stroke="#d67273" stroke-dasharray="4 4"/>
+<path d="M 1036.99 633.29 H 1381.70" stroke="#d67273" stroke-dasharray="4 4"/>
+<rect x="123.44" y="128.45" width="10.72" height="3" fill="#80c99c"/>
+<rect x="145.52" y="127.44" width="10.72" height="3" fill="#80c99c"/>
+<rect x="167.60" y="129.12" width="10.72" height="3" fill="#80c99c"/>
+<rect x="189.69" y="127.44" width="10.72" height="3" fill="#80c99c"/>
+<rect x="211.77" y="129.12" width="10.72" height="3" fill="#80c99c"/>
+<rect x="233.85" y="127.44" width="6.70" height="3" fill="#80c99c"/>
+<polyline points="225.59,177.22 225.59,137.02" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="221.57" y="157.12" width="8.04" height="3" fill="#65b7ff"/>
+<polyline points="192.59,201.93 225.75,168.76" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="205.15" y="185.34" width="8.04" height="3" fill="#65b7ff"/>
+<polyline points="193.96,233.62 193.96,200.12" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="189.94" y="216.87" width="8.04" height="3" fill="#65b7ff"/>
+<polyline points="166.07,266.04 199.23,232.88" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="178.63" y="249.46" width="8.04" height="3" fill="#65b7ff"/>
+<text x="190.65" y="249.46" font-size="12">S1_B4</text>
+<polyline points="161.66,296.39 161.66,256.19" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="157.64" y="276.29" width="8.04" height="3" fill="#65b7ff"/>
+<text x="169.66" y="276.29" font-size="12">S1_B5</text>
+<rect x="194.89" y="314.01" width="10.72" height="3" fill="#80c99c"/>
+<rect x="216.98" y="317.51" width="10.72" height="3" fill="#80c99c"/>
+<rect x="239.06" y="315.84" width="10.72" height="3" fill="#80c99c"/>
+<rect x="261.14" y="315.84" width="20.10" height="3" fill="#80c99c"/>
+<rect x="292.96" y="315.84" width="5.36" height="3" fill="#80c99c"/>
+<rect x="310.05" y="315.84" width="8.04" height="3" fill="#80c99c"/>
+<polyline points="349.58,315.84 329.48,315.84" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="335.51" y="315.84" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="360.97" y="315.84" width="6.70" height="3" fill="#80c99c"/>
+<polyline points="379.06,305.12 379.06,315.84" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="375.04" y="310.48" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="390.45" y="305.12" width="6.70" height="3" fill="#80c99c"/>
+<polyline points="428.64,313.49 408.54,305.12" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="414.57" y="309.30" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="440.03" y="313.49" width="6.70" height="3" fill="#80c99c"/>
+<polyline points="458.12,313.49 471.52,313.49 471.52,305.12 458.12,313.49" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="463.03" y="310.70" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="482.91" y="305.12" width="6.70" height="3" fill="#80c99c"/>
+<polyline points="524.45,310.81 501.00,305.12" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="508.70" y="307.96" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="535.84" y="310.81" width="8.04" height="3" fill="#80c99c"/>
+<rect x="549.24" y="310.81" width="3.35" height="3" fill="#66cec0"/>
+<rect x="557.95" y="310.81" width="3.35" height="3" fill="#66cec0"/>
+<rect x="566.66" y="310.81" width="3.35" height="3" fill="#66cec0"/>
+<rect x="575.37" y="310.81" width="3.35" height="3" fill="#66cec0"/>
+<rect x="584.08" y="310.81" width="8.04" height="3" fill="#80c99c"/>
+<polyline points="603.51,310.81 615.23,310.81 615.23,302.44 603.51,302.44 603.51,310.81" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="605.35" y="306.62" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="626.62" y="310.81" width="6.70" height="3" fill="#80c99c"/>
+<rect x="645.05" y="310.81" width="8.04" height="3" fill="#80c99c"/>
+<rect x="658.46" y="310.81" width="20.10" height="3" fill="#80c99c"/>
+<rect x="692.63" y="315.84" width="6.70" height="3" fill="#e7ad5d"/>
+<rect x="713.40" y="320.86" width="5.36" height="3" fill="#bb92ed"/>
+<polyline points="737.85,396.04 737.85,325.89" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="733.83" y="360.97" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="712.06" y="402.74" width="6.70" height="3" fill="#e7ad5d"/>
+<rect x="692.63" y="407.77" width="5.36" height="3" fill="#bb92ed"/>
+<polyline points="654.44,432.89 681.24,412.79" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="663.82" y="422.84" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="637.69" y="437.92" width="5.36" height="3" fill="#bb92ed"/>
+<polyline points="618.59,442.94 618.59,513.10" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="614.57" y="478.03" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="637.69" y="519.80" width="6.70" height="3" fill="#e7ad5d"/>
+<rect x="658.46" y="524.83" width="5.36" height="3" fill="#bb92ed"/>
+<polyline points="675.21,529.85 702.01,529.85" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="684.59" y="529.85" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="713.40" y="534.88" width="20.10" height="3" fill="#80c99c"/>
+<rect x="733.50" y="534.88" width="381.90" height="3" fill="#ff805d"/>
+<rect x="1115.40" y="534.88" width="20.10" height="3" fill="#80c99c"/>
+<rect x="1145.88" y="533.87" width="6.70" height="3" fill="#80c99c"/>
+<polyline points="1131.22,560.26 1131.22,542.84" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="1127.20" y="551.55" width="8.04" height="3" fill="#65b7ff"/>
+<text x="1139.22" y="551.55" font-size="12">S5F1_B1</text>
+<polyline points="1107.95,582.78 1131.64,559.09" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="1115.77" y="570.93" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="1132.07" y="573.61" width="10.72" height="3" fill="#80c99c"/>
+<rect x="1153.18" y="573.61" width="13.40" height="3" fill="#80c99c"/>
+<polyline points="1191.37,573.61 1177.97,573.61" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="1180.65" y="573.61" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="1202.76" y="573.61" width="6.70" height="3" fill="#e7ad5d"/>
+<polyline points="1220.85,562.89 1220.85,573.61" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="1216.83" y="568.25" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="1232.24" y="562.89" width="4.02" height="3" fill="#66cec0"/>
+<rect x="1241.62" y="562.89" width="4.02" height="3" fill="#66cec0"/>
+<rect x="1257.36" y="562.89" width="13.40" height="3" fill="#80c99c"/>
+<rect x="1284.83" y="567.92" width="6.70" height="3" fill="#e7ad5d"/>
+<polyline points="1310.63,593.04 1310.63,572.94" fill="none" stroke="#65b7ff" stroke-width="2"/>
+<rect x="1306.61" y="582.99" width="8.04" height="3" fill="#65b7ff"/>
+<rect x="1287.51" y="599.74" width="4.02" height="3" fill="#66cec0"/>
+<rect x="1260.04" y="604.77" width="13.40" height="3" fill="#80c99c"/>
+<rect x="1194.74" y="604.77" width="65.31" height="3" fill="#ff805d"/>
+<rect x="1174.64" y="604.77" width="20.10" height="3" fill="#80c99c"/>
+<text x="128.80" y="114.45" font-size="17">P1</text>
+<text x="271.19" y="301.84" font-size="17">P2</text>
+<text x="668.51" y="296.81" font-size="17">P3</text>
+<circle cx="715.89" cy="297.69" r="2" fill="#ef7e88"/>
+<circle cx="715.32" cy="386.23" r="2" fill="#ef7e88"/>
+<circle cx="658.33" cy="404.52" r="2" fill="#ef7e88"/>
+<circle cx="632.77" cy="469.01" r="2" fill="#ef7e88"/>
+<circle cx="690.80" cy="514.34" r="2" fill="#ef7e88"/>
+<text x="723.45" y="520.88" font-size="17">P4</text>
+<circle cx="750.26" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="773.71" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="797.16" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="820.61" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="844.06" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="867.51" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="890.96" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="914.41" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="937.86" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="961.31" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="984.76" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="1008.21" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="1031.66" cy="527.50" r="2" fill="#ef7e88"/>
+<circle cx="1055.11" cy="524.82" r="2" fill="#ef7e88"/>
+<circle cx="1078.56" cy="527.50" r="2" fill="#ef7e88"/>
+<text x="1125.45" y="520.88" font-size="17">P5</text>
+<circle cx="1134.57" cy="527.80" r="2" fill="#ef7e88"/>
+<circle cx="1117.55" cy="548.71" r="2" fill="#ef7e88"/>
+<circle cx="1145.42" cy="558.62" r="2" fill="#ef7e88"/>
+<circle cx="1283.71" cy="547.27" r="2" fill="#ef7e88"/>
+<circle cx="1298.69" cy="556.55" r="2" fill="#ef7e88"/>
+<circle cx="1290.11" cy="588.51" r="2" fill="#ef7e88"/>
+<circle cx="1270.18" cy="580.60" r="2" fill="#ef7e88"/>
+<circle cx="1251.89" cy="597.38" r="2" fill="#ef7e88"/>
+<circle cx="1235.54" cy="594.70" r="2" fill="#ef7e88"/>
+<circle cx="1219.23" cy="597.38" r="2" fill="#ef7e88"/>
+<circle cx="1202.91" cy="594.70" r="2" fill="#ef7e88"/>
+<text x="25" y="680" font-size="17">도식 미리보기 · 이동형 20개 / 발판 67개 / 몬스터 31마리 · 실제 Unity 검증은 적용 보고서 참조</text>
+</svg>

@@ -1,0 +1,2090 @@
+{
+  "status": "design_only",
+  "date": "2026-10-15",
+  "segmentLength": 15,
+  "totalLength": 75,
+  "unitsPerScale": 8.0,
+  "start": [
+    0,
+    0
+  ],
+  "validation": {
+    "lengths": {
+      "P1": 120.0,
+      "P2": 120.0,
+      "P3": 120.0,
+      "P4": 120.0,
+      "P5": 120.0
+    },
+    "static_issues": [
+      "P1:S1_Start->S1_A1 gap 4.00 not in [1.50,3.69] dy 0.30",
+      "P1:S1_A2->S1_A3 gap 4.00 not in [1.50,3.52] dy 0.50",
+      "P1:S1_A4->S1_A5 gap 4.00 not in [1.50,3.52] dy 0.50",
+      "P1:S1_C2->S1_C3 gap 4.00 not in [1.50,3.52] dy 0.50",
+      "P1:S1_C3->S1_K gap 4.00 not in [1.50,3.91] dy 0.00"
+    ],
+    "mover_pairs": [
+      {
+        "part": "P1",
+        "pair": "S1_A5->S1_B1",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P1",
+        "pair": "S1_B1->S1_B2",
+        "ok": true,
+        "count": 7,
+        "minlen": 3.1,
+        "maxwait": 1.7
+      },
+      {
+        "part": "P1",
+        "pair": "S1_B2->S1_B3",
+        "ok": true,
+        "count": 8,
+        "minlen": 3.4,
+        "maxwait": 1.4
+      },
+      {
+        "part": "P1",
+        "pair": "S1_B3->S1_B4",
+        "ok": true,
+        "count": 7,
+        "minlen": 3.4,
+        "maxwait": 1.4
+      },
+      {
+        "part": "P1",
+        "pair": "S1_B4->S1_B5",
+        "ok": true,
+        "count": 7,
+        "minlen": 3.4,
+        "maxwait": 1.4
+      },
+      {
+        "part": "P1",
+        "pair": "S1_B5->S1_C1",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P2",
+        "pair": "S2_N2->S2_M1",
+        "ok": true,
+        "count": 10,
+        "minlen": 1.1,
+        "maxwait": 1.3
+      },
+      {
+        "part": "P2",
+        "pair": "S2_M1->S2_N3",
+        "ok": true,
+        "count": 10,
+        "minlen": 1.2,
+        "maxwait": 1.2
+      },
+      {
+        "part": "P2",
+        "pair": "S2_N3->S2_M2",
+        "ok": true,
+        "count": 18,
+        "minlen": 0.5,
+        "maxwait": 0.8
+      },
+      {
+        "part": "P2",
+        "pair": "S2_M2->S2_N4",
+        "ok": true,
+        "count": 18,
+        "minlen": 0.4,
+        "maxwait": 0.9
+      },
+      {
+        "part": "P2",
+        "pair": "S2_N4->S2_M3",
+        "ok": true,
+        "count": 9,
+        "minlen": 1.8,
+        "maxwait": 0.8
+      },
+      {
+        "part": "P2",
+        "pair": "S2_M3->S2_N5",
+        "ok": true,
+        "count": 10,
+        "minlen": 1.8,
+        "maxwait": 0.8
+      },
+      {
+        "part": "P2",
+        "pair": "S2_N5->S2_M4",
+        "ok": true,
+        "count": 10,
+        "minlen": 1.0,
+        "maxwait": 1.2
+      },
+      {
+        "part": "P2",
+        "pair": "S2_M4->S2_N6",
+        "ok": true,
+        "count": 11,
+        "minlen": 0.5,
+        "maxwait": 1.7
+      },
+      {
+        "part": "P2",
+        "pair": "S2_N6->S2_M5",
+        "ok": true,
+        "count": 7,
+        "minlen": 1.7,
+        "maxwait": 1.5
+      },
+      {
+        "part": "P2",
+        "pair": "S2_M5->S2_N7",
+        "ok": true,
+        "count": 8,
+        "minlen": 1.7,
+        "maxwait": 1.5
+      },
+      {
+        "part": "P2",
+        "pair": "S2_N8->S2_M6",
+        "ok": true,
+        "count": 9,
+        "minlen": 1.1,
+        "maxwait": 1.3
+      },
+      {
+        "part": "P2",
+        "pair": "S2_M6->S2_N9",
+        "ok": true,
+        "count": 10,
+        "minlen": 2.1,
+        "maxwait": 0.3
+      },
+      {
+        "part": "P3",
+        "pair": "S3_B1->S3_E1",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P3",
+        "pair": "S3_E1->S3_X2",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P3",
+        "pair": "S3_B2->S3_V1",
+        "ok": true,
+        "count": 6,
+        "minlen": 3.2,
+        "maxwait": 0.8
+      },
+      {
+        "part": "P3",
+        "pair": "S3_V1->S3_B3",
+        "ok": true,
+        "count": 7,
+        "minlen": 3.2,
+        "maxwait": 0.8
+      },
+      {
+        "part": "P3",
+        "pair": "S3_B3->S3_E2",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P3",
+        "pair": "S3_E2->S3_X3",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P3",
+        "pair": "S3_B4->S3_H1",
+        "ok": true,
+        "count": 7,
+        "minlen": 1.6,
+        "maxwait": 1.6
+      },
+      {
+        "part": "P3",
+        "pair": "S3_H1->S3_K",
+        "ok": true,
+        "count": 7,
+        "minlen": 1.7,
+        "maxwait": 1.5
+      },
+      {
+        "part": "P5",
+        "pair": "S5F1_A1->S5F1_B1",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P5",
+        "pair": "S5F1_B1->S5F1_B2",
+        "ok": true,
+        "count": 9,
+        "minlen": 2.6,
+        "maxwait": 1.4
+      },
+      {
+        "part": "P5",
+        "pair": "S5F1_B2->S5F1_C1",
+        "ok": true,
+        "count": 7,
+        "minlen": 2.4,
+        "maxwait": 1.6
+      },
+      {
+        "part": "P5",
+        "pair": "S5F1_K->S5F2_M1",
+        "ok": true,
+        "count": 15,
+        "minlen": 1.1,
+        "maxwait": 0.5
+      },
+      {
+        "part": "P5",
+        "pair": "S5F2_M1->S5F2_X1",
+        "ok": true,
+        "count": 15,
+        "minlen": 1.2,
+        "maxwait": 0.4
+      },
+      {
+        "part": "P5",
+        "pair": "S5F2_X1->S5F2_M2",
+        "ok": true,
+        "count": 18,
+        "minlen": 0.5,
+        "maxwait": 0.8
+      },
+      {
+        "part": "P5",
+        "pair": "S5F2_M2->S5F2_D1",
+        "ok": true,
+        "count": 17,
+        "minlen": 0.4,
+        "maxwait": 0.9
+      },
+      {
+        "part": "P5",
+        "pair": "S5F3_X1->S5F3_E1",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      },
+      {
+        "part": "P5",
+        "pair": "S5F3_E1->S5F3_D1",
+        "ok": true,
+        "count": 1,
+        "minlen": 22.5,
+        "maxwait": 0.0
+      }
+    ],
+    "overlaps": [],
+    "monsters_in_platform": [],
+    "moverRules": [
+      {
+        "id": "S1_B1",
+        "rail": 12.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S1_B2",
+        "rail": 10.8,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S1_B3",
+        "rail": 12.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S1_B4",
+        "rail": 10.8,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S1_B5",
+        "rail": 9.6,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S2_M1",
+        "rail": 6.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S2_M2",
+        "rail": 3.2,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S2_M3",
+        "rail": 6.5,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S2_M4",
+        "rail": 11.22,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S2_M5",
+        "rail": 7.2,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S2_M6",
+        "rail": 12.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S3_E1",
+        "rail": 20.94,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S3_V1",
+        "rail": 10.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S3_E2",
+        "rail": 20.94,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S3_H1",
+        "rail": 8.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S5F1_B1",
+        "rail": 8.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S5F1_B2",
+        "rail": 9.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S5F2_M1",
+        "rail": 4.0,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S5F2_M2",
+        "rail": 3.2,
+        "maxRail": 56.0,
+        "ok": true
+      },
+      {
+        "id": "S5F3_E1",
+        "rail": 6.0,
+        "maxRail": 56.0,
+        "ok": true
+      }
+    ],
+    "fallTriggers": [
+      {
+        "id": "P1_A_under",
+        "x0": -19.6,
+        "x1": 27.6,
+        "y": -4.2,
+        "note": "A 구간 아래로 떨어져 이동형 발판 중간으로 끼어드는 우회 방지"
+      },
+      {
+        "id": "P1_step_B1",
+        "x0": 31.8,
+        "x1": 48.8,
+        "y": -17.8,
+        "note": "B1 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+      },
+      {
+        "id": "P1_step_B2",
+        "x0": 31.8,
+        "x1": 48.8,
+        "y": -21.1,
+        "note": "B2 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+      },
+      {
+        "id": "P1_step_B3",
+        "x0": 21.8,
+        "x1": 48.8,
+        "y": -32.0,
+        "note": "B3 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+      },
+      {
+        "id": "P1_step_B4",
+        "x0": 21.8,
+        "x1": 48.8,
+        "y": -35.1,
+        "note": "B4 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+      },
+      {
+        "id": "P1_floor",
+        "x0": -26.0,
+        "x1": 48.8,
+        "y": -54.7,
+        "note": "1-2 방식 구간 바닥"
+      },
+      {
+        "id": "P2_floor",
+        "x0": -26.0,
+        "x1": 152.3,
+        "y": -54.7,
+        "note": "2-2 방식 구간 바닥(3-2 방식 구간 앞까지)"
+      },
+      {
+        "id": "P3_D",
+        "x0": 151.3,
+        "x1": 181.7,
+        "y": -63.2,
+        "note": "1층→2층 사이. E1 승강기가 아래로 내려간 뒤에만 내릴 수 있게 함"
+      },
+      {
+        "id": "P3_E",
+        "x0": 151.3,
+        "x1": 202.3,
+        "y": -89.7,
+        "note": "2층→3층 사이. E1 아래 3층·질주 구간으로의 낙하 우회도 함께 차단"
+      },
+      {
+        "id": "P4_floor",
+        "x0": 131.3,
+        "x1": 298.8,
+        "y": -118.8,
+        "note": "3-2 방식 3층 / 4-2 방식 질주 구간 바닥"
+      },
+      {
+        "id": "P5_G",
+        "x0": 315.0,
+        "x1": 350.3,
+        "y": -129.6,
+        "note": "융합 F2(정글)에서 F4 질주로 곧장 떨어지는 우회 방지"
+      },
+      {
+        "id": "P5_F1_under",
+        "x0": 305.1,
+        "x1": 324.8,
+        "y": -118.3,
+        "note": "융합 F1의 오른쪽 점프 발판 아래 낙하 우회 방지"
+      },
+      {
+        "id": "P5_floor",
+        "x0": 273.3,
+        "x1": 379.2,
+        "y": -142.8,
+        "note": "융합 구간 바닥"
+      }
+    ],
+    "fallSim": {
+      "trajectories": 2940,
+      "landed": 1081,
+      "killed": 1859,
+      "skip4plus": 0,
+      "leaks": 0
+    },
+    "routeJumpMissing": [],
+    "routeFull": [
+      {
+        "pair": "S1_Start->S1_A1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_A1->S1_A2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_A2->S1_A3",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_A3->S1_A4",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_A4->S1_A5",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_A5->S1_B1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_B1->S1_B2",
+        "viable": 0.425,
+        "longest": 2.8
+      },
+      {
+        "pair": "S1_B2->S1_B3",
+        "viable": 0.742,
+        "longest": 4.0
+      },
+      {
+        "pair": "S1_B3->S1_B4",
+        "viable": 0.728,
+        "longest": 3.4
+      },
+      {
+        "pair": "S1_B4->S1_B5",
+        "viable": 0.795,
+        "longest": 3.6
+      },
+      {
+        "pair": "S1_B5->S1_C1",
+        "viable": 0.991,
+        "longest": 3.0
+      },
+      {
+        "pair": "S1_C1->S1_C2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_C2->S1_C3",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_C3->S1_K",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S1_K->S2_N1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_N1->S2_N2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_N2->S2_M1",
+        "viable": 0.411,
+        "longest": 6.0
+      },
+      {
+        "pair": "S2_M1->S2_N3",
+        "viable": 0.508,
+        "longest": 1.2
+      },
+      {
+        "pair": "S2_N3->S2_M2",
+        "viable": 0.432,
+        "longest": 4.4
+      },
+      {
+        "pair": "S2_M2->S2_N4",
+        "viable": 0.352,
+        "longest": 1.0
+      },
+      {
+        "pair": "S2_N4->S2_M3",
+        "viable": 0.695,
+        "longest": 0.8
+      },
+      {
+        "pair": "S2_M3->S2_N5",
+        "viable": 0.686,
+        "longest": 3.8
+      },
+      {
+        "pair": "S2_N5->S2_M4",
+        "viable": 0.468,
+        "longest": 5.8
+      },
+      {
+        "pair": "S2_M4->S2_N6",
+        "viable": 0.27,
+        "longest": 1.8
+      },
+      {
+        "pair": "S2_N6->S2_M5",
+        "viable": 0.501,
+        "longest": 1.8
+      },
+      {
+        "pair": "S2_M5->S2_N7",
+        "viable": 0.489,
+        "longest": 4.0
+      },
+      {
+        "pair": "S2_N7->S2_D1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_D1->S2_D2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_D2->S2_D3",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_D3->S2_D4",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_D4->S2_N8",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_N8->S2_M6",
+        "viable": 0.493,
+        "longest": 6.0
+      },
+      {
+        "pair": "S2_M6->S2_N9",
+        "viable": 0.836,
+        "longest": 0.4
+      },
+      {
+        "pair": "S2_N9->S2_N10",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_N10->S2_K",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S2_K->S3_X1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S3_X1->S3_B1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S3_B1->S3_E1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S3_E1->S3_X2",
+        "viable": 0.352,
+        "longest": 11.0
+      },
+      {
+        "pair": "S3_X2->S3_B2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S3_B2->S3_V1",
+        "viable": 0.8,
+        "longest": 0.8
+      },
+      {
+        "pair": "S3_V1->S3_B3",
+        "viable": 0.749,
+        "longest": 1.4
+      },
+      {
+        "pair": "S3_B3->S3_E2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S3_E2->S3_X3",
+        "viable": 0.745,
+        "longest": 3.2
+      },
+      {
+        "pair": "S3_X3->S3_B4",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S3_B4->S3_H1",
+        "viable": 0.505,
+        "longest": 1.6
+      },
+      {
+        "pair": "S3_H1->S3_K",
+        "viable": 0.433,
+        "longest": 5.0
+      },
+      {
+        "pair": "S4_K->S5F1_A1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F1_A1->S5F1_B1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F1_B1->S5F1_B2",
+        "viable": 0.62,
+        "longest": 1.2
+      },
+      {
+        "pair": "S5F1_B2->S5F1_C1",
+        "viable": 0.449,
+        "longest": 2.4
+      },
+      {
+        "pair": "S5F1_C1->S5F1_K",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F1_K->S5F2_M1",
+        "viable": 0.625,
+        "longest": 0.6
+      },
+      {
+        "pair": "S5F2_M1->S5F2_X1",
+        "viable": 0.749,
+        "longest": 0.8
+      },
+      {
+        "pair": "S5F2_X1->S5F2_M2",
+        "viable": 0.401,
+        "longest": 4.8
+      },
+      {
+        "pair": "S5F2_M2->S5F2_D1",
+        "viable": 0.353,
+        "longest": 1.0
+      },
+      {
+        "pair": "S5F2_D1->S5F2_D2",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F2_D2->S5F2_K",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F2_K->S5F3_X1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F3_X1->S5F3_E1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F3_E1->S5F3_D1",
+        "viable": 1.0,
+        "longest": 0.0
+      },
+      {
+        "pair": "S5F3_D1->S5F3_K",
+        "viable": 1.0,
+        "longest": 0.0
+      }
+    ],
+    "routeMaxWait": 11.0,
+    "stripOverlap": [],
+    "ok": false
+  },
+  "parts": [
+    {
+      "id": "P1",
+      "title": "1-2 방식 - Z 점프 이동",
+      "pathLength": 120.0,
+      "platforms": [
+        {
+          "id": "S1_Start",
+          "kind": "start",
+          "cx": 0.0,
+          "top": 0.0,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_A1",
+          "kind": "normal",
+          "cx": 7.201,
+          "top": 0.3,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_A2",
+          "kind": "normal",
+          "cx": 14.401,
+          "top": -0.2,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_A3",
+          "kind": "normal",
+          "cx": 21.602,
+          "top": 0.3,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_A4",
+          "kind": "normal",
+          "cx": 28.802,
+          "top": -0.2,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_A5",
+          "kind": "normal",
+          "cx": 35.403,
+          "top": 0.3,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S1_B1",
+          "kind": "moving",
+          "cx": 29.573,
+          "top": -9.299,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                29.573,
+                -15.299
+              ],
+              [
+                29.573,
+                -3.299
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 4.72,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S1_B2",
+          "kind": "moving",
+          "cx": 25.27,
+          "top": -16.716,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                20.195,
+                -18.563
+              ],
+              [
+                30.344,
+                -14.869
+              ]
+            ],
+            "speed": 4.5,
+            "delay": 4.42,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S1_B3",
+          "kind": "moving",
+          "cx": 20.261,
+          "top": -23.457,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                20.261,
+                -29.457
+              ],
+              [
+                20.261,
+                -17.457
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 4.3,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S1_B4",
+          "kind": "moving",
+          "cx": 15.248,
+          "top": -30.747,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                10.173,
+                -32.594
+              ],
+              [
+                20.322,
+                -28.9
+              ]
+            ],
+            "speed": 4.5,
+            "delay": 3.89,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S1_B5",
+          "kind": "moving",
+          "cx": 10.269,
+          "top": -36.863,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                10.269,
+                -41.663
+              ],
+              [
+                10.269,
+                -32.063
+              ]
+            ],
+            "speed": 4.0,
+            "delay": 2.9,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S1_C1",
+          "kind": "normal",
+          "cx": 21.803,
+          "top": -48.726,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_C2",
+          "kind": "normal",
+          "cx": 29.004,
+          "top": -49.226,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_C3",
+          "kind": "normal",
+          "cx": 36.205,
+          "top": -48.726,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S1_K",
+          "kind": "connector",
+          "cx": 44.805,
+          "top": -48.726,
+          "width": 6.0,
+          "move": null
+        }
+      ],
+      "monsters": []
+    },
+    {
+      "id": "P2",
+      "title": "2-2 방식 - 정글 짐",
+      "pathLength": 120.0,
+      "platforms": [
+        {
+          "id": "S2_K0",
+          "kind": "start",
+          "cx": 44.805,
+          "top": -48.726,
+          "width": 6.0,
+          "move": null
+        },
+        {
+          "id": "S2_N1",
+          "kind": "normal",
+          "cx": 52.105,
+          "top": -48.726,
+          "width": 1.6,
+          "move": null
+        },
+        {
+          "id": "S2_N2",
+          "kind": "normal",
+          "cx": 57.605,
+          "top": -48.726,
+          "width": 2.4,
+          "move": null
+        },
+        {
+          "id": "S2_M1",
+          "kind": "moving",
+          "cx": 65.205,
+          "top": -48.726,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                68.205,
+                -48.726
+              ],
+              [
+                62.205,
+                -48.726
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 5.75,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S2_N3",
+          "kind": "normal",
+          "cx": 72.605,
+          "top": -48.726,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S2_M2",
+          "kind": "moving",
+          "cx": 77.005,
+          "top": -47.126,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                77.005,
+                -45.526
+              ],
+              [
+                77.005,
+                -48.726
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 4.16,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S2_N4",
+          "kind": "normal",
+          "cx": 81.405,
+          "top": -45.526,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S2_M3",
+          "kind": "moving",
+          "cx": 88.805,
+          "top": -46.776,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                85.805,
+                -45.526
+              ],
+              [
+                91.805,
+                -48.026
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 3.37,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S2_N5",
+          "kind": "normal",
+          "cx": 96.205,
+          "top": -48.026,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S2_M4",
+          "kind": "moving",
+          "cx": 103.272,
+          "top": -47.193,
+          "width": 2.4,
+          "move": {
+            "mode": "loop",
+            "wp": [
+              [
+                104.605,
+                -45.526
+              ],
+              [
+                104.605,
+                -48.026
+              ],
+              [
+                100.605,
+                -48.026
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 5.5,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S2_N6",
+          "kind": "normal",
+          "cx": 109.005,
+          "top": -45.526,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S2_M5",
+          "kind": "moving",
+          "cx": 116.905,
+          "top": -46.376,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                113.405,
+                -45.526
+              ],
+              [
+                120.405,
+                -47.226
+              ]
+            ],
+            "speed": 4.5,
+            "delay": 3.16,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S2_N7",
+          "kind": "normal",
+          "cx": 125.005,
+          "top": -47.226,
+          "width": 2.4,
+          "move": null
+        },
+        {
+          "id": "S2_D1",
+          "kind": "disappearing",
+          "cx": 128.305,
+          "top": -47.226,
+          "width": 1.0,
+          "move": null
+        },
+        {
+          "id": "S2_D2",
+          "kind": "disappearing",
+          "cx": 130.905,
+          "top": -47.226,
+          "width": 1.0,
+          "move": null
+        },
+        {
+          "id": "S2_D3",
+          "kind": "disappearing",
+          "cx": 133.505,
+          "top": -47.226,
+          "width": 1.0,
+          "move": null
+        },
+        {
+          "id": "S2_D4",
+          "kind": "disappearing",
+          "cx": 136.105,
+          "top": -47.226,
+          "width": 1.0,
+          "move": null
+        },
+        {
+          "id": "S2_N8",
+          "kind": "normal",
+          "cx": 139.405,
+          "top": -47.226,
+          "width": 2.4,
+          "move": null
+        },
+        {
+          "id": "S2_M6",
+          "kind": "moving",
+          "cx": 145.755,
+          "top": -45.976,
+          "width": 2.4,
+          "move": {
+            "mode": "loop",
+            "wp": [
+              [
+                144.005,
+                -44.726
+              ],
+              [
+                147.505,
+                -44.726
+              ],
+              [
+                147.505,
+                -47.226
+              ],
+              [
+                144.005,
+                -47.226
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 5.18,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S2_N9",
+          "kind": "normal",
+          "cx": 151.905,
+          "top": -47.226,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S2_N10",
+          "kind": "normal",
+          "cx": 157.605,
+          "top": -47.226,
+          "width": 2.4,
+          "move": null
+        },
+        {
+          "id": "S2_K",
+          "kind": "connector",
+          "cx": 163.408,
+          "top": -47.226,
+          "width": 6.0,
+          "move": null
+        }
+      ],
+      "monsters": []
+    },
+    {
+      "id": "P3",
+      "title": "3-2 방식 - 용암 갱도 하강",
+      "pathLength": 120.0,
+      "platforms": [
+        {
+          "id": "S3_K0",
+          "kind": "start",
+          "cx": 163.408,
+          "top": -47.226,
+          "width": 6.0,
+          "move": null
+        },
+        {
+          "id": "S3_X1",
+          "kind": "damage",
+          "cx": 171.608,
+          "top": -48.726,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S3_B1",
+          "kind": "blink",
+          "cx": 177.608,
+          "top": -50.226,
+          "width": 1.6,
+          "move": null
+        },
+        {
+          "id": "S3_E1",
+          "kind": "moving",
+          "cx": 184.108,
+          "top": -62.198,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                184.108,
+                -51.726
+              ],
+              [
+                184.108,
+                -72.669
+              ]
+            ],
+            "speed": 4.0,
+            "delay": 7.52,
+            "wait": 1.0
+          }
+        },
+        {
+          "id": "S3_X2",
+          "kind": "damage",
+          "cx": 177.408,
+          "top": -74.669,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S3_B2",
+          "kind": "blink",
+          "cx": 171.408,
+          "top": -76.169,
+          "width": 1.6,
+          "move": null
+        },
+        {
+          "id": "S3_V1",
+          "kind": "moving",
+          "cx": 163.208,
+          "top": -80.669,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                167.208,
+                -77.669
+              ],
+              [
+                159.208,
+                -83.669
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 0.77,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S3_B3",
+          "kind": "blink",
+          "cx": 155.008,
+          "top": -85.169,
+          "width": 1.6,
+          "move": null
+        },
+        {
+          "id": "S3_E2",
+          "kind": "moving",
+          "cx": 148.508,
+          "top": -97.141,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                148.508,
+                -107.612
+              ],
+              [
+                148.508,
+                -86.669
+              ]
+            ],
+            "speed": 4.0,
+            "delay": 0.66,
+            "wait": 0.5
+          }
+        },
+        {
+          "id": "S3_X3",
+          "kind": "damage",
+          "cx": 155.208,
+          "top": -109.612,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S3_B4",
+          "kind": "blink",
+          "cx": 161.208,
+          "top": -111.112,
+          "width": 1.6,
+          "move": null
+        },
+        {
+          "id": "S3_H1",
+          "kind": "moving",
+          "cx": 169.408,
+          "top": -112.612,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                165.408,
+                -112.612
+              ],
+              [
+                173.408,
+                -112.612
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 4.0,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S3_K",
+          "kind": "connector",
+          "cx": 179.808,
+          "top": -114.112,
+          "width": 6.0,
+          "move": null
+        }
+      ],
+      "monsters": [
+        {
+          "id": "Monster_5-2_S3_F1",
+          "pattern": "FlyingPatrolPattern",
+          "x": 177.56,
+          "y": -43.31,
+          "group": null,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "areaSize": [
+            4.2,
+            1.6
+          ]
+        },
+        {
+          "id": "Monster_5-2_S3_F2",
+          "pattern": "FlyingRandomWanderPattern",
+          "x": 177.38,
+          "y": -69.74,
+          "group": null,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "areaSize": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "Monster_5-2_S3_F3",
+          "pattern": "FlyingPathPatrolPattern",
+          "x": 160.38,
+          "y": -75.2,
+          "group": null,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "pathLength": 3.0
+        },
+        {
+          "id": "Monster_5-2_S3_F4",
+          "pattern": "FlyingChasePattern",
+          "x": 152.74,
+          "y": -94.45,
+          "group": null,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "orbit": 2.0,
+          "detect": [
+            8,
+            4
+          ]
+        },
+        {
+          "id": "Monster_5-2_S3_F5",
+          "pattern": "FlyingChasePattern",
+          "x": 170.06,
+          "y": -107.98,
+          "group": null,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "orbit": 2.0,
+          "detect": [
+            8,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "4-2 방식 - 대미지 질주",
+      "pathLength": 120.0,
+      "platforms": [
+        {
+          "id": "S3_K",
+          "kind": "connector",
+          "cx": 179.808,
+          "top": -114.112,
+          "width": 6.0,
+          "move": null
+        },
+        {
+          "id": "S4_Runway",
+          "kind": "damage_floor",
+          "cx": 239.808,
+          "top": -114.112,
+          "width": 114.0,
+          "move": null
+        },
+        {
+          "id": "S4_K",
+          "kind": "connector",
+          "cx": 299.808,
+          "top": -114.112,
+          "width": 6.0,
+          "move": null
+        }
+      ],
+      "monsters": [
+        {
+          "id": "Monster_5-2_S4_01",
+          "pattern": "FlyingChasePattern",
+          "x": 187.81,
+          "y": -111.91,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_02",
+          "pattern": "FlyingChasePattern",
+          "x": 194.81,
+          "y": -111.11,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_03",
+          "pattern": "FlyingChasePattern",
+          "x": 201.81,
+          "y": -111.91,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_04",
+          "pattern": "FlyingChasePattern",
+          "x": 208.81,
+          "y": -111.11,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_05",
+          "pattern": "FlyingChasePattern",
+          "x": 215.81,
+          "y": -111.91,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_06",
+          "pattern": "FlyingChasePattern",
+          "x": 222.81,
+          "y": -111.11,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_07",
+          "pattern": "FlyingChasePattern",
+          "x": 229.81,
+          "y": -111.91,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_08",
+          "pattern": "FlyingChasePattern",
+          "x": 236.81,
+          "y": -111.11,
+          "group": 1,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_09",
+          "pattern": "FlyingChasePattern",
+          "x": 243.81,
+          "y": -111.91,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_10",
+          "pattern": "FlyingChasePattern",
+          "x": 250.81,
+          "y": -111.11,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_11",
+          "pattern": "FlyingChasePattern",
+          "x": 257.81,
+          "y": -111.91,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_12",
+          "pattern": "FlyingChasePattern",
+          "x": 264.81,
+          "y": -111.11,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_13",
+          "pattern": "FlyingChasePattern",
+          "x": 271.81,
+          "y": -111.91,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_14",
+          "pattern": "FlyingChasePattern",
+          "x": 278.81,
+          "y": -111.11,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        },
+        {
+          "id": "Monster_5-2_S4_15",
+          "pattern": "FlyingChasePattern",
+          "x": 285.81,
+          "y": -111.91,
+          "group": 2,
+          "drops": "heal+speed 100%"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "5-2 융합 구간",
+      "pathLength": 120.0,
+      "platforms": [
+        {
+          "id": "S5F1_K0",
+          "kind": "start",
+          "cx": 299.808,
+          "top": -114.112,
+          "width": 6.0,
+          "move": null
+        },
+        {
+          "id": "S5F1_A1",
+          "kind": "normal",
+          "cx": 306.908,
+          "top": -113.812,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S5F1_B1",
+          "kind": "moving",
+          "cx": 302.824,
+          "top": -120.093,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                302.824,
+                -124.093
+              ],
+              [
+                302.824,
+                -116.093
+              ]
+            ],
+            "speed": 4.0,
+            "delay": 1.63,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S5F1_B2",
+          "kind": "moving",
+          "cx": 298.708,
+          "top": -124.227,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                294.479,
+                -125.766
+              ],
+              [
+                302.937,
+                -122.688
+              ]
+            ],
+            "speed": 4.5,
+            "delay": 0.87,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S5F1_C1",
+          "kind": "normal",
+          "cx": 306.263,
+          "top": -125.019,
+          "width": 3.2,
+          "move": null
+        },
+        {
+          "id": "S5F1_K",
+          "kind": "connector",
+          "cx": 312.963,
+          "top": -125.019,
+          "width": 4.0,
+          "move": null
+        },
+        {
+          "id": "S5F2_M1",
+          "kind": "moving",
+          "cx": 320.363,
+          "top": -125.019,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                318.363,
+                -125.019
+              ],
+              [
+                322.363,
+                -125.019
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 0.55,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S5F2_X1",
+          "kind": "damage",
+          "cx": 326.763,
+          "top": -125.019,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S5F2_M2",
+          "kind": "moving",
+          "cx": 331.163,
+          "top": -123.419,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                331.163,
+                -121.819
+              ],
+              [
+                331.163,
+                -125.019
+              ]
+            ],
+            "speed": 5.0,
+            "delay": 4.63,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S5F2_D1",
+          "kind": "disappearing",
+          "cx": 335.163,
+          "top": -121.819,
+          "width": 1.2,
+          "move": null
+        },
+        {
+          "id": "S5F2_D2",
+          "kind": "disappearing",
+          "cx": 337.963,
+          "top": -121.819,
+          "width": 1.2,
+          "move": null
+        },
+        {
+          "id": "S5F2_K",
+          "kind": "connector",
+          "cx": 344.063,
+          "top": -121.819,
+          "width": 4.0,
+          "move": null
+        },
+        {
+          "id": "S5F3_X1",
+          "kind": "damage",
+          "cx": 351.263,
+          "top": -123.319,
+          "width": 2.0,
+          "move": null
+        },
+        {
+          "id": "S5F3_E1",
+          "kind": "moving",
+          "cx": 357.963,
+          "top": -127.819,
+          "width": 2.4,
+          "move": {
+            "mode": "pingpong",
+            "wp": [
+              [
+                357.963,
+                -124.819
+              ],
+              [
+                357.963,
+                -130.819
+              ]
+            ],
+            "speed": 3.5,
+            "delay": 4.1,
+            "wait": 0.0
+          }
+        },
+        {
+          "id": "S5F3_D1",
+          "kind": "disappearing",
+          "cx": 351.663,
+          "top": -132.819,
+          "width": 1.2,
+          "move": null
+        },
+        {
+          "id": "S5F3_K",
+          "kind": "connector",
+          "cx": 344.863,
+          "top": -134.319,
+          "width": 4.0,
+          "move": null
+        },
+        {
+          "id": "S5F4_Runway",
+          "kind": "damage_floor",
+          "cx": 333.788,
+          "top": -134.319,
+          "width": 18.15,
+          "move": null
+        },
+        {
+          "id": "S5_K",
+          "kind": "goal",
+          "cx": 321.713,
+          "top": -134.319,
+          "width": 6.0,
+          "move": null
+        }
+      ],
+      "monsters": [
+        {
+          "id": "Monster_5-2_S5F1_1",
+          "pattern": "FlyingChasePattern",
+          "x": 307.18,
+          "y": -117.12,
+          "group": 1,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F1_2",
+          "pattern": "FlyingChasePattern",
+          "x": 297.78,
+          "y": -118.79,
+          "group": 1,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F1_3",
+          "pattern": "FlyingChasePattern",
+          "x": 306.28,
+          "y": -119.9,
+          "group": 1,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F3_1",
+          "pattern": "FlyingPatrolPattern",
+          "x": 350.77,
+          "y": -120.9,
+          "group": 2,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "areaSize": [
+            4.2,
+            1.6
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F3_2",
+          "pattern": "FlyingRandomWanderPattern",
+          "x": 355.95,
+          "y": -121.53,
+          "group": 2,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "areaSize": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F3_3",
+          "pattern": "FlyingPathPatrolPattern",
+          "x": 353.4,
+          "y": -129.17,
+          "group": 2,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "pathLength": 3.0
+        },
+        {
+          "id": "Monster_5-2_S5F3_4",
+          "pattern": "FlyingChasePattern",
+          "x": 347.57,
+          "y": -127.45,
+          "group": 2,
+          "drops": "기존 비행 몬스터 기본 드롭",
+          "orbit": 2.0,
+          "detect": [
+            8,
+            4
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F4_1",
+          "pattern": "FlyingChasePattern",
+          "x": 340.59,
+          "y": -132.12,
+          "group": 3,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F4_2",
+          "pattern": "FlyingChasePattern",
+          "x": 336.06,
+          "y": -131.32,
+          "group": 3,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F4_3",
+          "pattern": "FlyingChasePattern",
+          "x": 331.52,
+          "y": -132.12,
+          "group": 3,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        },
+        {
+          "id": "Monster_5-2_S5F4_4",
+          "pattern": "FlyingChasePattern",
+          "x": 326.98,
+          "y": -131.32,
+          "group": 3,
+          "drops": "heal+speed 100%",
+          "orbit": 0.35,
+          "detect": [
+            24,
+            10
+          ]
+        }
+      ]
+    }
+  ]
+}

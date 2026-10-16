@@ -1,0 +1,1227 @@
+{
+  "status": "concept_only",
+  "date": "2026-10-15",
+  "distanceScale": 60,
+  "unitsPerScale": 8,
+  "start": [
+    0,
+    0
+  ],
+  "goal": [
+    480,
+    0
+  ],
+  "platform": {
+    "count": 1,
+    "xMin": -4,
+    "xMax": 484,
+    "surfaceY": 0,
+    "thickness": 1,
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "rendering": "Tiled/Continuous",
+    "damage": 1,
+    "interval": 0.5,
+    "safeDuration": 0
+  },
+  "speedBuff": {
+    "bonusPerStack": 0.05,
+    "maxStacks": 5,
+    "duration": 5
+  },
+  "waves": [
+    {
+      "group": 1,
+      "startX": 0,
+      "endX": 80,
+      "count": 10
+    },
+    {
+      "group": 2,
+      "startX": 80,
+      "endX": 160,
+      "count": 10
+    },
+    {
+      "group": 3,
+      "startX": 160,
+      "endX": 240,
+      "count": 10
+    },
+    {
+      "group": 4,
+      "startX": 240,
+      "endX": 320,
+      "count": 10
+    },
+    {
+      "group": 5,
+      "startX": 320,
+      "endX": 400,
+      "count": 10
+    },
+    {
+      "group": 6,
+      "startX": 400,
+      "endX": 480,
+      "count": 10
+    }
+  ],
+  "monsters": [
+    {
+      "id": "Monster_4-2_G01_01",
+      "group": 1,
+      "x": 8,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_02",
+      "group": 1,
+      "x": 14,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_03",
+      "group": 1,
+      "x": 20,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_04",
+      "group": 1,
+      "x": 26,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_05",
+      "group": 1,
+      "x": 32,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_06",
+      "group": 1,
+      "x": 38,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_07",
+      "group": 1,
+      "x": 44,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_08",
+      "group": 1,
+      "x": 50,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_09",
+      "group": 1,
+      "x": 56,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G01_10",
+      "group": 1,
+      "x": 62,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_01",
+      "group": 2,
+      "x": 88,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_02",
+      "group": 2,
+      "x": 94,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_03",
+      "group": 2,
+      "x": 100,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_04",
+      "group": 2,
+      "x": 106,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_05",
+      "group": 2,
+      "x": 112,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_06",
+      "group": 2,
+      "x": 118,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_07",
+      "group": 2,
+      "x": 124,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_08",
+      "group": 2,
+      "x": 130,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_09",
+      "group": 2,
+      "x": 136,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G02_10",
+      "group": 2,
+      "x": 142,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_01",
+      "group": 3,
+      "x": 168,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_02",
+      "group": 3,
+      "x": 174,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_03",
+      "group": 3,
+      "x": 180,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_04",
+      "group": 3,
+      "x": 186,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_05",
+      "group": 3,
+      "x": 192,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_06",
+      "group": 3,
+      "x": 198,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_07",
+      "group": 3,
+      "x": 204,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_08",
+      "group": 3,
+      "x": 210,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_09",
+      "group": 3,
+      "x": 216,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G03_10",
+      "group": 3,
+      "x": 222,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_01",
+      "group": 4,
+      "x": 248,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_02",
+      "group": 4,
+      "x": 254,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_03",
+      "group": 4,
+      "x": 260,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_04",
+      "group": 4,
+      "x": 266,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_05",
+      "group": 4,
+      "x": 272,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_06",
+      "group": 4,
+      "x": 278,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_07",
+      "group": 4,
+      "x": 284,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_08",
+      "group": 4,
+      "x": 290,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_09",
+      "group": 4,
+      "x": 296,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G04_10",
+      "group": 4,
+      "x": 302,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_01",
+      "group": 5,
+      "x": 328,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_02",
+      "group": 5,
+      "x": 334,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_03",
+      "group": 5,
+      "x": 340,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_04",
+      "group": 5,
+      "x": 346,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_05",
+      "group": 5,
+      "x": 352,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_06",
+      "group": 5,
+      "x": 358,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_07",
+      "group": 5,
+      "x": 364,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_08",
+      "group": 5,
+      "x": 370,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_09",
+      "group": 5,
+      "x": 376,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G05_10",
+      "group": 5,
+      "x": 382,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_01",
+      "group": 6,
+      "x": 408,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_02",
+      "group": 6,
+      "x": 414,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_03",
+      "group": 6,
+      "x": 420,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_04",
+      "group": 6,
+      "x": 426,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_05",
+      "group": 6,
+      "x": 432,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_06",
+      "group": 6,
+      "x": 438,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_07",
+      "group": 6,
+      "x": 444,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_08",
+      "group": 6,
+      "x": 450,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_09",
+      "group": 6,
+      "x": 456,
+      "y": 2.2,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    },
+    {
+      "id": "Monster_4-2_G06_10",
+      "group": 6,
+      "x": 462,
+      "y": 3.0,
+      "pattern": "FlyingChasePattern",
+      "gravity": 0,
+      "attack": 10,
+      "defense": 10,
+      "healthPolicy": "two baseline hits after defense",
+      "chaseSpeed": 9,
+      "orbitRadius": 0.35,
+      "detectionSize": [
+        24,
+        10
+      ],
+      "healDropChance": 1,
+      "speedDropChance": 1
+    }
+  ],
+  "validation": {
+    "routeLength": 480,
+    "monsterCount": 60,
+    "perSegment": 10,
+    "baseTravelSeconds": 60,
+    "maxBuffTravelSeconds": 48,
+    "floorDamagePerSecond": 2,
+    "baseFloorDamageUpperBound": 120,
+    "maxBuffFloorDamageUpperBound": 96,
+    "healPerKill": 20,
+    "maxTotalHealing": 1200
+  }
+}

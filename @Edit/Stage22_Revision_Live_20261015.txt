@@ -1,0 +1,4 @@
+Actual top collision at 0.3533333
+Vanish after real top contact: 0.4736632 seconds
+Respawn after real top contact: 2.474986 seconds
+PASS real collision and coroutine timings

@@ -1,13 +1,13 @@
-// 플레이어 방어 연출: 방어 시작/일반 막기/완벽 막기 효과음과 완벽 방어 이펙트(3프레임)를 재생한다.
+// 플레이어 방어 연출: 일반 막기/완벽 막기 성공 효과음과 완벽 방어 이펙트(3프레임)를 재생한다.
 // 설계/초안: OpenAI Codex (GPT-6), 2026-10-14. 본 게임 이식 및 이펙트 재생 추가: Claude Sonnet 5.5, 2026-10-14.
-// PlayerDefense의 이벤트(OnGuardChanged, OnBlocked)만 구독하며, 효과음은 SoundManager를 통해 재생한다.
+// Codex (GPT-6), 2026-10-16: 방어 자세 입력은 무음이며 실제 차단 성공 이벤트에서만 효과음을 재생한다.
+// PlayerDefense.OnBlocked만 구독하며, 일반/완벽 방어 클립을 구분해 SoundManager로 재생한다.
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerDefense))]
 public class PlayerDefenseFeedback : MonoBehaviour
 {
     [Header("효과음 - 비워두면 무음")]
-    [SerializeField] private AudioClip guardStartSfx;   // 우클릭으로 방어를 시작할 때
     [SerializeField] private AudioClip normalBlockSfx;  // 일반 방어로 공격을 막았을 때
     [SerializeField] private AudioClip perfectBlockSfx; // 완벽 방어로 공격을 막았을 때
 
@@ -30,17 +30,15 @@ public class PlayerDefenseFeedback : MonoBehaviour
         HideEffect();
     }
 
-    // 활성화 시 방어 시작과 성공 이벤트를 구독한다.
+    // 활성화 시 실제 방어 성공 이벤트만 구독한다(방어 자세 시작/유지는 무음).
     private void OnEnable()
     {
-        defense.OnGuardChanged += HandleGuardChanged;
         defense.OnBlocked += HandleBlocked;
     }
 
     // 비활성화 시 구독을 해제하고 이펙트를 숨긴다.
     private void OnDisable()
     {
-        defense.OnGuardChanged -= HandleGuardChanged;
         defense.OnBlocked -= HandleBlocked;
         HideEffect();
     }
@@ -57,12 +55,6 @@ public class PlayerDefenseFeedback : MonoBehaviour
             return;
         }
         perfectEffectRenderer.sprite = perfectEffectFrames[index];
-    }
-
-    // 방어를 시작할 때 효과음을 재생한다.
-    private void HandleGuardChanged(bool active)
-    {
-        if (active) PlaySfx(guardStartSfx);
     }
 
     // 막기 성공 시 일반/완벽에 맞는 효과음을 재생하고, 완벽 방어이면 이펙트를 시작한다.

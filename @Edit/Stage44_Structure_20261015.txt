@@ -1,0 +1,307 @@
+150 serialized falling supports
+Support 1 prefab / scale / tiled / collider
+Support 2 prefab / scale / tiled / collider
+Contiguous seam 1
+Support 3 prefab / scale / tiled / collider
+Contiguous seam 2
+Support 4 prefab / scale / tiled / collider
+Contiguous seam 3
+Support 5 prefab / scale / tiled / collider
+Contiguous seam 4
+Support 6 prefab / scale / tiled / collider
+Contiguous seam 5
+Support 7 prefab / scale / tiled / collider
+Contiguous seam 6
+Support 8 prefab / scale / tiled / collider
+Contiguous seam 7
+Support 9 prefab / scale / tiled / collider
+Contiguous seam 8
+Support 10 prefab / scale / tiled / collider
+Contiguous seam 9
+Support 11 prefab / scale / tiled / collider
+Contiguous seam 10
+Support 12 prefab / scale / tiled / collider
+Contiguous seam 11
+Support 13 prefab / scale / tiled / collider
+Contiguous seam 12
+Support 14 prefab / scale / tiled / collider
+Contiguous seam 13
+Support 15 prefab / scale / tiled / collider
+Contiguous seam 14
+Support 16 prefab / scale / tiled / collider
+Contiguous seam 15
+Support 17 prefab / scale / tiled / collider
+Contiguous seam 16
+Support 18 prefab / scale / tiled / collider
+Contiguous seam 17
+Support 19 prefab / scale / tiled / collider
+Contiguous seam 18
+Support 20 prefab / scale / tiled / collider
+Contiguous seam 19
+Support 21 prefab / scale / tiled / collider
+Contiguous seam 20
+Support 22 prefab / scale / tiled / collider
+Contiguous seam 21
+Support 23 prefab / scale / tiled / collider
+Contiguous seam 22
+Support 24 prefab / scale / tiled / collider
+Contiguous seam 23
+Support 25 prefab / scale / tiled / collider
+Contiguous seam 24
+Support 26 prefab / scale / tiled / collider
+Contiguous seam 25
+Support 27 prefab / scale / tiled / collider
+Contiguous seam 26
+Support 28 prefab / scale / tiled / collider
+Contiguous seam 27
+Support 29 prefab / scale / tiled / collider
+Contiguous seam 28
+Support 30 prefab / scale / tiled / collider
+Contiguous seam 29
+Support 31 prefab / scale / tiled / collider
+Contiguous seam 30
+Support 32 prefab / scale / tiled / collider
+Contiguous seam 31
+Support 33 prefab / scale / tiled / collider
+Contiguous seam 32
+Support 34 prefab / scale / tiled / collider
+Contiguous seam 33
+Support 35 prefab / scale / tiled / collider
+Contiguous seam 34
+Support 36 prefab / scale / tiled / collider
+Contiguous seam 35
+Support 37 prefab / scale / tiled / collider
+Contiguous seam 36
+Support 38 prefab / scale / tiled / collider
+Contiguous seam 37
+Support 39 prefab / scale / tiled / collider
+Contiguous seam 38
+Support 40 prefab / scale / tiled / collider
+Contiguous seam 39
+Support 41 prefab / scale / tiled / collider
+Contiguous seam 40
+Support 42 prefab / scale / tiled / collider
+Contiguous seam 41
+Support 43 prefab / scale / tiled / collider
+Contiguous seam 42
+Support 44 prefab / scale / tiled / collider
+Contiguous seam 43
+Support 45 prefab / scale / tiled / collider
+Contiguous seam 44
+Support 46 prefab / scale / tiled / collider
+Contiguous seam 45
+Support 47 prefab / scale / tiled / collider
+Contiguous seam 46
+Support 48 prefab / scale / tiled / collider
+Contiguous seam 47
+Support 49 prefab / scale / tiled / collider
+Contiguous seam 48
+Support 50 prefab / scale / tiled / collider
+Contiguous seam 49
+Support 51 prefab / scale / tiled / collider
+Contiguous seam 50
+Support 52 prefab / scale / tiled / collider
+Contiguous seam 51
+Support 53 prefab / scale / tiled / collider
+Contiguous seam 52
+Support 54 prefab / scale / tiled / collider
+Contiguous seam 53
+Support 55 prefab / scale / tiled / collider
+Contiguous seam 54
+Support 56 prefab / scale / tiled / collider
+Contiguous seam 55
+Support 57 prefab / scale / tiled / collider
+Contiguous seam 56
+Support 58 prefab / scale / tiled / collider
+Contiguous seam 57
+Support 59 prefab / scale / tiled / collider
+Contiguous seam 58
+Support 60 prefab / scale / tiled / collider
+Contiguous seam 59
+Support 61 prefab / scale / tiled / collider
+Contiguous seam 60
+Support 62 prefab / scale / tiled / collider
+Contiguous seam 61
+Support 63 prefab / scale / tiled / collider
+Contiguous seam 62
+Support 64 prefab / scale / tiled / collider
+Contiguous seam 63
+Support 65 prefab / scale / tiled / collider
+Contiguous seam 64
+Support 66 prefab / scale / tiled / collider
+Contiguous seam 65
+Support 67 prefab / scale / tiled / collider
+Contiguous seam 66
+Support 68 prefab / scale / tiled / collider
+Contiguous seam 67
+Support 69 prefab / scale / tiled / collider
+Contiguous seam 68
+Support 70 prefab / scale / tiled / collider
+Contiguous seam 69
+Support 71 prefab / scale / tiled / collider
+Contiguous seam 70
+Support 72 prefab / scale / tiled / collider
+Contiguous seam 71
+Support 73 prefab / scale / tiled / collider
+Contiguous seam 72
+Support 74 prefab / scale / tiled / collider
+Contiguous seam 73
+Support 75 prefab / scale / tiled / collider
+Contiguous seam 74
+Support 76 prefab / scale / tiled / collider
+Contiguous seam 75
+Support 77 prefab / scale / tiled / collider
+Contiguous seam 76
+Support 78 prefab / scale / tiled / collider
+Contiguous seam 77
+Support 79 prefab / scale / tiled / collider
+Contiguous seam 78
+Support 80 prefab / scale / tiled / collider
+Contiguous seam 79
+Support 81 prefab / scale / tiled / collider
+Contiguous seam 80
+Support 82 prefab / scale / tiled / collider
+Contiguous seam 81
+Support 83 prefab / scale / tiled / collider
+Contiguous seam 82
+Support 84 prefab / scale / tiled / collider
+Contiguous seam 83
+Support 85 prefab / scale / tiled / collider
+Contiguous seam 84
+Support 86 prefab / scale / tiled / collider
+Contiguous seam 85
+Support 87 prefab / scale / tiled / collider
+Contiguous seam 86
+Support 88 prefab / scale / tiled / collider
+Contiguous seam 87
+Support 89 prefab / scale / tiled / collider
+Contiguous seam 88
+Support 90 prefab / scale / tiled / collider
+Contiguous seam 89
+Support 91 prefab / scale / tiled / collider
+Contiguous seam 90
+Support 92 prefab / scale / tiled / collider
+Contiguous seam 91
+Support 93 prefab / scale / tiled / collider
+Contiguous seam 92
+Support 94 prefab / scale / tiled / collider
+Contiguous seam 93
+Support 95 prefab / scale / tiled / collider
+Contiguous seam 94
+Support 96 prefab / scale / tiled / collider
+Contiguous seam 95
+Support 97 prefab / scale / tiled / collider
+Contiguous seam 96
+Support 98 prefab / scale / tiled / collider
+Contiguous seam 97
+Support 99 prefab / scale / tiled / collider
+Contiguous seam 98
+Support 100 prefab / scale / tiled / collider
+Contiguous seam 99
+Support 101 prefab / scale / tiled / collider
+Contiguous seam 100
+Support 102 prefab / scale / tiled / collider
+Contiguous seam 101
+Support 103 prefab / scale / tiled / collider
+Contiguous seam 102
+Support 104 prefab / scale / tiled / collider
+Contiguous seam 103
+Support 105 prefab / scale / tiled / collider
+Contiguous seam 104
+Support 106 prefab / scale / tiled / collider
+Contiguous seam 105
+Support 107 prefab / scale / tiled / collider
+Contiguous seam 106
+Support 108 prefab / scale / tiled / collider
+Contiguous seam 107
+Support 109 prefab / scale / tiled / collider
+Contiguous seam 108
+Support 110 prefab / scale / tiled / collider
+Contiguous seam 109
+Support 111 prefab / scale / tiled / collider
+Contiguous seam 110
+Support 112 prefab / scale / tiled / collider
+Contiguous seam 111
+Support 113 prefab / scale / tiled / collider
+Contiguous seam 112
+Support 114 prefab / scale / tiled / collider
+Contiguous seam 113
+Support 115 prefab / scale / tiled / collider
+Contiguous seam 114
+Support 116 prefab / scale / tiled / collider
+Contiguous seam 115
+Support 117 prefab / scale / tiled / collider
+Contiguous seam 116
+Support 118 prefab / scale / tiled / collider
+Contiguous seam 117
+Support 119 prefab / scale / tiled / collider
+Contiguous seam 118
+Support 120 prefab / scale / tiled / collider
+Contiguous seam 119
+Support 121 prefab / scale / tiled / collider
+Contiguous seam 120
+Support 122 prefab / scale / tiled / collider
+Contiguous seam 121
+Support 123 prefab / scale / tiled / collider
+Contiguous seam 122
+Support 124 prefab / scale / tiled / collider
+Contiguous seam 123
+Support 125 prefab / scale / tiled / collider
+Contiguous seam 124
+Support 126 prefab / scale / tiled / collider
+Contiguous seam 125
+Support 127 prefab / scale / tiled / collider
+Contiguous seam 126
+Support 128 prefab / scale / tiled / collider
+Contiguous seam 127
+Support 129 prefab / scale / tiled / collider
+Contiguous seam 128
+Support 130 prefab / scale / tiled / collider
+Contiguous seam 129
+Support 131 prefab / scale / tiled / collider
+Contiguous seam 130
+Support 132 prefab / scale / tiled / collider
+Contiguous seam 131
+Support 133 prefab / scale / tiled / collider
+Contiguous seam 132
+Support 134 prefab / scale / tiled / collider
+Contiguous seam 133
+Support 135 prefab / scale / tiled / collider
+Contiguous seam 134
+Support 136 prefab / scale / tiled / collider
+Contiguous seam 135
+Support 137 prefab / scale / tiled / collider
+Contiguous seam 136
+Support 138 prefab / scale / tiled / collider
+Contiguous seam 137
+Support 139 prefab / scale / tiled / collider
+Contiguous seam 138
+Support 140 prefab / scale / tiled / collider
+Contiguous seam 139
+Support 141 prefab / scale / tiled / collider
+Contiguous seam 140
+Support 142 prefab / scale / tiled / collider
+Contiguous seam 141
+Support 143 prefab / scale / tiled / collider
+Contiguous seam 142
+Support 144 prefab / scale / tiled / collider
+Contiguous seam 143
+Support 145 prefab / scale / tiled / collider
+Contiguous seam 144
+Support 146 prefab / scale / tiled / collider
+Contiguous seam 145
+Support 147 prefab / scale / tiled / collider
+Contiguous seam 146
+Support 148 prefab / scale / tiled / collider
+Contiguous seam 147
+Support 149 prefab / scale / tiled / collider
+Contiguous seam 148
+Support 150 prefab / scale / tiled / collider
+Contiguous seam 149
+Route exactly 1200 units
+30 proposed ordinary monsters
+All supports inside camera area
+4-4 separated from Section_1
+4-4 separated from Section_2
+4-4 separated from Section_3
+4-4 separated from Section_5

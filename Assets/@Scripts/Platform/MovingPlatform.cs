@@ -68,7 +68,15 @@ public class MovingPlatform : PlatformBehaviour
     [SerializeField] private float startDelay = 0f;
     // 경로 양 끝에서 승하차할 시간을 확보한다. 0이면 기존 발판의 이동 주기를 그대로 유지한다.
     [SerializeField, Min(0f)] private float endpointWait = 0f;
+    // Codex (GPT-6), 2026-10-16: opt-in phase clock for a reviewed two-point PingPong pair.
+    // A common period prevents endpoint rounding from accumulating different cycle lengths.
+    // Zero preserves the original speed/endpoint-wait behavior for every existing platform.
+    [SerializeField, Min(0f)] private float synchronizedCycleDuration = 0f;
+    private double synchronizedElapsed;
     private float delayRemaining;
+    // 5-4 편도형: 처음 탑승자가 생길 때까지 출발 대기도 시작하지 않는다(멀리서 먼저 출발해 진행 불가가 되는 것을 막는다).
+    [SerializeField] private bool startOnFirstBoard = false;
+    private bool boarded;
 
     // "이동 거리 1"의 기준: 플레이어가 1초 동안 이동하는 거리(PlayerMovement.moveSpeed - Player_Base/
     // Player_Warrior 공통값). 발판이 시작 지점에서 이보다 7배(7초치) 넘게 멀어지지 않도록 제한해,
@@ -214,10 +222,13 @@ public class MovingPlatform : PlatformBehaviour
     // 발판에서 이 실수를 바로 알아챌 수 있도록 시작 시 한 번 경고한다(매 프레임 검사하지 않음).
     private void WarnIfExtraColliders()
     {
-        int total = GetComponentsInChildren<Collider2D>(true).Length;
+        // Codex, 2026-10-15: embedded switch triggers are sensors, not competing standing surfaces.
+        int total = 0;
+        foreach (var surface in GetComponentsInChildren<Collider2D>(true))
+            if (!surface.isTrigger) total++;
         if (total > 1)
         {
-            Debug.LogWarning($"[MovingPlatform] '{name}'에 콜라이더가 {total}개 있습니다. 발판 표면은 루트의 BoxCollider2D 하나만 " +
+            Debug.LogWarning($"[MovingPlatform] '{name}'에 비트리거 콜라이더가 {total}개 있습니다. 발판 표면은 루트의 BoxCollider2D 하나만 " +
                              "사용하므로, 외형용 자식 오브젝트의 콜라이더는 제거하세요(남아있으면 탑승/상하 이동 전달이 동작하지 않습니다).", this);
         }
     }
@@ -233,14 +244,28 @@ public class MovingPlatform : PlatformBehaviour
         currentPosition = startPosition;
         rb.position = startPosition;
         delayRemaining = startDelay;
+        synchronizedElapsed = 0;
     }
 
     private void FixedUpdate()
     {
         if (PointCount < 2) return;
         EnsureCached();
-
         float speedMultiplier = UpdateSpeedMultiplier();
+
+        if (startOnFirstBoard && !boarded)
+        {
+            CarryRiders(Vector2.zero);
+            UpdateRiders(currentPosition);
+            if (riders.Count == 0) return;
+            boarded = true;
+        }
+
+        if (synchronizedCycleDuration > 0f && PointCount == 2 && loopMode == LoopMode.PingPong)
+        {
+            MoveSynchronizedCycle();
+            return;
+        }
 
         // 출발 대기 중이거나 Once 모드로 도착해 멈춘 상태에서도 탑승자 판정과 Y속도 정리는 계속한다
         // (대기 중 올라탄 대상도 탑승자로 인식해 두고, 올라가던 발판이 멈춘 순간 탑승자에게 남은
@@ -267,6 +292,23 @@ public class MovingPlatform : PlatformBehaviour
         UpdateRiders(next);
 
         if (next == target) AdvanceTarget();
+    }
+
+    // Sample the complete cycle from elapsed fixed time, then use the same rider transport as normal motion.
+    // Consecutive movers share a duration but retain distinct start delays and rail-derived base speeds.
+    private void MoveSynchronizedCycle()
+    {
+        synchronizedElapsed += Time.fixedDeltaTime;
+        double elapsed = System.Math.Max(0, synchronizedElapsed - startDelay);
+        float cycle = (float)((elapsed % synchronizedCycleDuration) / synchronizedCycleDuration);
+        float fraction = cycle < .5f ? cycle * 2f : 2f - cycle * 2f;
+        Vector2 next = Vector2.Lerp(GetPoint(0), GetPoint(1), fraction);
+        next = Vector2.MoveTowards(startPosition, next, MaxTravelDistance);
+        Vector2 previous = currentPosition;
+        currentPosition = next;
+        rb.MovePosition(next);
+        CarryRiders(next - previous);
+        UpdateRiders(next);
     }
 
     // 직전 스텝에 탑승자에게 맞춰준 발판의 Y속도 - 탑승자의 점프와 "발판이 남긴 상승 관성"을 구분하는 기준

@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "scene": "Assets/Scenes/Stage2.unity",
+  "report": "Stage22_Revision_Implementation_20261015.md",
+  "internalAttribution": {"agent": "Codex", "model": "GPT-6", "date": "2026-10-15"},
+  "savedStructureChecks": 111,
+  "controlledPhysicsChecks": 29,
+  "continuousChainSpeeds": [6.4, 8.0],
+  "liveVanishSeconds": 0.4736632,
+  "liveRestoreSecondsAfterContact": 2.474986,
+  "actualExitVerified": true,
+  "temporarySceneRemoved": true,
+  "temporaryVerificationViewsInspectedAndRemoved": 5
+}

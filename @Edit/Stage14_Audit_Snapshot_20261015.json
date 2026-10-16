@@ -1,0 +1,3147 @@
+{
+  "section": [
+    {
+      "name": "Section_4",
+      "parent": "Sections",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        215.69,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "ZoneBackground_1-4",
+      "parent": "Section_4",
+      "position": [
+        276.45,
+        11.5,
+        0
+      ],
+      "local": [
+        60.76001,
+        11.5,
+        0
+      ],
+      "scale": [
+        3.77604175,
+        3.77604175,
+        1
+      ],
+      "prefab": "",
+      "sprite": {
+        "mode": "Tiled",
+        "tile": "Continuous",
+        "size": [
+          34.23691,
+          7.68
+        ],
+        "bounds": [
+          211.81,
+          -3,
+          341.090027,
+          26
+        ],
+        "asset": "Assets/Sprites/Backgrounds/T_Forest_Platformer_Level_Background_Mirrored.png",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "components": {
+        "ZoneBackground": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::ZoneBackground\",\"zone\":{\"instanceID\":0}}}"
+      },
+      "layer": 0
+    },
+    {
+      "name": "Background_Forest",
+      "parent": "Section_4",
+      "position": [
+        276.45,
+        11.5,
+        0
+      ],
+      "local": [
+        60.76001,
+        11.5,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "sprite": {
+        "mode": "Tiled",
+        "tile": "Continuous",
+        "size": [
+          129.28,
+          29
+        ],
+        "bounds": [
+          211.810013,
+          -3,
+          341.090027,
+          26
+        ],
+        "asset": "Assets/Sprites/Backgrounds/Forest_Platformer_Level_Background.png",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "components": {
+        "CameraBoundsZone": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::CameraBoundsZone\",\"size\":{\"x\":129.27999877929688,\"y\":29.0},\"orthographicSize\":5.0,\"leftBoundary\":{\"instanceID\":0},\"rightBoundary\":{\"instanceID\":0}}}"
+      },
+      "layer": 0
+    },
+    {
+      "name": "ZoneStartPoint_1-4",
+      "parent": "Section_4",
+      "position": [
+        215.69,
+        0.0200001188,
+        0
+      ],
+      "local": [
+        0,
+        0.0200001188,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/ZoneStartPoint.prefab",
+      "components": {
+        "ZoneStartPoint": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::ZoneStartPoint\"}}"
+      },
+      "layer": 0
+    },
+    {
+      "name": "ZoneEndPoint_1-4",
+      "parent": "Section_4",
+      "position": [
+        336.289978,
+        15.2,
+        0
+      ],
+      "local": [
+        120.599983,
+        15.2,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/ZoneEndPoint.prefab",
+      "box": {
+        "size": [
+          0.6,
+          1.6
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          335.99,
+          14.4,
+          336.589966,
+          16
+        ],
+        "auto": false,
+        "trigger": true,
+        "enabled": true
+      },
+      "components": {
+        "ZoneEndPoint": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::ZoneEndPoint\",\"nextZone\":{\"instanceID\":0},\"cameraFollow\":{\"instanceID\":0}}}"
+      },
+      "layer": 0
+    },
+    {
+      "name": "Paths_1-4",
+      "parent": "Section_4",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Path_P07",
+      "parent": "Paths_1-4",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {
+        "PlatformPath": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformPath\",\"closedLoop\":false,\"gizmoColor\":{\"r\":1.0,\"g\":0.9215686321258545,\"b\":0.01568627543747425,\"a\":1.0},\"pointGizmoRadius\":0.11999999731779099}}"
+      },
+      "layer": 0,
+      "path": [
+        [
+          239.790009,
+          3.085
+        ],
+        [
+          239.790009,
+          6.085
+        ]
+      ]
+    },
+    {
+      "name": "Waypoint_0",
+      "parent": "Path_P07",
+      "position": [
+        239.790009,
+        3.085,
+        0
+      ],
+      "local": [
+        24.1000061,
+        3.085,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Waypoint_1",
+      "parent": "Path_P07",
+      "position": [
+        239.790009,
+        6.085,
+        0
+      ],
+      "local": [
+        24.1000061,
+        6.085,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Path_P08",
+      "parent": "Paths_1-4",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {
+        "PlatformPath": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformPath\",\"closedLoop\":false,\"gizmoColor\":{\"r\":1.0,\"g\":0.9215686321258545,\"b\":0.01568627543747425,\"a\":1.0},\"pointGizmoRadius\":0.11999999731779099}}"
+      },
+      "layer": 0,
+      "path": [
+        [
+          243.39,
+          6.685
+        ],
+        [
+          243.39,
+          9.684999
+        ]
+      ]
+    },
+    {
+      "name": "Waypoint_0",
+      "parent": "Path_P08",
+      "position": [
+        243.39,
+        6.685,
+        0
+      ],
+      "local": [
+        27.6999969,
+        6.685,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Waypoint_1",
+      "parent": "Path_P08",
+      "position": [
+        243.39,
+        9.684999,
+        0
+      ],
+      "local": [
+        27.6999969,
+        9.684999,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Path_P18",
+      "parent": "Paths_1-4",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {
+        "PlatformPath": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformPath\",\"closedLoop\":false,\"gizmoColor\":{\"r\":1.0,\"g\":0.9215686321258545,\"b\":0.01568627543747425,\"a\":1.0},\"pointGizmoRadius\":0.11999999731779099}}"
+      },
+      "layer": 0,
+      "path": [
+        [
+          283.39,
+          15.6850023
+        ],
+        [
+          283.39,
+          18.6850014
+        ]
+      ]
+    },
+    {
+      "name": "Waypoint_0",
+      "parent": "Path_P18",
+      "position": [
+        283.39,
+        15.6850023,
+        0
+      ],
+      "local": [
+        67.70001,
+        15.6850023,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Waypoint_1",
+      "parent": "Path_P18",
+      "position": [
+        283.39,
+        18.6850014,
+        0
+      ],
+      "local": [
+        67.70001,
+        18.6850014,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "MonsterPath_A",
+      "parent": "Paths_1-4",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {
+        "PlatformPath": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformPath\",\"closedLoop\":false,\"gizmoColor\":{\"r\":1.0,\"g\":0.9215686321258545,\"b\":0.01568627543747425,\"a\":1.0},\"pointGizmoRadius\":0.11999999731779099}}"
+      },
+      "layer": 0,
+      "path": [
+        [
+          234.290009,
+          3.18189335
+        ],
+        [
+          235.89,
+          3.18189335
+        ]
+      ]
+    },
+    {
+      "name": "Waypoint_0",
+      "parent": "MonsterPath_A",
+      "position": [
+        234.290009,
+        3.18189335,
+        0
+      ],
+      "local": [
+        18.6000061,
+        3.18189335,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Waypoint_1",
+      "parent": "MonsterPath_A",
+      "position": [
+        235.89,
+        3.18189335,
+        0
+      ],
+      "local": [
+        20.1999969,
+        3.18189335,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "MonsterPath_B",
+      "parent": "Paths_1-4",
+      "position": [
+        215.69,
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {
+        "PlatformPath": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformPath\",\"closedLoop\":false,\"gizmoColor\":{\"r\":1.0,\"g\":0.9215686321258545,\"b\":0.01568627543747425,\"a\":1.0},\"pointGizmoRadius\":0.11999999731779099}}"
+      },
+      "layer": 0,
+      "path": [
+        [
+          277.89,
+          15.7818966
+        ],
+        [
+          279.490021,
+          15.7818966
+        ]
+      ]
+    },
+    {
+      "name": "Waypoint_0",
+      "parent": "MonsterPath_B",
+      "position": [
+        277.89,
+        15.7818966,
+        0
+      ],
+      "local": [
+        62.2000122,
+        15.7818966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Waypoint_1",
+      "parent": "MonsterPath_B",
+      "position": [
+        279.490021,
+        15.7818966,
+        0
+      ],
+      "local": [
+        63.80002,
+        15.7818966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "",
+      "components": {},
+      "layer": 0
+    },
+    {
+      "name": "Platform_1-4_P01_Normal",
+      "parent": "Section_4",
+      "position": [
+        215.69,
+        -0.515,
+        0
+      ],
+      "local": [
+        0,
+        -0.515,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          4,
+          1.03
+        ],
+        "bounds": [
+          213.69,
+          -1.03,
+          217.69,
+          0
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          4,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          213.69,
+          -1.03,
+          217.69,
+          0
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P02_Normal",
+      "parent": "Section_4",
+      "position": [
+        220.290009,
+        0.08500004,
+        0
+      ],
+      "local": [
+        4.6,
+        0.08500004,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.6,
+          1.03
+        ],
+        "bounds": [
+          219.49,
+          -0.429999948,
+          221.090012,
+          0.6
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.6,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          219.49,
+          -0.429999948,
+          221.090012,
+          0.6
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P03_Disappear",
+      "parent": "Section_4",
+      "position": [
+        223.69,
+        0.685000062,
+        0
+      ],
+      "local": [
+        8,
+        0.685000062,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Disappear.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.6,
+          1.03
+        ],
+        "bounds": [
+          222.89,
+          0.170000076,
+          224.49,
+          1.2
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.6,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          222.89,
+          0.170000076,
+          224.49,
+          1.2
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DisappearingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DisappearingFoothold\",\"vanishDelay\":0.8999999761581421,\"respawnDelay\":2.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P04_Disappear",
+      "parent": "Section_4",
+      "position": [
+        227.09,
+        1.28500009,
+        0
+      ],
+      "local": [
+        11.4,
+        1.28500009,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Disappear.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.6,
+          1.03
+        ],
+        "bounds": [
+          226.29,
+          0.7700001,
+          227.89,
+          1.80000007
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.6,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          226.29,
+          0.7700001,
+          227.89,
+          1.80000007
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DisappearingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DisappearingFoothold\",\"vanishDelay\":0.8999999761581421,\"respawnDelay\":2.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P05_Disappear",
+      "parent": "Section_4",
+      "position": [
+        230.49,
+        1.88500011,
+        0
+      ],
+      "local": [
+        14.7999992,
+        1.88500011,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Disappear.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.6,
+          1.03
+        ],
+        "bounds": [
+          229.69,
+          1.37000012,
+          231.290009,
+          2.4
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.6,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          229.69,
+          1.37000012,
+          231.290009,
+          2.4
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DisappearingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DisappearingFoothold\",\"vanishDelay\":0.8999999761581421,\"respawnDelay\":2.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P06_Normal",
+      "parent": "Section_4",
+      "position": [
+        235.09,
+        2.48500013,
+        0
+      ],
+      "local": [
+        19.4,
+        2.48500013,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          4,
+          1.03
+        ],
+        "bounds": [
+          233.09,
+          1.97000015,
+          237.09,
+          3
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          4,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          233.09,
+          1.97000027,
+          237.09,
+          3
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P07_Moving",
+      "parent": "Section_4",
+      "position": [
+        239.790009,
+        3.085,
+        0
+      ],
+      "local": [
+        24.1,
+        3.085,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Moving.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          238.890015,
+          2.57000017,
+          240.69,
+          3.6
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          238.890015,
+          2.57000017,
+          240.69,
+          3.6
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "MovingPlatform": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MovingPlatform\",\"path\":{\"instanceID\":0},\"speed\":1.600000023841858,\"loopMode\":1,\"localWaypoints\":[{\"x\":0.0,\"y\":0.0},{\"x\":0.0,\"y\":3.0}],\"startDelay\":0.0,\"endpointWait\":1.0,\"riderDetectMargin\":0.15000000596046449,\"offscreenSpeedMultiplier\":5.0,\"offscreenMargin\":2.0,\"speedBlendRate\":20.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P08_Moving",
+      "parent": "Section_4",
+      "position": [
+        243.39,
+        6.685,
+        0
+      ],
+      "local": [
+        27.7,
+        6.685,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Moving.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          242.49,
+          6.17,
+          244.29,
+          7.2
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          242.49,
+          6.17,
+          244.29,
+          7.2
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "MovingPlatform": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MovingPlatform\",\"path\":{\"instanceID\":0},\"speed\":1.600000023841858,\"loopMode\":1,\"localWaypoints\":[{\"x\":0.0,\"y\":0.0},{\"x\":0.0,\"y\":3.0}],\"startDelay\":2.9000000953674318,\"endpointWait\":1.0,\"riderDetectMargin\":0.15000000596046449,\"offscreenSpeedMultiplier\":5.0,\"offscreenMargin\":2.0,\"speedBlendRate\":20.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P09_Normal",
+      "parent": "Section_4",
+      "position": [
+        247.59,
+        10.285,
+        0
+      ],
+      "local": [
+        31.9000015,
+        10.285,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          3,
+          1.03
+        ],
+        "bounds": [
+          246.09,
+          9.7699995,
+          249.09,
+          10.8
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          3,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          246.09,
+          9.7699995,
+          249.09,
+          10.8
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P10_Blink",
+      "parent": "Section_4",
+      "position": [
+        251.790009,
+        10.885,
+        0
+      ],
+      "local": [
+        36.1000023,
+        10.885,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Blink.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          250.890015,
+          10.37,
+          252.69,
+          11.4000006
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          250.890015,
+          10.37,
+          252.69,
+          11.4000006
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "BlinkingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::BlinkingFoothold\",\"visibleDuration\":2.4000000953674318,\"invisibleDuration\":1.2000000476837159,\"startDelay\":0.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P11_Normal",
+      "parent": "Section_4",
+      "position": [
+        255.49,
+        11.4850006,
+        0
+      ],
+      "local": [
+        39.8000031,
+        11.4850006,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          254.49,
+          10.97,
+          256.49,
+          12.000001
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          254.48999,
+          10.97,
+          256.49,
+          12.000001
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P12_Blink",
+      "parent": "Section_4",
+      "position": [
+        259.19,
+        12.085001,
+        0
+      ],
+      "local": [
+        43.5000038,
+        12.085001,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Blink.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          258.29,
+          11.5700006,
+          260.09,
+          12.6000013
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          258.29,
+          11.5700006,
+          260.09,
+          12.6000013
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "BlinkingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::BlinkingFoothold\",\"visibleDuration\":2.4000000953674318,\"invisibleDuration\":1.2000000476837159,\"startDelay\":0.44999998807907107}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P13_Normal",
+      "parent": "Section_4",
+      "position": [
+        262.89,
+        12.6850014,
+        0
+      ],
+      "local": [
+        47.2000046,
+        12.6850014,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          261.89,
+          12.170001,
+          263.89,
+          13.2000017
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          261.89,
+          12.170001,
+          263.89,
+          13.2000017
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P14_Blink",
+      "parent": "Section_4",
+      "position": [
+        266.59,
+        13.2850018,
+        0
+      ],
+      "local": [
+        50.9000053,
+        13.2850018,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Blink.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          265.69,
+          12.7700014,
+          267.49,
+          13.8000021
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          265.69,
+          12.7700014,
+          267.49,
+          13.8000021
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "BlinkingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::BlinkingFoothold\",\"visibleDuration\":2.4000000953674318,\"invisibleDuration\":1.2000000476837159,\"startDelay\":0.8999999761581421}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P15_Normal",
+      "parent": "Section_4",
+      "position": [
+        270.29,
+        13.8850021,
+        0
+      ],
+      "local": [
+        54.6000061,
+        13.8850021,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          269.29,
+          13.3700018,
+          271.29,
+          14.4000025
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          269.29,
+          13.3700018,
+          271.29,
+          14.4000025
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P16_Blink",
+      "parent": "Section_4",
+      "position": [
+        273.990021,
+        14.4850025,
+        0
+      ],
+      "local": [
+        58.3000069,
+        14.4850025,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Blink.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          273.090027,
+          13.9700022,
+          274.89,
+          15.0000029
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          273.090027,
+          13.9700022,
+          274.89,
+          15.0000029
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "BlinkingFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::BlinkingFoothold\",\"visibleDuration\":2.4000000953674318,\"invisibleDuration\":1.2000000476837159,\"startDelay\":1.3499999046325684}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P17_Normal",
+      "parent": "Section_4",
+      "position": [
+        278.69,
+        15.0850029,
+        0
+      ],
+      "local": [
+        63.0000076,
+        15.0850029,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          4,
+          1.03
+        ],
+        "bounds": [
+          276.69,
+          14.5700026,
+          280.69,
+          15.6000032
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          4,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          276.69,
+          14.5700026,
+          280.69,
+          15.6000032
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P18_Moving",
+      "parent": "Section_4",
+      "position": [
+        283.39,
+        15.6850023,
+        0
+      ],
+      "local": [
+        67.7000046,
+        15.6850023,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Moving.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          282.490021,
+          15.170002,
+          284.29,
+          16.2000027
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          282.490021,
+          15.170002,
+          284.29,
+          16.2000027
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "MovingPlatform": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MovingPlatform\",\"path\":{\"instanceID\":0},\"speed\":1.600000023841858,\"loopMode\":1,\"localWaypoints\":[{\"x\":0.0,\"y\":0.0},{\"x\":0.0,\"y\":3.0}],\"startDelay\":1.399999976158142,\"endpointWait\":1.0,\"riderDetectMargin\":0.15000000596046449,\"offscreenSpeedMultiplier\":5.0,\"offscreenMargin\":2.0,\"speedBlendRate\":20.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P19_Normal",
+      "parent": "Section_4",
+      "position": [
+        287.09,
+        19.2850037,
+        0
+      ],
+      "local": [
+        71.4,
+        19.2850037,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          286.09,
+          18.7700043,
+          288.09,
+          19.8000031
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          286.09,
+          18.7700043,
+          288.09,
+          19.8000031
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P20_Damage",
+      "parent": "Section_4",
+      "position": [
+        292.19,
+        18.6850033,
+        0
+      ],
+      "local": [
+        76.5,
+        18.6850033,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Damage.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          291.29,
+          18.1700039,
+          293.09,
+          19.2000027
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          291.29,
+          18.1700039,
+          293.09,
+          19.2000027
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DamageFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DamageFoothold\",\"damageDelay\":0.5,\"damageAmount\":8,\"damageInterval\":0.5,\"safeDuration\":2.4000000953674318,\"activeDuration\":1.600000023841858,\"cycleOffset\":0.0,\"damageEffectPrefab\":{\"fileID\":8881253990569809332,\"guid\":\"220e68df227cb064b82ae9992cb6ef85\",\"type\":3},\"effectRatePerUnit\":14.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P21_Normal",
+      "parent": "Section_4",
+      "position": [
+        297.29,
+        18.0850029,
+        0
+      ],
+      "local": [
+        81.6,
+        18.0850029,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          296.29,
+          17.5700035,
+          298.29,
+          18.6000023
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          296.29,
+          17.5700035,
+          298.29,
+          18.6000023
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P22_Damage",
+      "parent": "Section_4",
+      "position": [
+        302.39,
+        17.4850025,
+        0
+      ],
+      "local": [
+        86.7,
+        17.4850025,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Damage.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          301.490021,
+          16.9700031,
+          303.29,
+          18.0000019
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          301.490021,
+          16.9700031,
+          303.29,
+          18.0000019
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DamageFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DamageFoothold\",\"damageDelay\":0.5,\"damageAmount\":8,\"damageInterval\":0.5,\"safeDuration\":2.4000000953674318,\"activeDuration\":1.600000023841858,\"cycleOffset\":0.5,\"damageEffectPrefab\":{\"fileID\":8881253990569809332,\"guid\":\"220e68df227cb064b82ae9992cb6ef85\",\"type\":3},\"effectRatePerUnit\":14.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P23_Normal",
+      "parent": "Section_4",
+      "position": [
+        307.49,
+        16.8850021,
+        0
+      ],
+      "local": [
+        91.7999954,
+        16.8850021,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          306.49,
+          16.3700027,
+          308.49,
+          17.4000015
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          306.49,
+          16.3700027,
+          308.49,
+          17.4000015
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P24_Damage",
+      "parent": "Section_4",
+      "position": [
+        312.59,
+        16.2850018,
+        0
+      ],
+      "local": [
+        96.8999939,
+        16.2850018,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Damage.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          311.69,
+          15.7700014,
+          313.49,
+          16.8000011
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          311.69,
+          15.7700024,
+          313.49,
+          16.8000011
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DamageFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DamageFoothold\",\"damageDelay\":0.5,\"damageAmount\":8,\"damageInterval\":0.5,\"safeDuration\":2.4000000953674318,\"activeDuration\":1.600000023841858,\"cycleOffset\":1.0,\"damageEffectPrefab\":{\"fileID\":8881253990569809332,\"guid\":\"220e68df227cb064b82ae9992cb6ef85\",\"type\":3},\"effectRatePerUnit\":14.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P25_Normal",
+      "parent": "Section_4",
+      "position": [
+        317.69,
+        15.685,
+        0
+      ],
+      "local": [
+        101.999992,
+        15.685,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          316.69,
+          15.17,
+          318.69,
+          16.2
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          316.69,
+          15.17,
+          318.69,
+          16.2
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P26_Damage",
+      "parent": "Section_4",
+      "position": [
+        322.789978,
+        15.085,
+        0
+      ],
+      "local": [
+        107.099991,
+        15.085,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Damage.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          1.8,
+          1.03
+        ],
+        "bounds": [
+          321.889984,
+          14.57,
+          323.689972,
+          15.6
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          1.8,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          321.889984,
+          14.57,
+          323.689972,
+          15.6
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}",
+        "DamageFoothold": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::DamageFoothold\",\"damageDelay\":0.5,\"damageAmount\":8,\"damageInterval\":0.5,\"safeDuration\":2.4000000953674318,\"activeDuration\":1.600000023841858,\"cycleOffset\":1.5,\"damageEffectPrefab\":{\"fileID\":8881253990569809332,\"guid\":\"220e68df227cb064b82ae9992cb6ef85\",\"type\":3},\"effectRatePerUnit\":14.0}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P27_Normal",
+      "parent": "Section_4",
+      "position": [
+        327.889984,
+        14.485,
+        0
+      ],
+      "local": [
+        112.199989,
+        14.485,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          2,
+          1.03
+        ],
+        "bounds": [
+          326.889984,
+          13.9699993,
+          328.889984,
+          15
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          2,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          326.889984,
+          13.9699993,
+          328.889984,
+          15
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Platform_1-4_P28_Normal",
+      "parent": "Section_4",
+      "position": [
+        334.59,
+        13.8849993,
+        0
+      ],
+      "local": [
+        118.899986,
+        13.8849993,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GrassStone_Normal.prefab",
+      "sprite": {
+        "mode": "Sliced",
+        "tile": "Continuous",
+        "size": [
+          5,
+          1.03
+        ],
+        "bounds": [
+          332.09,
+          13.3699989,
+          337.09,
+          14.4
+        ],
+        "asset": "Assets/@ExternalAssets/Tiles/S_GrassStone_Trimmed.asset",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          5,
+          1.03
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          332.09,
+          13.3699989,
+          337.09,
+          14.4
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "PlatformCore": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlatformCore\"}}"
+      },
+      "layer": 8
+    },
+    {
+      "name": "Monster_1-4_A",
+      "parent": "Section_4",
+      "position": [
+        234.290009,
+        3.0805645,
+        0
+      ],
+      "local": [
+        18.6000061,
+        3.0805645,
+        0
+      ],
+      "scale": [
+        0.08445924,
+        0.08445924,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GroundPatrol.prefab",
+      "sprite": {
+        "mode": "Simple",
+        "tile": "Continuous",
+        "size": [
+          1,
+          1
+        ],
+        "bounds": [
+          233.92514,
+          2.580566,
+          234.654877,
+          3.580563
+        ],
+        "asset": "Assets/Sprites/Monster/ForestGoblin/walk_right_1.png",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          5,
+          5.3
+        ],
+        "offset": [
+          0,
+          -0.33
+        ],
+        "bounds": [
+          234.078857,
+          2.828876,
+          234.50116,
+          3.27650976
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "MonsterStats": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterStats\",\"maxHealth\":30,\"attack\":10,\"defense\":10,\"deathGravityScale\":3.0}}",
+        "MonsterContactDamage": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterContactDamage\",\"targetLayer\":{\"serializedVersion\":\"2\",\"m_Bits\":1},\"attackCooldown\":1.0}}",
+        "MonsterController": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterController\",\"playerWorldHeight\":1.2864999771118165,\"sizeRatio\":0.5}}",
+        "MonsterFlightAnimator": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterFlightAnimator\"}}",
+        "MonsterItemDropper": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterItemDropper\",\"entries\":[{\"prefab\":{\"fileID\":6374734668538926927,\"guid\":\"f4d9424ab8315cc4586ed371bca571d8\",\"type\":3},\"chance\":1.0,\"condition\":0,\"lowHealthMultiplier\":1.0},{\"prefab\":{\"fileID\":8176400308161957984,\"guid\":\"ff62021cfad47e449a51887a0c53bdfd\",\"type\":3},\"chance\":0.10000000149011612,\"condition\":0,\"lowHealthMultiplier\":2.0},{\"prefab\":{\"fileID\":3489701326873669237,\"guid\":\"a9a03d7241ef80b47aa430895630a4dd\",\"type\":3},\"chance\":0.10000000149011612,\"condition\":1,\"lowHealthMultiplier\":1.0},{\"prefab\":{\"fileID\":1439203986295433433,\"guid\":\"2b60388adc08a2f4796868a27b301681\",\"type\":3},\"chance\":0.05000000074505806,\"condition\":2,\"lowHealthMultiplier\":1.0}],\"lowHealthThreshold\":0.30000001192092898}}",
+        "PathPatrolPattern": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PathPatrolPattern\",\"path\":{\"instanceID\":0},\"moveSpeed\":1.2000000476837159,\"arrivalThreshold\":0.10000000149011612}}",
+        "MonsterLocomotion": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterLocomotion\",\"type\":0,\"groundGravityScale\":1.0,\"flyingGravityScale\":0.0}}",
+        "MonsterScaleSetter": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterScaleSetter\",\"scaleRatio\":0.5}}"
+      },
+      "layer": 9
+    },
+    {
+      "name": "Monster_1-4_B",
+      "parent": "Section_4",
+      "position": [
+        277.89,
+        15.6805687,
+        0
+      ],
+      "local": [
+        62.2000122,
+        15.6805687,
+        0
+      ],
+      "scale": [
+        0.08445924,
+        0.08445924,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_Stage1_GroundPatrol.prefab",
+      "sprite": {
+        "mode": "Simple",
+        "tile": "Continuous",
+        "size": [
+          1,
+          1
+        ],
+        "bounds": [
+          277.525146,
+          15.18057,
+          278.254883,
+          16.1805668
+        ],
+        "asset": "Assets/Sprites/Monster/ForestGoblin/walk_right_1.png",
+        "border": "(0.00, 0.00, 0.00, 0.00)"
+      },
+      "box": {
+        "size": [
+          5,
+          5.3
+        ],
+        "offset": [
+          0,
+          -0.33
+        ],
+        "bounds": [
+          277.678864,
+          15.4288788,
+          278.101166,
+          15.8765144
+        ],
+        "auto": false,
+        "trigger": false,
+        "enabled": true
+      },
+      "components": {
+        "MonsterStats": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterStats\",\"maxHealth\":30,\"attack\":10,\"defense\":10,\"deathGravityScale\":3.0}}",
+        "MonsterContactDamage": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterContactDamage\",\"targetLayer\":{\"serializedVersion\":\"2\",\"m_Bits\":1},\"attackCooldown\":1.0}}",
+        "MonsterController": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterController\",\"playerWorldHeight\":1.2864999771118165,\"sizeRatio\":0.5}}",
+        "MonsterFlightAnimator": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterFlightAnimator\"}}",
+        "MonsterItemDropper": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterItemDropper\",\"entries\":[{\"prefab\":{\"fileID\":6374734668538926927,\"guid\":\"f4d9424ab8315cc4586ed371bca571d8\",\"type\":3},\"chance\":1.0,\"condition\":0,\"lowHealthMultiplier\":1.0},{\"prefab\":{\"fileID\":8176400308161957984,\"guid\":\"ff62021cfad47e449a51887a0c53bdfd\",\"type\":3},\"chance\":0.10000000149011612,\"condition\":0,\"lowHealthMultiplier\":2.0},{\"prefab\":{\"fileID\":3489701326873669237,\"guid\":\"a9a03d7241ef80b47aa430895630a4dd\",\"type\":3},\"chance\":0.10000000149011612,\"condition\":1,\"lowHealthMultiplier\":1.0},{\"prefab\":{\"fileID\":1439203986295433433,\"guid\":\"2b60388adc08a2f4796868a27b301681\",\"type\":3},\"chance\":0.05000000074505806,\"condition\":2,\"lowHealthMultiplier\":1.0}],\"lowHealthThreshold\":0.30000001192092898}}",
+        "PathPatrolPattern": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PathPatrolPattern\",\"path\":{\"instanceID\":0},\"moveSpeed\":1.600000023841858,\"arrivalThreshold\":0.10000000149011612}}",
+        "MonsterLocomotion": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterLocomotion\",\"type\":0,\"groundGravityScale\":1.0,\"flyingGravityScale\":0.0}}",
+        "MonsterScaleSetter": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::MonsterScaleSetter\",\"scaleRatio\":0.5}}"
+      },
+      "layer": 9
+    },
+    {
+      "name": "OutOfBoundsTrigger_1-4",
+      "parent": "Section_4",
+      "position": [
+        276.45,
+        -6.5,
+        0
+      ],
+      "local": [
+        60.76001,
+        -6.5,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "prefab": "Assets/@ExternalAssets/@Prefab/P_OutOfBounds_Zone.prefab",
+      "box": {
+        "size": [
+          129.28,
+          3
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "bounds": [
+          211.81,
+          -8,
+          341.090027,
+          -5
+        ],
+        "auto": false,
+        "trigger": true,
+        "enabled": true
+      },
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "layer": 0
+    }
+  ],
+  "extras": [
+    {
+      "name": "Player",
+      "position": [
+        11.4934654,
+        1.87695336
+      ],
+      "components": {
+        "PlayerMovement": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerMovement\",\"moveSpeed\":8.0,\"jumpForce\":9.0,\"groundCheck\":{\"instanceID\":0},\"groundCheckRadius\":0.4000000059604645,\"groundLayer\":{\"serializedVersion\":\"2\",\"m_Bits\":1280},\"slopeCheckDistance\":1.0,\"maxWalkableSlopeAngle\":60.0,\"jumpSfx\":{\"fileID\":8300000,\"guid\":\"ba5e996d03685354f987a11f161181e2\",\"type\":3},\"slideStartAngle\":12.0,\"slideEndAngle\":6.0,\"slideMinSpeed\":3.0,\"slideMaxSpeed\":12.0,\"slideFriction\":8.0,\"slideBrake\":16.0}}",
+        "PlayerEquipment": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerEquipment\",\"defaultMainWeapon\":{\"instanceID\":0},\"defaultSubEquipment\":{\"instanceID\":0}}}",
+        "PlayerSpriteAnimator": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerSpriteAnimator\",\"spriteRenderer\":{\"instanceID\":0},\"idleVisualOffsetY\":0.0,\"walkVisualOffsetY\":0.0,\"runVisualOffsetY\":0.0,\"jumpVisualOffsetY\":0.0,\"boxOpenVisualOffsetY\":1.600000023841858,\"dashVisualOffsetY\":0.0,\"attackVisualOffsetY\":0.0,\"damageVisualOffsetY\":0.0,\"dashRight\":{\"fileID\":21300000,\"guid\":\"f62ae9d887bcc89498e31fd11a1c1b34\",\"type\":3},\"dashLeft\":{\"fileID\":21300000,\"guid\":\"f62ae9d887bcc89498e31fd11a1c1b34\",\"type\":3},\"attackFrames\":[{\"fileID\":21300000,\"guid\":\"6bb10b8cee3231b4da2fea1efa54b75e\",\"type\":3},{\"fileID\":21300000,\"guid\":\"80054ef6d462a114c98bc17a3d0c3818\",\"type\":3},{\"fileID\":21300000,\"guid\":\"41502a0b55bf7e44f86f785663d291dd\",\"type\":3},{\"fileID\":21300000,\"guid\":\"f2705bfb0ddf51b44bbc3c1d84e8fa13\",\"type\":3},{\"fileID\":21300000,\"guid\":\"2476dfd9368ca79459e9bd6c080d5698\",\"type\":3},{\"fileID\":21300000,\"guid\":\"0d3f2d4ac8c68db48b6a5bc1ddffed3f\",\"type\":3},{\"fileID\":21300000,\"guid\":\"d305d2e7c0fff3c4381794d32ebe5227\",\"type\":3},{\"fileID\":21300000,\"guid\":\"eed04575b169b33478fbdf525c082efe\",\"type\":3}],\"damageRight\":{\"fileID\":21300000,\"guid\":\"7090f9ac098f18f459b7bc1d328e6c39\",\"type\":3},\"damageLeft\":{\"fileID\":21300000,\"guid\":\"bb3a8d4306ae5e744b4ea84f99bcb8e9\",\"type\":3},\"damageFlashDuration\":0.3499999940395355,\"idleRight\":{\"fileID\":21300000,\"guid\":\"96659352f6f6b6944b1846d000867394\",\"type\":3},\"idleLeft\":{\"fileID\":21300000,\"guid\":\"7ada2d9f202d0ef4aac6cff0b232a289\",\"type\":3},\"walkRight\":{\"fileID\":21300000,\"guid\":\"914e246d763296641a2f16d55740732b\",\"type\":3},\"walkLeft\":{\"fileID\":21300000,\"guid\":\"44a6b03ad25655f4586764cd57453163\",\"type\":3},\"runRight\":{\"fileID\":21300000,\"guid\":\"6e6ce30d5bd15964886ff7c476522e46\",\"type\":3},\"runLeft\":{\"fileID\":21300000,\"guid\":\"d296baabebc94c146845dbc01ab32d5d\",\"type\":3},\"jumpRight\":{\"fileID\":21300000,\"guid\":\"027cc64d3fa541b4395897f5932d74c0\",\"type\":3},\"jumpLeft\":{\"fileID\":21300000,\"guid\":\"9c20398ef4456da48a027a2cbbb0ecec\",\"type\":3},\"boxOpenRight\":{\"fileID\":21300000,\"guid\":\"a155308328cf50942b74c561478823a1\",\"type\":3},\"boxOpenLeft\":{\"fileID\":21300000,\"guid\":\"ea6c98ad65b27cf48a5d25812364d639\",\"type\":3},\"boxOpenRight2\":{\"fileID\":21300000,\"guid\":\"29e08d0176fb6b346b943b7f43a85679\",\"type\":3},\"boxOpenLeft2\":{\"fileID\":21300000,\"guid\":\"a15d2c4373869194e81554fa6eee81e6\",\"type\":3},\"interactKey\":101,\"boxOpenDuration\":0.6000000238418579,\"idleRightEquipped\":{\"instanceID\":0},\"idleLeftEquipped\":{\"instanceID\":0},\"walkRightEquipped\":{\"instanceID\":0},\"walkLeftEquipped\":{\"instanceID\":0},\"runRightEquipped\":{\"instanceID\":0},\"runLeftEquipped\":{\"instanceID\":0},\"jumpRightEquipped\":{\"instanceID\":0},\"jumpLeftEquipped\":{\"instanceID\":0},\"boxOpenRightEquipped\":{\"instanceID\":0},\"boxOpenLeftEquipped\":{\"instanceID\":0},\"idleRightDisarmed\":{\"fileID\":21300000,\"guid\":\"5aa527c4aa4047a408cca153d5f3bf51\",\"type\":3},\"idleLeftDisarmed\":{\"fileID\":21300000,\"guid\":\"68a25bb71fcc960429d966ef6f9268b7\",\"type\":3},\"walkRightDisarmed\":{\"fileID\":21300000,\"guid\":\"8b96f41185e39034b8e253335e124bc7\",\"type\":3},\"walkLeftDisarmed\":{\"fileID\":21300000,\"guid\":\"d4de6bad24467e641af3ba1e08f7d826\",\"type\":3},\"runRightDisarmed\":{\"fileID\":21300000,\"guid\":\"8b96f41185e39034b8e253335e124bc7\",\"type\":3},\"runLeftDisarmed\":{\"fileID\":21300000,\"guid\":\"d4de6bad24467e641af3ba1e08f7d826\",\"type\":3},\"jumpRightDisarmed\":{\"fileID\":21300000,\"guid\":\"ba7e8b7c7897d2e47b6c728dd73ae458\",\"type\":3},\"jumpLeftDisarmed\":{\"fileID\":21300000,\"guid\":\"2441e3670e3d5f54091025dba3c46960\",\"type\":3},\"boxOpenRightDisarmed\":{\"fileID\":21300000,\"guid\":\"4ae4b83dd8828ed42a58edfb79d45987\",\"type\":3},\"boxOpenLeftDisarmed\":{\"fileID\":21300000,\"guid\":\"e576491b41c00b842a458f5e5b319ad3\",\"type\":3},\"runKey\":0,\"guardRightFrames\":[{\"fileID\":21300000,\"guid\":\"ce33397a79f47d64ca108b935290802c\",\"type\":3},{\"fileID\":21300000,\"guid\":\"da184975ff58aee488a290b7d7dbe87b\",\"type\":3},{\"fileID\":21300000,\"guid\":\"6536853d34b467a40957404259e5708b\",\"type\":3},{\"fileID\":21300000,\"guid\":\"334a79d6bd3a5b0408fadc8bd9b535d7\",\"type\":3}],\"guardLeftFrames\":[{\"fileID\":21300000,\"guid\":\"ce33397a79f47d64ca108b935290802c\",\"type\":3},{\"fileID\":21300000,\"guid\":\"da184975ff58aee488a290b7d7dbe87b\",\"type\":3},{\"fileID\":21300000,\"guid\":\"6536853d34b467a40957404259e5708b\",\"type\":3},{\"fileID\":21300000,\"guid\":\"334a79d6bd3a5b0408fadc8bd9b535d7\",\"type\":3}],\"guardLeftFlipX\":true,\"guardEntryFrames\":2,\"guardFramesPerSecond\":8.0,\"guardVisualOffsetY\":0.0}}",
+        "PlayerDash": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerDash\",\"dashKey\":304,\"dashDistance\":0.8999999761581421,\"dashDuration\":0.20000000298023225,\"dashCooldown\":0.800000011920929}}",
+        "PlayerHealth": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerHealth\",\"baseHealth\":100,\"invincibleDuration\":1.0,\"disarmedMaxHealth\":100}}",
+        "PlayerStats": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerStats\",\"baseAttack\":10,\"baseDefense\":5}}",
+        "PlayerCombat": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerCombat\",\"attackPoint\":{\"instanceID\":0},\"attackRange\":0.75,\"enemyLayer\":{\"serializedVersion\":\"2\",\"m_Bits\":512},\"attackCooldown\":0.5199999809265137,\"attackVisualDuration\":0.5,\"specialActionCooldown\":1.0,\"attackSfx\":{\"fileID\":8300000,\"guid\":\"aa93d6fd9d6404e4f8c016e2408499a6\",\"type\":3}}}",
+        "PlayerPetrify": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerPetrify\",\"tintTarget\":{\"instanceID\":0},\"petrifiedColor\":{\"r\":0.550000011920929,\"g\":0.550000011920929,\"b\":0.550000011920929,\"a\":1.0}}}",
+        "PlayerHeroKnightMotionTest": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerHeroKnightMotionTest\",\"visual\":{\"instanceID\":0},\"rightFacingPoses\":[{\"fileID\":21300000,\"guid\":\"6bb10b8cee3231b4da2fea1efa54b75e\",\"type\":3},{\"fileID\":21300000,\"guid\":\"80054ef6d462a114c98bc17a3d0c3818\",\"type\":3},{\"fileID\":21300000,\"guid\":\"41502a0b55bf7e44f86f785663d291dd\",\"type\":3},{\"fileID\":21300000,\"guid\":\"f2705bfb0ddf51b44bbc3c1d84e8fa13\",\"type\":3},{\"fileID\":21300000,\"guid\":\"2476dfd9368ca79459e9bd6c080d5698\",\"type\":3},{\"fileID\":21300000,\"guid\":\"0d3f2d4ac8c68db48b6a5bc1ddffed3f\",\"type\":3},{\"fileID\":21300000,\"guid\":\"d305d2e7c0fff3c4381794d32ebe5227\",\"type\":3},{\"fileID\":21300000,\"guid\":\"eed04575b169b33478fbdf525c082efe\",\"type\":3},{\"fileID\":21300000,\"guid\":\"f62ae9d887bcc89498e31fd11a1c1b34\",\"type\":3}],\"damageRightPose\":{\"fileID\":21300000,\"guid\":\"7090f9ac098f18f459b7bc1d328e6c39\",\"type\":3},\"damageLeftPose\":{\"fileID\":21300000,\"guid\":\"bb3a8d4306ae5e744b4ea84f99bcb8e9\",\"type\":3}}}",
+        "PlayerPlatformDrop": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerPlatformDrop\"}}",
+        "PlayerDefense": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerDefense\",\"perfectWindowFrames\":3,\"buffDuration\":5.0}}",
+        "PlayerDefenseFeedback": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerDefenseFeedback\",\"guardStartSfx\":{\"fileID\":8300000,\"guid\":\"500e3b8ee6df7e446bce5ef327887f72\",\"type\":3},\"normalBlockSfx\":{\"fileID\":8300000,\"guid\":\"1ae4024184592e244bbcbef83b32d7ff\",\"type\":3},\"perfectBlockSfx\":{\"fileID\":8300000,\"guid\":\"63772df8cfe39e640b5652cfbbfb1bc8\",\"type\":3},\"perfectEffectRenderer\":{\"instanceID\":0},\"perfectEffectFrames\":[{\"fileID\":21300000,\"guid\":\"8f84a3cce0c33074c83c2b165b4ff60c\",\"type\":3},{\"fileID\":21300000,\"guid\":\"83cf3ec375aff414787aa48e3f89daff\",\"type\":3},{\"fileID\":21300000,\"guid\":\"aab1d354eb5e2ba439e888421d6fefe5\",\"type\":3}],\"perfectEffectFps\":15.0,\"perfectEffectOffset\":{\"x\":3.5,\"y\":7.0}}}",
+        "PlayerSpeedBuff": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerSpeedBuff\"}}",
+        "PlayerFuryBuff": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::PlayerFuryBuff\"}}"
+      },
+      "bounds": [
+        11.00193,
+        1.87695324,
+        11.9850006,
+        3.16340828
+      ]
+    },
+    {
+      "name": "Background_Forest",
+      "position": [
+        27,
+        0
+      ],
+      "components": {
+        "CameraBoundsZone": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::CameraBoundsZone\",\"size\":{\"x\":54.0,\"y\":17.0},\"orthographicSize\":5.0,\"leftBoundary\":{\"instanceID\":0},\"rightBoundary\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        0,
+        -8.5,
+        58,
+        8.5
+      ]
+    },
+    {
+      "name": "Background_Forest",
+      "position": [
+        107,
+        -30
+      ],
+      "components": {
+        "CameraBoundsZone": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::CameraBoundsZone\",\"size\":{\"x\":98.0,\"y\":92.0},\"orthographicSize\":7.5,\"leftBoundary\":{\"instanceID\":0},\"rightBoundary\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        58,
+        -76,
+        156,
+        16
+      ]
+    },
+    {
+      "name": "FallGuard_0_0",
+      "position": [
+        93.26893,
+        -1
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -3,
+        128.537857,
+        1
+      ]
+    },
+    {
+      "name": "FallGuard_1_0",
+      "position": [
+        91.14064,
+        -5
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -7,
+        124.281281,
+        -3
+      ]
+    },
+    {
+      "name": "FallGuard_1_1",
+      "position": [
+        154.268921,
+        -5
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        152.537842,
+        -7,
+        156,
+        -3
+      ]
+    },
+    {
+      "name": "FallGuard_2_0",
+      "position": [
+        89.0123444,
+        -9
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -11,
+        120.024689,
+        -7
+      ]
+    },
+    {
+      "name": "FallGuard_2_1",
+      "position": [
+        152.14064,
+        -9
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        148.281281,
+        -11,
+        156,
+        -7
+      ]
+    },
+    {
+      "name": "FallGuard_3_0",
+      "position": [
+        86.8840561,
+        -13
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -15,
+        115.768112,
+        -11
+      ]
+    },
+    {
+      "name": "FallGuard_3_1",
+      "position": [
+        150.012344,
+        -13
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        144.024689,
+        -15,
+        156,
+        -11
+      ]
+    },
+    {
+      "name": "FallGuard_4_0",
+      "position": [
+        84.75577,
+        -17
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -19,
+        111.511536,
+        -15
+      ]
+    },
+    {
+      "name": "FallGuard_4_1",
+      "position": [
+        147.884064,
+        -17
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        139.768127,
+        -19,
+        156,
+        -15
+      ]
+    },
+    {
+      "name": "FallGuard_5_0",
+      "position": [
+        82.62748,
+        -21
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -23,
+        107.254959,
+        -19
+      ]
+    },
+    {
+      "name": "FallGuard_5_1",
+      "position": [
+        145.755768,
+        -21
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        135.511536,
+        -23,
+        156,
+        -19
+      ]
+    },
+    {
+      "name": "FallGuard_6_0",
+      "position": [
+        80.49919,
+        -25
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -27,
+        102.998383,
+        -23
+      ]
+    },
+    {
+      "name": "FallGuard_6_1",
+      "position": [
+        143.627472,
+        -25
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        131.254944,
+        -27,
+        156,
+        -23
+      ]
+    },
+    {
+      "name": "FallGuard_7_0",
+      "position": [
+        78.3709,
+        -29
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -31,
+        98.741806,
+        -27
+      ]
+    },
+    {
+      "name": "FallGuard_7_1",
+      "position": [
+        141.499191,
+        -29
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        126.998383,
+        -31,
+        156,
+        -27
+      ]
+    },
+    {
+      "name": "FallGuard_8_0",
+      "position": [
+        76.2426147,
+        -33
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -35,
+        94.48523,
+        -31
+      ]
+    },
+    {
+      "name": "FallGuard_8_1",
+      "position": [
+        139.370911,
+        -33
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        122.741806,
+        -35,
+        156.000015,
+        -31
+      ]
+    },
+    {
+      "name": "FallGuard_9_0",
+      "position": [
+        74.11432,
+        -37
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -39,
+        90.22864,
+        -35
+      ]
+    },
+    {
+      "name": "FallGuard_9_1",
+      "position": [
+        137.242615,
+        -37
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        118.485229,
+        -39,
+        156,
+        -35
+      ]
+    },
+    {
+      "name": "FallGuard_10_0",
+      "position": [
+        71.98603,
+        -41
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -43,
+        85.97206,
+        -39
+      ]
+    },
+    {
+      "name": "FallGuard_10_1",
+      "position": [
+        135.114319,
+        -41
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        114.228638,
+        -43,
+        156,
+        -39
+      ]
+    },
+    {
+      "name": "FallGuard_11_0",
+      "position": [
+        69.85774,
+        -45
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -47,
+        81.7154846,
+        -43
+      ]
+    },
+    {
+      "name": "FallGuard_11_1",
+      "position": [
+        132.986038,
+        -45
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        109.972076,
+        -47,
+        156,
+        -43
+      ]
+    },
+    {
+      "name": "FallGuard_12_0",
+      "position": [
+        67.729454,
+        -49
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -51,
+        77.45891,
+        -47
+      ]
+    },
+    {
+      "name": "FallGuard_12_1",
+      "position": [
+        130.857742,
+        -49
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        105.715485,
+        -51,
+        156,
+        -47
+      ]
+    },
+    {
+      "name": "FallGuard_13_0",
+      "position": [
+        65.6011658,
+        -53
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -55,
+        73.20233,
+        -51
+      ]
+    },
+    {
+      "name": "FallGuard_13_1",
+      "position": [
+        128.729462,
+        -53
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        101.458923,
+        -55,
+        156,
+        -51
+      ]
+    },
+    {
+      "name": "FallGuard_14_0",
+      "position": [
+        64.53702,
+        -56
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -57,
+        71.0740356,
+        -55
+      ]
+    },
+    {
+      "name": "FallGuard_14_1",
+      "position": [
+        126.601166,
+        -56
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        97.20233,
+        -57,
+        156,
+        -55
+      ]
+    },
+    {
+      "name": "Background_Forest",
+      "position": [
+        183.905,
+        9.75
+      ],
+      "components": {
+        "CameraBoundsZone": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::CameraBoundsZone\",\"size\":{\"x\":55.81000518798828,\"y\":15.5},\"orthographicSize\":5.0,\"leftBoundary\":{\"instanceID\":0},\"rightBoundary\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        156,
+        2,
+        211.81,
+        17.5
+      ]
+    },
+    {
+      "name": "Background_Forest",
+      "position": [
+        276.45,
+        11.5
+      ],
+      "components": {
+        "CameraBoundsZone": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::CameraBoundsZone\",\"size\":{\"x\":129.27999877929688,\"y\":29.0},\"orthographicSize\":5.0,\"leftBoundary\":{\"instanceID\":0},\"rightBoundary\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        211.810013,
+        -3,
+        341.090027,
+        26
+      ]
+    },
+    {
+      "name": "OutOfBoundsTrigger_1-4",
+      "position": [
+        276.45,
+        -6.5
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        211.81,
+        -8,
+        341.090027,
+        -5
+      ]
+    },
+    {
+      "name": "Background_Forest",
+      "position": [
+        14.78,
+        -50
+      ],
+      "components": {
+        "CameraBoundsZone": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::CameraBoundsZone\",\"size\":{\"x\":29.56999969482422,\"y\":16.899999618530275},\"orthographicSize\":6.5,\"leftBoundary\":{\"instanceID\":0},\"rightBoundary\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        -0.005001068,
+        -58.45,
+        29.5649986,
+        -41.55
+      ]
+    },
+    {
+      "name": "OutOfBoundsTrigger_1-5",
+      "position": [
+        14.78,
+        -57.5
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        -5.220001,
+        -58.5,
+        34.78,
+        -56.5
+      ]
+    },
+    {
+      "name": "Boundary_1_2",
+      "position": [
+        58,
+        1
+      ],
+      "components": {
+        "SectionEdgeTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::SectionEdgeTrigger\",\"previousZone\":{\"instanceID\":0},\"nextZone\":{\"instanceID\":0},\"cameraFollow\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        57.85,
+        -4,
+        58.15,
+        6
+      ]
+    },
+    {
+      "name": "Boundary_2_3",
+      "position": [
+        156,
+        0
+      ],
+      "components": {
+        "SectionEdgeTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::SectionEdgeTrigger\",\"previousZone\":{\"instanceID\":0},\"nextZone\":{\"instanceID\":0},\"cameraFollow\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        155.85,
+        -5,
+        156.15,
+        5
+      ]
+    },
+    {
+      "name": "Boundary_3_4",
+      "position": [
+        211.81,
+        11.5
+      ],
+      "components": {
+        "SectionEdgeTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::SectionEdgeTrigger\",\"previousZone\":{\"instanceID\":0},\"nextZone\":{\"instanceID\":0},\"cameraFollow\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        211.66,
+        -3,
+        211.959991,
+        26
+      ]
+    },
+    {
+      "name": "Boundary_4_5",
+      "position": [
+        341.09,
+        11.5
+      ],
+      "components": {
+        "SectionEdgeTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::SectionEdgeTrigger\",\"previousZone\":{\"instanceID\":0},\"nextZone\":{\"instanceID\":0},\"cameraFollow\":{\"instanceID\":0}}}"
+      },
+      "bounds": [
+        340.94,
+        -3,
+        341.24,
+        26
+      ]
+    },
+    {
+      "name": "OutOfBoundsTrigger",
+      "position": [
+        11,
+        -20
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        -36,
+        -21,
+        58,
+        -19
+      ]
+    },
+    {
+      "name": "OutOfBoundsTrigger_Right",
+      "position": [
+        218,
+        -20
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        156,
+        -21,
+        280,
+        -19
+      ]
+    },
+    {
+      "name": "OutOfBoundsTrigger_1-2",
+      "position": [
+        107,
+        -80
+      ],
+      "components": {
+        "OutOfBoundsTrigger": "{\"MonoBehaviour\":{\"m_Enabled\":true,\"m_EditorHideFlags\":0,\"m_Name\":\"\",\"m_EditorClassIdentifier\":\"Assembly-CSharp::OutOfBoundsTrigger\"}}"
+      },
+      "bounds": [
+        58,
+        -81,
+        156,
+        -79
+      ]
+    }
+  ],
+  "gravity": -9.81,
+  "fixedDeltaTime": 0.0199999921
+}

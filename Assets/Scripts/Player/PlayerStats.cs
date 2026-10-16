@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int baseDefense = 5;  // 초기 방어력
 
     private float defenseAttackBonus; // 완벽 방어 버프의 공격력 증가율(0이면 영향 없음). PlayerDefense가 설정
+    private long furyAttackBonus; // Codex, 2026-10-15: additive area bonus after existing multipliers.
     private PlayerEquipment equipment; // 장착 상태 조회용(같은 오브젝트의 컴포넌트, GetComponent로 캐싱 - 규칙 37)
 
     public int FinalAttack { get; private set; }
@@ -17,6 +18,13 @@ public class PlayerStats : MonoBehaviour
 
     // (finalAttack, finalDefense) - 스테이터스 창 갱신용
     public event Action<int, int> OnStatsChanged;
+
+    // Stack counters retain long precision; damage saturates at the existing int API limit.
+    public void SetFuryAttackBonus(long bonus)
+    {
+        furyAttackBonus = Math.Max(0L, bonus);
+        RecalculateStats();
+    }
 
     // 방어 버프 공격력 보너스(예: 0.2 = +20%)를 교체하고 장비 포함 최종 공격력을 다시 계산한다.
     public void SetDefenseAttackBonus(float bonus)
@@ -48,6 +56,7 @@ public class PlayerStats : MonoBehaviour
     // 7개 부위의 장착 아이템 보너스를 합산해 최종 수치(기본값 + 장비 합)를 다시 계산
     private void RecalculateStats()
     {
+        if (equipment == null) equipment = GetComponent<PlayerEquipment>();
         int attackBonus = 0;
         int defenseBonus = 0;
 
@@ -60,7 +69,8 @@ public class PlayerStats : MonoBehaviour
             defenseBonus += item.DefenseBonus;
         }
 
-        FinalAttack = Mathf.RoundToInt((baseAttack + attackBonus) * (1f + defenseAttackBonus));
+        double attack = Math.Round(((double)baseAttack + attackBonus) * (1d + defenseAttackBonus)) + furyAttackBonus;
+        FinalAttack = (int)Math.Min(int.MaxValue, Math.Max(0d, attack));
         FinalDefense = baseDefense + defenseBonus;
         OnStatsChanged?.Invoke(FinalAttack, FinalDefense);
     }

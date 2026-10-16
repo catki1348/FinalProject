@@ -1,0 +1,27 @@
+{
+  "status": "verified",
+  "revision": "stage52_deterministic_fix_20261016",
+  "date": "2026-10-16",
+  "internalAttribution": {
+    "agent": "Codex",
+    "model": "GPT-6",
+    "task": "fixed 5-2 repair, engine validation and scene save"
+  },
+  "sourceDesignSha256": "9F374DA7828E675257288E7320069EE8C82DDE32392900D23ADDE6A402EDBDBB",
+  "placementDataSha256": "365853DC8D346BA7E2B8A78038ED87C71130C76A94B1327A1A414DF2EDC1E671",
+  "movingPlatformSourceSha256": "109B1F31177783E8757461381C2D9D69B11E3329326140B62EC82C73B0DE4D15",
+  "savedSceneSha256": "DF77B30F3FC546F9F1C343E2157E7D9B891ED68E17A5AA4E16FE68339CAA3E95",
+  "actualPhysicsSeconds": 400,
+  "actualPhysicsSteps": 20000,
+  "actualLandingLinks": 62,
+  "jumpLaunchVelocity": 8.049844718999243,
+  "jumpHeightFraction": 0.8,
+  "moveSpeed": 8,
+  "modelMaximumUnavailableSeconds": 3.6,
+  "fullManualPlaythrough": false,
+  "ownedTestScenes": [
+    "Assets/Scenes/Test001.unity",
+    "Assets/Scenes/Test002.unity"
+  ],
+  "temporaryScenesDeleted": true
+}

@@ -26,7 +26,7 @@ for ($i = 0; $i -le 30; $i++) {
         # One paired switch/launcher per encounter; the projectile crosses the following gap from above the surface.
         $nextY = $y + $(if (($i % 6) -lt 3) { $dy } else { -$dy })
         $fireY = [Math]::Max($y, $nextY) + 0.8
-        $traps += [ordered]@{ id = ('T{0:D2}' -f ($traps.Count + 1)); switchPlatform = $p.id; switchX = $p.x + $width / 2 - 1.5; switchY = $y + 0.3; firePoint = @{ x = $p.x + $step - $width / 2 - 0.3; y = $fireY }; direction = @(-1, 0); windupSeconds = 0.5; cooldown = 3.0; projectileSpeed = 6.0; projectileLifetime = 0.8; projectileDamage = 8 }
+        $traps += [ordered]@{ id = ('T{0:D2}' -f ($traps.Count + 1)); switchPlatform = $p.id; switchX = $p.x + $width / 2 - 1.5; switchY = $y + 0.01; firePoint = @{ x = $p.x + $step - $width / 2 - 0.3; y = $fireY }; direction = @(-1, 0); windupSeconds = 0.5; cooldown = 3.0; projectileSpeed = 6.0; projectileLifetime = 0.8; projectileDamage = 8 }
     }
 }
 # Validate counts, path length, jump gaps and complete moving envelopes from the actual generated coordinates.

@@ -1,0 +1,36 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430"><!-- Codex (GPT-6), 2026-10-15. Concept geometry preview. --><rect width="1200" height="430" fill="#12212a"/><g font-family="sans-serif" fill="#e4eff3"><text x="35" y="35" font-size="24">1-4 · Forest Trial Corridor — revised concept</text><text x="35" y="65" font-size="15">29 platforms · 28 verified jumps · 3 independent lifts · 2 ground patrols</text>
+<rect x='34.000' y='350.000' width='32.000' height='10.3' fill='#8bbf9f'/><text x='50.000' y='342.000' font-size='10' text-anchor='middle'>P01</text>
+<rect x='80.400' y='344.000' width='12.800' height='10.3' fill='#8bbf9f'/><text x='86.800' y='336.000' font-size='10' text-anchor='middle'>P02</text>
+<rect x='107.600' y='338.000' width='12.800' height='10.3' fill='#ddb16d'/><text x='114.000' y='330.000' font-size='10' text-anchor='middle'>P03</text>
+<rect x='134.800' y='332.000' width='12.800' height='10.3' fill='#ddb16d'/><text x='141.200' y='324.000' font-size='10' text-anchor='middle'>P04</text>
+<rect x='162.000' y='326.000' width='12.800' height='10.3' fill='#ddb16d'/><text x='168.400' y='318.000' font-size='10' text-anchor='middle'>P05</text>
+<rect x='189.200' y='320.000' width='32.000' height='10.3' fill='#8bbf9f'/><text x='205.200' y='312.000' font-size='10' text-anchor='middle'>P06</text>
+<rect x='235.600' y='314.000' width='14.400' height='10.3' fill='#77bde6'/><text x='242.800' y='306.000' font-size='10' text-anchor='middle'>P07</text>
+<path d='M 242.800,314.000 v -30' stroke='#77bde6' stroke-width='2' stroke-dasharray='3 3'/><rect x='235.600' y='284.000' width='14.400' height='10.3' fill='none' stroke='#77bde6'/>
+<rect x='264.400' y='278.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='272.400' y='270.000' font-size='10' text-anchor='middle'>P08</text>
+<rect x='294.800' y='272.000' width='14.400' height='10.3' fill='#77bde6'/><text x='302.000' y='264.000' font-size='10' text-anchor='middle'>P09</text>
+<path d='M 302.000,272.000 v -30' stroke='#77bde6' stroke-width='2' stroke-dasharray='3 3'/><rect x='294.800' y='242.000' width='14.400' height='10.3' fill='none' stroke='#77bde6'/>
+<rect x='323.600' y='236.000' width='24.000' height='10.3' fill='#8bbf9f'/><text x='335.600' y='228.000' font-size='10' text-anchor='middle'>P10</text>
+<rect x='362.000' y='230.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='369.200' y='222.000' font-size='10' text-anchor='middle'>P11</text>
+<rect x='390.800' y='224.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='398.800' y='216.000' font-size='10' text-anchor='middle'>P12</text>
+<rect x='421.200' y='218.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='428.400' y='210.000' font-size='10' text-anchor='middle'>P13</text>
+<rect x='450.000' y='212.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='458.000' y='204.000' font-size='10' text-anchor='middle'>P14</text>
+<rect x='480.400' y='206.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='487.600' y='198.000' font-size='10' text-anchor='middle'>P15</text>
+<rect x='509.200' y='200.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='517.200' y='192.000' font-size='10' text-anchor='middle'>P16</text>
+<rect x='539.600' y='194.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='546.800' y='186.000' font-size='10' text-anchor='middle'>P17</text>
+<rect x='568.400' y='188.000' width='32.000' height='10.3' fill='#8bbf9f'/><text x='584.400' y='180.000' font-size='10' text-anchor='middle'>P18</text>
+<rect x='614.800' y='182.000' width='14.400' height='10.3' fill='#77bde6'/><text x='622.000' y='174.000' font-size='10' text-anchor='middle'>P19</text>
+<path d='M 622.000,182.000 v -30' stroke='#77bde6' stroke-width='2' stroke-dasharray='3 3'/><rect x='614.800' y='152.000' width='14.400' height='10.3' fill='none' stroke='#77bde6'/>
+<rect x='643.600' y='146.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='651.600' y='138.000' font-size='10' text-anchor='middle'>P20</text>
+<rect x='682.000' y='150.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='689.200' y='142.000' font-size='10' text-anchor='middle'>P21</text>
+<rect x='718.800' y='154.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='726.800' y='146.000' font-size='10' text-anchor='middle'>P22</text>
+<rect x='757.200' y='158.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='764.400' y='150.000' font-size='10' text-anchor='middle'>P23</text>
+<rect x='794.000' y='162.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='802.000' y='154.000' font-size='10' text-anchor='middle'>P24</text>
+<rect x='832.400' y='166.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='839.600' y='158.000' font-size='10' text-anchor='middle'>P25</text>
+<rect x='869.200' y='170.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='877.200' y='162.000' font-size='10' text-anchor='middle'>P26</text>
+<rect x='907.600' y='174.000' width='14.400' height='10.3' fill='#b49ae3'/><text x='914.800' y='166.000' font-size='10' text-anchor='middle'>P27</text>
+<rect x='944.400' y='178.000' width='16.000' height='10.3' fill='#8bbf9f'/><text x='952.400' y='170.000' font-size='10' text-anchor='middle'>P28</text>
+<rect x='982.800' y='182.000' width='40.000' height='10.3' fill='#8bbf9f'/><text x='1002.800' y='174.000' font-size='10' text-anchor='middle'>P29</text>
+<circle cx='205.200' cy='312.000' r='5' fill='#f18571'/>
+<circle cx='584.400' cy='180.000' r='5' fill='#f18571'/>
+<text x="35" y="395" font-size="14">Green: normal · Amber: disappear · Blue: lift · Purple: blink · Red: patrol</text><text x="35" y="418" font-size="13">Concept only — geometry checked; Unity application and play verification pending.</text></g></svg>

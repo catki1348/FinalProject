@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>스테이지 1 영역별 숲 배경</title>
+<!-- Codex (GPT-6), 2026-10-16. Five generated area backgrounds and a transition preview. -->
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11231f;color:#e8f0e9;font:16px/1.65 system-ui,sans-serif}main{max-width:1440px;margin:auto;padding:28px}h1{font-size:28px;margin:0 0 10px}p{color:#bed0c4}.controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:20px 0}input{flex:1;min-width:200px}select{padding:8px;background:#244034;color:white;border:1px solid #72917a;border-radius:6px}.viewport{position:relative;overflow:hidden;aspect-ratio:16/9;background:#17372b;max-height:80vh;margin:auto}.viewport img{position:absolute;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}.tag{position:absolute;bottom:18px;left:18px;background:#0c201cd9;padding:8px 14px;border-radius:8px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}article{background:#1c352a;padding:15px;border-radius:12px}article h2{font-size:20px;margin:0 0 10px}article img{display:block;width:100%;height:auto}a{color:#aedbb9}.small{font-size:14px}@media(max-width:750px){main{padding:16px}.grid{grid-template-columns:1fr}}
+</style></head><body><main><h1>스테이지 1 · 영역별 숲 배경</h1><p>각 영역에 서로 다른 배경 1장을 사용합니다. 기존 숲·덩굴·먼 산의 테마를 유지하고 색감과 빛 방향을 통일했습니다. 배경은 카메라 화면을 따라 표시하여 긴 이동 구간에서도 나무와 산의 세부 묘사를 유지합니다.</p>
+<div class="controls"><label for="position">영역 전환</label><input id="position" type="range" min="0" max="4" step="0.01" value="0"><label for="aspect">화면비</label><select id="aspect"><option value="16 / 9">16:9</option><option value="21 / 9">21:9</option><option value="4 / 3">4:3</option></select></div>
+<div class="viewport" id="viewport"><img id="lower" alt="현재 영역 배경"><img id="upper" alt="다음 영역 배경"><span id="label" class="tag">1-1</span></div><p class="small">슬라이더로 인접 영역의 배경이 겹쳐지는 모습을 확인할 수 있습니다. Unity에서는 카메라 영역 변경에 맞춰 약 0.45초 동안 전환합니다. 이 미리보기는 배경 확인용이며 발판·캐릭터는 표시하지 않습니다.</p>
+<section class="grid" id="cards"></section><p class="small">실제 생성 파일은 각 1672×941px입니다. 4K로 생성 요청했으나 반환된 실제 해상도를 기록했습니다. Unity에서는 맵 전체 크기로 확대하지 않습니다.</p>
+<script>
+// Share the five source images between the individual cards and the camera-sized transition preview.
+const paths=Array.from({length:5},(_,i)=>`../Assets/@ExternalAssets/ForestBackground/T_Stage1_Area${i+1}_Forest.png`);
+const names=['숲 입구','깊은 숲','숲 속 원경','오래된 수림','보스 숲 공터'];
+document.getElementById('cards').innerHTML=paths.map((path,i)=>`<article><h2>1-${i+1} · ${names[i]}</h2><a href="${path}"><img src="${path}" alt="1-${i+1} 배경 원본" loading="lazy"></a></article>`).join('');
+function update(){const value=Number(document.getElementById('position').value),index=Math.min(4,Math.floor(value)),next=Math.min(4,index+1),t=value-index;document.getElementById('lower').src=paths[index];document.getElementById('upper').src=paths[next];document.getElementById('upper').style.opacity=t;document.getElementById('label').textContent=t>0?`1-${index+1} → 1-${next+1}`:`1-${index+1}`;document.getElementById('viewport').style.aspectRatio=document.getElementById('aspect').value;}
+document.getElementById('position').addEventListener('input',update);document.getElementById('aspect').addEventListener('change',update);update();
+</script></main></body></html>

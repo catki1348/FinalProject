@@ -71,7 +71,8 @@ public class MonsterItemDropper : MonoBehaviour
             if (!MeetsCondition(entry.condition, lowHealth, disarmed)) continue;
 
             float chance = entry.chance * (lowHealth ? entry.lowHealthMultiplier : 1f);
-            if (UnityEngine.Random.value < chance)
+            // Codex (GPT-6), 2026-10-15: Random.value can equal 1; guaranteed drops must skip the roll.
+            if (chance >= 1f || UnityEngine.Random.value < chance)
                 Instantiate(entry.prefab, transform.position, Quaternion.identity);
         }
     }

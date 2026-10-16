@@ -1,0 +1,1486 @@
+{
+  "status": "concept_only",
+  "distance": 75,
+  "unit": 8,
+  "routeLength": 600,
+  "start": [
+    0,
+    0
+  ],
+  "goal": [
+    582.123774886788,
+    11.399999999999999
+  ],
+  "distancePolicy": "shared K center -> moving entry -> full path -> next K center; runway ends at goal marker",
+  "segments": [
+    {
+      "part": 1,
+      "source": "1-3 lift relay",
+      "startRoute": 0.0,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "endRoute": 120.0,
+      "end": [
+        112.0736248070267,
+        6.199999999999999
+      ]
+    },
+    {
+      "part": 2,
+      "source": "2-3 five-point moving routes and route combat",
+      "startRoute": 120.0,
+      "start": [
+        112.0736248070267,
+        6.199999999999999
+      ],
+      "endRoute": 240.0,
+      "end": [
+        227.86920420982437,
+        6.199999999999999
+      ]
+    },
+    {
+      "part": 3,
+      "source": "3-3 switch trap corridor",
+      "startRoute": 240.0,
+      "start": [
+        227.86920420982437,
+        6.199999999999999
+      ],
+      "endRoute": 360.0,
+      "end": [
+        347.86920420982443,
+        6.199999999999999
+      ]
+    },
+    {
+      "part": 4,
+      "source": "4-3 Fury Run",
+      "startRoute": 360.0,
+      "start": [
+        347.86920420982443,
+        6.199999999999999
+      ],
+      "endRoute": 480,
+      "end": [
+        467.86920420982443,
+        6.199999999999999
+      ]
+    },
+    {
+      "part": 5,
+      "source": "Fusion: lift + five-point flight combat + switch + Fury finish",
+      "startRoute": 480,
+      "start": [
+        467.86920420982443,
+        6.199999999999999
+      ],
+      "endRoute": 600,
+      "end": [
+        582.123774886788,
+        11.399999999999999
+      ]
+    }
+  ],
+  "platforms": [
+    {
+      "id": "Start",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "routeAtExit": 0
+    },
+    {
+      "id": "P1_Vertical",
+      "part": 1,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 5.4,
+          "y": 0.6
+        },
+        {
+          "x": 5.4,
+          "y": 4.6
+        }
+      ],
+      "speed": 3.2,
+      "startDelay": 0,
+      "endpointWait": 0.25,
+      "routeAtExit": 9.43323108288245
+    },
+    {
+      "id": "P1_RestA",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 10.8,
+          "y": 5.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 14.8664621657649
+    },
+    {
+      "id": "P1_Diagonal",
+      "part": 1,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 16.200000000000003,
+          "y": 5.199999999999999
+        },
+        {
+          "x": 30.200000000000003,
+          "y": 1.1999999999999993
+        }
+      ],
+      "speed": 4.2,
+      "startDelay": 0.35,
+      "endpointWait": 0.25,
+      "routeAtExit": 34.826681944325934
+    },
+    {
+      "id": "P1_RestB",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 35.6,
+          "y": 1.1999999999999993
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 40.22668194432593
+    },
+    {
+      "id": "P1_ZigA",
+      "part": 1,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 41.0,
+          "y": 1.7999999999999994
+        },
+        {
+          "x": 41.0,
+          "y": 3.3999999999999995
+        }
+      ],
+      "speed": 1.8,
+      "startDelay": 0.5,
+      "endpointWait": 0.25,
+      "routeAtExit": 47.259913027208384
+    },
+    {
+      "id": "P1_ZigRest",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 46.4,
+          "y": 3.9999999999999996
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 52.693144110090834
+    },
+    {
+      "id": "P1_ZigB",
+      "part": 1,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 51.8,
+          "y": 4.6
+        },
+        {
+          "x": 51.8,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 2.0,
+      "startDelay": 1.0,
+      "endpointWait": 0.25,
+      "routeAtExit": 59.726375192973286
+    },
+    {
+      "id": "P1_N8",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 57.199999999999996,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 65.12637519297328
+    },
+    {
+      "id": "P1_N9",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 63.599999999999994,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 71.52637519297329
+    },
+    {
+      "id": "P1_N10",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 70.0,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 77.9263751929733
+    },
+    {
+      "id": "P1_N11",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 76.4,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 84.3263751929733
+    },
+    {
+      "id": "P1_N12",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 82.80000000000001,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 90.72637519297331
+    },
+    {
+      "id": "P1_N13",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 89.20000000000002,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 97.12637519297331
+    },
+    {
+      "id": "P1_N14",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 95.60000000000002,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 103.52637519297332
+    },
+    {
+      "id": "P1_K",
+      "part": 1,
+      "kind": "Normal",
+      "width": 24.14724961405336,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 112.0736248070267,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 120.0
+    },
+    {
+      "id": "P2_M1",
+      "part": 2,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 127.54724961405338,
+          "y": 6.199999999999999
+        },
+        {
+          "x": 132.54724961405338,
+          "y": 7.699999999999999
+        },
+        {
+          "x": 137.54724961405338,
+          "y": 4.699999999999999
+        },
+        {
+          "x": 142.54724961405338,
+          "y": 7.699999999999999
+        },
+        {
+          "x": 147.54724961405338,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 5.0,
+      "startDelay": 0.4,
+      "endpointWait": 0.25,
+      "routeAtExit": 157.57583510562785
+    },
+    {
+      "id": "P2_Rest1",
+      "part": 2,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 153.4472496140534,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 163.47583510562785
+    },
+    {
+      "id": "P2_M2",
+      "part": 2,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 159.3472496140534,
+          "y": 6.199999999999999
+        },
+        {
+          "x": 164.3472496140534,
+          "y": 7.699999999999999
+        },
+        {
+          "x": 169.3472496140534,
+          "y": 4.699999999999999
+        },
+        {
+          "x": 174.3472496140534,
+          "y": 7.699999999999999
+        },
+        {
+          "x": 179.3472496140534,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 5.5,
+      "startDelay": 0.8,
+      "endpointWait": 0.25,
+      "routeAtExit": 191.47804540422902
+    },
+    {
+      "id": "P2_Rest2",
+      "part": 2,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 185.2472496140534,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 197.37804540422903
+    },
+    {
+      "id": "P2_N20",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 192.1472496140534,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 204.27804540422903
+    },
+    {
+      "id": "P2_N21",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 198.5472496140534,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 210.67804540422904
+    },
+    {
+      "id": "P2_N22",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 204.94724961405342,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 217.07804540422904
+    },
+    {
+      "id": "P2_N23",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 211.34724961405342,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 223.47804540422905
+    },
+    {
+      "id": "P2_K",
+      "part": 2,
+      "kind": "Normal",
+      "width": 24.2439091915419,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 227.86920420982437,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 240.0
+    },
+    {
+      "id": "P3_Arrow0",
+      "part": 3,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 244.89115880559532,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 257.0219545957709
+    },
+    {
+      "id": "P3_Special0",
+      "part": 3,
+      "kind": "Damage",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 251.79115880559533,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 263.9219545957709
+    },
+    {
+      "id": "P3_Arrow1",
+      "part": 3,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 258.6911588055953,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 270.8219545957709
+    },
+    {
+      "id": "P3_Special1",
+      "part": 3,
+      "kind": "Blink",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 265.5911588055953,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 277.72195459577085
+    },
+    {
+      "id": "P3_Arrow2",
+      "part": 3,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 272.49115880559526,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 284.62195459577083
+    },
+    {
+      "id": "P3_Special2",
+      "part": 3,
+      "kind": "Moving",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 279.39115880559524,
+          "y": 6.199999999999999
+        },
+        {
+          "x": 283.39115880559524,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 2.4,
+      "startDelay": 0.7,
+      "endpointWait": 0.25,
+      "routeAtExit": 295.5219545957708
+    },
+    {
+      "id": "P3_Arrow3",
+      "part": 3,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 290.2911588055952,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 302.4219545957708
+    },
+    {
+      "id": "P3_Special3",
+      "part": 3,
+      "kind": "Damage",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 297.1911588055952,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 309.32195459577076
+    },
+    {
+      "id": "P3_Teleport1",
+      "part": 3,
+      "kind": "Normal",
+      "width": 6,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 304.59115880559517,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 316.72195459577074
+    },
+    {
+      "id": "P3_Teleport2",
+      "part": 3,
+      "kind": "Normal",
+      "width": 6,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 312.99115880559515,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 325.1219545957707
+    },
+    {
+      "id": "P3_N35",
+      "part": 3,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 320.3911588055951,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 332.5219545957707
+    },
+    {
+      "id": "P3_N36",
+      "part": 3,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 326.7911588055951,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 338.92195459577067
+    },
+    {
+      "id": "P3_N37",
+      "part": 3,
+      "kind": "Normal",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 333.1911588055951,
+          "y": 6.199999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 345.32195459577065
+    },
+    {
+      "id": "P4_Runway",
+      "part": 4,
+      "kind": "Normal",
+      "width": 132.27804540422937,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 403.73018150770974,
+          "y": 6.199999999999999
+        }
+      ],
+      "routeAtExit": 480
+    },
+    {
+      "id": "P5_Lift",
+      "part": 5,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 473.2692042098244,
+          "y": 6.799999999999999
+        },
+        {
+          "x": 473.2692042098244,
+          "y": 10.799999999999999
+        }
+      ],
+      "speed": 3.6,
+      "startDelay": 0.2,
+      "endpointWait": 0.25,
+      "routeAtExit": 489.43323108288246
+    },
+    {
+      "id": "P5_Rest",
+      "part": 5,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 479.1692042098244,
+          "y": 11.399999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 495.3636610841555
+    },
+    {
+      "id": "P5_FivePoint",
+      "part": 5,
+      "kind": "Moving",
+      "width": 2,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 485.06920420982436,
+          "y": 11.399999999999999
+        },
+        {
+          "x": 489.06920420982436,
+          "y": 12.599999999999998
+        },
+        {
+          "x": 493.06920420982436,
+          "y": 10.2
+        },
+        {
+          "x": 497.06920420982436,
+          "y": 12.599999999999998
+        },
+        {
+          "x": 501.06920420982436,
+          "y": 11.399999999999999
+        }
+      ],
+      "speed": 5.5,
+      "startDelay": 0.8,
+      "endpointWait": 0.25,
+      "routeAtExit": 518.9454293230364
+    },
+    {
+      "id": "P5_Arrow",
+      "part": 5,
+      "kind": "Normal",
+      "width": 5,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 506.96920420982434,
+          "y": 11.399999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 524.8454293230363
+    },
+    {
+      "id": "P5_Damage",
+      "part": 5,
+      "kind": "Damage",
+      "width": 4,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 513.8692042098244,
+          "y": 11.399999999999999
+        }
+      ],
+      "speed": 0,
+      "startDelay": 0,
+      "endpointWait": 0,
+      "routeAtExit": 531.7454293230363
+    },
+    {
+      "id": "P5_FinalRunway",
+      "part": 5,
+      "kind": "Normal",
+      "width": 66.8545706769637,
+      "thickness": 0.5,
+      "points": [
+        {
+          "x": 551.6964895483062,
+          "y": 11.399999999999999
+        }
+      ],
+      "routeAtExit": 600
+    }
+  ],
+  "traps": [
+    {
+      "kind": "ArrowSwitch",
+      "host": "P3_Arrow0",
+      "target": "P3_Special0",
+      "warning": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "damage": 8,
+      "lifetime": 0.8
+    },
+    {
+      "kind": "ArrowSwitch",
+      "host": "P3_Arrow1",
+      "target": "P3_Special1",
+      "warning": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "damage": 8,
+      "lifetime": 0.8
+    },
+    {
+      "kind": "ArrowSwitch",
+      "host": "P3_Arrow2",
+      "target": "P3_Special2",
+      "warning": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "damage": 8,
+      "lifetime": 0.8
+    },
+    {
+      "kind": "ArrowSwitch",
+      "host": "P3_Arrow3",
+      "target": "P3_Special3",
+      "warning": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "damage": 8,
+      "lifetime": 0.8
+    },
+    {
+      "kind": "Teleport",
+      "host": "P3_Teleport1",
+      "destination": "Start",
+      "damage": 0,
+      "cooldown": 3
+    },
+    {
+      "kind": "Teleport",
+      "host": "P3_Teleport2",
+      "destination": "Start",
+      "damage": 0,
+      "cooldown": 3
+    },
+    {
+      "kind": "ArrowSwitch",
+      "host": "P5_Arrow",
+      "target": "P5_Damage",
+      "warning": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "damage": 8,
+      "lifetime": 0.8
+    }
+  ],
+  "monsters": [
+    {
+      "id": "P2_F1_1",
+      "part": 2,
+      "x": 132.54724961405338,
+      "y": 9.7,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P2_M1"
+    },
+    {
+      "id": "P2_F1_2",
+      "part": 2,
+      "x": 137.54724961405338,
+      "y": 6.699999999999999,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P2_M1"
+    },
+    {
+      "id": "P2_F1_3",
+      "part": 2,
+      "x": 142.54724961405338,
+      "y": 9.7,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P2_M1"
+    },
+    {
+      "id": "P2_F2_1",
+      "part": 2,
+      "x": 164.3472496140534,
+      "y": 9.7,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P2_M2"
+    },
+    {
+      "id": "P2_F2_2",
+      "part": 2,
+      "x": 169.3472496140534,
+      "y": 6.699999999999999,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P2_M2"
+    },
+    {
+      "id": "P2_F2_3",
+      "part": 2,
+      "x": 174.3472496140534,
+      "y": 9.7,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P2_M2"
+    },
+    {
+      "id": "P4_G0_0",
+      "part": 4,
+      "x": 359.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 347.86920420982443
+    },
+    {
+      "id": "P4_G0_1",
+      "part": 4,
+      "x": 365.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 347.86920420982443
+    },
+    {
+      "id": "P4_G0_2",
+      "part": 4,
+      "x": 371.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 347.86920420982443
+    },
+    {
+      "id": "P4_G0_3",
+      "part": 4,
+      "x": 377.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 347.86920420982443
+    },
+    {
+      "id": "P4_G0_4",
+      "part": 4,
+      "x": 383.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 347.86920420982443
+    },
+    {
+      "id": "P4_G1_0",
+      "part": 4,
+      "x": 399.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_1",
+      "part": 4,
+      "x": 402.5358708764911,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_2",
+      "part": 4,
+      "x": 405.20253754315775,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_3",
+      "part": 4,
+      "x": 407.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_4",
+      "part": 4,
+      "x": 410.5358708764911,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_5",
+      "part": 4,
+      "x": 413.20253754315775,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_6",
+      "part": 4,
+      "x": 415.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_7",
+      "part": 4,
+      "x": 418.5358708764911,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_8",
+      "part": 4,
+      "x": 421.20253754315775,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G1_9",
+      "part": 4,
+      "x": 423.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 387.86920420982443
+    },
+    {
+      "id": "P4_G2_0",
+      "part": 4,
+      "x": 439.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_1",
+      "part": 4,
+      "x": 441.58348992411015,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_2",
+      "part": 4,
+      "x": 443.2977756383959,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_3",
+      "part": 4,
+      "x": 445.0120613526816,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_4",
+      "part": 4,
+      "x": 446.72634706696726,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_5",
+      "part": 4,
+      "x": 448.440632781253,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_6",
+      "part": 4,
+      "x": 450.1549184955387,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_7",
+      "part": 4,
+      "x": 451.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_8",
+      "part": 4,
+      "x": 453.58348992411015,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_9",
+      "part": 4,
+      "x": 455.2977756383959,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_10",
+      "part": 4,
+      "x": 457.0120613526816,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_11",
+      "part": 4,
+      "x": 458.72634706696726,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_12",
+      "part": 4,
+      "x": 460.440632781253,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_13",
+      "part": 4,
+      "x": 462.1549184955387,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P4_G2_14",
+      "part": 4,
+      "x": 463.86920420982443,
+      "y": 8.399999999999999,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 427.86920420982443
+    },
+    {
+      "id": "P5_F1",
+      "part": 5,
+      "x": 489.06920420982436,
+      "y": 14.599999999999998,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P5_FivePoint"
+    },
+    {
+      "id": "P5_F2",
+      "part": 5,
+      "x": 493.06920420982436,
+      "y": 12.2,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P5_FivePoint"
+    },
+    {
+      "id": "P5_F3",
+      "part": 5,
+      "x": 497.06920420982436,
+      "y": 14.599999999999998,
+      "pattern": "FlyingPathPatrol",
+      "drops": "default",
+      "activation": "P5_FivePoint"
+    },
+    {
+      "id": "P5_G0_0",
+      "part": 5,
+      "x": 526.1375698639814,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 521.2692042098244
+    },
+    {
+      "id": "P5_G0_1",
+      "part": 5,
+      "x": 531.6144812249082,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 521.2692042098244
+    },
+    {
+      "id": "P5_G0_2",
+      "part": 5,
+      "x": 537.0913925858349,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 521.2692042098244
+    },
+    {
+      "id": "P5_G1_0",
+      "part": 5,
+      "x": 543.1768496535312,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 538.3084839993742
+    },
+    {
+      "id": "P5_G1_1",
+      "part": 5,
+      "x": 545.9153053339946,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 538.3084839993742
+    },
+    {
+      "id": "P5_G1_2",
+      "part": 5,
+      "x": 548.653761014458,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 538.3084839993742
+    },
+    {
+      "id": "P5_G1_3",
+      "part": 5,
+      "x": 551.3922166949214,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 538.3084839993742
+    },
+    {
+      "id": "P5_G1_4",
+      "part": 5,
+      "x": 554.1306723753847,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 538.3084839993742
+    },
+    {
+      "id": "P5_G2_0",
+      "part": 5,
+      "x": 560.2161294430812,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    },
+    {
+      "id": "P5_G2_1",
+      "part": 5,
+      "x": 562.0417665633901,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    },
+    {
+      "id": "P5_G2_2",
+      "part": 5,
+      "x": 563.867403683699,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    },
+    {
+      "id": "P5_G2_3",
+      "part": 5,
+      "x": 565.6930408040079,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    },
+    {
+      "id": "P5_G2_4",
+      "part": 5,
+      "x": 567.5186779243168,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    },
+    {
+      "id": "P5_G2_5",
+      "part": 5,
+      "x": 569.3443150446257,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    },
+    {
+      "id": "P5_G2_6",
+      "part": 5,
+      "x": 571.1699521649346,
+      "y": 13.599999999999998,
+      "pattern": "FlyingChase",
+      "drops": "fury100_speed100",
+      "activationX": 555.347763788924
+    }
+  ],
+  "furyScopeProposal": "entire 5-3; reset on exit/death/restart; requires extending existing 4-3-only implementation",
+  "validation": {
+    "segmentLengths": [
+      120.0,
+      119.99999999999997,
+      120.00000000000006,
+      120.0,
+      120.00000000000009
+    ],
+    "sweptOverlaps": 0,
+    "platformCount": 45,
+    "monsterCount": 54,
+    "trapCount": 7,
+    "unityPhysicsTested": false
+  }
+}

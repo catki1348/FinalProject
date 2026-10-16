@@ -36,7 +36,8 @@ public static class VerifyStage1BossRedesign
         var ledges = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<BossArenaLedge>()).ToArray();
         var bossBody = boss.GetComponent<Rigidbody2D>();
         bossBody.bodyType = RigidbodyType2D.Kinematic;
-        bossBody.position = new Vector2(floor.bounds.center.x, floor.bounds.max.y);
+        // 3개 피라미드의 착지 시험 중에는 보스 몸통을 옆으로 옮겨 지형과의 접지만 분리 검증한다.
+        bossBody.position = new Vector2(floor.bounds.max.x - 2, floor.bounds.max.y);
         Physics2D.SyncTransforms();
         float offset = body.position.y - collider.bounds.min.y;
         var oldMode = Physics2D.simulationMode; Physics2D.simulationMode = SimulationMode2D.Script;
@@ -44,7 +45,7 @@ public static class VerifyStage1BossRedesign
         Action<float, float> place = (x, foot) => { drop.Restore(); body.position = new Vector2(x, foot + offset); body.linearVelocity = Vector2.zero; Physics2D.SyncTransforms(); };
         try
         {
-            record("30 ledges", ledges.Length == 30, "actual prefab instances");
+            record("45 ledges / three pyramids", ledges.Length == 45, "actual prefab instances");
             foreach (var ledge in ledges)
             {
                 var surface = ledge.GetComponent<Collider2D>().bounds;
@@ -58,9 +59,10 @@ public static class VerifyStage1BossRedesign
             }
 
             // 안쪽 격자를 한 층씩 80% 점프 속도로 실제 물리 상승한다.
-            foreach (int side in new[] { -1, 1 })
+            foreach (int side in new[] { -1, 0, 1 })
             {
-                var spine = ledges.Where(l => (l.transform.position.x - floor.bounds.center.x) * side > 0)
+                // 전체 바닥을 3등분한 각 구간 중앙의 피라미드를 선택한다.
+                var spine = ledges.Where(l => Mathf.Abs(l.transform.position.x - floor.bounds.center.x - side * floor.bounds.size.x / 3f) < 2.16f)
                     .GroupBy(l => Mathf.RoundToInt((l.GetComponent<Collider2D>().bounds.max.y - floor.bounds.max.y) / 0.8f))
                     .OrderBy(g => g.Key).Select(g => g.OrderBy(l => l.transform.position.x).First()).ToArray();
                 float priorTop = floor.bounds.max.y;

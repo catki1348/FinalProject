@@ -13,6 +13,9 @@ public class PlayerCameraFollow : MonoBehaviour
 
     private Camera cam;
 
+    // Background managers read the camera's actual selected zone, including teleports and backtracking.
+    public CameraBoundsZone ActiveZone => activeZone;
+
     // 마지막으로 카메라 추적을 반영한 시점의 물리 시간(Time.fixedTime).
     // 플레이어/이동 발판은 물리 스텝(기본 0.02초)마다 한 번씩만 위치가 바뀌는데(Rigidbody2D 보간 None),
     // 카메라가 매 렌더 프레임(예: 230fps) 부드럽게 따라가면 물리 스텝 사이 프레임마다 카메라만 움직여

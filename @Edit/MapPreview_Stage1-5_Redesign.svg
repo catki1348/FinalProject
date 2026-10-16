@@ -1,38 +1,54 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="560" viewBox="0 0 1120 560"><rect width="1120" height="560" fill="#14221c"/><g font-family="Malgun Gothic, sans-serif" fill="#edf5ea"><text x="35" y="35" font-size="23">1-5 보스존 · 좌우 정삼각형 5단 / 단차 0.8 / 보스 높이 7.0</text>
-<polygon points='291.014040375287,393.2 460.985959624713,393.2 376,246' fill='none' stroke='#d9b666' stroke-dasharray='5 5'/>
-<polygon points='659.014040375287,393.2 828.985959624713,393.2 744,246' fill='none' stroke='#d9b666' stroke-dasharray='5 5'/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="560" viewBox="0 0 1120 560"><rect width="1120" height="560" fill="#14221c"/><g font-family="Malgun Gothic, sans-serif" fill="#edf5ea"><text x="35" y="35" font-size="23">1-5 보스존 · 피라미드 3개 · 총 45개 발판 / 단차 0.8 / 보스 높이 7.0</text>
+<polygon points='45.6807070419537,393.2 215.65262629138,393.2 130.666666666667,246' fill='none' stroke='#d9b666' stroke-dasharray='5 5'/>
+<polygon points='475.014040375287,393.2 644.985959624713,393.2 560,246' fill='none' stroke='#d9b666' stroke-dasharray='5 5'/>
+<polygon points='904.34737370862,393.2 1074.31929295805,393.2 989.333333333333,246' fill='none' stroke='#d9b666' stroke-dasharray='5 5'/>
 <rect x='504.8' y='202.3' width='110.4' height='227.7' fill='#6b4a2b' opacity='0.85'/>
 <rect x='541.6' y='108' width='87.4' height='94.3' fill='#8fd14f' opacity='0.85'/>
-<rect x='277.214040375287' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='319.707020187644' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='362.2' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='404.692979812356' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='447.185959624713' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='645.214040375287' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='687.707020187644' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='730.2' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='772.692979812356' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='815.185959624713' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='298.460530281465' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='340.953510093822' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='383.446489906178' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='425.939469718535' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='666.460530281465' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='708.953510093822' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='751.446489906178' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='793.939469718535' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='319.707020187644' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='362.2' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='404.692979812356' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='687.707020187644' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='730.2' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='772.692979812356' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='340.953510093822' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='383.446489906178' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='708.953510093822' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='751.446489906178' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='362.2' y='246' width='27.6' height='16.5' rx='2' fill='#85c391'/>
-<rect x='730.2' y='246' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='31.8807070419537' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='74.3736868543101' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='116.866666666667' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='159.359646479023' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='201.85262629138' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='461.214040375287' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='503.707020187644' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='546.2' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='588.692979812356' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='631.185959624713' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='890.54737370862' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='933.040353520977' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='975.533333333333' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='1018.02631314569' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='1060.51929295805' y='393.2' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='53.1271969481319' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='95.6201767604884' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='138.113156572845' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='180.606136385201' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='482.460530281465' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='524.953510093822' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='567.446489906178' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='609.939469718535' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='911.793863614799' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='954.286843427155' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='996.779823239512' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='1039.27280305187' y='356.4' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='74.3736868543101' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='116.866666666667' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='159.359646479023' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='503.707020187644' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='546.2' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='588.692979812356' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='933.040353520977' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='975.533333333333' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='1018.02631314569' y='319.6' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='95.6201767604884' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='138.113156572845' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='524.953510093822' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='567.446489906178' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='954.286843427155' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='996.779823239512' y='282.8' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='116.866666666667' y='246' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='546.2' y='246' width='27.6' height='16.5' rx='2' fill='#85c391'/>
+<rect x='975.533333333333' y='246' width='27.6' height='16.5' rx='2' fill='#85c391'/>
 <line x1='20' y1='218.71153408' x2='1100' y2='218.71153408' stroke='#e08a5a' stroke-dasharray='3 4'/><text x='1010' y='214.71153408' font-size='12' fill='#e08a5a'>4단 검 도달 4.59</text>
 <line x1='20' y1='181.91153408' x2='1100' y2='181.91153408' stroke='#7ad0ff' stroke-dasharray='3 4'/><text x='1010' y='177.91153408' font-size='12' fill='#7ad0ff'>5단 검 도달 5.39</text>
 <text x='629' y='216.3' font-size='13'>머리 판정 하단 4.95</text>

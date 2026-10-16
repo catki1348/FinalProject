@@ -1,5 +1,7 @@
 # 1-4 재설계 — 숲의 시련 회랑
 
+> **후속 수정 설계:** [2026-10-15 수정안](MapDesign_Stage1-4_Revision.md). 최신 Tiled 기준·리프트 속도 차이·80% 점프 여유를 반영한 후속안이 Unity에 적용됐다. 아래는 이전 적용 이력이다.
+
 > 2026-10-08 재설계 및 **Unity 적용 완료**. 사용자 지시 “변경된 내용 적용해라”에 따라 Stage1.unity에 저장했다. 이 문서가 이전 1-4 좌표와 구현 완료 기록을 대체한다.
 > 설계 원본: [Design_Stage1-4.ps1](Design_Stage1-4.ps1). 재생성: `powershell -ExecutionPolicy Bypass -File @Edit/Design_Stage1-4.ps1`.
 

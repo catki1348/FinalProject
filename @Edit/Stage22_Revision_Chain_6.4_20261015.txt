@@ -1,0 +1,9 @@
+Jump from N8 at 2.065907
+Actual landing D1 at 2.641655
+Jump from D1 at 2.920815
+Actual landing D2 at 3.504804
+Jump from D2 at 3.781368
+Actual landing D3 at 4.362319
+Jump from D3 at 4.640056
+Actual landing N9 at 5.221035
+PASS live continuous chain speed 6.4

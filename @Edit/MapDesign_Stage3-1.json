@@ -1,704 +1,704 @@
-﻿{
-    "stage":  "3-1",
-    "status":  "design-only",
-    "unitsPerDesignUnit":  8,
-    "nominalRouteLength":  400.00000000000023,
-    "designRouteLength":  50.000000000000028,
-    "routeMetric":  "sum of surface-center waypoint distances, at moving-platform neutral positions",
-    "start":  {
-                  "y":  0,
-                  "x":  0
-              },
-    "goal":  {
-                 "y":  2.2204460492503131E-16,
-                 "x":  399.08770965791473
-             },
-    "bounds":  {
-                   "minX":  -10,
-                   "maxX":  409.08770965791473,
-                   "minY":  -8,
-                   "maxY":  12
-               },
-    "platforms":  [
-                      {
-                          "id":  "P00",
-                          "type":  "Normal",
-                          "x":  0,
-                          "surfaceY":  0,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P01",
-                          "type":  "Damage",
-                          "x":  13.302923655263823,
-                          "surfaceY":  0.9,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  0,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P02",
-                          "type":  "Moving",
-                          "x":  26.605847310527647,
-                          "surfaceY":  1.8,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  1.55,
-                                           "x":  26.205847310527648
-                                       },
-                                       {
-                                           "y":  1.55,
-                                           "x":  27.005847310527646
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  0,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P03",
-                          "type":  "Normal",
-                          "x":  39.908770965791469,
-                          "surfaceY":  2.7,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P04",
-                          "type":  "Damage",
-                          "x":  53.211694621055294,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  0.3,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P05",
-                          "type":  "Moving",
-                          "x":  66.514618276319112,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  66.1146182763191
-                                       },
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  66.914618276319118
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  0.35,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P06",
-                          "type":  "Normal",
-                          "x":  79.817541931582937,
-                          "surfaceY":  2.2204460492503131E-16,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P07",
-                          "type":  "Damage",
-                          "x":  93.120465586846763,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  0.6,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P08",
-                          "type":  "Moving",
-                          "x":  106.42338924211059,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  106.02338924211058
-                                       },
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  106.82338924211059
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  0.7,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P09",
-                          "type":  "Normal",
-                          "x":  119.72631289737441,
-                          "surfaceY":  2.7,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P10",
-                          "type":  "Damage",
-                          "x":  133.02923655263822,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  0.89999999999999991,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P11",
-                          "type":  "Moving",
-                          "x":  146.33216020790206,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  145.93216020790206
-                                       },
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  146.73216020790207
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  1.0499999999999998,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P12",
-                          "type":  "Normal",
-                          "x":  159.63508386316587,
-                          "surfaceY":  2.2204460492503131E-16,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P13",
-                          "type":  "Damage",
-                          "x":  172.93800751842971,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  1.2,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P14",
-                          "type":  "Moving",
-                          "x":  186.24093117369353,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  185.84093117369352
-                                       },
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  186.64093117369353
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  1.4,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P15",
-                          "type":  "Normal",
-                          "x":  199.54385482895736,
-                          "surfaceY":  2.7,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P16",
-                          "type":  "Damage",
-                          "x":  212.84677848422118,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  1.5,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P17",
-                          "type":  "Moving",
-                          "x":  226.149702139485,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  225.74970213948498
-                                       },
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  226.549702139485
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  1.75,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P18",
-                          "type":  "Normal",
-                          "x":  239.45262579474883,
-                          "surfaceY":  2.2204460492503131E-16,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P19",
-                          "type":  "Damage",
-                          "x":  252.75554945001264,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  1.7999999999999998,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P20",
-                          "type":  "Moving",
-                          "x":  266.05847310527645,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  265.65847310527647
-                                       },
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  266.45847310527643
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  2.0999999999999996,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P21",
-                          "type":  "Normal",
-                          "x":  279.36139676054029,
-                          "surfaceY":  2.7,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P22",
-                          "type":  "Damage",
-                          "x":  292.66432041580413,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  2.1,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P23",
-                          "type":  "Moving",
-                          "x":  305.96724407106797,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  305.567244071068
-                                       },
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  306.36724407106794
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  2.4499999999999997,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P24",
-                          "type":  "Normal",
-                          "x":  319.27016772633175,
-                          "surfaceY":  2.2204460492503131E-16,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P25",
-                          "type":  "Damage",
-                          "x":  332.57309138159559,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  2.4,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P26",
-                          "type":  "Moving",
-                          "x":  345.87601503685943,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  345.47601503685945
-                                       },
-                                       {
-                                           "y":  1.5500000000000003,
-                                           "x":  346.27601503685941
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  2.8,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P27",
-                          "type":  "Normal",
-                          "x":  359.17893869212321,
-                          "surfaceY":  2.7,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      },
-                      {
-                          "id":  "P28",
-                          "type":  "Damage",
-                          "x":  372.48186234738705,
-                          "surfaceY":  1.8000000000000003,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "settings":  {
-                                           "damageDelay":  0.5,
-                                           "cycleOffset":  2.6999999999999997,
-                                           "damageAmount":  8,
-                                           "activeDuration":  1.5,
-                                           "damageInterval":  0.5,
-                                           "safeDuration":  2.5
-                                       }
-                      },
-                      {
-                          "id":  "P29",
-                          "type":  "Moving",
-                          "x":  385.78478600265089,
-                          "surfaceY":  0.90000000000000024,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5,
-                          "path":  [
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  385.38478600265091
-                                       },
-                                       {
-                                           "y":  0.65000000000000024,
-                                           "x":  386.18478600265087
-                                       }
-                                   ],
-                          "settings":  {
-                                           "startDelay":  3.15,
-                                           "waitAtPoint":  0.4,
-                                           "speed":  0.8,
-                                           "loopMode":  "PingPong"
-                                       }
-                      },
-                      {
-                          "id":  "P30",
-                          "type":  "Normal",
-                          "x":  399.08770965791473,
-                          "surfaceY":  2.2204460492503131E-16,
-                          "width":  11.302923655263823,
-                          "thickness":  0.5
-                      }
-                  ],
-    "traps":  [
-                  {
-                      "id":  "T01",
-                      "switchPlatform":  "P00",
-                      "switchX":  4.1514618276319117,
-                      "switchY":  0.3,
-                      "firePoint":  {
-                                        "y":  1.7000000000000002,
-                                        "x":  7.3514618276319119
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T02",
-                      "switchPlatform":  "P03",
-                      "switchX":  44.060232793423381,
-                      "switchY":  3,
-                      "firePoint":  {
-                                        "y":  3.5,
-                                        "x":  47.260232793423384
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T03",
-                      "switchPlatform":  "P06",
-                      "switchX":  83.969003759214843,
-                      "switchY":  0.30000000000000021,
-                      "firePoint":  {
-                                        "y":  1.7000000000000002,
-                                        "x":  87.16900375921486
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T04",
-                      "switchPlatform":  "P09",
-                      "switchX":  123.87777472500632,
-                      "switchY":  3,
-                      "firePoint":  {
-                                        "y":  3.5,
-                                        "x":  127.07777472500632
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T05",
-                      "switchPlatform":  "P12",
-                      "switchX":  163.78654569079779,
-                      "switchY":  0.30000000000000021,
-                      "firePoint":  {
-                                        "y":  1.7000000000000002,
-                                        "x":  166.98654569079775
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T06",
-                      "switchPlatform":  "P15",
-                      "switchX":  203.69531665658928,
-                      "switchY":  3,
-                      "firePoint":  {
-                                        "y":  3.5,
-                                        "x":  206.89531665658924
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T07",
-                      "switchPlatform":  "P18",
-                      "switchX":  243.60408762238075,
-                      "switchY":  0.30000000000000021,
-                      "firePoint":  {
-                                        "y":  1.7000000000000002,
-                                        "x":  246.80408762238071
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T08",
-                      "switchPlatform":  "P21",
-                      "switchX":  283.51285858817221,
-                      "switchY":  3,
-                      "firePoint":  {
-                                        "y":  3.5,
-                                        "x":  286.7128585881722
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T09",
-                      "switchPlatform":  "P24",
-                      "switchX":  323.42162955396367,
-                      "switchY":  0.30000000000000021,
-                      "firePoint":  {
-                                        "y":  1.7000000000000002,
-                                        "x":  326.62162955396366
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  },
-                  {
-                      "id":  "T10",
-                      "switchPlatform":  "P27",
-                      "switchX":  363.33040051975513,
-                      "switchY":  3,
-                      "firePoint":  {
-                                        "y":  3.5,
-                                        "x":  366.53040051975512
-                                    },
-                      "direction":  [
-                                        -1,
-                                        0
-                                    ],
-                      "windupSeconds":  0.5,
-                      "cooldown":  3,
-                      "projectileSpeed":  6,
-                      "projectileLifetime":  0.8,
-                      "projectileDamage":  8
-                  }
-              ]
+{
+  "stage": "3-1",
+  "status": "design-only",
+  "unitsPerDesignUnit": 8,
+  "nominalRouteLength": 400.0000000000002,
+  "designRouteLength": 50.00000000000003,
+  "routeMetric": "sum of surface-center waypoint distances, at moving-platform neutral positions",
+  "start": {
+    "y": 0,
+    "x": 0
+  },
+  "goal": {
+    "y": 2.220446049250313E-16,
+    "x": 399.08770965791473
+  },
+  "bounds": {
+    "minX": -10,
+    "maxX": 409.08770965791473,
+    "minY": -8,
+    "maxY": 12
+  },
+  "platforms": [
+    {
+      "id": "P00",
+      "type": "Normal",
+      "x": 0,
+      "surfaceY": 0,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P01",
+      "type": "Damage",
+      "x": 13.302923655263823,
+      "surfaceY": 0.9,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 0,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P02",
+      "type": "Moving",
+      "x": 26.605847310527647,
+      "surfaceY": 1.8,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 1.55,
+          "x": 26.20584731052765
+        },
+        {
+          "y": 1.55,
+          "x": 27.005847310527646
+        }
+      ],
+      "settings": {
+        "startDelay": 0,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P03",
+      "type": "Normal",
+      "x": 39.90877096579147,
+      "surfaceY": 2.7,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P04",
+      "type": "Damage",
+      "x": 53.211694621055294,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 0.3,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P05",
+      "type": "Moving",
+      "x": 66.51461827631911,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 0.6500000000000002,
+          "x": 66.1146182763191
+        },
+        {
+          "y": 0.6500000000000002,
+          "x": 66.91461827631912
+        }
+      ],
+      "settings": {
+        "startDelay": 0.35,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P06",
+      "type": "Normal",
+      "x": 79.81754193158294,
+      "surfaceY": 2.220446049250313E-16,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P07",
+      "type": "Damage",
+      "x": 93.12046558684676,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 0.6,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P08",
+      "type": "Moving",
+      "x": 106.42338924211059,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 1.5500000000000003,
+          "x": 106.02338924211058
+        },
+        {
+          "y": 1.5500000000000003,
+          "x": 106.8233892421106
+        }
+      ],
+      "settings": {
+        "startDelay": 0.7,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P09",
+      "type": "Normal",
+      "x": 119.72631289737441,
+      "surfaceY": 2.7,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P10",
+      "type": "Damage",
+      "x": 133.02923655263822,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 0.8999999999999999,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P11",
+      "type": "Moving",
+      "x": 146.33216020790206,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 0.6500000000000002,
+          "x": 145.93216020790206
+        },
+        {
+          "y": 0.6500000000000002,
+          "x": 146.73216020790207
+        }
+      ],
+      "settings": {
+        "startDelay": 1.0499999999999998,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P12",
+      "type": "Normal",
+      "x": 159.63508386316587,
+      "surfaceY": 2.220446049250313E-16,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P13",
+      "type": "Damage",
+      "x": 172.9380075184297,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 1.2,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P14",
+      "type": "Moving",
+      "x": 186.24093117369353,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 1.5500000000000003,
+          "x": 185.84093117369352
+        },
+        {
+          "y": 1.5500000000000003,
+          "x": 186.64093117369353
+        }
+      ],
+      "settings": {
+        "startDelay": 1.4,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P15",
+      "type": "Normal",
+      "x": 199.54385482895736,
+      "surfaceY": 2.7,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P16",
+      "type": "Damage",
+      "x": 212.84677848422118,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 1.5,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P17",
+      "type": "Moving",
+      "x": 226.149702139485,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 0.6500000000000002,
+          "x": 225.74970213948498
+        },
+        {
+          "y": 0.6500000000000002,
+          "x": 226.549702139485
+        }
+      ],
+      "settings": {
+        "startDelay": 1.75,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P18",
+      "type": "Normal",
+      "x": 239.45262579474883,
+      "surfaceY": 2.220446049250313E-16,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P19",
+      "type": "Damage",
+      "x": 252.75554945001264,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 1.7999999999999998,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P20",
+      "type": "Moving",
+      "x": 266.05847310527645,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 1.5500000000000003,
+          "x": 265.65847310527647
+        },
+        {
+          "y": 1.5500000000000003,
+          "x": 266.4584731052764
+        }
+      ],
+      "settings": {
+        "startDelay": 2.0999999999999996,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P21",
+      "type": "Normal",
+      "x": 279.3613967605403,
+      "surfaceY": 2.7,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P22",
+      "type": "Damage",
+      "x": 292.6643204158041,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 2.1,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P23",
+      "type": "Moving",
+      "x": 305.96724407106797,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 0.6500000000000002,
+          "x": 305.567244071068
+        },
+        {
+          "y": 0.6500000000000002,
+          "x": 306.36724407106794
+        }
+      ],
+      "settings": {
+        "startDelay": 2.4499999999999997,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P24",
+      "type": "Normal",
+      "x": 319.27016772633175,
+      "surfaceY": 2.220446049250313E-16,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P25",
+      "type": "Damage",
+      "x": 332.5730913815956,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 2.4,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P26",
+      "type": "Moving",
+      "x": 345.8760150368594,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 1.5500000000000003,
+          "x": 345.47601503685945
+        },
+        {
+          "y": 1.5500000000000003,
+          "x": 346.2760150368594
+        }
+      ],
+      "settings": {
+        "startDelay": 2.8,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P27",
+      "type": "Normal",
+      "x": 359.1789386921232,
+      "surfaceY": 2.7,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    },
+    {
+      "id": "P28",
+      "type": "Damage",
+      "x": 372.48186234738705,
+      "surfaceY": 1.8000000000000003,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "settings": {
+        "damageDelay": 0.5,
+        "cycleOffset": 2.6999999999999997,
+        "damageAmount": 8,
+        "activeDuration": 1.5,
+        "damageInterval": 0.5,
+        "safeDuration": 2.5
+      }
+    },
+    {
+      "id": "P29",
+      "type": "Moving",
+      "x": 385.7847860026509,
+      "surfaceY": 0.9000000000000002,
+      "width": 11.302923655263823,
+      "thickness": 0.5,
+      "path": [
+        {
+          "y": 0.6500000000000002,
+          "x": 385.3847860026509
+        },
+        {
+          "y": 0.6500000000000002,
+          "x": 386.18478600265087
+        }
+      ],
+      "settings": {
+        "startDelay": 3.15,
+        "waitAtPoint": 0.4,
+        "speed": 0.8,
+        "loopMode": "PingPong"
+      }
+    },
+    {
+      "id": "P30",
+      "type": "Normal",
+      "x": 399.08770965791473,
+      "surfaceY": 2.220446049250313E-16,
+      "width": 11.302923655263823,
+      "thickness": 0.5
+    }
+  ],
+  "traps": [
+    {
+      "id": "T01",
+      "switchPlatform": "P00",
+      "switchX": 4.151461827631912,
+      "switchY": 0.01,
+      "firePoint": {
+        "y": 1.7000000000000002,
+        "x": 7.351461827631912
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T02",
+      "switchPlatform": "P03",
+      "switchX": 44.06023279342338,
+      "switchY": 2.71,
+      "firePoint": {
+        "y": 3.5,
+        "x": 47.260232793423384
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T03",
+      "switchPlatform": "P06",
+      "switchX": 83.96900375921484,
+      "switchY": 0.010000000000000222,
+      "firePoint": {
+        "y": 1.7000000000000002,
+        "x": 87.16900375921486
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T04",
+      "switchPlatform": "P09",
+      "switchX": 123.87777472500632,
+      "switchY": 2.71,
+      "firePoint": {
+        "y": 3.5,
+        "x": 127.07777472500632
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T05",
+      "switchPlatform": "P12",
+      "switchX": 163.7865456907978,
+      "switchY": 0.010000000000000222,
+      "firePoint": {
+        "y": 1.7000000000000002,
+        "x": 166.98654569079775
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T06",
+      "switchPlatform": "P15",
+      "switchX": 203.69531665658928,
+      "switchY": 2.71,
+      "firePoint": {
+        "y": 3.5,
+        "x": 206.89531665658924
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T07",
+      "switchPlatform": "P18",
+      "switchX": 243.60408762238075,
+      "switchY": 0.010000000000000222,
+      "firePoint": {
+        "y": 1.7000000000000002,
+        "x": 246.8040876223807
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T08",
+      "switchPlatform": "P21",
+      "switchX": 283.5128585881722,
+      "switchY": 2.71,
+      "firePoint": {
+        "y": 3.5,
+        "x": 286.7128585881722
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T09",
+      "switchPlatform": "P24",
+      "switchX": 323.42162955396367,
+      "switchY": 0.010000000000000222,
+      "firePoint": {
+        "y": 1.7000000000000002,
+        "x": 326.62162955396366
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    },
+    {
+      "id": "T10",
+      "switchPlatform": "P27",
+      "switchX": 363.33040051975513,
+      "switchY": 2.71,
+      "firePoint": {
+        "y": 3.5,
+        "x": 366.5304005197551
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "windupSeconds": 0.5,
+      "cooldown": 3,
+      "projectileSpeed": 6,
+      "projectileLifetime": 0.8,
+      "projectileDamage": 8
+    }
+  ]
 }

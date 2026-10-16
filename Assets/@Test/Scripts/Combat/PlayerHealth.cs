@@ -4,10 +4,11 @@ using UnityEngine;
 // 플레이어의 체력을 관리하고 IDamageable을 구현해 적/투사체로부터 피해를 받을 수 있게 하는 스크립트
 [RequireComponent(typeof(PlayerEquipment))]
 [RequireComponent(typeof(PlayerStats))]
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable, IContextDamageable
 {
     [SerializeField] private int baseHealth = 100;          // 초기 체력(장비 보너스 합산 전)
     [SerializeField] private float invincibleDuration = 1f; // 피격 후 무적 시간(연속 피격 방지)
+    [SerializeField] private bool enableDisarmedState = false; // OFF: 체력 소진 시 무장해제 없이 사망 처리
     [SerializeField] private int disarmedMaxHealth = 100;   // 무장해제 상태에서 별도로 갖는 체력(장비/방어력과 무관한 고정값)
 
     public event Action<int, int> OnHealthChanged; // 인자: (현재 체력, 현재 상태의 최대 체력)
@@ -90,13 +91,22 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     }
 
     // 무적 시간이 끝난 경우에만 방어력으로 경감된 피해(최소 1)를 적용한다.
-    // 일반 상태에서 체력이 0이 되면 죽는 대신 무장해제 상태로 전환되고, 무장해제 상태에서
-    // 별도의 체력(disarmedMaxHealth)이 다시 0이 되어야 비로소 사망(게임오버) 처리한다.
+    // 일반 체력이 0이 되면 사망한다. enableDisarmedState를 켠 경우에만 무장해제 체력으로 전환한다.
     // 방어 중이면(우클릭 유지, 무장해제 아님) 피해 전부를 차단하고, 입력 직후 3프레임이면 완벽 방어 버프를 받는다.
     // 차단된 공격은 무적 시간을 소모하지 않는다. 차단하지 못한 피해는 방어력 경감 후 임시 체력부터 차감한다.
-    public void TakeDamage(int amount)
+    // 공격자 정보가 있는 피해 경로 - 방어 성공 시 공격자 넉백 이벤트까지 전달한다.
+    public void TakeDamage(DamageContext context)
     {
-        if (defense != null && amount > 0 && defense.TryBlock(amount)) return;
+        if (defense != null && context.BaseDamage > 0 &&
+            defense.TryBlock(context.BaseDamage, context.AttackerBody, context.AttackId)) return;
+        TakeDamage(context.BaseDamage, false);
+    }
+
+    public void TakeDamage(int amount) { TakeDamage(amount, true); }
+
+    private void TakeDamage(int amount, bool tryBlock)
+    {
+        if (tryBlock && defense != null && amount > 0 && defense.TryBlock(amount)) return;
         if (Time.time - lastHitTime < invincibleDuration) return;
         lastHitTime = Time.time;
 
@@ -129,6 +139,25 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
+    // Codex (GPT-6), 2026-10-15: environmental attrition has its own clock. It neither
+    // consumes nor grants combat invulnerability, block buffers, or damage animations.
+    public void TakeEnvironmentalDamage(int amount)
+    {
+        if (amount <= 0 || (isDisarmed && disarmedHealth <= 0)) return;
+        if (isDisarmed)
+        {
+            disarmedHealth = Mathf.Max(0, disarmedHealth - amount);
+            OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+            if (disarmedHealth == 0) Die();
+        }
+        else
+        {
+            currentHealth = Mathf.Max(0, currentHealth - amount);
+            if (currentHealth == 0) EnterDisarmedState();
+            else OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+        }
+    }
+
     // 체력을 amount만큼 회복한다(현재 상태의 최대 체력을 넘지 않음). 일반 상태면 일반 체력을,
     // 무장해제 상태면 무장해제 체력을 회복한다. 회복 아이템(HealItem)이 호출한다.
     public void Heal(int amount)
@@ -157,6 +186,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // 표시 스크립트는 IsDisarmed를 참조하므로 회복된 체력과 무장해제 외형이 같은 상태를 따른다.
     private void EnterDisarmedState()
     {
+        if (!enableDisarmedState)
+        {
+            OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+            Die();
+            return;
+        }
+
         isDisarmed = true;
         defense?.ClearBuff(); // 무장해제되면 방어 버프(공격력 증가/임시 체력)를 제거한다
         disarmedHealth = disarmedMaxHealth;

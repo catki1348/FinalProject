@@ -1,0 +1,23 @@
+{
+    "scene": "Assets/Scenes/Stage5.unity",
+    "platforms": 67,
+    "movers": 20,
+    "monsters": 31,
+    "pairedDrops": 22,
+    "fallStrips": 13,
+    "missingScripts": 0,
+    "start": {
+        "x": 532.0,
+        "y": 0.029998779296875,
+        "z": 0.0
+    },
+    "goal": {
+        "x": 847.1900024414063,
+        "y": -141.1840057373047,
+        "z": 0.0
+    },
+    "checks": [
+        "Counts, prefab links, tiling, colliders, coordinates and path timing match design",
+        "Zones do not overlap; 5-1 start is valid; endpoint references 5-3"
+    ]
+}

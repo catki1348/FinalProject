@@ -1,0 +1,129 @@
+29 platform instances
+P01 correct type / prefab
+P01 tiled / scale / dimensions
+P01 one full-height forest tile
+P01 complete left/right end caps
+P02 correct type / prefab
+P02 tiled / scale / dimensions
+P02 one full-height forest tile
+P02 complete left/right end caps
+P03 correct type / prefab
+P03 tiled / scale / dimensions
+P03 one full-height forest tile
+P03 complete left/right end caps
+P04 correct type / prefab
+P04 tiled / scale / dimensions
+P04 one full-height forest tile
+P04 complete left/right end caps
+P05 correct type / prefab
+P05 tiled / scale / dimensions
+P05 one full-height forest tile
+P05 complete left/right end caps
+P06 correct type / prefab
+P06 tiled / scale / dimensions
+P06 one full-height forest tile
+P06 complete left/right end caps
+P07 correct type / prefab
+P07 tiled / scale / dimensions
+P07 one full-height forest tile
+P07 complete left/right end caps
+P07 stationary explicit path / 3-unit travel
+P07 distinct speed / delay
+P08 correct type / prefab
+P08 tiled / scale / dimensions
+P08 one full-height forest tile
+P08 complete left/right end caps
+P09 correct type / prefab
+P09 tiled / scale / dimensions
+P09 one full-height forest tile
+P09 complete left/right end caps
+P09 stationary explicit path / 3-unit travel
+P09 distinct speed / delay
+P10 correct type / prefab
+P10 tiled / scale / dimensions
+P10 one full-height forest tile
+P10 complete left/right end caps
+P11 correct type / prefab
+P11 tiled / scale / dimensions
+P11 one full-height forest tile
+P11 complete left/right end caps
+P12 correct type / prefab
+P12 tiled / scale / dimensions
+P12 one full-height forest tile
+P12 complete left/right end caps
+P13 correct type / prefab
+P13 tiled / scale / dimensions
+P13 one full-height forest tile
+P13 complete left/right end caps
+P14 correct type / prefab
+P14 tiled / scale / dimensions
+P14 one full-height forest tile
+P14 complete left/right end caps
+P15 correct type / prefab
+P15 tiled / scale / dimensions
+P15 one full-height forest tile
+P15 complete left/right end caps
+P16 correct type / prefab
+P16 tiled / scale / dimensions
+P16 one full-height forest tile
+P16 complete left/right end caps
+P17 correct type / prefab
+P17 tiled / scale / dimensions
+P17 one full-height forest tile
+P17 complete left/right end caps
+P18 correct type / prefab
+P18 tiled / scale / dimensions
+P18 one full-height forest tile
+P18 complete left/right end caps
+P19 correct type / prefab
+P19 tiled / scale / dimensions
+P19 one full-height forest tile
+P19 complete left/right end caps
+P19 stationary explicit path / 3-unit travel
+P19 distinct speed / delay
+P20 correct type / prefab
+P20 tiled / scale / dimensions
+P20 one full-height forest tile
+P20 complete left/right end caps
+P21 correct type / prefab
+P21 tiled / scale / dimensions
+P21 one full-height forest tile
+P21 complete left/right end caps
+P22 correct type / prefab
+P22 tiled / scale / dimensions
+P22 one full-height forest tile
+P22 complete left/right end caps
+P23 correct type / prefab
+P23 tiled / scale / dimensions
+P23 one full-height forest tile
+P23 complete left/right end caps
+P24 correct type / prefab
+P24 tiled / scale / dimensions
+P24 one full-height forest tile
+P24 complete left/right end caps
+P25 correct type / prefab
+P25 tiled / scale / dimensions
+P25 one full-height forest tile
+P25 complete left/right end caps
+P26 correct type / prefab
+P26 tiled / scale / dimensions
+P26 one full-height forest tile
+P26 complete left/right end caps
+P27 correct type / prefab
+P27 tiled / scale / dimensions
+P27 one full-height forest tile
+P27 complete left/right end caps
+P28 correct type / prefab
+P28 tiled / scale / dimensions
+P28 one full-height forest tile
+P28 complete left/right end caps
+P29 correct type / prefab
+P29 tiled / scale / dimensions
+P29 one full-height forest tile
+P29 complete left/right end caps
+2 ordinary ground patrols
+4 separated from zone 1
+4 separated from zone 2
+4 separated from zone 3
+4 separated from zone 5
+Boss arena centered below entire upper row

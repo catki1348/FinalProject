@@ -1,0 +1,24 @@
+{
+  "scene": "Test051",
+  "sourceScene": "Assets/Scenes/Stage5.unity",
+  "method": "Play-mode component probes; mover FixedUpdate with manual 0.02-second Physics2D steps; coroutine phase advancement; not a full playthrough",
+  "results": [
+    "Start grounded=True;foot=0.01822829",
+    "Platform_5-1_P27_S3-P02_Moving endpoints PASS",
+    "Platform_5-1_P30_S3-P05_Moving endpoints PASS",
+    "Platform_5-1_P33_S3-P08_Moving endpoints PASS",
+    "Platform_5-1_P36_S3-P11_Moving endpoints PASS",
+    "Platform_5-1_P38_R-M1_Moving endpoints PASS",
+    "Platform_5-1_P40_R-M2_Moving endpoints PASS",
+    "Platform_5-1_P45_R-M3_Moving endpoints PASS",
+    "Platform_5-1_P47_R-M4_Moving endpoints PASS",
+    "Platform_5-1_P50_F-L0_Moving endpoints PASS",
+    "Platform_5-1_P60_F-W2_Moving endpoints PASS",
+    "Platform_5-1_P63_F-W5_Moving endpoints PASS",
+    "Platform_5-1_P65_F-Md_Moving endpoints PASS",
+    "Platform_5-1_P67_F-Mu_Moving endpoints PASS",
+    "Damage PASS: health 100 -> 97",
+    "Disappear / respawn PASS (coroutine phases)",
+    "5-1 -> 5-2 PASS"
+  ]
+}

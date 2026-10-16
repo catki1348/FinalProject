@@ -1,0 +1,111 @@
+18 platforms: normal10 / moving5 / disappearing3
+5 moving / 3 disappearing components
+N1 dedicated prefab reference
+N1 unit scale / Tiled Continuous / matched collider
+N1 planned collision geometry
+N2 dedicated prefab reference
+N2 unit scale / Tiled Continuous / matched collider
+N2 planned collision geometry
+N3 dedicated prefab reference
+N3 unit scale / Tiled Continuous / matched collider
+N3 planned collision geometry
+MP1 dedicated prefab reference
+MP1 unit scale / Tiled Continuous / matched collider
+MP1 planned collision geometry
+MP1 behavior in prefab / external connected path
+MP1 preserved movement settings
+MP1 waypoint 0
+MP1 waypoint 1
+N4 dedicated prefab reference
+N4 unit scale / Tiled Continuous / matched collider
+N4 planned collision geometry
+MP2 dedicated prefab reference
+MP2 unit scale / Tiled Continuous / matched collider
+MP2 planned collision geometry
+MP2 behavior in prefab / external connected path
+MP2 preserved movement settings
+MP2 waypoint 0
+MP2 waypoint 1
+N5 dedicated prefab reference
+N5 unit scale / Tiled Continuous / matched collider
+N5 planned collision geometry
+MP3 dedicated prefab reference
+MP3 unit scale / Tiled Continuous / matched collider
+MP3 planned collision geometry
+MP3 behavior in prefab / external connected path
+MP3 preserved movement settings
+MP3 waypoint 0
+MP3 waypoint 1
+N6 dedicated prefab reference
+N6 unit scale / Tiled Continuous / matched collider
+N6 planned collision geometry
+MP4 dedicated prefab reference
+MP4 unit scale / Tiled Continuous / matched collider
+MP4 planned collision geometry
+MP4 behavior in prefab / external connected path
+MP4 preserved movement settings
+MP4 waypoint 0
+MP4 waypoint 1
+MP4 waypoint 2
+N7 dedicated prefab reference
+N7 unit scale / Tiled Continuous / matched collider
+N7 planned collision geometry
+MP5 dedicated prefab reference
+MP5 unit scale / Tiled Continuous / matched collider
+MP5 planned collision geometry
+MP5 behavior in prefab / external connected path
+MP5 preserved movement settings
+MP5 waypoint 0
+MP5 waypoint 1
+N8 dedicated prefab reference
+N8 unit scale / Tiled Continuous / matched collider
+N8 planned collision geometry
+D1 dedicated prefab reference
+D1 unit scale / Tiled Continuous / matched collider
+D1 planned collision geometry
+D1 prefab-owned 0.4 / 2.0 second vanish
+D2 dedicated prefab reference
+D2 unit scale / Tiled Continuous / matched collider
+D2 planned collision geometry
+D2 prefab-owned 0.4 / 2.0 second vanish
+D3 dedicated prefab reference
+D3 unit scale / Tiled Continuous / matched collider
+D3 planned collision geometry
+D3 prefab-owned 0.4 / 2.0 second vanish
+N9 dedicated prefab reference
+N9 unit scale / Tiled Continuous / matched collider
+N9 planned collision geometry
+N10 dedicated prefab reference
+N10 unit scale / Tiled Continuous / matched collider
+N10 planned collision geometry
+2-2 camera 50..172
+N1 contained in zone
+N2 contained in zone
+N3 contained in zone
+MP1 contained in zone
+N4 contained in zone
+MP2 contained in zone
+N5 contained in zone
+MP3 contained in zone
+N6 contained in zone
+MP4 contained in zone
+N7 contained in zone
+MP5 contained in zone
+N8 contained in zone
+D1 contained in zone
+D2 contained in zone
+D3 contained in zone
+N9 contained in zone
+N10 contained in zone
+zones 1 / 2 do not overlap
+zones 1 / 3 do not overlap
+zones 1 / 4 do not overlap
+zones 1 / 5 do not overlap
+zones 2 / 3 do not overlap
+zones 2 / 4 do not overlap
+zones 2 / 5 do not overlap
+zones 3 / 4 do not overlap
+zones 3 / 5 do not overlap
+zones 4 / 5 do not overlap
+boss arena centered under upper row
+no missing scripts

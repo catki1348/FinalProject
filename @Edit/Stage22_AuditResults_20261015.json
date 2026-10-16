@@ -1,0 +1,173 @@
+{
+  "scope": "read_only; flight model is not a full playthrough",
+  "normalCount": 10,
+  "moverCount": 5,
+  "disappearingCount": 3,
+  "simpleRenderers": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "N6",
+    "N7",
+    "N8",
+    "N9",
+    "N10",
+    "D1",
+    "D2",
+    "D3",
+    "MP1",
+    "MP2",
+    "MP3",
+    "MP4",
+    "MP5"
+  ],
+  "stretchedTransforms": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "N6",
+    "N7",
+    "N8",
+    "N9",
+    "N10"
+  ],
+  "sceneAddedSpecialBehaviors": [
+    "D1",
+    "D2",
+    "D3",
+    "MP1",
+    "MP2",
+    "MP3",
+    "MP4",
+    "MP5"
+  ],
+  "missingPaths": [],
+  "jumpPairs": [
+    {
+      "pair": "N1->N2",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    },
+    {
+      "pair": "N2->N3",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    },
+    {
+      "pair": "N3->MP1",
+      "modelJump80": true,
+      "possibleSamples": 310,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 2.9
+    },
+    {
+      "pair": "MP1->N4",
+      "modelJump80": true,
+      "possibleSamples": 310,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 2.9
+    },
+    {
+      "pair": "N4->MP2",
+      "modelJump80": true,
+      "possibleSamples": 277,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 1.7
+    },
+    {
+      "pair": "MP2->N5",
+      "modelJump80": true,
+      "possibleSamples": 247,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 1.9
+    },
+    {
+      "pair": "N5->MP3",
+      "modelJump80": true,
+      "possibleSamples": 411,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 2.1
+    },
+    {
+      "pair": "MP3->N6",
+      "modelJump80": true,
+      "possibleSamples": 400,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 2.1
+    },
+    {
+      "pair": "N6->MP4",
+      "modelJump80": true,
+      "possibleSamples": 254,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 3.2
+    },
+    {
+      "pair": "MP4->N7",
+      "modelJump80": true,
+      "possibleSamples": 191,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 3.9
+    },
+    {
+      "pair": "N7->MP5",
+      "modelJump80": true,
+      "possibleSamples": 308,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 3.5
+    },
+    {
+      "pair": "MP5->N8",
+      "modelJump80": true,
+      "possibleSamples": 302,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 3.5
+    },
+    {
+      "pair": "N8->D1",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    },
+    {
+      "pair": "D1->D2",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    },
+    {
+      "pair": "D2->D3",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    },
+    {
+      "pair": "D3->N9",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    },
+    {
+      "pair": "N9->N10",
+      "modelJump80": true,
+      "possibleSamples": 600,
+      "sampledStartTimes": 600,
+      "maximumUnavailableSeconds": 0.0
+    }
+  ],
+  "missingScripts": 0,
+  "documentedDistanceUnits": 88.9,
+  "correctedDistanceScale": 11.1125
+}

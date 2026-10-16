@@ -16,6 +16,7 @@ public class ChasePattern : MonoBehaviour, IMonsterPattern
     private Rigidbody2D rb;
     private Vector2 detectionCenter; // 감지 영역 중심(스폰 위치에 고정, 몬스터가 움직여도 변하지 않음)
     private float lastJumpTime = -999f;
+    private readonly Collider2D[] detectionBuffer = new Collider2D[16];
 
     // 시작 시 Rigidbody2D를 캐싱하고, 현재 위치를 감지 영역의 중심으로 고정
     private void Awake()
@@ -27,7 +28,18 @@ public class ChasePattern : MonoBehaviour, IMonsterPattern
     // 감지 영역 안에 플레이어가 있으면 그 방향으로 이동하며 주기적으로 점프하고, 없으면 제자리에 정지
     public void UpdatePattern()
     {
-        Collider2D player = Physics2D.OverlapBox(detectionCenter, detectionSize, 0f, playerLayer);
+        // Default-layer props and the monster itself must not be mistaken for the player.
+        Collider2D player = null;
+        int count = Physics2D.OverlapBoxNonAlloc(detectionCenter, detectionSize, 0f, detectionBuffer, playerLayer);
+        for (int i = 0; i < count; i++)
+        {
+            Rigidbody2D candidate = detectionBuffer[i].attachedRigidbody;
+            if (candidate != null && candidate.TryGetComponent<PlayerMovement>(out _))
+            {
+                player = detectionBuffer[i];
+                break;
+            }
+        }
         if (player == null)
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);

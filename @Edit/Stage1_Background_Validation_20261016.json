@@ -1,0 +1,35 @@
+{
+  "areas": [
+    {
+      "section": "Section_1",
+      "covered": true,
+      "bounds": "Center: (29.00, 0.00, 0.00), Extents: (29.00, 8.50, 0.00)"
+    },
+    {
+      "section": "Section_2",
+      "covered": true,
+      "bounds": "Center: (107.00, -30.00, 0.00), Extents: (49.00, 46.00, 0.00)"
+    },
+    {
+      "section": "Section_3",
+      "covered": true,
+      "bounds": "Center: (183.91, 9.75, 0.00), Extents: (27.91, 7.75, 0.00)"
+    },
+    {
+      "section": "Section_4",
+      "covered": true,
+      "bounds": "Center: (276.61, 12.00, 0.00), Extents: (64.80, 15.00, 0.00)"
+    },
+    {
+      "section": "Section_5",
+      "covered": true,
+      "bounds": "Center: (170.71, -89.45, 0.00), Extents: (14.79, 8.45, 0.00)"
+    }
+  ],
+  "cameraChecks": 135,
+  "preservedComponents": 1125,
+  "unexpectedChanges": 0,
+  "spriteBounds": "Center: (170.71, -36.20, 10.00), Extents: (184.37, 103.76, 0.10)",
+  "savedSceneVerified": true,
+  "legacyBackgroundsDisabled": true
+}

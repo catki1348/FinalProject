@@ -7,7 +7,7 @@ public class MonsterStats : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 20; // 최대 체력
     [SerializeField] private int attack = 10;    // 공격력
-    [SerializeField] private int defense = 10;   // 방어력
+    [SerializeField] private int defense = 0;   // 방어력
     [SerializeField] private float deathGravityScale = 3f; // 사망 시 적용할 중력 배율(지상종 기본값과 동일 - Monster.md 규칙 13)
 
     private int currentHealth;

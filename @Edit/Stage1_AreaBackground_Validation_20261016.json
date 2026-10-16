@@ -1,0 +1,55 @@
+{
+  "worker": {
+    "agent": "Codex",
+    "model": "GPT-6",
+    "date": "2026-10-16"
+  },
+  "structure": {
+    "preservedComponents": 1126,
+    "unexpectedChanges": 0,
+    "areaImages": 5
+  },
+  "render": {
+    "cameraChecks": 135,
+    "blendChecks": 132,
+    "distinctImages": 5,
+    "maxTexelPixelsAt1080p": 1.56746411,
+    "images": [
+      {
+        "area": 1,
+        "path": "Assets/@ExternalAssets/ForestBackground/T_Stage1_Area1_Forest.png",
+        "width": 1672,
+        "height": 941
+      },
+      {
+        "area": 2,
+        "path": "Assets/@ExternalAssets/ForestBackground/T_Stage1_Area2_Forest.png",
+        "width": 1672,
+        "height": 941
+      },
+      {
+        "area": 3,
+        "path": "Assets/@ExternalAssets/ForestBackground/T_Stage1_Area3_Forest.png",
+        "width": 1672,
+        "height": 941
+      },
+      {
+        "area": 4,
+        "path": "Assets/@ExternalAssets/ForestBackground/T_Stage1_Area4_Forest.png",
+        "width": 1672,
+        "height": 941
+      },
+      {
+        "area": 5,
+        "path": "Assets/@ExternalAssets/ForestBackground/T_Stage1_Area5_Forest.png",
+        "width": 1672,
+        "height": 941
+      }
+    ]
+  },
+  "runtime": {
+    "automaticSwitchPassed": true,
+    "cameraCovered": true,
+    "consoleErrors": 0
+  }
+}

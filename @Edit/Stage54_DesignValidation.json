@@ -1,0 +1,19 @@
+{
+  "segments": [
+    120,
+    120,
+    120,
+    120,
+    120
+  ],
+  "sweptOverlaps": 0,
+  "limitations": [
+    "moving landing windows",
+    "trap trajectories",
+    "combat and continuous traversal"
+  ],
+  "endpointJumpChecks": 36,
+  "fallDeadlineChecks": 21,
+  "routeRecalculated": 600.0,
+  "unityTested": false
+}

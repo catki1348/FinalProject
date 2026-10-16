@@ -23,6 +23,8 @@ public class GameOverManager : MonoBehaviour
     }
 
     private GameObject overlayRoot;
+    // Codex (GPT-6), 2026-10-15: zone systems release temporary grants on fall/game over too.
+    public event System.Action OnGameOver;
 
     private void Awake()
     {
@@ -39,6 +41,7 @@ public class GameOverManager : MonoBehaviour
 
     public void TriggerGameOver()
     {
+        OnGameOver?.Invoke();
         overlayRoot.SetActive(true);
         Time.timeScale = 0f;
     }

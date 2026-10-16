@@ -12,6 +12,14 @@ using UnityEditor.SceneManagement;
 /// </summary>
 public class DeployStage3_1
 {
+    // Editor-only lookup built once per deployment; never searches the hierarchy during gameplay.
+    private static readonly Dictionary<string, GameObject> sceneObjects = new Dictionary<string, GameObject>();
+
+    private static GameObject CachedObject(string name)
+    {
+        sceneObjects.TryGetValue(name, out var value);
+        return value;
+    }
     private const string SCENE_PATH = "Assets/Scenes/Stage3.unity";
     private const string JSON_PATH = "@Edit/MapDesign_Stage3-1.json"; // 프로젝트 루트 기준
     private const string PLATFORM_PREFAB = "Assets/@ExternalAssets/@Prefab/Platform_Stage3_Lava.prefab";
@@ -61,10 +69,15 @@ public class DeployStage3_1
         var scene = EditorSceneManager.GetActiveScene();
         if (scene.path != SCENE_PATH) scene = EditorSceneManager.OpenScene(SCENE_PATH, OpenSceneMode.Single);
 
+        sceneObjects.Clear();
+        foreach (var sceneRoot in scene.GetRootGameObjects())
+            foreach (var item in sceneRoot.GetComponentsInChildren<Transform>(true))
+                if (!sceneObjects.ContainsKey(item.name)) sceneObjects.Add(item.name, item.gameObject);
+
         string jsonFull = Path.GetFullPath(Path.Combine(Application.dataPath, "..", JSON_PATH));
         Design design = JsonUtility.FromJson<Design>(File.ReadAllText(jsonFull));
 
-        GameObject section1 = GameObject.Find("Section_1");
+        GameObject section1 = CachedObject("Section_1");
         if (section1 == null) { Debug.LogError("Section_1 없음"); return; }
 
         ShiftLaterSections();
@@ -87,7 +100,7 @@ public class DeployStage3_1
             platformObjects[p.id] = CreatePlatform(p, platformPrefab, effectPrefab, root);
 
         GameObject projectile = EnsureProjectileVariant(design.traps[0]);
-        foreach (Trap t in design.traps) CreateTrap(t, projectile, root);
+        foreach (Trap t in design.traps) CreateTrap(t, projectile, root, platformObjects[t.switchPlatform]);
 
         Plat last = design.platforms[design.platforms.Length - 1];
         float goalX = START_X + last.x;
@@ -106,7 +119,7 @@ public class DeployStage3_1
         SetWorld(section1.transform.Find("ZoneEndPoint_3-1"), goalX + 2f, 1f);
 
         // 낙사 판정: 3-1 전 구간
-        GameObject oob = GameObject.Find("OutOfBoundsTrigger");
+        GameObject oob = CachedObject("OutOfBoundsTrigger");
         if (oob != null)
         {
             oob.transform.position = new Vector3((left + goalX + 10f) * 0.5f, -20f, 0f);
@@ -121,7 +134,7 @@ public class DeployStage3_1
     // 기존 3-2~3-4 및 관련 오브젝트를 오른쪽으로 민다(Boundary_1_2가 이미 새 위치면 건너뜀)
     private static void ShiftLaterSections()
     {
-        GameObject b12 = GameObject.Find("Boundary_1_2");
+        GameObject b12 = CachedObject("Boundary_1_2");
         if (b12.transform.position.x >= NEW_BOUNDARY_1_2_X - 0.01f) return;
 
         float delta = NEW_BOUNDARY_1_2_X - b12.transform.position.x;
@@ -133,7 +146,7 @@ public class DeployStage3_1
         };
         foreach (string n in names)
         {
-            GameObject go = GameObject.Find(n);
+            GameObject go = CachedObject(n);
             if (go == null) { Debug.LogWarning($"이동 대상 없음: {n}"); continue; }
             Undo.RecordObject(go.transform, "Shift 3-x");
             go.transform.position += new Vector3(delta, 0f, 0f);
@@ -170,6 +183,7 @@ public class DeployStage3_1
         go.name = $"Platform_3-1_{p.id}_{kind}";
         go.transform.position = pos;
         go.transform.localScale = Vector3.one;
+        PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform);
         var renderer = go.GetComponent<SpriteRenderer>();
         renderer.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(TILED_SPRITE);
         renderer.drawMode = SpriteDrawMode.Tiled;
@@ -208,6 +222,11 @@ public class DeployStage3_1
             so.FindProperty("loopMode").enumValueIndex = 1; // PingPong
             so.ApplyModifiedProperties();
         }
+        // Preserve direct property assignments across prefab synchronization and scene reload.
+        go.transform.localScale = Vector3.one;
+        PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(renderer);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(collider);
         return go.transform;
     }
 
@@ -228,7 +247,7 @@ public class DeployStage3_1
         return saved;
     }
 
-    private static void CreateTrap(Trap t, GameObject projectilePrefab, Transform parent)
+    private static void CreateTrap(Trap t, GameObject projectilePrefab, Transform parent, Transform support)
     {
         var switchPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(SWITCH_PREFAB);
         var sw = (GameObject)PrefabUtility.InstantiatePrefab(switchPrefab, parent);
@@ -237,6 +256,7 @@ public class DeployStage3_1
         var swSo = new SerializedObject(sw.GetComponent<SwitchTrigger>());
         swSo.FindProperty("cooldown").floatValue = t.cooldown;
         swSo.ApplyModifiedProperties();
+        AttachSwitch(sw, support);
 
         // 표준 수직 시점 프리팹의 총구 기준점을 설계 좌표에 맞춘다.
         var launcher = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(LAUNCHER_PREFAB), parent);
@@ -251,6 +271,52 @@ public class DeployStage3_1
         so.FindProperty("windupSeconds").floatValue = t.windupSeconds;
         so.ApplyModifiedProperties();
         StandardizeArrowTrapPrefabs.ConfigureInstance(pl, launcher.transform.position);
+    }
+
+    // Codex (GPT-6), 2026-10-15: seat the visual base in the supporting surface,
+    // instead of treating the old design's +0.3 switch coordinate as a visual mounting height.
+    public static void AttachSwitch(GameObject sw, Transform support)
+    {
+        var surface = support.GetComponent<BoxCollider2D>();
+        var visual = sw.GetComponentInChildren<SpriteRenderer>(true);
+        if (surface == null || visual == null) throw new InvalidOperationException("Missing switch support/visual");
+        sw.transform.SetParent(support, true);
+        Physics2D.SyncTransforms();
+        float baseY = surface.bounds.max.y - 0.01f;
+        sw.transform.position += Vector3.up * (baseY - visual.bounds.min.y);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(sw.transform);
+        EditorUtility.SetDirty(sw.transform);
+    }
+
+    // Adjust existing instances in place: retain launchers, events, scene overrides and object IDs.
+    [MenuItem("Tools/Deploy/Seat Stage 3-1 Switches On Platforms")]
+    public static void SeatExistingSwitches()
+    {
+        var scene = EditorSceneManager.GetActiveScene();
+        if (scene.path != SCENE_PATH || EditorApplication.isPlayingOrWillChangePlaymode)
+            throw new InvalidOperationException("Open Stage3 in edit mode");
+        var design = JsonUtility.FromJson<Design>(File.ReadAllText(JSON_PATH));
+        var index = new Dictionary<string, Transform>();
+        foreach (var r in scene.GetRootGameObjects())
+            foreach (var t in r.GetComponentsInChildren<Transform>(true))
+                if (!index.ContainsKey(t.name)) index.Add(t.name, t);
+        var pairs = new List<KeyValuePair<GameObject, Transform>>();
+        foreach (var trap in design.traps)
+        {
+            Transform support = null;
+            foreach (var p in design.platforms)
+                if (p.id == trap.switchPlatform) support = index[$"Platform_3-1_{p.id}_{p.type}"];
+            if (support == null) throw new InvalidOperationException("Missing platform for " + trap.id);
+            pairs.Add(new KeyValuePair<GameObject, Transform>(index[$"Trap_3-1_{trap.id}_Switch"].gameObject, support));
+        }
+        foreach (var pair in pairs)
+        {
+            Undo.RecordObject(pair.Key.transform, "Seat 3-1 switch");
+            AttachSwitch(pair.Key, pair.Value);
+        }
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+        Debug.Log($"3-1 switches mounted on platform surfaces: {pairs.Count}");
     }
 
     private static void SetWorld(Transform t, float x, float y)

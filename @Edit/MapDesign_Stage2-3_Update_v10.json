@@ -1,0 +1,275 @@
+{
+  "version": 10,
+  "status": "main_scene_applied",
+  "placementReady": true,
+  "distance": 30,
+  "worldRouteTarget": 240,
+  "normalCount": 14,
+  "movingCount": 7,
+  "monsterCount": 30,
+  "groundMonsters": 12,
+  "flyingMonsters": 18,
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "drawMode": "Tiled",
+  "tileMode": "Continuous",
+  "colliderAutoTiling": false,
+  "movingWidthProposal": 3,
+  "thicknessProposal": 0.5,
+  "waypointCountMin": 5,
+  "oneWayPathLengthMax": 56,
+  "crossingPair": [
+    "M6",
+    "M7"
+  ],
+  "offscreenSpeedMultiplier": 1,
+  "maxWaitTarget": 4,
+  "minJumpWindowTarget": 0.5,
+  "simulationStep": 0.02,
+  "simulationDuration": 120,
+  "platforms": [
+    {
+      "id": "M1",
+      "speedProposal": 4.8,
+      "startDelayProposal": 0,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 5.9,
+          "y": 0.0
+        },
+        {
+          "x": 11.48507633960809,
+          "y": 0.6
+        },
+        {
+          "x": 17.07015267921618,
+          "y": -0.6
+        },
+        {
+          "x": 22.655229018824272,
+          "y": 0.6
+        },
+        {
+          "x": 28.24030535843236,
+          "y": 0.0
+        }
+      ],
+      "appliedSpeed": 4.8,
+      "appliedStartDelay": 0,
+      "appliedEndpointWait": 0.35
+    },
+    {
+      "id": "M2",
+      "speedProposal": 5.2,
+      "startDelayProposal": 0.35,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 49.84030535843235,
+          "y": 0.0
+        },
+        {
+          "x": 55.42538169804044,
+          "y": 0.6
+        },
+        {
+          "x": 61.01045803764853,
+          "y": -0.6
+        },
+        {
+          "x": 66.59553437725663,
+          "y": 0.6
+        },
+        {
+          "x": 72.18061071686472,
+          "y": 0.0
+        }
+      ],
+      "appliedSpeed": 5.2,
+      "appliedStartDelay": 0.35,
+      "appliedEndpointWait": 0.35
+    },
+    {
+      "id": "M3",
+      "speedProposal": 5.6,
+      "startDelayProposal": 0.7,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 94.78061071686474,
+          "y": 0.0
+        },
+        {
+          "x": 100.36568705647284,
+          "y": 0.6
+        },
+        {
+          "x": 105.95076339608093,
+          "y": -0.6
+        },
+        {
+          "x": 111.53583973568901,
+          "y": 0.6
+        },
+        {
+          "x": 117.1209160752971,
+          "y": 0.0
+        }
+      ],
+      "appliedSpeed": 5.6,
+      "appliedStartDelay": 0.7,
+      "appliedEndpointWait": 0.35
+    },
+    {
+      "id": "M4",
+      "speedProposal": 5.0,
+      "startDelayProposal": 1.05,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 133.3209160752971,
+          "y": 0.0
+        },
+        {
+          "x": 138.9059924149052,
+          "y": 0.6
+        },
+        {
+          "x": 144.4910687545133,
+          "y": -0.6
+        },
+        {
+          "x": 150.0761450941214,
+          "y": 0.6
+        },
+        {
+          "x": 155.66122143372945,
+          "y": 0.0
+        }
+      ],
+      "appliedSpeed": 5,
+      "appliedStartDelay": 1.05,
+      "appliedEndpointWait": 0.35
+    },
+    {
+      "id": "M5",
+      "speedProposal": 5.4,
+      "startDelayProposal": 1.4,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 178.26122143372947,
+          "y": 0.0
+        },
+        {
+          "x": 183.84629777333757,
+          "y": 0.6
+        },
+        {
+          "x": 189.43137411294566,
+          "y": -0.6
+        },
+        {
+          "x": 195.01645045255376,
+          "y": 0.6
+        },
+        {
+          "x": 200.60152679216185,
+          "y": 0.0
+        }
+      ],
+      "appliedSpeed": 5.4,
+      "appliedStartDelay": 1.4,
+      "appliedEndpointWait": 0.35
+    },
+    {
+      "id": "M6",
+      "speedProposal": 5.8,
+      "startDelayProposal": 0.2,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 211.40152679216186,
+          "y": 0.0
+        },
+        {
+          "x": 214.40152679216186,
+          "y": 0.3
+        },
+        {
+          "x": 217.40152679216186,
+          "y": 0.0
+        },
+        {
+          "x": 220.40152679216186,
+          "y": -0.3
+        },
+        {
+          "x": 223.40152679216186,
+          "y": 0.0
+        }
+      ],
+      "appliedSpeed": 5,
+      "appliedStartDelay": 0.2,
+      "appliedEndpointWait": 0.36
+    },
+    {
+      "id": "M7",
+      "speedProposal": 6.2,
+      "startDelayProposal": 0.65,
+      "endpointWaitProposal": 0.35,
+      "loopMode": "PingPong",
+      "waypoints": [
+        {
+          "x": 220.40152679216186,
+          "y": 0.3
+        },
+        {
+          "x": 223.40152679216186,
+          "y": 0.0
+        },
+        {
+          "x": 226.40152679216186,
+          "y": 0.3
+        },
+        {
+          "x": 229.40152679216186,
+          "y": 0.0
+        },
+        {
+          "x": 232.40152679216186,
+          "y": 0.3
+        }
+      ],
+      "appliedSpeed": 5.5,
+      "appliedStartDelay": 1.4,
+      "appliedEndpointWait": 0.6
+    }
+  ],
+  "requiredChecks": [
+    "route240",
+    "fiveWaypoints",
+    "fullPathLength",
+    "pathIntersection",
+    "timeSampledCollisions",
+    "jumpTrajectory80percent",
+    "maxWait",
+    "offscreenWait",
+    "bounds",
+    "UnityRiderCarry"
+  ],
+  "monsterSpecification": "MapDesign_Stage2-3_Monsters_v10.json",
+  "monsterMovingPlatformCollisionPolicy": "entire swept collider volumes must remain separate, regardless of timing; proposed clearance 0.5",
+  "deployedData": "Stage23_Unity.json",
+  "implementationRecord": "Stage23_Implementation_20261016.md"
+}

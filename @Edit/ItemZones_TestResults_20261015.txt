@@ -1,0 +1,29 @@
+PASS 28 checks
+Stage4-2 entry
+4-2 floor: 0.3 grounded + 10 air + 0.2 grounded = 1 damage
+Physics pickups: speed caps at 5 / movement x1.25
+Speed changes dash distance/speed/cooldown together
+Actual dash coroutine uses boosted velocity
+4-2 -> 4-3 enables fury and stops floor damage
+4-2 speed stacks survive transition to 4-3
+Physics fury pickup: +10 additive attack
+Fury reaches 105 stacks (+1050), no five-stack cap
+Speed expiry restores movement/dash, leaves fury unchanged
+Defense multiplier does not multiply the additive fury bonus
+HUD displays actual fury bonus
+All six fury distance gates activate once
+Repeated gate evaluation never respawns a group
+Fury group 1 count 5
+Fury group 2 count 10
+Fury group 3 count 15
+Fury group 4 count 20
+Fury group 5 count 25
+Fury group 6 count 30
+Fury monster death: one fury + one speed at exact death position
+Dead enemy cannot duplicate its drop
+One real sword overlap kills 12 unique bodies (old 8-hit bottleneck removed)
+Field lifetime registry stays within 20 items after crowd deaths
+Huge bonuses saturate damage safely instead of overflowing
+4-3 -> 4-4 clears fury and restores base/equipment attack
+Area exit preserves speed and rejects fury pickups
+Actual player death clears fury

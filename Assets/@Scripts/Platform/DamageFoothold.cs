@@ -17,6 +17,11 @@ public class DamageFoothold : PlatformBehaviour
     [SerializeField] private float activeDuration = 2f;   // 데미지 상태 유지 시간
     [SerializeField] private float cycleOffset = 0f;      // 주기 시작 위치(초) - 여러 발판을 엇갈리게 작동시킬 때 사용
 
+    [Header("외부 제어(공유 시계, 2-1 방식)")]
+    // true면 자체 주기를 돌리지 않고 PlatformCycleManager가 SetExternalState로 안전/예고/활성을 정해 준다. 기본(false)은 기존 동작.
+    [SerializeField] private bool externallyControlled = false;
+    [SerializeField] private Color warningColor = new Color(1f, 0.75f, 0.2f, 1f); // 활성 직전 예고 색(호박색)
+
     [Header("이펙트")]
     [SerializeField] private ParticleSystem damageEffectPrefab; // 데미지 상태에서 재생할 이펙트(발판 윗면 폭에 맞춰 자동 배치)
     [SerializeField] private float effectRatePerUnit = 14f;      // 발판 폭 1유닛당 초당 파티클 수(넓은 발판도 같은 밀도로 보이도록)
@@ -26,6 +31,9 @@ public class DamageFoothold : PlatformBehaviour
     private ParticleSystem effect;
     private IDamageable standingTarget; // 지금 위에 서 있는 플레이어(없으면 null)
     private float cycleTimer;
+    private SpriteRenderer[] tintRenderers;
+    private Color[] originalColors;
+    private bool warningShown;
     private float exposure;             // 데미지 상태에서 플레이어가 연속으로 서 있던 시간
     private float nextHitAt;
 
@@ -34,13 +42,13 @@ public class DamageFoothold : PlatformBehaviour
         base.Start();
         SetupEffect();
         cycleTimer = cycleOffset;
-        SetDamaging(safeDuration <= 0f);
+        SetDamaging(!externallyControlled && safeDuration <= 0f);
         ResetExposure();
     }
 
     private void Update()
     {
-        UpdateCycle();
+        if (!externallyControlled) UpdateCycle();
         UpdateDamage();
     }
 
@@ -112,6 +120,31 @@ public class DamageFoothold : PlatformBehaviour
         }
 
         effect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    }
+
+    public bool ExternallyControlled => externallyControlled;
+
+    // 공유 시계가 매 프레임 호출: damaging = 피해 활성, warning = 활성 직전 예고(아직 피해 없음). 상태가 바뀔 때만 이펙트·색을 갱신한다.
+    public void SetExternalState(bool damaging, bool warning)
+    {
+        if (!externallyControlled) return;
+        if (damaging != IsDamaging) SetDamaging(damaging);
+        ShowWarning(warning && !damaging);
+    }
+
+    // 예고 중에는 발판 외형을 호박색으로 틴트하고 끝나면 원래 색으로 되돌린다(충돌·피해와 무관한 표시).
+    private void ShowWarning(bool on)
+    {
+        if (on == warningShown) return;
+        warningShown = on;
+        if (tintRenderers == null)
+        {
+            tintRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            originalColors = new Color[tintRenderers.Length];
+            for (int i = 0; i < tintRenderers.Length; i++) originalColors[i] = tintRenderers[i].color;
+        }
+        for (int i = 0; i < tintRenderers.Length; i++)
+            if (tintRenderers[i] != null) tintRenderers[i].color = on ? warningColor : originalColors[i];
     }
 
     protected override void OnPlayerStand(Rigidbody2D playerBody)

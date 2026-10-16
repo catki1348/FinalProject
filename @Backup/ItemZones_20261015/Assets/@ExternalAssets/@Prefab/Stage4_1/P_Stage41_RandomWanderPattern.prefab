@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2009624737836164538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524911817641023250, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408431265317601615, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: attack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408431265317601615, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: defense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795473239107589067, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_Name
+      value: P_Stage41_RandomWanderPattern
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293832250987289302, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_Size.x
+      value: 5.5360003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293832250987289302, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_Size.y
+      value: 4.3440003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293832250987289302, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.24000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293832250987289302, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.265
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8000298795612566082, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6578023002394484506}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3270697772236696452}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1486407719635558643}
+    - targetCorrespondingSourceObject: {fileID: 6795473239107589067, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3153804183647180421}
+  m_SourcePrefab: {fileID: 100100000, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+--- !u!1 &5020882348999292529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6795473239107589067, guid: 35010a621b0116849a9f4394bc2ce58b, type: 3}
+  m_PrefabInstance: {fileID: 2009624737836164538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6578023002394484506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020882348999292529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a415a1f2bdd1f439bdd775d17f786b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomWanderPattern
+  areaSize: {x: 6, y: 2}
+  moveSpeed: 1.5
+  arrivalThreshold: 0.1
+  minWaitTime: 1
+  maxWaitTime: 3
+--- !u!114 &3270697772236696452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020882348999292529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73440f398e5690845954103861746fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterLocomotion
+  type: 0
+  groundGravityScale: 3
+  flyingGravityScale: 0
+--- !u!114 &1486407719635558643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020882348999292529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fff961db5224fa43a0d0bf79f1dcf7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterScaleSetter
+  scaleRatio: 0.5
+--- !u!114 &3153804183647180421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020882348999292529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a567abc1e264a948bf3e5b7a305a9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterMovementBounds
+  areaOrigin: {fileID: 0}
+  min: {x: 0, y: 0}
+  max: {x: 0, y: 0}
+  constrainY: 0

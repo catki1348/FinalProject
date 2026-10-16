@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -12,10 +13,15 @@ using UnityEditor.SceneManagement;
 /// </summary>
 public class DeployStage4_1
 {
+    // Editor-only scene index; gameplay uses Inspector references and component caches.
+    private static readonly Dictionary<string, GameObject> sceneObjects = new Dictionary<string, GameObject>();
+    private static GameObject CachedObject(string name)
+    {
+        sceneObjects.TryGetValue(name, out var value);
+        return value;
+    }
     private const string SCENE_PATH = "Assets/Scenes/Stage4.unity";
     private const string JSON_PATH = "@Edit/MapDesign_Stage4-1.json"; // 프로젝트 루트 기준
-    private const string PLATFORM_PREFAB = "Assets/@ExternalAssets/@Prefab/Platform_Stage4_Dungeon.prefab";
-    private const string TILED_SPRITE = "Assets/@ExternalAssets/Tiles/Platform_Stage4_Dungeon_Tiled.png";
     private const string EFFECT_PREFAB = "Assets/@ExternalAssets/@Prefab/P_DamageFootholdEffect.prefab";
 
     private const string ROOT_NAME = "Generated_4-1";
@@ -50,11 +56,15 @@ public class DeployStage4_1
     {
         var scene = EditorSceneManager.GetActiveScene();
         if (scene.path != SCENE_PATH) scene = EditorSceneManager.OpenScene(SCENE_PATH, OpenSceneMode.Single);
+        sceneObjects.Clear();
+        foreach (var sceneRoot in scene.GetRootGameObjects())
+            foreach (var item in sceneRoot.GetComponentsInChildren<Transform>(true))
+                if (!sceneObjects.ContainsKey(item.name)) sceneObjects.Add(item.name, item.gameObject);
 
         string jsonFull = Path.GetFullPath(Path.Combine(Application.dataPath, "..", JSON_PATH));
         Design design = JsonUtility.FromJson<Design>(File.ReadAllText(jsonFull));
 
-        GameObject section1 = GameObject.Find("Section_1");
+        GameObject section1 = CachedObject("Section_1");
         if (section1 == null) { Debug.LogError("Section_1 없음"); return; }
 
         // 11시(시작) → 12시(종료) 설계: JSON은 시작 발판 중심이 (0,0). 고리 맨 아래 접점이 월드 (RING_BOTTOM_X, 0)에 오도록 환산한다.
@@ -72,7 +82,7 @@ public class DeployStage4_1
         root.SetParent(section1.transform, false);
         root.position = Vector3.zero; // 자식은 월드 좌표로 배치하므로 루트는 월드 원점에 둔다
 
-        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PLATFORM_PREFAB);
+        var prefab = FixStage41Rendering.Prefab();
         var effect = AssetDatabase.LoadAssetAtPath<ParticleSystem>(EFFECT_PREFAB);
         foreach (Plat p in design.platforms) CreatePlatform(p, prefab, effect, root);
 
@@ -89,19 +99,22 @@ public class DeployStage4_1
 
         // 섹션 이동으로 같이 움직인 자식 재배치
         SetWorld(root, 0f, 0f);
-        SetWorld(section1.transform.Find("ZoneStartPoint_4-1"), ox, oy);
-        SetWorld(section1.transform.Find("Player_Warrior"), ox, oy + 0.3f);
+        var player = section1.GetComponentInChildren<PlayerMovement>(true);
+        float spawnHeight = player.GetComponent<Collider2D>().bounds.extents.y + 0.05f;
+        SetWorld(section1.transform.Find("ZoneStartPoint_4-1"), ox, oy + spawnHeight);
+        SetWorld(player.transform, ox, oy + spawnHeight);
         SetWorld(section1.transform.Find("ZoneEndPoint_4-1"), goalX, oy + goal.surfaceY + 1f);
 
         // 낙사 판정: 4-1 고리 전체 아래
-        GameObject oob = GameObject.Find("OutOfBoundsTrigger");
+        GameObject oob = CachedObject("OutOfBoundsTrigger");
         if (oob != null)
         {
-            float oobRight = GameObject.Find("Boundary_4_5").transform.position.x + 20f;
+            float oobRight = CachedObject("Boundary_4_5").transform.position.x + 20f;
             oob.transform.position = new Vector3((left + oobRight) * 0.5f, -20f, 0f);
             oob.GetComponent<BoxCollider2D>().size = new Vector2(oobRight - left, 2f);
         }
 
+        DeployStage41Content.Apply(section1.transform, root);
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
         Debug.Log($"✓ Stage 4-1 배치 완료: 발판 {design.platforms.Length}, 골인 X={goalX:F2}");
@@ -110,14 +123,14 @@ public class DeployStage4_1
     // 4-2~4-4 영역과 경계를 오른쪽으로 민다(Boundary_1_2가 이미 새 위치면 건너뜀)
     private static void ShiftLaterSections()
     {
-        GameObject b12 = GameObject.Find("Boundary_1_2");
+        GameObject b12 = CachedObject("Boundary_1_2");
         if (b12.transform.position.x >= NEW_BOUNDARY_1_2_X - 0.01f) return;
 
         float delta = NEW_BOUNDARY_1_2_X - b12.transform.position.x;
         string[] names = { "Section_2", "Section_3", "Section_4", "Boundary_1_2", "Boundary_2_3", "Boundary_3_4", "Boundary_4_5" };
         foreach (string n in names)
         {
-            GameObject go = GameObject.Find(n);
+            GameObject go = CachedObject(n);
             if (go == null) { Debug.LogWarning($"이동 대상 없음: {n}"); continue; }
             go.transform.position += new Vector3(delta, 0f, 0f);
         }
@@ -149,7 +162,8 @@ public class DeployStage4_1
         go.name = $"Platform_4-1_{p.id}_{p.name}_{kind}";
         go.transform.position = pos;
         var renderer = go.GetComponent<SpriteRenderer>();
-        renderer.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(TILED_SPRITE);
+        // Codex (GPT-6), 2026-10-15: preserve the opaque 4-1 tile after future redeployment.
+        renderer.sprite = FixStage41Rendering.Tile();
         renderer.drawMode = SpriteDrawMode.Tiled;
         renderer.tileMode = SpriteTileMode.Continuous;
         renderer.size = new Vector2(p.width, p.thickness);
@@ -159,6 +173,7 @@ public class DeployStage4_1
         collider.offset = Vector2.zero;
         // Tiled로 바꾸면 에디터가 Transform Scale을 바꿀 수 있어 마지막에 (1,1,1)로 고정한다(발판 길이 조절 기준)
         go.transform.localScale = Vector3.one;
+        PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform);
 
         if (p.type == "Damage")
         {
@@ -193,6 +208,10 @@ public class DeployStage4_1
             so.FindProperty("loopMode").enumValueIndex = 1; // PingPong
             so.ApplyModifiedProperties();
         }
+        go.transform.localScale = Vector3.one;
+        PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(renderer);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(collider);
     }
 
     private static void SetWorld(Transform t, float x, float y)

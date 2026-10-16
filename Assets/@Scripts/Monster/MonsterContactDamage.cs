@@ -10,6 +10,7 @@ public class MonsterContactDamage : MonoBehaviour
     [SerializeField] private float attackCooldown = 1f; // 충돌 공격 재사용 간격(초) - 붙어 있는 동안 이 간격마다 공격
 
     private MonsterStats stats;
+    private Collider2D ownBody; // 공격자 정보(방어 성공 넉백용)
     private float lastAttackTime = -999f;
 
     // 공격이 들어간 순간 발행(인자: 대상이 있는 방향, +1 = 오른쪽 / -1 = 왼쪽) - 공격 모션 재생용(MonsterSpriteAnimator)
@@ -19,6 +20,7 @@ public class MonsterContactDamage : MonoBehaviour
     private void Awake()
     {
         stats = GetComponent<MonsterStats>();
+        ownBody = GetComponent<Collider2D>();
     }
 
     // 충돌이 처음 시작되는 순간 피해 판정 시도
@@ -43,7 +45,8 @@ public class MonsterContactDamage : MonoBehaviour
         if (other.attachedRigidbody != null &&
             other.attachedRigidbody.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.TakeDamage(stats.Attack);
+            if (stats.Attack > 0) DamageDelivery.Deliver(damageable, stats.Attack, ownBody);
+            else damageable.TakeDamage(stats.Attack);
             lastAttackTime = Time.time;
             OnAttack?.Invoke(Mathf.Sign(other.transform.position.x - transform.position.x));
         }

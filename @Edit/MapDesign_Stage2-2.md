@@ -1,3 +1,8 @@
+<!-- Codex (GPT-6), 2026-10-15: historical status notice. -->
+<!-- Codex (GPT-6), 2026-10-16: point current design to non-applied revision 2. -->
+> **최신 기준(2026-10-16)**: 최신 설계는 [2-2 2차 수정 설계](MapDesign_Stage22_Revision2_20261016.md)입니다. **설계 완료 / Unity 미적용** 상태입니다. 아래 내용과 10월 15일 적용 보고서는 이전 버전의 이력입니다.
+
+<!-- Codex (GPT-6), 2026-10-15: historical status notice. -->
 # Stage2 - Section_2(2-2) 맵 설계안 (재설계, 2026-09-28)
 
 > **구현 완료(2026-09-28)**: 사용자 승인("유니티에 적용해봐라")에 따라 `Stage2.unity` Section_2에 실제 배치를 완료했습니다. `Boundary_2_3`~`Boundary_4_5`/`Section_3`~`Section_4`를 +68 이동해 공간을 확보했고(Section_5는 별도 보스존 행이라 미이동), `ZoneEndPoint_2-2`를 로컬 x=8→77로 재배치, `Section_2`의 `CameraBoundsZone` 크기를 (20,8)→(160,16)으로 확장했습니다. 이동형 발판은 전용 프리팹이 없어 `MovingPlatform_Stage2_Jungle.prefab`(Rigidbody2D Kinematic + BoxCollider2D + `Platform_Stage2_Jungle` 스프라이트 + `MovingPlatform`)을 신규 제작했고, 소멸형은 `Foothold_Disappearing.prefab`을 복제해 `Foothold_Disappearing_Stage2_Jungle.prefab`(Visual 스프라이트만 정글 테마로 교체, 점멸형 때와 동일한 방식)을 만들어 사용했습니다. 배치 후 콜라이더 전수 겹침 검사 **0건**, Play 모드에서 이동형 발판 실제 이동 확인, 소멸형 발판이 밟은 뒤 실제로 사라지는 것까지 확인했습니다. 콘솔 에러 없음.

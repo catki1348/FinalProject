@@ -1,0 +1,1 @@
+PASS actual leftward exit and 5-3 spawn

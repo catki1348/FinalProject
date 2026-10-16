@@ -1,0 +1,14 @@
+{
+  "ai": "Codex",
+  "model": "unknown",
+  "date": "2026-10-15",
+  "description": "Applied authorized item changes and Fury Run to Stage3/Stage4; runtime probes, structural checks and preview.",
+  "artifacts": [
+    "@Edit/ItemZones_Implementation_20261015.md",
+    "@Edit/ItemZones_TestResults_20261015.txt",
+    "@Edit/ItemZones_Structure_20261015.txt",
+    "Assets/@ExternalAssets/Previews/ItemZones_20261015/ItemZones_Implementation.png"
+  ],
+  "preview": "Temporary-scene UI demonstration: speed3 and fury5 assigned for display; main-game starts at zero.",
+  "verification": "28 runtime checks passed; separate clean restart confirmed fury0/speed0/attack10; no complete manual course playthrough."
+}

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720">
+<!-- Codex (GPT-6), 2026-10-15; design preview, not a Unity screenshot. -->
+<rect width="1440" height="720" fill="#111b26"/>
+<style>text{font-family:Segoe UI,Malgun Gothic,sans-serif;fill:#e8f0f8} .small{font-size:15px} .label{font-size:16px;font-weight:600}</style>
+<text x="40" y="48" font-size="28" font-weight="700">2-2 수정 설계 · 정글 짐</text>
+<text x="40" y="80" font-size="17">일반 10 · 이동형 5 · 소멸형 3 | Unity 반영 완료 / 배치 도식</text>
+<rect x="62.20" y="248.45" width="39.60" height="12.60" rx="2" fill="#80c99c"/>
+<text x="82.00" y="239.45" text-anchor="middle" class="label">N1</text>
+<rect x="129.10" y="248.45" width="19.80" height="12.60" rx="2" fill="#80c99c"/>
+<text x="139.00" y="239.45" text-anchor="middle" class="label">N2</text>
+<rect x="176.50" y="248.45" width="33.00" height="12.60" rx="2" fill="#80c99c"/>
+<text x="193.00" y="239.45" text-anchor="middle" class="label">N3</text>
+<polyline points="232.00,248.45 304.00,248.45" fill="none" stroke="#78b9ff" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="225.40" y="248.45" width="13.20" height="12.60" rx="2" fill="#78b9ff"/>
+<text x="232.00" y="239.45" text-anchor="middle" class="label">MP1</text>
+<rect x="326.80" y="248.45" width="26.40" height="12.60" rx="2" fill="#80c99c"/>
+<text x="340.00" y="239.45" text-anchor="middle" class="label">N4</text>
+<polyline points="376.00,248.45 376.00,178.05" fill="none" stroke="#78b9ff" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="369.40" y="248.45" width="13.20" height="12.60" rx="2" fill="#78b9ff"/>
+<text x="376.00" y="239.45" text-anchor="middle" class="label">MP2</text>
+<rect x="398.80" y="178.05" width="26.40" height="12.60" rx="2" fill="#80c99c"/>
+<text x="412.00" y="169.05" text-anchor="middle" class="label">N5</text>
+<polyline points="448.00,178.05 520.00,233.05" fill="none" stroke="#78b9ff" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="441.40" y="178.05" width="13.20" height="12.60" rx="2" fill="#78b9ff"/>
+<text x="448.00" y="169.05" text-anchor="middle" class="label">MP3</text>
+<rect x="542.80" y="233.05" width="26.40" height="12.60" rx="2" fill="#80c99c"/>
+<text x="556.00" y="224.05" text-anchor="middle" class="label">N6</text>
+<polyline points="592.00,233.05 640.00,233.05 640.00,178.05 592.00,233.05" fill="none" stroke="#78b9ff" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="585.40" y="233.05" width="13.20" height="12.60" rx="2" fill="#78b9ff"/>
+<text x="592.00" y="224.05" text-anchor="middle" class="label">MP4</text>
+<rect x="662.80" y="178.05" width="26.40" height="12.60" rx="2" fill="#80c99c"/>
+<text x="676.00" y="169.05" text-anchor="middle" class="label">N7</text>
+<polyline points="712.00,178.05 796.00,215.45" fill="none" stroke="#78b9ff" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="705.40" y="178.05" width="13.20" height="12.60" rx="2" fill="#78b9ff"/>
+<text x="712.00" y="169.05" text-anchor="middle" class="label">MP5</text>
+<rect x="818.50" y="215.45" width="33.00" height="12.60" rx="2" fill="#80c99c"/>
+<text x="835.00" y="206.45" text-anchor="middle" class="label">N8</text>
+<rect x="897.10" y="206.65" width="19.20" height="12.00" rx="2" fill="#f4b65f"/>
+<text x="906.70" y="197.65" text-anchor="middle" class="label">D1</text>
+<rect x="961.90" y="197.85" width="19.20" height="12.00" rx="2" fill="#f4b65f"/>
+<text x="971.50" y="188.85" text-anchor="middle" class="label">D2</text>
+<rect x="1026.70" y="189.05" width="19.20" height="12.00" rx="2" fill="#f4b65f"/>
+<text x="1036.30" y="180.05" text-anchor="middle" class="label">D3</text>
+<rect x="1091.50" y="180.25" width="33.00" height="12.60" rx="2" fill="#80c99c"/>
+<text x="1108.00" y="171.25" text-anchor="middle" class="label">N9</text>
+<rect x="1151.20" y="180.25" width="39.60" height="12.60" rx="2" fill="#80c99c"/>
+<text x="1171.00" y="171.25" text-anchor="middle" class="label">N10</text>
+<line x1="40" y1="355" x2="1400" y2="355" stroke="#314359"/>
+<text x="40" y="396" font-size="22" font-weight="700">소멸 구간 확대 · 간격 3.8 / 상승 0.4 / 착지 폭 1.6</text>
+<rect x="69.75" y="555.45" width="93.50" height="12.60" rx="2" fill="#80c99c"/>
+<text x="116.50" y="546.45" text-anchor="middle" class="label">N8</text>
+<rect x="292.45" y="546.65" width="54.40" height="12.00" rx="2" fill="#f4b65f"/>
+<text x="319.65" y="537.65" text-anchor="middle" class="label">D1</text>
+<rect x="476.05" y="537.85" width="54.40" height="12.00" rx="2" fill="#f4b65f"/>
+<text x="503.25" y="528.85" text-anchor="middle" class="label">D2</text>
+<rect x="659.65" y="529.05" width="54.40" height="12.00" rx="2" fill="#f4b65f"/>
+<text x="686.85" y="520.05" text-anchor="middle" class="label">D3</text>
+<rect x="843.25" y="520.25" width="93.50" height="12.60" rx="2" fill="#80c99c"/>
+<text x="890.00" y="511.25" text-anchor="middle" class="label">N9</text>
+<rect x="1012.40" y="520.25" width="112.20" height="12.60" rx="2" fill="#80c99c"/>
+<text x="1068.50" y="511.25" text-anchor="middle" class="label">N10</text>
+<path d="M 163.25 590.45 H 292.45" stroke="#b4c4d7"/>
+<text x="227.85" y="612.45" text-anchor="middle" class="small">3.8</text>
+<path d="M 346.85 581.65 H 476.05" stroke="#b4c4d7"/>
+<text x="411.45" y="603.65" text-anchor="middle" class="small">3.8</text>
+<path d="M 530.45 572.85 H 659.65" stroke="#b4c4d7"/>
+<text x="595.05" y="594.85" text-anchor="middle" class="small">3.8</text>
+<path d="M 714.05 564.05 H 843.25" stroke="#b4c4d7"/>
+<text x="778.65" y="586.05" text-anchor="middle" class="small">3.8</text>
+<text x="40" y="670" font-size="18">기준 동선 99.257유닛 = 척도 12.407 · 인접 17쌍 도달 / 소멸 우회 6쌍 차단 모델 통과</text>
+<text x="40" y="699" class="small">색상: 초록 일반 · 파랑 이동 · 주황 소멸 | 가속 5중첩·대시 포함 검토 · 실제 물리·연속 소멸 구간·2-3 전환 검증 완료</text>
+</svg>

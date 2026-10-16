@@ -1,0 +1,145 @@
+Area gimmicks dormant before 1-4 entry
+1-4 entry activates fresh gimmick clocks
+P01->P02 velocity within base 8 at jump 9
+P01->P02 physical landing with jump 9
+P02->P03 velocity within base 8 at jump 9
+P02->P03 physical landing with jump 9
+P03->P04 velocity within base 8 at jump 9
+P03->P04 physical landing with jump 9
+P04->P05 velocity within base 8 at jump 9
+P04->P05 physical landing with jump 9
+P05->P06 velocity within base 8 at jump 9
+P05->P06 physical landing with jump 9
+P06->P07 velocity within base 8 at jump 9
+P06->P07 physical landing with jump 9
+P07->P08 velocity within base 8 at jump 9
+P07->P08 physical landing with jump 9
+P08->P09 velocity within base 8 at jump 9
+P08->P09 physical landing with jump 9
+P09->P10 velocity within base 8 at jump 9
+P09->P10 physical landing with jump 9
+P10->P11 velocity within base 8 at jump 9
+P10->P11 physical landing with jump 9
+P11->P12 velocity within base 8 at jump 9
+P11->P12 physical landing with jump 9
+P12->P13 velocity within base 8 at jump 9
+P12->P13 physical landing with jump 9
+P13->P14 velocity within base 8 at jump 9
+P13->P14 physical landing with jump 9
+P14->P15 velocity within base 8 at jump 9
+P14->P15 physical landing with jump 9
+P15->P16 velocity within base 8 at jump 9
+P15->P16 physical landing with jump 9
+P16->P17 velocity within base 8 at jump 9
+P16->P17 physical landing with jump 9
+P17->P18 velocity within base 8 at jump 9
+P17->P18 physical landing with jump 9
+P18->P19 velocity within base 8 at jump 9
+P18->P19 physical landing with jump 9
+P19->P20 velocity within base 8 at jump 9
+P19->P20 physical landing with jump 9
+P20->P21 velocity within base 8 at jump 9
+P20->P21 physical landing with jump 9
+P21->P22 velocity within base 8 at jump 9
+P21->P22 physical landing with jump 9
+P22->P23 velocity within base 8 at jump 9
+P22->P23 physical landing with jump 9
+P23->P24 velocity within base 8 at jump 9
+P23->P24 physical landing with jump 9
+P24->P25 velocity within base 8 at jump 9
+P24->P25 physical landing with jump 9
+P25->P26 velocity within base 8 at jump 9
+P25->P26 physical landing with jump 9
+P26->P27 velocity within base 8 at jump 9
+P26->P27 physical landing with jump 9
+P27->P28 velocity within base 8 at jump 9
+P27->P28 physical landing with jump 9
+P28->P29 velocity within base 8 at jump 9
+P28->P29 physical landing with jump 9
+P01->P02 velocity within base 8 at jump 7.2
+P01->P02 physical landing with jump 7.2
+P02->P03 velocity within base 8 at jump 7.2
+P02->P03 physical landing with jump 7.2
+P03->P04 velocity within base 8 at jump 7.2
+P03->P04 physical landing with jump 7.2
+P04->P05 velocity within base 8 at jump 7.2
+P04->P05 physical landing with jump 7.2
+P05->P06 velocity within base 8 at jump 7.2
+P05->P06 physical landing with jump 7.2
+P06->P07 velocity within base 8 at jump 7.2
+P06->P07 physical landing with jump 7.2
+P07->P08 velocity within base 8 at jump 7.2
+P07->P08 physical landing with jump 7.2
+P08->P09 velocity within base 8 at jump 7.2
+P08->P09 physical landing with jump 7.2
+P09->P10 velocity within base 8 at jump 7.2
+P09->P10 physical landing with jump 7.2
+P10->P11 velocity within base 8 at jump 7.2
+P10->P11 physical landing with jump 7.2
+P11->P12 velocity within base 8 at jump 7.2
+P11->P12 physical landing with jump 7.2
+P12->P13 velocity within base 8 at jump 7.2
+P12->P13 physical landing with jump 7.2
+P13->P14 velocity within base 8 at jump 7.2
+P13->P14 physical landing with jump 7.2
+P14->P15 velocity within base 8 at jump 7.2
+P14->P15 physical landing with jump 7.2
+P15->P16 velocity within base 8 at jump 7.2
+P15->P16 physical landing with jump 7.2
+P16->P17 velocity within base 8 at jump 7.2
+P16->P17 physical landing with jump 7.2
+P17->P18 velocity within base 8 at jump 7.2
+P17->P18 physical landing with jump 7.2
+P18->P19 velocity within base 8 at jump 7.2
+P18->P19 physical landing with jump 7.2
+P19->P20 velocity within base 8 at jump 7.2
+P19->P20 physical landing with jump 7.2
+P20->P21 velocity within base 8 at jump 7.2
+P20->P21 physical landing with jump 7.2
+P21->P22 velocity within base 8 at jump 7.2
+P21->P22 physical landing with jump 7.2
+P22->P23 velocity within base 8 at jump 7.2
+P22->P23 physical landing with jump 7.2
+P23->P24 velocity within base 8 at jump 7.2
+P23->P24 physical landing with jump 7.2
+P24->P25 velocity within base 8 at jump 7.2
+P24->P25 physical landing with jump 7.2
+P25->P26 velocity within base 8 at jump 7.2
+P25->P26 physical landing with jump 7.2
+P26->P27 velocity within base 8 at jump 7.2
+P26->P27 physical landing with jump 7.2
+P27->P28 velocity within base 8 at jump 7.2
+P27->P28 physical landing with jump 7.2
+P28->P29 velocity within base 8 at jump 7.2
+P28->P29 physical landing with jump 7.2
+P07 actual rider transport reaches upper endpoint; worst foot error=0.01500225
+P09 actual rider transport reaches upper endpoint; worst foot error=0.02000046
+P19 actual rider transport reaches upper endpoint; worst foot error=0.01499748
+Blink visible Platform_1-4_P11_Blink
+Blink hidden Platform_1-4_P11_Blink
+Blink restored Platform_1-4_P11_Blink
+Blink visible Platform_1-4_P13_Blink
+Blink hidden Platform_1-4_P13_Blink
+Blink restored Platform_1-4_P13_Blink
+Blink visible Platform_1-4_P15_Blink
+Blink hidden Platform_1-4_P15_Blink
+Blink restored Platform_1-4_P15_Blink
+Blink visible Platform_1-4_P17_Blink
+Blink hidden Platform_1-4_P17_Blink
+Blink restored Platform_1-4_P17_Blink
+Vanish removes support Platform_1-4_P03_Disappear
+Vanish respawns support Platform_1-4_P03_Disappear
+Vanish removes support Platform_1-4_P04_Disappear
+Vanish respawns support Platform_1-4_P04_Disappear
+Vanish removes support Platform_1-4_P05_Disappear
+Vanish respawns support Platform_1-4_P05_Disappear
+Damage active phase Platform_1-4_P21_Damage
+Damage safe phase Platform_1-4_P21_Damage
+Damage active phase Platform_1-4_P23_Damage
+Damage safe phase Platform_1-4_P23_Damage
+Damage active phase Platform_1-4_P25_Damage
+Damage safe phase Platform_1-4_P25_Damage
+Damage active phase Platform_1-4_P27_Damage
+Damage safe phase Platform_1-4_P27_Damage
+Actual goal trigger advances to 1-5
+Goal teleports to relocated boss start

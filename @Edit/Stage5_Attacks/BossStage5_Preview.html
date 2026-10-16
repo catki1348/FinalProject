@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>보스 5 · 쌍검 악마군주</title>
+<style>body{margin:0;background:#111018;color:#eee;font:16px 'Segoe UI',sans-serif}main{max-width:1200px;margin:auto;padding:32px}h1{color:#ffbd88}p{line-height:1.7;color:#c4becf}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}article{background:#211c29;border:1px solid #493647;border-radius:14px;padding:18px}img{width:100%;image-rendering:auto}h2{font-size:20px}small{color:#c9b7a5}a{color:#ffc18f}button{padding:9px 16px;background:#833c40;color:white;border:0;border-radius:6px;cursor:pointer}.note{border-left:3px solid #e99a5a;padding:10px 18px;background:#251f26}</style>
+<main><small>STAGE 05 / CONCEPT PREVIEW</small><h1>쌍검 악마군주</h1><p>클로드 제작 원화를 사용하는 공격 8종 키포즈 미리보기입니다. 각 카드는 반복 재생됩니다. Unity 미적용 · 실제 전투 판정 없음.</p><p class="note">검수 결과: 조건부 확인. C5 연계 조건·S2 판정 높이·재생 시간·프레임 비율은 보완이 필요합니다. 아래 시간은 기존 GIF 기준이며 전투 타이밍과 다릅니다.</p><button id="toggle">전체 일시정지</button><p>일반 5종 / 특수 3종 · 체력 제안 320 · 특수 피해 제안 80</p><section class="grid" id="cards"></section><p><a href="BossPreview_Stage5.png">전체 키포즈 이미지</a> · <a href="../BossStage5_Review_20261015.md">검수 기록</a></p><small>원화·기존 GIF: Claude Sonnet 5.5, 2026-10-15 / 미리보기·검수: Codex (GPT-6), 2026-10-15</small></main>
+<script>
+// 기존 매니페스트를 삽입해 로컬 파일에서도 네트워크 요청 없이 공격 카드를 구성한다.
+const data={
+  "canvas": [
+    2400,
+    1600
+  ],
+  "baselineY": 1560,
+  "pivotX": 1200,
+  "frames": {
+    "N1_01": {
+      "bounds": [
+        261,
+        184,
+        1271,
+        902
+      ],
+      "removedLineRows": 2,
+      "footX": 634,
+      "shiftX": 566,
+      "shiftY": 658,
+      "hover": 0
+    },
+    "N1_02": {
+      "bounds": [
+        141,
+        142,
+        1375,
+        871
+      ],
+      "removedLineRows": 1,
+      "footX": 591,
+      "shiftX": 609,
+      "shiftY": 689,
+      "hover": 0
+    },
+    "N2_01": {
+      "bounds": [
+        197,
+        267,
+        1342,
+        895
+      ],
+      "removedLineRows": 0,
+      "footX": 662,
+      "shiftX": 538,
+      "shiftY": 665,
+      "hover": 0
+    },
+    "N2_02": {
+      "bounds": [
+        124,
+        324,
+        1344,
+        816
+      ],
+      "removedLineRows": 0,
+      "footX": 597,
+      "shiftX": 603,
+      "shiftY": 744,
+      "hover": 0
+    },
+    "N3_01": {
+      "bounds": [
+        100,
+        151,
+        1366,
+        906
+      ],
+      "removedLineRows": 0,
+      "footX": 659,
+      "shiftX": 541,
+      "shiftY": 654,
+      "hover": 0
+    },
+    "N3_02": {
+      "bounds": [
+        150,
+        221,
+        1389,
+        876
+      ],
+      "removedLineRows": 3,
+      "footX": 535,
+      "shiftX": 665,
+      "shiftY": 684,
+      "hover": 0
+    },
+    "N4_01": {
+      "bounds": [
+        135,
+        140,
+        1306,
+        915
+      ],
+      "removedLineRows": 3,
+      "footX": 615,
+      "shiftX": 585,
+      "shiftY": 645,
+      "hover": 0
+    },
+    "N4_02": {
+      "bounds": [
+        182,
+        199,
+        1264,
+        842
+      ],
+      "removedLineRows": 0,
+      "footX": 578,
+      "shiftX": 622,
+      "shiftY": 718,
+      "hover": 0
+    },
+    "N5_01": {
+      "bounds": [
+        212,
+        219,
+        1251,
+        861
+      ],
+      "removedLineRows": 0,
+      "footX": 619,
+      "shiftX": 581,
+      "shiftY": 699,
+      "hover": 0
+    },
+    "N5_02": {
+      "bounds": [
+        69,
+        240,
+        1479,
+        843
+      ],
+      "removedLineRows": 3,
+      "footX": 804,
+      "shiftX": 396,
+      "shiftY": 717,
+      "hover": 0
+    },
+    "S1_01": {
+      "bounds": [
+        24,
+        210,
+        912,
+        1258
+      ],
+      "removedLineRows": 2,
+      "footX": 564,
+      "shiftX": 636,
+      "shiftY": 302,
+      "hover": 0
+    },
+    "S1_02": {
+      "bounds": [
+        125,
+        219,
+        978,
+        1259
+      ],
+      "removedLineRows": 0,
+      "footX": 619,
+      "shiftX": 581,
+      "shiftY": 301,
+      "hover": 0
+    },
+    "S1_03": {
+      "bounds": [
+        137,
+        126,
+        1408,
+        875
+      ],
+      "removedLineRows": 0,
+      "footX": 493,
+      "shiftX": 707,
+      "shiftY": 685,
+      "hover": 0
+    },
+    "S2_01": {
+      "bounds": [
+        51,
+        418,
+        973,
+        1111
+      ],
+      "removedLineRows": 0,
+      "footX": 495,
+      "shiftX": 705,
+      "shiftY": 449,
+      "hover": 0
+    },
+    "S2_02": {
+      "bounds": [
+        71,
+        265,
+        874,
+        1075
+      ],
+      "removedLineRows": 0,
+      "footX": 406,
+      "shiftX": 794,
+      "shiftY": 105,
+      "hover": 380
+    },
+    "S2_03": {
+      "bounds": [
+        318,
+        96,
+        1085,
+        929
+      ],
+      "removedLineRows": 0,
+      "footX": 763,
+      "shiftX": 437,
+      "shiftY": 631,
+      "hover": 0
+    },
+    "S3_01": {
+      "bounds": [
+        125,
+        66,
+        837,
+        1372
+      ],
+      "removedLineRows": 0,
+      "footX": 541,
+      "shiftX": 659,
+      "shiftY": 188,
+      "hover": 0
+    },
+    "S3_02": {
+      "bounds": [
+        17,
+        217,
+        1010,
+        1251
+      ],
+      "removedLineRows": 0,
+      "footX": 441,
+      "shiftX": 759,
+      "shiftY": 309,
+      "hover": 0
+    },
+    "S3_03": {
+      "bounds": [
+        212,
+        55,
+        1168,
+        939
+      ],
+      "removedLineRows": 0,
+      "footX": 670,
+      "shiftX": 530,
+      "shiftY": 621,
+      "hover": 0
+    }
+  },
+  "attacks": {
+    "N1_RightSlash": {
+      "name": "우횡 베기",
+      "category": "중단",
+      "frames": [
+        "N1_01",
+        "N1_02"
+      ],
+      "holdSeconds": [
+        0.4,
+        0.4
+      ]
+    },
+    "N2_GroundSweep": {
+      "name": "지면 쓸기",
+      "category": "하단",
+      "frames": [
+        "N2_01",
+        "N2_02"
+      ],
+      "holdSeconds": [
+        0.45,
+        0.45
+      ]
+    },
+    "N3_ThrustLunge": {
+      "name": "쌍검 찌르기",
+      "category": "중단",
+      "frames": [
+        "N3_01",
+        "N3_02"
+      ],
+      "holdSeconds": [
+        0.45,
+        0.45
+      ]
+    },
+    "N4_CrossSlash": {
+      "name": "십자 베기",
+      "category": "중단",
+      "frames": [
+        "N4_01",
+        "N4_02"
+      ],
+      "holdSeconds": [
+        0.35,
+        0.35
+      ]
+    },
+    "N5_SpinLowSlash": {
+      "name": "회전 하단 베기",
+      "category": "하단",
+      "frames": [
+        "N5_01",
+        "N5_02"
+      ],
+      "holdSeconds": [
+        0.4,
+        0.5
+      ]
+    },
+    "S1_DoomCross": {
+      "name": "파멸의 십자참",
+      "category": "중단",
+      "frames": [
+        "S1_01",
+        "S1_02",
+        "S1_03"
+      ],
+      "holdSeconds": [
+        0.6,
+        0.6,
+        0.4
+      ]
+    },
+    "S2_WingDive": {
+      "name": "암흑 날개 급강하",
+      "category": "중단",
+      "frames": [
+        "S2_01",
+        "S2_02",
+        "S2_03"
+      ],
+      "holdSeconds": [
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    "S3_AbyssQuake": {
+      "name": "심연 지맥파",
+      "category": "하단",
+      "frames": [
+        "S3_01",
+        "S3_02",
+        "S3_03"
+      ],
+      "holdSeconds": [
+        0.55,
+        0.55,
+        0.4
+      ]
+    }
+  }
+};
+const cards=document.querySelector('#cards');
+for(const [id,a] of Object.entries(data.attacks)){
+ const card=document.createElement('article');const title=document.createElement('h2');title.textContent=id.slice(0,2)+' · '+a.name;card.append(title);
+ const img=document.createElement('img');img.src='gif/'+id+'.gif';img.alt=a.name+' 키포즈 반복';img.dataset.gif=img.src;img.dataset.still='final/'+a.frames[0]+'.png';card.append(img);
+ const text=document.createElement('p');text.textContent=a.category+' · '+a.frames.length+'개 키포즈 · 기존 재생 '+a.holdSeconds.reduce((x,y)=>x+y,0).toFixed(2)+'초';card.append(text);cards.append(card);
+}
+// 정지 시 첫 키포즈를 표시하고, 재생 시 기존 GIF로 되돌린다.
+let paused=false;document.querySelector('#toggle').onclick=function(){paused=!paused;document.querySelectorAll('article img').forEach(i=>i.src=paused?i.dataset.still:i.dataset.gif);this.textContent=paused?'전체 재생':'전체 일시정지';};
+</script></html>

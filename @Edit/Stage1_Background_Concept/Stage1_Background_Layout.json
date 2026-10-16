@@ -1,0 +1,64 @@
+{
+  "status": "concept-only; Unity scene unchanged",
+  "sourceScene": "Assets/Scenes/Stage1.unity",
+  "sourceSceneSHA256": "AF9771C07CC43F0B5C54C52E38D1F4FD5D248D78E74D0CC0E9BB21DF202A4DF6",
+  "image": "T_Stage1_Continuous_Forest.png",
+  "pixelWidth": 1672,
+  "pixelHeight": 941,
+  "requestedResolution": "4K 3840x2160; actual returned resolution recorded separately",
+  "worldRect": {
+    "top": 67.56420021954526,
+    "left": -13.666666666666686,
+    "right": 355.07667032877606,
+    "bottom": -139.9641969770526
+  },
+  "areas": [
+    {
+      "area": 1,
+      "left": 0.0,
+      "right": 58.0,
+      "bottom": -8.5,
+      "top": 8.5,
+      "orthographicSize": 5.0
+    },
+    {
+      "area": 2,
+      "left": 58.0,
+      "right": 156.0,
+      "bottom": -76.0,
+      "top": 16.0,
+      "orthographicSize": 7.5
+    },
+    {
+      "area": 3,
+      "left": 156.0,
+      "right": 211.80999755859375,
+      "bottom": 2.0,
+      "top": 17.5,
+      "orthographicSize": 5.0
+    },
+    {
+      "area": 4,
+      "left": 211.80999755859375,
+      "right": 341.4100036621094,
+      "bottom": -3.0,
+      "top": 27.0,
+      "orthographicSize": 5.0
+    },
+    {
+      "area": 5,
+      "left": 155.92000198364258,
+      "right": 185.4900016784668,
+      "bottom": -97.89999675750732,
+      "top": -80.99999713897705,
+      "orthographicSize": 6.5
+    }
+  ],
+  "coveragePassed": true,
+  "worker": {
+    "model": "GPT-6",
+    "date": "2026-10-16",
+    "agent": "Codex"
+  },
+  "prompt": "Single continuous 4K pixel-art green forest panorama matching Forest_Platformer_Level_Background; brown trunks, vines, blue-green distant forest, pale sky and distant mountains; all five areas including lower forest boss clearing; background only, no platforms, bridges, characters, traps, text or UI."
+}

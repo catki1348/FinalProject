@@ -150,11 +150,11 @@ public static class DeployStage1BossRedesign
         floor.transform.localPosition = new Vector3(0, -0.5f, 0);
         floor.layer = LayerMask.NameToLayer("Ground"); SetPlatform(floor, floorSprite, new Vector2(28, 1));
         var layout = JsonUtility.FromJson<Layout>(File.ReadAllText("@Edit/MapDesign_Stage1-5_Redesign.json"));
-        if (layout.platforms.Length != 30) throw new InvalidOperationException("Expected 30 ledges");
+        if (layout.platforms.Length != 45) throw new InvalidOperationException("Expected 45 ledges");
         foreach (var p in layout.platforms)
         {
             var ledge = (GameObject)PrefabUtility.InstantiatePrefab(ledgePrefab);
-            ledge.name = "Platform_1-5_" + (p.side < 0 ? "L" : "R") + "_Tier" + p.tier + "_" + p.id;
+            ledge.name = "Platform_1-5_" + (p.side < 0 ? "L" : p.side > 0 ? "R" : "C") + "_Tier" + p.tier + "_" + p.id;
             ledge.transform.SetParent(arena.transform, false);
             ledge.transform.localPosition = new Vector3(p.x, p.top - p.thickness / 2, 0);
         }
@@ -305,6 +305,27 @@ public static class DeployStage1BossRedesign
         cam.ApplyModifiedPropertiesWithoutUndo();
         EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
         AssetDatabase.SaveAssets();
-        return "Stage1 Section_5: 30 equilateral ledges, continuous floor, boss collision exclusion, whole-ground slam, head damage, drop input applied.";
+        return "Stage1 Section_5: 3 equilateral pyramids / 45 ledges, continuous floor, boss collision exclusion, whole-ground slam, head damage, drop input applied.";
+    }
+
+    // OpenAI Codex (GPT-6), 2026-10-15: 발판만 갱신하여 이후 추가된 보스 패턴/크기/애니메이션을 보존한다.
+    public static string ApplyLayoutOnly()
+    {
+        if (EditorApplication.isPlaying) throw new InvalidOperationException("Use edit mode");
+        var scene = SceneManager.GetSceneByPath("Assets/Scenes/Stage1.unity");
+        if (!scene.isLoaded) scene = EditorSceneManager.OpenScene("Assets/Scenes/Stage1.unity", OpenSceneMode.Additive);
+        var section = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<Transform>(true)).First(t => t.name == "Section_5");
+        var prefab = BuildArena(EnsureLayer());
+        var old = section.Cast<Transform>().Single(t => t.name == "Arena_1-5_Redesign");
+        Vector3 position = old.localPosition;
+        UnityEngine.Object.DestroyImmediate(old.gameObject);
+        var arena = (GameObject)PrefabUtility.InstantiatePrefab(prefab, scene);
+        arena.name = "Arena_1-5_Redesign"; arena.transform.SetParent(section, false); arena.transform.localPosition = position;
+        var floor = arena.GetComponentsInChildren<BoxCollider2D>().Single(c => c.GetComponent<BossArenaLedge>() == null);
+        var slam = section.GetComponentInChildren<BossArenaGroundSlam>();
+        slam.Configure(floor, arena.GetComponentsInChildren<SpriteRenderer>().Single(r => r.name == "GroundSlamIndicator"));
+        PrefabUtility.RecordPrefabInstancePropertyModifications(slam);
+        EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
+        return "Applied 3 pyramids / 45 ledges; existing boss configuration preserved.";
     }
 }

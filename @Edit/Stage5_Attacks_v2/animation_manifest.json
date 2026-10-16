@@ -1,0 +1,384 @@
+{
+  "canvas": [
+    2000,
+    1700
+  ],
+  "baselineY": 1640,
+  "pivotX": 1000,
+  "frames": {
+    "N1_1": {
+      "ruler": 443.6,
+      "scale": 1.006
+    },
+    "N1_2": {
+      "ruler": 440.5,
+      "scale": 1.011
+    },
+    "N1_3": {
+      "ruler": 393.4,
+      "scale": 1.081
+    },
+    "N1_4": {
+      "ruler": 414.7,
+      "scale": 1.048
+    },
+    "N2_1": {
+      "ruler": 465.8,
+      "scale": 0.977
+    },
+    "N2_2": {
+      "ruler": 432.3,
+      "scale": 1.022
+    },
+    "N2_3": {
+      "ruler": 457.2,
+      "scale": 0.988
+    },
+    "N2_4": {
+      "ruler": 458.6,
+      "scale": 0.986
+    },
+    "N3_1": {
+      "ruler": 478.5,
+      "scale": 0.962
+    },
+    "N3_2": {
+      "ruler": 458.2,
+      "scale": 0.987
+    },
+    "N3_3": {
+      "ruler": 463.1,
+      "scale": 0.981
+    },
+    "N3_4": {
+      "ruler": 448.3,
+      "scale": 1.0
+    },
+    "N4_1": {
+      "ruler": 427.6,
+      "scale": 1.029
+    },
+    "N4_2": {
+      "ruler": 420.5,
+      "scale": 1.039
+    },
+    "N4_3": {
+      "ruler": 473.6,
+      "scale": 0.968
+    },
+    "N4_4": {
+      "ruler": 394.3,
+      "scale": 1.08
+    },
+    "N5_1": {
+      "ruler": 497.8,
+      "scale": 0.939
+    },
+    "N5_2": {
+      "ruler": 423.9,
+      "scale": 1.034
+    },
+    "N5_3": {
+      "ruler": 409.4,
+      "scale": 1.056
+    },
+    "N5_4": {
+      "ruler": 469.6,
+      "scale": 0.973
+    },
+    "IDLE": {
+      "ruler": 456.8,
+      "scale": 0.989
+    }
+  },
+  "patterns": {
+    "P1_N1": {
+      "label": "일공1",
+      "category": "중단",
+      "steps": [
+        {
+          "frame": "N1_1",
+          "hold": 0.11,
+          "offsetPx": -8,
+          "hit": false
+        },
+        {
+          "frame": "N1_2",
+          "hold": 0.15,
+          "offsetPx": -22,
+          "hit": false
+        },
+        {
+          "frame": "N1_3",
+          "hold": 0.08,
+          "offsetPx": 34,
+          "hit": true
+        },
+        {
+          "frame": "N1_4",
+          "hold": 0.15,
+          "offsetPx": 52,
+          "hit": false
+        }
+      ]
+    },
+    "P2_N2": {
+      "label": "일공2",
+      "category": "하단",
+      "steps": [
+        {
+          "frame": "N2_1",
+          "hold": 0.12,
+          "offsetPx": -6,
+          "hit": false
+        },
+        {
+          "frame": "N2_2",
+          "hold": 0.16,
+          "offsetPx": -20,
+          "hit": false
+        },
+        {
+          "frame": "N2_3",
+          "hold": 0.07,
+          "offsetPx": 20,
+          "hit": false
+        },
+        {
+          "frame": "N2_4",
+          "hold": 0.17,
+          "offsetPx": 48,
+          "hit": true
+        }
+      ]
+    },
+    "P3_N3": {
+      "label": "일공3",
+      "category": "중단",
+      "steps": [
+        {
+          "frame": "N3_1",
+          "hold": 0.11,
+          "offsetPx": -8,
+          "hit": false
+        },
+        {
+          "frame": "N3_2",
+          "hold": 0.16,
+          "offsetPx": -24,
+          "hit": false
+        },
+        {
+          "frame": "N3_3",
+          "hold": 0.07,
+          "offsetPx": 26,
+          "hit": false
+        },
+        {
+          "frame": "N3_4",
+          "hold": 0.17,
+          "offsetPx": 56,
+          "hit": true
+        }
+      ]
+    },
+    "P4_N1_4_5": {
+      "label": "일공1+특공4+5",
+      "category": "중단→중단→하단",
+      "steps": [
+        {
+          "frame": "N1_1",
+          "hold": 0.11,
+          "offsetPx": -8,
+          "hit": false
+        },
+        {
+          "frame": "N1_2",
+          "hold": 0.15,
+          "offsetPx": -22,
+          "hit": false
+        },
+        {
+          "frame": "N1_3",
+          "hold": 0.08,
+          "offsetPx": 34,
+          "hit": true
+        },
+        {
+          "frame": "N1_4",
+          "hold": 0.15,
+          "offsetPx": 52,
+          "hit": false
+        },
+        {
+          "frame": "N4_2",
+          "hold": 0.15,
+          "offsetPx": 0,
+          "hit": false
+        },
+        {
+          "frame": "N4_3",
+          "hold": 0.07,
+          "offsetPx": 22,
+          "hit": false
+        },
+        {
+          "frame": "N4_4",
+          "hold": 0.17,
+          "offsetPx": 46,
+          "hit": true
+        },
+        {
+          "frame": "N5_2",
+          "hold": 0.16,
+          "offsetPx": 10,
+          "hit": false
+        },
+        {
+          "frame": "N5_3",
+          "hold": 0.07,
+          "offsetPx": 28,
+          "hit": false
+        },
+        {
+          "frame": "N5_4",
+          "hold": 0.18,
+          "offsetPx": 40,
+          "hit": true
+        }
+      ]
+    },
+    "P5_N2_4_5": {
+      "label": "일공2+특공4+5",
+      "category": "하단→중단→하단",
+      "steps": [
+        {
+          "frame": "N2_1",
+          "hold": 0.12,
+          "offsetPx": -6,
+          "hit": false
+        },
+        {
+          "frame": "N2_2",
+          "hold": 0.16,
+          "offsetPx": -20,
+          "hit": false
+        },
+        {
+          "frame": "N2_3",
+          "hold": 0.07,
+          "offsetPx": 20,
+          "hit": false
+        },
+        {
+          "frame": "N2_4",
+          "hold": 0.17,
+          "offsetPx": 48,
+          "hit": true
+        },
+        {
+          "frame": "N4_2",
+          "hold": 0.15,
+          "offsetPx": 0,
+          "hit": false
+        },
+        {
+          "frame": "N4_3",
+          "hold": 0.07,
+          "offsetPx": 22,
+          "hit": false
+        },
+        {
+          "frame": "N4_4",
+          "hold": 0.17,
+          "offsetPx": 46,
+          "hit": true
+        },
+        {
+          "frame": "N5_2",
+          "hold": 0.16,
+          "offsetPx": 10,
+          "hit": false
+        },
+        {
+          "frame": "N5_3",
+          "hold": 0.07,
+          "offsetPx": 28,
+          "hit": false
+        },
+        {
+          "frame": "N5_4",
+          "hold": 0.18,
+          "offsetPx": 40,
+          "hit": true
+        }
+      ]
+    },
+    "P6_N3_4_5": {
+      "label": "일공3+특공4+5",
+      "category": "중단→중단→하단",
+      "steps": [
+        {
+          "frame": "N3_1",
+          "hold": 0.11,
+          "offsetPx": -8,
+          "hit": false
+        },
+        {
+          "frame": "N3_2",
+          "hold": 0.16,
+          "offsetPx": -24,
+          "hit": false
+        },
+        {
+          "frame": "N3_3",
+          "hold": 0.07,
+          "offsetPx": 26,
+          "hit": false
+        },
+        {
+          "frame": "N3_4",
+          "hold": 0.17,
+          "offsetPx": 56,
+          "hit": true
+        },
+        {
+          "frame": "N4_2",
+          "hold": 0.15,
+          "offsetPx": 0,
+          "hit": false
+        },
+        {
+          "frame": "N4_3",
+          "hold": 0.07,
+          "offsetPx": 22,
+          "hit": false
+        },
+        {
+          "frame": "N4_4",
+          "hold": 0.17,
+          "offsetPx": 46,
+          "hit": true
+        },
+        {
+          "frame": "N5_2",
+          "hold": 0.16,
+          "offsetPx": 10,
+          "hit": false
+        },
+        {
+          "frame": "N5_3",
+          "hold": 0.07,
+          "offsetPx": 28,
+          "hit": false
+        },
+        {
+          "frame": "N5_4",
+          "hold": 0.18,
+          "offsetPx": 40,
+          "hit": true
+        }
+      ]
+    }
+  }
+}

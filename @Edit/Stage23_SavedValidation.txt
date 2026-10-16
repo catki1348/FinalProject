@@ -1,0 +1,1 @@
+PASS saved/reopened Stage2, 21 platforms / 7 movers / 30 monsters, missing scripts 0, Scale1 + Tiled/Continuous, platforms inside zone, temporary Test023 absent=True, scene dirty=False

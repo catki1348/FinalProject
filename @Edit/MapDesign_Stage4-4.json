@@ -1,0 +1,2992 @@
+{
+  "schema": "stage4_4_super_run_v1",
+  "status": "concept_only",
+  "date": "2026-10-15",
+  "distance": 150,
+  "unitsPerDistance": 8,
+  "start": [
+    0,
+    0
+  ],
+  "goal": [
+    1200,
+    0
+  ],
+  "buff": {
+    "stacks": 5,
+    "speedMultiplier": 1.25,
+    "dashDistanceMultiplier": 1.25,
+    "dashSpeedMultiplier": 1.25,
+    "dashCooldownMultiplier": 0.75,
+    "pinnedWithinZone": "4-4"
+  },
+  "timing": {
+    "firstFallSeconds": 1,
+    "intervalSeconds": 1,
+    "lastFallSeconds": 150,
+    "supportDisabledAtFallStart": true,
+    "pauseWithGame": true
+  },
+  "rendering": {
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "drawMode": "Tiled",
+    "tileMode": "Continuous",
+    "autoTiling": false
+  },
+  "platforms": [
+    {
+      "id": "P001",
+      "type": "Falling",
+      "xMin": -4,
+      "xMax": 8,
+      "center": [
+        2,
+        -0.5
+      ],
+      "size": [
+        12,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 1,
+      "expectedClearSeconds": 0.8,
+      "marginSeconds": 0.2
+    },
+    {
+      "id": "P002",
+      "type": "Falling",
+      "xMin": 8,
+      "xMax": 16,
+      "center": [
+        12,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 2,
+      "expectedClearSeconds": 1.6,
+      "marginSeconds": 0.4
+    },
+    {
+      "id": "P003",
+      "type": "Falling",
+      "xMin": 16,
+      "xMax": 24,
+      "center": [
+        20,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 3,
+      "expectedClearSeconds": 2.4000000000000004,
+      "marginSeconds": 0.6000000000000001
+    },
+    {
+      "id": "P004",
+      "type": "Falling",
+      "xMin": 24,
+      "xMax": 32,
+      "center": [
+        28,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 4,
+      "expectedClearSeconds": 3.2,
+      "marginSeconds": 0.8
+    },
+    {
+      "id": "P005",
+      "type": "Falling",
+      "xMin": 32,
+      "xMax": 40,
+      "center": [
+        36,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 5,
+      "expectedClearSeconds": 4.0,
+      "marginSeconds": 1.0
+    },
+    {
+      "id": "P006",
+      "type": "Falling",
+      "xMin": 40,
+      "xMax": 48,
+      "center": [
+        44,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 6,
+      "expectedClearSeconds": 4.800000000000001,
+      "marginSeconds": 1.2000000000000002
+    },
+    {
+      "id": "P007",
+      "type": "Falling",
+      "xMin": 48,
+      "xMax": 56,
+      "center": [
+        52,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 7,
+      "expectedClearSeconds": 5.6000000000000005,
+      "marginSeconds": 1.4000000000000001
+    },
+    {
+      "id": "P008",
+      "type": "Falling",
+      "xMin": 56,
+      "xMax": 64,
+      "center": [
+        60,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 8,
+      "expectedClearSeconds": 6.4,
+      "marginSeconds": 1.6
+    },
+    {
+      "id": "P009",
+      "type": "Falling",
+      "xMin": 64,
+      "xMax": 72,
+      "center": [
+        68,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 9,
+      "expectedClearSeconds": 7.2,
+      "marginSeconds": 1.8
+    },
+    {
+      "id": "P010",
+      "type": "Falling",
+      "xMin": 72,
+      "xMax": 80,
+      "center": [
+        76,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 10,
+      "expectedClearSeconds": 8.0,
+      "marginSeconds": 2.0
+    },
+    {
+      "id": "P011",
+      "type": "Falling",
+      "xMin": 80,
+      "xMax": 88,
+      "center": [
+        84,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 11,
+      "expectedClearSeconds": 8.8,
+      "marginSeconds": 2.2
+    },
+    {
+      "id": "P012",
+      "type": "Falling",
+      "xMin": 88,
+      "xMax": 96,
+      "center": [
+        92,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 12,
+      "expectedClearSeconds": 9.600000000000001,
+      "marginSeconds": 2.4000000000000004
+    },
+    {
+      "id": "P013",
+      "type": "Falling",
+      "xMin": 96,
+      "xMax": 104,
+      "center": [
+        100,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 13,
+      "expectedClearSeconds": 10.4,
+      "marginSeconds": 2.6
+    },
+    {
+      "id": "P014",
+      "type": "Falling",
+      "xMin": 104,
+      "xMax": 112,
+      "center": [
+        108,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 14,
+      "expectedClearSeconds": 11.200000000000001,
+      "marginSeconds": 2.8000000000000003
+    },
+    {
+      "id": "P015",
+      "type": "Falling",
+      "xMin": 112,
+      "xMax": 120,
+      "center": [
+        116,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 15,
+      "expectedClearSeconds": 12.0,
+      "marginSeconds": 3.0
+    },
+    {
+      "id": "P016",
+      "type": "Falling",
+      "xMin": 120,
+      "xMax": 128,
+      "center": [
+        124,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 16,
+      "expectedClearSeconds": 12.8,
+      "marginSeconds": 3.2
+    },
+    {
+      "id": "P017",
+      "type": "Falling",
+      "xMin": 128,
+      "xMax": 136,
+      "center": [
+        132,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 17,
+      "expectedClearSeconds": 13.600000000000001,
+      "marginSeconds": 3.4000000000000004
+    },
+    {
+      "id": "P018",
+      "type": "Falling",
+      "xMin": 136,
+      "xMax": 144,
+      "center": [
+        140,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 18,
+      "expectedClearSeconds": 14.4,
+      "marginSeconds": 3.6
+    },
+    {
+      "id": "P019",
+      "type": "Falling",
+      "xMin": 144,
+      "xMax": 152,
+      "center": [
+        148,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 19,
+      "expectedClearSeconds": 15.200000000000001,
+      "marginSeconds": 3.8000000000000003
+    },
+    {
+      "id": "P020",
+      "type": "Falling",
+      "xMin": 152,
+      "xMax": 160,
+      "center": [
+        156,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 20,
+      "expectedClearSeconds": 16.0,
+      "marginSeconds": 4.0
+    },
+    {
+      "id": "P021",
+      "type": "Falling",
+      "xMin": 160,
+      "xMax": 168,
+      "center": [
+        164,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 21,
+      "expectedClearSeconds": 16.8,
+      "marginSeconds": 4.2
+    },
+    {
+      "id": "P022",
+      "type": "Falling",
+      "xMin": 168,
+      "xMax": 176,
+      "center": [
+        172,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 22,
+      "expectedClearSeconds": 17.6,
+      "marginSeconds": 4.4
+    },
+    {
+      "id": "P023",
+      "type": "Falling",
+      "xMin": 176,
+      "xMax": 184,
+      "center": [
+        180,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 23,
+      "expectedClearSeconds": 18.400000000000002,
+      "marginSeconds": 4.6000000000000005
+    },
+    {
+      "id": "P024",
+      "type": "Falling",
+      "xMin": 184,
+      "xMax": 192,
+      "center": [
+        188,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 24,
+      "expectedClearSeconds": 19.200000000000003,
+      "marginSeconds": 4.800000000000001
+    },
+    {
+      "id": "P025",
+      "type": "Falling",
+      "xMin": 192,
+      "xMax": 200,
+      "center": [
+        196,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 25,
+      "expectedClearSeconds": 20.0,
+      "marginSeconds": 5.0
+    },
+    {
+      "id": "P026",
+      "type": "Falling",
+      "xMin": 200,
+      "xMax": 208,
+      "center": [
+        204,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 26,
+      "expectedClearSeconds": 20.8,
+      "marginSeconds": 5.2
+    },
+    {
+      "id": "P027",
+      "type": "Falling",
+      "xMin": 208,
+      "xMax": 216,
+      "center": [
+        212,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 27,
+      "expectedClearSeconds": 21.6,
+      "marginSeconds": 5.4
+    },
+    {
+      "id": "P028",
+      "type": "Falling",
+      "xMin": 216,
+      "xMax": 224,
+      "center": [
+        220,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 28,
+      "expectedClearSeconds": 22.400000000000002,
+      "marginSeconds": 5.6000000000000005
+    },
+    {
+      "id": "P029",
+      "type": "Falling",
+      "xMin": 224,
+      "xMax": 232,
+      "center": [
+        228,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 29,
+      "expectedClearSeconds": 23.200000000000003,
+      "marginSeconds": 5.800000000000001
+    },
+    {
+      "id": "P030",
+      "type": "Falling",
+      "xMin": 232,
+      "xMax": 240,
+      "center": [
+        236,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 30,
+      "expectedClearSeconds": 24.0,
+      "marginSeconds": 6.0
+    },
+    {
+      "id": "P031",
+      "type": "Falling",
+      "xMin": 240,
+      "xMax": 248,
+      "center": [
+        244,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 31,
+      "expectedClearSeconds": 24.8,
+      "marginSeconds": 6.2
+    },
+    {
+      "id": "P032",
+      "type": "Falling",
+      "xMin": 248,
+      "xMax": 256,
+      "center": [
+        252,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 32,
+      "expectedClearSeconds": 25.6,
+      "marginSeconds": 6.4
+    },
+    {
+      "id": "P033",
+      "type": "Falling",
+      "xMin": 256,
+      "xMax": 264,
+      "center": [
+        260,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 33,
+      "expectedClearSeconds": 26.400000000000002,
+      "marginSeconds": 6.6000000000000005
+    },
+    {
+      "id": "P034",
+      "type": "Falling",
+      "xMin": 264,
+      "xMax": 272,
+      "center": [
+        268,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 34,
+      "expectedClearSeconds": 27.200000000000003,
+      "marginSeconds": 6.800000000000001
+    },
+    {
+      "id": "P035",
+      "type": "Falling",
+      "xMin": 272,
+      "xMax": 280,
+      "center": [
+        276,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 35,
+      "expectedClearSeconds": 28.0,
+      "marginSeconds": 7.0
+    },
+    {
+      "id": "P036",
+      "type": "Falling",
+      "xMin": 280,
+      "xMax": 288,
+      "center": [
+        284,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 36,
+      "expectedClearSeconds": 28.8,
+      "marginSeconds": 7.2
+    },
+    {
+      "id": "P037",
+      "type": "Falling",
+      "xMin": 288,
+      "xMax": 296,
+      "center": [
+        292,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 37,
+      "expectedClearSeconds": 29.6,
+      "marginSeconds": 7.4
+    },
+    {
+      "id": "P038",
+      "type": "Falling",
+      "xMin": 296,
+      "xMax": 304,
+      "center": [
+        300,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 38,
+      "expectedClearSeconds": 30.400000000000002,
+      "marginSeconds": 7.6000000000000005
+    },
+    {
+      "id": "P039",
+      "type": "Falling",
+      "xMin": 304,
+      "xMax": 312,
+      "center": [
+        308,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 39,
+      "expectedClearSeconds": 31.200000000000003,
+      "marginSeconds": 7.800000000000001
+    },
+    {
+      "id": "P040",
+      "type": "Falling",
+      "xMin": 312,
+      "xMax": 320,
+      "center": [
+        316,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 40,
+      "expectedClearSeconds": 32.0,
+      "marginSeconds": 8.0
+    },
+    {
+      "id": "P041",
+      "type": "Falling",
+      "xMin": 320,
+      "xMax": 328,
+      "center": [
+        324,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 41,
+      "expectedClearSeconds": 32.800000000000004,
+      "marginSeconds": 8.200000000000001
+    },
+    {
+      "id": "P042",
+      "type": "Falling",
+      "xMin": 328,
+      "xMax": 336,
+      "center": [
+        332,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 42,
+      "expectedClearSeconds": 33.6,
+      "marginSeconds": 8.4
+    },
+    {
+      "id": "P043",
+      "type": "Falling",
+      "xMin": 336,
+      "xMax": 344,
+      "center": [
+        340,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 43,
+      "expectedClearSeconds": 34.4,
+      "marginSeconds": 8.6
+    },
+    {
+      "id": "P044",
+      "type": "Falling",
+      "xMin": 344,
+      "xMax": 352,
+      "center": [
+        348,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 44,
+      "expectedClearSeconds": 35.2,
+      "marginSeconds": 8.8
+    },
+    {
+      "id": "P045",
+      "type": "Falling",
+      "xMin": 352,
+      "xMax": 360,
+      "center": [
+        356,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 45,
+      "expectedClearSeconds": 36.0,
+      "marginSeconds": 9.0
+    },
+    {
+      "id": "P046",
+      "type": "Falling",
+      "xMin": 360,
+      "xMax": 368,
+      "center": [
+        364,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 46,
+      "expectedClearSeconds": 36.800000000000004,
+      "marginSeconds": 9.200000000000001
+    },
+    {
+      "id": "P047",
+      "type": "Falling",
+      "xMin": 368,
+      "xMax": 376,
+      "center": [
+        372,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 47,
+      "expectedClearSeconds": 37.6,
+      "marginSeconds": 9.4
+    },
+    {
+      "id": "P048",
+      "type": "Falling",
+      "xMin": 376,
+      "xMax": 384,
+      "center": [
+        380,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 48,
+      "expectedClearSeconds": 38.400000000000006,
+      "marginSeconds": 9.600000000000001
+    },
+    {
+      "id": "P049",
+      "type": "Falling",
+      "xMin": 384,
+      "xMax": 392,
+      "center": [
+        388,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 49,
+      "expectedClearSeconds": 39.2,
+      "marginSeconds": 9.8
+    },
+    {
+      "id": "P050",
+      "type": "Falling",
+      "xMin": 392,
+      "xMax": 400,
+      "center": [
+        396,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 50,
+      "expectedClearSeconds": 40.0,
+      "marginSeconds": 10.0
+    },
+    {
+      "id": "P051",
+      "type": "Falling",
+      "xMin": 400,
+      "xMax": 408,
+      "center": [
+        404,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 51,
+      "expectedClearSeconds": 40.800000000000004,
+      "marginSeconds": 10.200000000000001
+    },
+    {
+      "id": "P052",
+      "type": "Falling",
+      "xMin": 408,
+      "xMax": 416,
+      "center": [
+        412,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 52,
+      "expectedClearSeconds": 41.6,
+      "marginSeconds": 10.4
+    },
+    {
+      "id": "P053",
+      "type": "Falling",
+      "xMin": 416,
+      "xMax": 424,
+      "center": [
+        420,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 53,
+      "expectedClearSeconds": 42.400000000000006,
+      "marginSeconds": 10.600000000000001
+    },
+    {
+      "id": "P054",
+      "type": "Falling",
+      "xMin": 424,
+      "xMax": 432,
+      "center": [
+        428,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 54,
+      "expectedClearSeconds": 43.2,
+      "marginSeconds": 10.8
+    },
+    {
+      "id": "P055",
+      "type": "Falling",
+      "xMin": 432,
+      "xMax": 440,
+      "center": [
+        436,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 55,
+      "expectedClearSeconds": 44.0,
+      "marginSeconds": 11.0
+    },
+    {
+      "id": "P056",
+      "type": "Falling",
+      "xMin": 440,
+      "xMax": 448,
+      "center": [
+        444,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 56,
+      "expectedClearSeconds": 44.800000000000004,
+      "marginSeconds": 11.200000000000001
+    },
+    {
+      "id": "P057",
+      "type": "Falling",
+      "xMin": 448,
+      "xMax": 456,
+      "center": [
+        452,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 57,
+      "expectedClearSeconds": 45.6,
+      "marginSeconds": 11.4
+    },
+    {
+      "id": "P058",
+      "type": "Falling",
+      "xMin": 456,
+      "xMax": 464,
+      "center": [
+        460,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 58,
+      "expectedClearSeconds": 46.400000000000006,
+      "marginSeconds": 11.600000000000001
+    },
+    {
+      "id": "P059",
+      "type": "Falling",
+      "xMin": 464,
+      "xMax": 472,
+      "center": [
+        468,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 59,
+      "expectedClearSeconds": 47.2,
+      "marginSeconds": 11.8
+    },
+    {
+      "id": "P060",
+      "type": "Falling",
+      "xMin": 472,
+      "xMax": 480,
+      "center": [
+        476,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 60,
+      "expectedClearSeconds": 48.0,
+      "marginSeconds": 12.0
+    },
+    {
+      "id": "P061",
+      "type": "Falling",
+      "xMin": 480,
+      "xMax": 488,
+      "center": [
+        484,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 61,
+      "expectedClearSeconds": 48.800000000000004,
+      "marginSeconds": 12.200000000000001
+    },
+    {
+      "id": "P062",
+      "type": "Falling",
+      "xMin": 488,
+      "xMax": 496,
+      "center": [
+        492,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 62,
+      "expectedClearSeconds": 49.6,
+      "marginSeconds": 12.4
+    },
+    {
+      "id": "P063",
+      "type": "Falling",
+      "xMin": 496,
+      "xMax": 504,
+      "center": [
+        500,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 63,
+      "expectedClearSeconds": 50.400000000000006,
+      "marginSeconds": 12.600000000000001
+    },
+    {
+      "id": "P064",
+      "type": "Falling",
+      "xMin": 504,
+      "xMax": 512,
+      "center": [
+        508,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 64,
+      "expectedClearSeconds": 51.2,
+      "marginSeconds": 12.8
+    },
+    {
+      "id": "P065",
+      "type": "Falling",
+      "xMin": 512,
+      "xMax": 520,
+      "center": [
+        516,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 65,
+      "expectedClearSeconds": 52.0,
+      "marginSeconds": 13.0
+    },
+    {
+      "id": "P066",
+      "type": "Falling",
+      "xMin": 520,
+      "xMax": 528,
+      "center": [
+        524,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 66,
+      "expectedClearSeconds": 52.800000000000004,
+      "marginSeconds": 13.200000000000001
+    },
+    {
+      "id": "P067",
+      "type": "Falling",
+      "xMin": 528,
+      "xMax": 536,
+      "center": [
+        532,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 67,
+      "expectedClearSeconds": 53.6,
+      "marginSeconds": 13.4
+    },
+    {
+      "id": "P068",
+      "type": "Falling",
+      "xMin": 536,
+      "xMax": 544,
+      "center": [
+        540,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 68,
+      "expectedClearSeconds": 54.400000000000006,
+      "marginSeconds": 13.600000000000001
+    },
+    {
+      "id": "P069",
+      "type": "Falling",
+      "xMin": 544,
+      "xMax": 552,
+      "center": [
+        548,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 69,
+      "expectedClearSeconds": 55.2,
+      "marginSeconds": 13.8
+    },
+    {
+      "id": "P070",
+      "type": "Falling",
+      "xMin": 552,
+      "xMax": 560,
+      "center": [
+        556,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 70,
+      "expectedClearSeconds": 56.0,
+      "marginSeconds": 14.0
+    },
+    {
+      "id": "P071",
+      "type": "Falling",
+      "xMin": 560,
+      "xMax": 568,
+      "center": [
+        564,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 71,
+      "expectedClearSeconds": 56.800000000000004,
+      "marginSeconds": 14.200000000000001
+    },
+    {
+      "id": "P072",
+      "type": "Falling",
+      "xMin": 568,
+      "xMax": 576,
+      "center": [
+        572,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 72,
+      "expectedClearSeconds": 57.6,
+      "marginSeconds": 14.4
+    },
+    {
+      "id": "P073",
+      "type": "Falling",
+      "xMin": 576,
+      "xMax": 584,
+      "center": [
+        580,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 73,
+      "expectedClearSeconds": 58.400000000000006,
+      "marginSeconds": 14.600000000000001
+    },
+    {
+      "id": "P074",
+      "type": "Falling",
+      "xMin": 584,
+      "xMax": 592,
+      "center": [
+        588,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 74,
+      "expectedClearSeconds": 59.2,
+      "marginSeconds": 14.8
+    },
+    {
+      "id": "P075",
+      "type": "Falling",
+      "xMin": 592,
+      "xMax": 600,
+      "center": [
+        596,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 75,
+      "expectedClearSeconds": 60.0,
+      "marginSeconds": 15.0
+    },
+    {
+      "id": "P076",
+      "type": "Falling",
+      "xMin": 600,
+      "xMax": 608,
+      "center": [
+        604,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 76,
+      "expectedClearSeconds": 60.800000000000004,
+      "marginSeconds": 15.200000000000001
+    },
+    {
+      "id": "P077",
+      "type": "Falling",
+      "xMin": 608,
+      "xMax": 616,
+      "center": [
+        612,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 77,
+      "expectedClearSeconds": 61.6,
+      "marginSeconds": 15.4
+    },
+    {
+      "id": "P078",
+      "type": "Falling",
+      "xMin": 616,
+      "xMax": 624,
+      "center": [
+        620,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 78,
+      "expectedClearSeconds": 62.400000000000006,
+      "marginSeconds": 15.600000000000001
+    },
+    {
+      "id": "P079",
+      "type": "Falling",
+      "xMin": 624,
+      "xMax": 632,
+      "center": [
+        628,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 79,
+      "expectedClearSeconds": 63.2,
+      "marginSeconds": 15.8
+    },
+    {
+      "id": "P080",
+      "type": "Falling",
+      "xMin": 632,
+      "xMax": 640,
+      "center": [
+        636,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 80,
+      "expectedClearSeconds": 64.0,
+      "marginSeconds": 16.0
+    },
+    {
+      "id": "P081",
+      "type": "Falling",
+      "xMin": 640,
+      "xMax": 648,
+      "center": [
+        644,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 81,
+      "expectedClearSeconds": 64.8,
+      "marginSeconds": 16.2
+    },
+    {
+      "id": "P082",
+      "type": "Falling",
+      "xMin": 648,
+      "xMax": 656,
+      "center": [
+        652,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 82,
+      "expectedClearSeconds": 65.60000000000001,
+      "marginSeconds": 16.400000000000002
+    },
+    {
+      "id": "P083",
+      "type": "Falling",
+      "xMin": 656,
+      "xMax": 664,
+      "center": [
+        660,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 83,
+      "expectedClearSeconds": 66.4,
+      "marginSeconds": 16.6
+    },
+    {
+      "id": "P084",
+      "type": "Falling",
+      "xMin": 664,
+      "xMax": 672,
+      "center": [
+        668,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 84,
+      "expectedClearSeconds": 67.2,
+      "marginSeconds": 16.8
+    },
+    {
+      "id": "P085",
+      "type": "Falling",
+      "xMin": 672,
+      "xMax": 680,
+      "center": [
+        676,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 85,
+      "expectedClearSeconds": 68.0,
+      "marginSeconds": 17.0
+    },
+    {
+      "id": "P086",
+      "type": "Falling",
+      "xMin": 680,
+      "xMax": 688,
+      "center": [
+        684,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 86,
+      "expectedClearSeconds": 68.8,
+      "marginSeconds": 17.2
+    },
+    {
+      "id": "P087",
+      "type": "Falling",
+      "xMin": 688,
+      "xMax": 696,
+      "center": [
+        692,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 87,
+      "expectedClearSeconds": 69.60000000000001,
+      "marginSeconds": 17.400000000000002
+    },
+    {
+      "id": "P088",
+      "type": "Falling",
+      "xMin": 696,
+      "xMax": 704,
+      "center": [
+        700,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 88,
+      "expectedClearSeconds": 70.4,
+      "marginSeconds": 17.6
+    },
+    {
+      "id": "P089",
+      "type": "Falling",
+      "xMin": 704,
+      "xMax": 712,
+      "center": [
+        708,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 89,
+      "expectedClearSeconds": 71.2,
+      "marginSeconds": 17.8
+    },
+    {
+      "id": "P090",
+      "type": "Falling",
+      "xMin": 712,
+      "xMax": 720,
+      "center": [
+        716,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 90,
+      "expectedClearSeconds": 72.0,
+      "marginSeconds": 18.0
+    },
+    {
+      "id": "P091",
+      "type": "Falling",
+      "xMin": 720,
+      "xMax": 728,
+      "center": [
+        724,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 91,
+      "expectedClearSeconds": 72.8,
+      "marginSeconds": 18.2
+    },
+    {
+      "id": "P092",
+      "type": "Falling",
+      "xMin": 728,
+      "xMax": 736,
+      "center": [
+        732,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 92,
+      "expectedClearSeconds": 73.60000000000001,
+      "marginSeconds": 18.400000000000002
+    },
+    {
+      "id": "P093",
+      "type": "Falling",
+      "xMin": 736,
+      "xMax": 744,
+      "center": [
+        740,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 93,
+      "expectedClearSeconds": 74.4,
+      "marginSeconds": 18.6
+    },
+    {
+      "id": "P094",
+      "type": "Falling",
+      "xMin": 744,
+      "xMax": 752,
+      "center": [
+        748,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 94,
+      "expectedClearSeconds": 75.2,
+      "marginSeconds": 18.8
+    },
+    {
+      "id": "P095",
+      "type": "Falling",
+      "xMin": 752,
+      "xMax": 760,
+      "center": [
+        756,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 95,
+      "expectedClearSeconds": 76.0,
+      "marginSeconds": 19.0
+    },
+    {
+      "id": "P096",
+      "type": "Falling",
+      "xMin": 760,
+      "xMax": 768,
+      "center": [
+        764,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 96,
+      "expectedClearSeconds": 76.80000000000001,
+      "marginSeconds": 19.200000000000003
+    },
+    {
+      "id": "P097",
+      "type": "Falling",
+      "xMin": 768,
+      "xMax": 776,
+      "center": [
+        772,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 97,
+      "expectedClearSeconds": 77.60000000000001,
+      "marginSeconds": 19.400000000000002
+    },
+    {
+      "id": "P098",
+      "type": "Falling",
+      "xMin": 776,
+      "xMax": 784,
+      "center": [
+        780,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 98,
+      "expectedClearSeconds": 78.4,
+      "marginSeconds": 19.6
+    },
+    {
+      "id": "P099",
+      "type": "Falling",
+      "xMin": 784,
+      "xMax": 792,
+      "center": [
+        788,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 99,
+      "expectedClearSeconds": 79.2,
+      "marginSeconds": 19.8
+    },
+    {
+      "id": "P100",
+      "type": "Falling",
+      "xMin": 792,
+      "xMax": 800,
+      "center": [
+        796,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 100,
+      "expectedClearSeconds": 80.0,
+      "marginSeconds": 20.0
+    },
+    {
+      "id": "P101",
+      "type": "Falling",
+      "xMin": 800,
+      "xMax": 808,
+      "center": [
+        804,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 101,
+      "expectedClearSeconds": 80.80000000000001,
+      "marginSeconds": 20.200000000000003
+    },
+    {
+      "id": "P102",
+      "type": "Falling",
+      "xMin": 808,
+      "xMax": 816,
+      "center": [
+        812,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 102,
+      "expectedClearSeconds": 81.60000000000001,
+      "marginSeconds": 20.400000000000002
+    },
+    {
+      "id": "P103",
+      "type": "Falling",
+      "xMin": 816,
+      "xMax": 824,
+      "center": [
+        820,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 103,
+      "expectedClearSeconds": 82.4,
+      "marginSeconds": 20.6
+    },
+    {
+      "id": "P104",
+      "type": "Falling",
+      "xMin": 824,
+      "xMax": 832,
+      "center": [
+        828,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 104,
+      "expectedClearSeconds": 83.2,
+      "marginSeconds": 20.8
+    },
+    {
+      "id": "P105",
+      "type": "Falling",
+      "xMin": 832,
+      "xMax": 840,
+      "center": [
+        836,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 105,
+      "expectedClearSeconds": 84.0,
+      "marginSeconds": 21.0
+    },
+    {
+      "id": "P106",
+      "type": "Falling",
+      "xMin": 840,
+      "xMax": 848,
+      "center": [
+        844,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 106,
+      "expectedClearSeconds": 84.80000000000001,
+      "marginSeconds": 21.200000000000003
+    },
+    {
+      "id": "P107",
+      "type": "Falling",
+      "xMin": 848,
+      "xMax": 856,
+      "center": [
+        852,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 107,
+      "expectedClearSeconds": 85.60000000000001,
+      "marginSeconds": 21.400000000000002
+    },
+    {
+      "id": "P108",
+      "type": "Falling",
+      "xMin": 856,
+      "xMax": 864,
+      "center": [
+        860,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 108,
+      "expectedClearSeconds": 86.4,
+      "marginSeconds": 21.6
+    },
+    {
+      "id": "P109",
+      "type": "Falling",
+      "xMin": 864,
+      "xMax": 872,
+      "center": [
+        868,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 109,
+      "expectedClearSeconds": 87.2,
+      "marginSeconds": 21.8
+    },
+    {
+      "id": "P110",
+      "type": "Falling",
+      "xMin": 872,
+      "xMax": 880,
+      "center": [
+        876,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 110,
+      "expectedClearSeconds": 88.0,
+      "marginSeconds": 22.0
+    },
+    {
+      "id": "P111",
+      "type": "Falling",
+      "xMin": 880,
+      "xMax": 888,
+      "center": [
+        884,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 111,
+      "expectedClearSeconds": 88.80000000000001,
+      "marginSeconds": 22.200000000000003
+    },
+    {
+      "id": "P112",
+      "type": "Falling",
+      "xMin": 888,
+      "xMax": 896,
+      "center": [
+        892,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 112,
+      "expectedClearSeconds": 89.60000000000001,
+      "marginSeconds": 22.400000000000002
+    },
+    {
+      "id": "P113",
+      "type": "Falling",
+      "xMin": 896,
+      "xMax": 904,
+      "center": [
+        900,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 113,
+      "expectedClearSeconds": 90.4,
+      "marginSeconds": 22.6
+    },
+    {
+      "id": "P114",
+      "type": "Falling",
+      "xMin": 904,
+      "xMax": 912,
+      "center": [
+        908,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 114,
+      "expectedClearSeconds": 91.2,
+      "marginSeconds": 22.8
+    },
+    {
+      "id": "P115",
+      "type": "Falling",
+      "xMin": 912,
+      "xMax": 920,
+      "center": [
+        916,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 115,
+      "expectedClearSeconds": 92.0,
+      "marginSeconds": 23.0
+    },
+    {
+      "id": "P116",
+      "type": "Falling",
+      "xMin": 920,
+      "xMax": 928,
+      "center": [
+        924,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 116,
+      "expectedClearSeconds": 92.80000000000001,
+      "marginSeconds": 23.200000000000003
+    },
+    {
+      "id": "P117",
+      "type": "Falling",
+      "xMin": 928,
+      "xMax": 936,
+      "center": [
+        932,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 117,
+      "expectedClearSeconds": 93.60000000000001,
+      "marginSeconds": 23.400000000000002
+    },
+    {
+      "id": "P118",
+      "type": "Falling",
+      "xMin": 936,
+      "xMax": 944,
+      "center": [
+        940,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 118,
+      "expectedClearSeconds": 94.4,
+      "marginSeconds": 23.6
+    },
+    {
+      "id": "P119",
+      "type": "Falling",
+      "xMin": 944,
+      "xMax": 952,
+      "center": [
+        948,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 119,
+      "expectedClearSeconds": 95.2,
+      "marginSeconds": 23.8
+    },
+    {
+      "id": "P120",
+      "type": "Falling",
+      "xMin": 952,
+      "xMax": 960,
+      "center": [
+        956,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 120,
+      "expectedClearSeconds": 96.0,
+      "marginSeconds": 24.0
+    },
+    {
+      "id": "P121",
+      "type": "Falling",
+      "xMin": 960,
+      "xMax": 968,
+      "center": [
+        964,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 121,
+      "expectedClearSeconds": 96.80000000000001,
+      "marginSeconds": 24.200000000000003
+    },
+    {
+      "id": "P122",
+      "type": "Falling",
+      "xMin": 968,
+      "xMax": 976,
+      "center": [
+        972,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 122,
+      "expectedClearSeconds": 97.60000000000001,
+      "marginSeconds": 24.400000000000002
+    },
+    {
+      "id": "P123",
+      "type": "Falling",
+      "xMin": 976,
+      "xMax": 984,
+      "center": [
+        980,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 123,
+      "expectedClearSeconds": 98.4,
+      "marginSeconds": 24.6
+    },
+    {
+      "id": "P124",
+      "type": "Falling",
+      "xMin": 984,
+      "xMax": 992,
+      "center": [
+        988,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 124,
+      "expectedClearSeconds": 99.2,
+      "marginSeconds": 24.8
+    },
+    {
+      "id": "P125",
+      "type": "Falling",
+      "xMin": 992,
+      "xMax": 1000,
+      "center": [
+        996,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 125,
+      "expectedClearSeconds": 100.0,
+      "marginSeconds": 25.0
+    },
+    {
+      "id": "P126",
+      "type": "Falling",
+      "xMin": 1000,
+      "xMax": 1008,
+      "center": [
+        1004,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 126,
+      "expectedClearSeconds": 100.80000000000001,
+      "marginSeconds": 25.200000000000003
+    },
+    {
+      "id": "P127",
+      "type": "Falling",
+      "xMin": 1008,
+      "xMax": 1016,
+      "center": [
+        1012,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 127,
+      "expectedClearSeconds": 101.60000000000001,
+      "marginSeconds": 25.400000000000002
+    },
+    {
+      "id": "P128",
+      "type": "Falling",
+      "xMin": 1016,
+      "xMax": 1024,
+      "center": [
+        1020,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 128,
+      "expectedClearSeconds": 102.4,
+      "marginSeconds": 25.6
+    },
+    {
+      "id": "P129",
+      "type": "Falling",
+      "xMin": 1024,
+      "xMax": 1032,
+      "center": [
+        1028,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 129,
+      "expectedClearSeconds": 103.2,
+      "marginSeconds": 25.8
+    },
+    {
+      "id": "P130",
+      "type": "Falling",
+      "xMin": 1032,
+      "xMax": 1040,
+      "center": [
+        1036,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 130,
+      "expectedClearSeconds": 104.0,
+      "marginSeconds": 26.0
+    },
+    {
+      "id": "P131",
+      "type": "Falling",
+      "xMin": 1040,
+      "xMax": 1048,
+      "center": [
+        1044,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 131,
+      "expectedClearSeconds": 104.80000000000001,
+      "marginSeconds": 26.200000000000003
+    },
+    {
+      "id": "P132",
+      "type": "Falling",
+      "xMin": 1048,
+      "xMax": 1056,
+      "center": [
+        1052,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 132,
+      "expectedClearSeconds": 105.60000000000001,
+      "marginSeconds": 26.400000000000002
+    },
+    {
+      "id": "P133",
+      "type": "Falling",
+      "xMin": 1056,
+      "xMax": 1064,
+      "center": [
+        1060,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 133,
+      "expectedClearSeconds": 106.4,
+      "marginSeconds": 26.6
+    },
+    {
+      "id": "P134",
+      "type": "Falling",
+      "xMin": 1064,
+      "xMax": 1072,
+      "center": [
+        1068,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 134,
+      "expectedClearSeconds": 107.2,
+      "marginSeconds": 26.8
+    },
+    {
+      "id": "P135",
+      "type": "Falling",
+      "xMin": 1072,
+      "xMax": 1080,
+      "center": [
+        1076,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 135,
+      "expectedClearSeconds": 108.0,
+      "marginSeconds": 27.0
+    },
+    {
+      "id": "P136",
+      "type": "Falling",
+      "xMin": 1080,
+      "xMax": 1088,
+      "center": [
+        1084,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 136,
+      "expectedClearSeconds": 108.80000000000001,
+      "marginSeconds": 27.200000000000003
+    },
+    {
+      "id": "P137",
+      "type": "Falling",
+      "xMin": 1088,
+      "xMax": 1096,
+      "center": [
+        1092,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 137,
+      "expectedClearSeconds": 109.60000000000001,
+      "marginSeconds": 27.400000000000002
+    },
+    {
+      "id": "P138",
+      "type": "Falling",
+      "xMin": 1096,
+      "xMax": 1104,
+      "center": [
+        1100,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 138,
+      "expectedClearSeconds": 110.4,
+      "marginSeconds": 27.6
+    },
+    {
+      "id": "P139",
+      "type": "Falling",
+      "xMin": 1104,
+      "xMax": 1112,
+      "center": [
+        1108,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 139,
+      "expectedClearSeconds": 111.2,
+      "marginSeconds": 27.8
+    },
+    {
+      "id": "P140",
+      "type": "Falling",
+      "xMin": 1112,
+      "xMax": 1120,
+      "center": [
+        1116,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 140,
+      "expectedClearSeconds": 112.0,
+      "marginSeconds": 28.0
+    },
+    {
+      "id": "P141",
+      "type": "Falling",
+      "xMin": 1120,
+      "xMax": 1128,
+      "center": [
+        1124,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 141,
+      "expectedClearSeconds": 112.80000000000001,
+      "marginSeconds": 28.200000000000003
+    },
+    {
+      "id": "P142",
+      "type": "Falling",
+      "xMin": 1128,
+      "xMax": 1136,
+      "center": [
+        1132,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 142,
+      "expectedClearSeconds": 113.60000000000001,
+      "marginSeconds": 28.400000000000002
+    },
+    {
+      "id": "P143",
+      "type": "Falling",
+      "xMin": 1136,
+      "xMax": 1144,
+      "center": [
+        1140,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 143,
+      "expectedClearSeconds": 114.4,
+      "marginSeconds": 28.6
+    },
+    {
+      "id": "P144",
+      "type": "Falling",
+      "xMin": 1144,
+      "xMax": 1152,
+      "center": [
+        1148,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 144,
+      "expectedClearSeconds": 115.2,
+      "marginSeconds": 28.8
+    },
+    {
+      "id": "P145",
+      "type": "Falling",
+      "xMin": 1152,
+      "xMax": 1160,
+      "center": [
+        1156,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 145,
+      "expectedClearSeconds": 116.0,
+      "marginSeconds": 29.0
+    },
+    {
+      "id": "P146",
+      "type": "Falling",
+      "xMin": 1160,
+      "xMax": 1168,
+      "center": [
+        1164,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 146,
+      "expectedClearSeconds": 116.80000000000001,
+      "marginSeconds": 29.200000000000003
+    },
+    {
+      "id": "P147",
+      "type": "Falling",
+      "xMin": 1168,
+      "xMax": 1176,
+      "center": [
+        1172,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 147,
+      "expectedClearSeconds": 117.60000000000001,
+      "marginSeconds": 29.400000000000002
+    },
+    {
+      "id": "P148",
+      "type": "Falling",
+      "xMin": 1176,
+      "xMax": 1184,
+      "center": [
+        1180,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 148,
+      "expectedClearSeconds": 118.4,
+      "marginSeconds": 29.6
+    },
+    {
+      "id": "P149",
+      "type": "Falling",
+      "xMin": 1184,
+      "xMax": 1192,
+      "center": [
+        1188,
+        -0.5
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 149,
+      "expectedClearSeconds": 119.2,
+      "marginSeconds": 29.8
+    },
+    {
+      "id": "P150",
+      "type": "Falling",
+      "xMin": 1192,
+      "xMax": 1204,
+      "center": [
+        1198,
+        -0.5
+      ],
+      "size": [
+        12,
+        1
+      ],
+      "surfaceY": 0,
+      "fallAtSeconds": 150,
+      "expectedClearSeconds": 120.0,
+      "marginSeconds": 30.0
+    }
+  ],
+  "monsterProposals": [
+    {
+      "group": 1,
+      "x": 32,
+      "y": 2.2,
+      "activateAtX": 0,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 1,
+      "x": 64,
+      "y": 2.2,
+      "activateAtX": 0,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 2,
+      "x": 112,
+      "y": 2.2,
+      "activateAtX": 80,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 2,
+      "x": 144,
+      "y": 2.2,
+      "activateAtX": 80,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 3,
+      "x": 192,
+      "y": 2.2,
+      "activateAtX": 160,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 3,
+      "x": 224,
+      "y": 2.2,
+      "activateAtX": 160,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 4,
+      "x": 272,
+      "y": 2.2,
+      "activateAtX": 240,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 4,
+      "x": 304,
+      "y": 2.2,
+      "activateAtX": 240,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 5,
+      "x": 352,
+      "y": 2.2,
+      "activateAtX": 320,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 5,
+      "x": 384,
+      "y": 2.2,
+      "activateAtX": 320,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 6,
+      "x": 432,
+      "y": 2.2,
+      "activateAtX": 400,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 6,
+      "x": 464,
+      "y": 2.2,
+      "activateAtX": 400,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 7,
+      "x": 512,
+      "y": 2.2,
+      "activateAtX": 480,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 7,
+      "x": 544,
+      "y": 2.2,
+      "activateAtX": 480,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 8,
+      "x": 592,
+      "y": 2.2,
+      "activateAtX": 560,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 8,
+      "x": 624,
+      "y": 2.2,
+      "activateAtX": 560,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 9,
+      "x": 672,
+      "y": 2.2,
+      "activateAtX": 640,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 9,
+      "x": 704,
+      "y": 2.2,
+      "activateAtX": 640,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 10,
+      "x": 752,
+      "y": 2.2,
+      "activateAtX": 720,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 10,
+      "x": 784,
+      "y": 2.2,
+      "activateAtX": 720,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 11,
+      "x": 832,
+      "y": 2.2,
+      "activateAtX": 800,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 11,
+      "x": 864,
+      "y": 2.2,
+      "activateAtX": 800,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 12,
+      "x": 912,
+      "y": 2.2,
+      "activateAtX": 880,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 12,
+      "x": 944,
+      "y": 2.2,
+      "activateAtX": 880,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 13,
+      "x": 992,
+      "y": 2.2,
+      "activateAtX": 960,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 13,
+      "x": 1024,
+      "y": 2.2,
+      "activateAtX": 960,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 14,
+      "x": 1072,
+      "y": 2.2,
+      "activateAtX": 1040,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 14,
+      "x": 1104,
+      "y": 2.2,
+      "activateAtX": 1040,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 15,
+      "x": 1152,
+      "y": 2.2,
+      "activateAtX": 1120,
+      "classification": "ordinary",
+      "proposal": true
+    },
+    {
+      "group": 15,
+      "x": 1184,
+      "y": 2.2,
+      "activateAtX": 1120,
+      "classification": "ordinary",
+      "proposal": true
+    }
+  ],
+  "validation": {
+    "routeUnits": 1200,
+    "boostedWalkSpeed": 10,
+    "walkSeconds": 120,
+    "endMarginSeconds": 30,
+    "firstPlatformMarginSeconds": 0.2,
+    "playTested": false
+  }
+}

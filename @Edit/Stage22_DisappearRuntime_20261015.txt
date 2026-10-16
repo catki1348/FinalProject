@@ -1,0 +1,2 @@
+t=0.7035332 D1 collider=False
+t=2.905048 D1 collider=True

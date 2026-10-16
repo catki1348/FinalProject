@@ -62,11 +62,12 @@
 
 ### 6-1. 가속 아이템 (변경)
 - 습득 시 **1중첩**. 최대 **5중첩**.
-- 1중첩당 이동속도 **+5%** → 최대 +25%(×1.25). 배율 = `1 + 0.05 × 중첩수`.
+- 1중첩당 **+5%**씩 네 가지 효과가 함께 적용된다(최대 5중첩 = 각 25%): ① 이동속도 증가(배율 `1 + 0.05n`) ② 대시 이동거리 증가(`1 + 0.05n`) ③ 대시 속도 증가(`1 + 0.05n`) ④ 대시 대기시간 감소(`1 − 0.05n`, 최소 ×0.25).
+- 대시는 속도=거리/지속시간이므로 거리와 속도를 같은 비율로 올리면 **지속시간은 기본 0.2초로 유지**된다(5중첩: 거리 0.9→1.125, 속도 4.5→5.63, 대기 0.8→0.6초).
 - 유지 시간 **5초**. 습득할 때마다 **전체 중첩의 타이머가 5초로 갱신**(공유 타이머). 시간이 끝나면 모든 중첩이 한 번에 사라진다.
 - 5중첩에서 추가 습득: 중첩은 그대로, 타이머만 5초로 갱신.
 - 기존 ×1.5(+50%)보다 약해진다(최대 +25%). 의도된 하향.
-- 변경 내용: `SpeedBoostItem`의 `speedMultiplier` 필드 → `stackBonus`(0.05)·`maxStacks`(5)로 교체, `PlayerSpeedBuff.Apply` → `AddStack(bonus, max, duration)`. `PlayerMovement.SpeedMultiplier`는 그대로 사용. `OnBuffChanged`는 유지하고 중첩 수 변경 이벤트(`OnStacksChanged(int)`)를 추가해 UI가 구독할 수 있게 한다.
+- 변경 내용: `SpeedBoostItem`의 `speedMultiplier` 필드 → `stackBonus`(0.05)·`maxStacks`(5)로 교체, `PlayerSpeedBuff.Apply` → `AddStack(bonus, max, duration)`. `PlayerMovement.SpeedMultiplier`는 그대로 사용하고, 대시 효과는 `PlayerDash`의 배율 프로퍼티(`DistanceMultiplier`/`SpeedMultiplier`/`CooldownMultiplier`)로 적용한다(`PlayerDash`는 선택 의존성 — 없으면 건너뜀). `OnBuffChanged`는 유지하고 중첩 수 변경 이벤트(`OnStacksChanged(int)`)를 추가해 UI가 구독할 수 있게 한다.
 
 ### 6-2. 소형 회복 (유지)
 체력 +20. 변경 없음.
@@ -186,3 +187,4 @@ VARCO 워크플로우(`Untitled` 플로우, `gpt-image-1.5-medium`, 1:1, 1024×1
 - 몬스터 프리팹 연결 완료: 일반 몬스터 7종(`Assets/@ExternalAssets/@Prefab/Monster_*`)에 `MonsterItemDropper`(기본 4항목) 부착. 보스·함정 스폰 몬스터는 제외.
 - 획득 효과음(2026-10-14): `Assets/@ExternalAssets/Sound/SFX_Item_{SpeedBoost 0.38초 상승 스윕+3음, HealSmall 0.5초 2음 차임, HealLarge 0.95초 4음+반짝임, Rearm 0.9초 금속음+팡파르}.wav`. 8비트 스타일로 직접 합성(AI 오디오 제공자 미설정), 각 프리팹의 `pickupSfx`에 연결. 재생은 `SoundManager.PlaySfx`.
 - **미적용**: 가속 중첩 UI. 효과음은 임시 합성음이라 정식 음원으로 교체 가능(프리팹의 `pickupSfx`만 바꾸면 됨). 시간 경과 기반 동작(실시간 5초 만료)은 에디터가 프레임을 진행하지 않아 상태 강제 후 `Update` 호출로 검증했다.
+- 2026-10-15 가속 아이템에 대시 효과(거리·속도 +5%, 대기시간 −5%, 중첩당) 추가. 플레이 검증: 1~5중첩 배율 정상, 6번째 습득은 5중첩 유지, 만료 시 전부 1로 복귀. 대시 이동 자체는 에디터가 프레임을 진행하지 않아 수치 계산으로 검증(실제 대시 체감은 미확인).

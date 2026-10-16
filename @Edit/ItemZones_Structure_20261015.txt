@@ -1,0 +1,11 @@
+Assets/Scenes/Stage3.unity: missing scripts=0; target platform Scale/Tiled/box checks passed
+Assets/Scenes/Stage3.unity: HUD count=1, references valid
+Assets/Scenes/Stage4.unity: missing scripts=0; target platform Scale/Tiled/box checks passed
+Assets/Scenes/Stage4.unity: HUD count=1, references valid
+Assets/@ExternalAssets/@Prefab/Stage4_1/P_Stage41_PatrolPattern.prefab: valid item references, entries=4
+Assets/@ExternalAssets/@Prefab/Stage4_2/P_Stage42_FlyingChaser.prefab: valid item references, entries=2
+Assets/@ExternalAssets/@Prefab/Stage4_3_Fury/P_Stage43_FuryChaser.prefab: valid item references, entries=2
+Section_1: all instance drop entries valid; count=15
+Section_2: all instance drop entries valid; count=60
+Section_3: all instance drop entries valid; count=105
+Fury floor: one collider 488x1, Scale1, Tiled, size matches

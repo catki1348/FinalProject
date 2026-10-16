@@ -17,6 +17,11 @@ public class PlayerDash : MonoBehaviour
 
     public bool IsDashing { get; private set; }
 
+    // 아이템 버프(PlayerSpeedBuff)가 설정하는 대시 배율 - 1이면 기본값. 대시 시작/쿨다운 판정 시점의 값을 읽는다.
+    public float DistanceMultiplier { get; set; } = 1f; // 이동 거리 배율(1.05 = +5%)
+    public float SpeedMultiplier { get; set; } = 1f;    // 대시 속도 배율(1.05 = +5%)
+    public float CooldownMultiplier { get; set; } = 1f; // 대기 시간 배율(0.95 = 5% 감소)
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,7 +30,7 @@ public class PlayerDash : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(dashKey) && !IsDashing && Time.time - lastDashTime >= dashCooldown)
+        if (Input.GetKeyDown(dashKey) && !IsDashing && Time.time - lastDashTime >= dashCooldown * CooldownMultiplier)
         {
             StartCoroutine(DashRoutine());
         }
@@ -38,10 +43,12 @@ public class PlayerDash : MonoBehaviour
         movement.MovementLocked = true;
 
         float direction = movement.FacingRight ? 1f : -1f;
-        float dashSpeed = dashDistance / dashDuration; // 거리/시간으로 속도를 역산해, dashDistance만 조정해도 이동 거리가 그대로 맞춰지게 한다
+        float distance = dashDistance * DistanceMultiplier; // 이번 대시의 총 거리(시작 시점의 버프 배율로 고정)
+        float dashSpeed = dashDistance / dashDuration * SpeedMultiplier; // 거리/시간으로 속도를 역산해, dashDistance만 조정해도 이동 거리가 그대로 맞춰지게 한다
+        float duration = distance / dashSpeed; // 거리와 속도가 정해지면 지속시간이 결정된다(두 배율이 같으면 기본 지속시간과 동일)
         float elapsed = 0f;
 
-        while (elapsed < dashDuration)
+        while (elapsed < duration)
         {
             rb.linearVelocity = new Vector2(direction * dashSpeed, 0f);
             elapsed += Time.deltaTime;

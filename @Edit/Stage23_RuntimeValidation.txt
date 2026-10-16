@@ -1,0 +1,1 @@
+PASS moving endpoints 7/7; pair collision frames=0/6200; monster/platform pairs=210; minimum complete-sweep clearance=2.891642; real Physics2D transfer landings=469/1200; max successful launch gap=3.600004; corpse death gravity/no collider/no drift PASS

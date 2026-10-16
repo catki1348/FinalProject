@@ -14,6 +14,7 @@ public class PlayerDefense : MonoBehaviour
     private const int GuardMouseButton = 1; // 방어 입력 버튼(0=좌클릭, 1=우클릭)
     private PlayerStats stats;
     private PlayerHealth health;
+    private PlayerMovement movement;
     private int startFrame;
     private float expiresAt;
     private float shield;
@@ -25,9 +26,12 @@ public class PlayerDefense : MonoBehaviour
     public float BuffRemaining => Mathf.Max(0f, expiresAt - Time.time);
     public event Action<bool> OnGuardChanged;
     public event Action<bool> OnBlocked;
+    // 공격자 정보가 있는 방어 성공(인자: 공격자 몸, 완벽 방어 여부, 공격자를 밀어낼 수평 방향 +1/-1) - 넉백 처리기가 구독
+    public event Action<Collider2D, bool, float> OnBlockSucceeded;
+    private int lastBlockedAttackId; // 같은 공격의 중복 방어 처리(버프/넉백 중복) 방지용
     public event Action<float, float> OnBuffChanged;
     // 필요한 스탯과 체력 컴포넌트를 최초 한 번 캐싱한다.
-    private void Awake() { stats = GetComponent<PlayerStats>(); health = GetComponent<PlayerHealth>(); }
+    private void Awake() { stats = GetComponent<PlayerStats>(); health = GetComponent<PlayerHealth>(); movement = GetComponent<PlayerMovement>(); }
     // 버프 만료와 우클릭 유지 입력을 갱신한다. 일시정지 중 방어를 해제한다.
     private void Update()
     {
@@ -45,10 +49,15 @@ public class PlayerDefense : MonoBehaviour
         OnGuardChanged?.Invoke(value);
     }
     // 유효한 방어 중 공격을 차단하고 최초 3프레임에는 완벽 방어 버프를 갱신한다.
-    public bool TryBlock(int incomingDamage)
+    public bool TryBlock(int incomingDamage) { return TryBlock(incomingDamage, null, 0); }
+
+    // 공격자 정보(몸, 공격 식별자)를 함께 받는 방어 판정. 같은 식별자의 재판정은 효과 없이 차단만 한다.
+    public bool TryBlock(int incomingDamage, Collider2D attacker, int attackId)
     {
         ExpireBuff();
         if (!IsGuarding || incomingDamage <= 0) return false;
+        if (attackId != 0 && attackId == lastBlockedAttackId) return true;
+        lastBlockedAttackId = attackId;
         bool perfect = Time.frameCount - startFrame < perfectWindowFrames;
         if (perfect)
         {
@@ -58,7 +67,15 @@ public class PlayerDefense : MonoBehaviour
             OnBuffChanged?.Invoke(TemporaryHealth, BuffRemaining);
         }
         OnBlocked?.Invoke(perfect);
+        if (attacker != null) OnBlockSucceeded?.Invoke(attacker, perfect, KnockbackDirection(attacker));
         return true;
+    }
+    // 공격자가 플레이어의 오른쪽이면 +1, 왼쪽이면 -1, 같은 X면 플레이어가 바라보는 방향으로 민다.
+    private float KnockbackDirection(Collider2D attacker)
+    {
+        float dx = attacker.bounds.center.x - transform.position.x;
+        if (Mathf.Abs(dx) > 0.01f) return Mathf.Sign(dx);
+        return movement != null && !movement.FacingRight ? -1f : 1f;
     }
     // 경감된 피해를 임시 체력부터 소비하고 실제 체력에 적용할 잔여 피해를 반환한다.
     public int AbsorbDamage(int damage)

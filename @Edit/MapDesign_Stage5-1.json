@@ -1,0 +1,1127 @@
+﻿{
+    "stage":  "5-1",
+    "status":  "design-only",
+    "unitsPerDesignUnit":  8,
+    "segments":  [
+                     {
+                         "segment":  1,
+                         "source":  "1-1 dual lane rush",
+                         "route":  119.99999999999999,
+                         "designRoute":  14.999999999999998
+                     },
+                     {
+                         "segment":  2,
+                         "source":  "2-1 redesign (2026-10-16): shared-clock damage / blink lesson",
+                         "route":  120,
+                         "designRoute":  15
+                     },
+                     {
+                         "segment":  3,
+                         "source":  "3-1 v4 up/down waves + projectile traps (rise 0.8)",
+                         "route":  120.00000000000001,
+                         "designRoute":  15.000000000000002
+                     },
+                     {
+                         "segment":  4,
+                         "source":  "4-1 counter-clockwise ring",
+                         "route":  119.99999999999997,
+                         "designRoute":  14.999999999999996,
+                         "ringTangentRadius":  13.21940865109892
+                     },
+                     {
+                         "segment":  5,
+                         "source":  "fusion of 1-1, 2-1, 3-1, 4-1",
+                         "route":  119.99999999999997,
+                         "designRoute":  14.999999999999996
+                     }
+                 ],
+    "nominalRouteLength":  600,
+    "designRouteLength":  75,
+    "revision":  "v2 2026-10-16",
+    "supersedes":  "MapDesign_Stage5-1_v1_20261015.json",
+    "routeMetric":  "per segment: 1 ground lane length (blocks add up and down), 2 span from the first left edge to the last right edge, 3/4/5 centre-to-centre with mover paths end to end; jumps between segments are not counted",
+    "jumpModel":  "80% jump = 80% initial speed (apex 0.88), flat reach 3.91, rises \u003c= 0.8",
+    "cycle":  {
+                  "clock":  "one shared area clock; epoch resets when the player enters the segment",
+                  "damage":  {
+                                 "periodSeconds":  8,
+                                 "activeFrom":  4,
+                                 "activeTo":  6,
+                                 "warningSeconds":  0.6
+                             },
+                  "blinking":  {
+                                   "periodSeconds":  16,
+                                   "hiddenFrom":  7.5,
+                                   "hiddenTo":  9.5,
+                                   "warningSeconds":  0.8
+                               },
+                  "invariant":  "damage active implies blink visible; blink hidden implies damage inactive; hide-blink after damage off, enable-damage after blink solid",
+                  "segment2Pair":  {
+                                       "order":  "Damage -\u003e Blinking",
+                                       "damageWidth":  27,
+                                       "blinkWidth":  12,
+                                       "entryWindows":  "[-2.000, 0.630] [6.005, 8.630]",
+                                       "longestWindowSeconds":  2.63
+                                   },
+                  "segment5Pair":  {
+                                       "order":  "Blinking -\u003e Damage",
+                                       "blinkWidth":  6,
+                                       "damageWidth":  10,
+                                       "entryWindows":  "[-3.000, 1.750] [5.005, 6.750] [9.500, 9.745]",
+                                       "longestWindowSeconds":  4.75
+                                   }
+              },
+    "traps":  [
+                  {
+                      "id":  "T01",
+                      "kind":  "ArrowSwitch",
+                      "host":  "S3-P00",
+                      "target":  "S3-P01",
+                      "switch":  {
+                                     "y":  0.02,
+                                     "x":  248.26794863550168
+                                 },
+                      "muzzle":  {
+                                     "y":  1.6,
+                                     "x":  251.46794863550167
+                                 },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "warningSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "lifetime":  0.8,
+                      "damage":  8
+                  },
+                  {
+                      "id":  "T02",
+                      "kind":  "ArrowSwitch",
+                      "host":  "S3-P03",
+                      "target":  "S3-P04",
+                      "switch":  {
+                                     "y":  2.4200000000000004,
+                                     "x":  278.17179454200675
+                                 },
+                      "muzzle":  {
+                                     "y":  3.2,
+                                     "x":  281.37179454200674
+                                 },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "warningSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "lifetime":  0.8,
+                      "damage":  8
+                  },
+                  {
+                      "id":  "T03",
+                      "kind":  "ArrowSwitch",
+                      "host":  "S3-P06",
+                      "target":  "S3-P07",
+                      "switch":  {
+                                     "y":  0.020000000000000222,
+                                     "x":  308.07564044851182
+                                 },
+                      "muzzle":  {
+                                     "y":  1.6000000000000003,
+                                     "x":  311.27564044851187
+                                 },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "warningSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "lifetime":  0.8,
+                      "damage":  8
+                  },
+                  {
+                      "id":  "T04",
+                      "kind":  "ArrowSwitch",
+                      "host":  "S3-P09",
+                      "target":  "S3-P10",
+                      "switch":  {
+                                     "y":  2.4200000000000004,
+                                     "x":  337.97948635501689
+                                 },
+                      "muzzle":  {
+                                     "y":  3.2,
+                                     "x":  341.17948635501688
+                                 },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "warningSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "lifetime":  0.8,
+                      "damage":  8
+                  },
+                  {
+                      "id":  "T05",
+                      "kind":  "ArrowSwitch",
+                      "host":  "F-Rest",
+                      "target":  "F-W1",
+                      "switch":  {
+                                     "y":  6.02,
+                                     "x":  436.61778363702319
+                                 },
+                      "muzzle":  {
+                                     "y":  7.6,
+                                     "x":  439.81778363702318
+                                 },
+                      "direction":  [
+                                        -1,
+                                        0
+                                    ],
+                      "warningSeconds":  0.5,
+                      "cooldown":  3,
+                      "projectileSpeed":  6,
+                      "lifetime":  0.8,
+                      "damage":  8
+                  }
+              ],
+    "implementationDependencies":  [
+                                       "PlatformCycleManager + externally controlled DamageFoothold / BlinkingFoothold (2-1 design items 1-4); the same shared clock serves segment 2 and the fusion pair",
+                                       "DeployStage51 must create Blinking platforms and the arrow traps; Stage5 theme trap prefabs exist (Trap/Themed/Stage5_DemonCastle)",
+                                       "monsters and item drops are not part of this revision"
+                                   ],
+    "start":  {
+                  "y":  0,
+                  "x":  0
+              },
+    "goal":  {
+                 "y":  8.4,
+                 "x":  481.61778363702319
+             },
+    "bounds":  {
+                   "minX":  -10,
+                   "maxX":  495.61778363702319,
+                   "minY":  -34.93881730219784,
+                   "maxY":  20.4
+               },
+    "platforms":  [
+                      {
+                          "id":  "P00",
+                          "segment":  1,
+                          "name":  "G1-Ground",
+                          "type":  "Normal",
+                          "x":  58.4,
+                          "surfaceY":  0,
+                          "width":  116.8,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P01",
+                          "segment":  1,
+                          "name":  "H1-Block1",
+                          "type":  "Normal",
+                          "x":  83.759999999999991,
+                          "surfaceY":  0.8,
+                          "width":  4,
+                          "thickness":  0.8,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P02",
+                          "segment":  1,
+                          "name":  "H2-Block2",
+                          "type":  "Normal",
+                          "x":  104.78399999999999,
+                          "surfaceY":  0.8,
+                          "width":  4,
+                          "thickness":  0.8,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P03",
+                          "segment":  1,
+                          "name":  "ST1",
+                          "type":  "Normal",
+                          "x":  19.2,
+                          "surfaceY":  0.8,
+                          "width":  2.3999999999999986,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P04",
+                          "segment":  1,
+                          "name":  "ST2",
+                          "type":  "Normal",
+                          "x":  22.6,
+                          "surfaceY":  1.6,
+                          "width":  2.4000000000000021,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P05",
+                          "segment":  1,
+                          "name":  "U1",
+                          "type":  "Normal",
+                          "x":  29.200000000000003,
+                          "surfaceY":  2.4,
+                          "width":  8.8,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P06",
+                          "segment":  1,
+                          "name":  "U2",
+                          "type":  "Normal",
+                          "x":  41.5,
+                          "surfaceY":  2.4,
+                          "width":  9,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P07",
+                          "segment":  1,
+                          "name":  "U3",
+                          "type":  "Normal",
+                          "x":  53.9,
+                          "surfaceY":  2.4,
+                          "width":  9,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P08",
+                          "segment":  1,
+                          "name":  "U4",
+                          "type":  "Normal",
+                          "x":  66.5,
+                          "surfaceY":  2.4,
+                          "width":  9,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P09",
+                          "segment":  2,
+                          "name":  "S2-N00",
+                          "type":  "Normal",
+                          "x":  125.30000000000001,
+                          "surfaceY":  0,
+                          "width":  12.000000000000014,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P10",
+                          "segment":  2,
+                          "name":  "S2-D01",
+                          "type":  "Damage",
+                          "x":  146.8,
+                          "surfaceY":  0,
+                          "width":  27,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "externallyControlled":  true,
+                                           "damageInterval":  0.5,
+                                           "damageAmount":  8,
+                                           "clockGroup":  "2-1"
+                                       }
+                      },
+                      {
+                          "id":  "P11",
+                          "segment":  2,
+                          "name":  "S2-B01",
+                          "type":  "Blinking",
+                          "x":  168.3,
+                          "surfaceY":  0,
+                          "width":  12,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "externallyControlled":  true,
+                                           "warningSeconds":  0.8,
+                                           "clockGroup":  "2-1"
+                                       }
+                      },
+                      {
+                          "id":  "P12",
+                          "segment":  2,
+                          "name":  "S2-N01",
+                          "type":  "Normal",
+                          "x":  180.8,
+                          "surfaceY":  0,
+                          "width":  9,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P13",
+                          "segment":  2,
+                          "name":  "S2-D02",
+                          "type":  "Damage",
+                          "x":  200.8,
+                          "surfaceY":  0,
+                          "width":  27,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "externallyControlled":  true,
+                                           "damageInterval":  0.5,
+                                           "damageAmount":  8,
+                                           "clockGroup":  "2-1"
+                                       }
+                      },
+                      {
+                          "id":  "P14",
+                          "segment":  2,
+                          "name":  "S2-B02",
+                          "type":  "Blinking",
+                          "x":  222.3,
+                          "surfaceY":  0,
+                          "width":  12,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "externallyControlled":  true,
+                                           "warningSeconds":  0.8,
+                                           "clockGroup":  "2-1"
+                                       }
+                      },
+                      {
+                          "id":  "P15",
+                          "segment":  2,
+                          "name":  "S2-N02",
+                          "type":  "Normal",
+                          "x":  234.8,
+                          "surfaceY":  0,
+                          "width":  9,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P16",
+                          "segment":  3,
+                          "name":  "S3-P00",
+                          "type":  "Normal",
+                          "x":  245.78397431775085,
+                          "surfaceY":  0,
+                          "width":  7.9679486355016707,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P17",
+                          "segment":  3,
+                          "name":  "S3-P01",
+                          "type":  "Damage",
+                          "x":  255.75192295325255,
+                          "surfaceY":  0.8,
+                          "width":  7.9679486355017275,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P18",
+                          "segment":  3,
+                          "name":  "S3-P02",
+                          "type":  "Moving",
+                          "x":  265.31987158875421,
+                          "surfaceY":  1.6,
+                          "width":  7.96794863550169,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  1.35,
+                                           "x":  265.31987158875421
+                                       },
+                                       {
+                                           "y":  1.35,
+                                           "x":  266.11987158875422
+                                       }
+                                   ],
+                          "travel":  0.80000000000001137,
+                          "settings":  {
+                                           "startDelay":  0,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P19",
+                          "segment":  3,
+                          "name":  "S3-P03",
+                          "type":  "Normal",
+                          "x":  275.68782022425592,
+                          "surfaceY":  2.4000000000000004,
+                          "width":  7.9679486355016707,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P20",
+                          "segment":  3,
+                          "name":  "S3-P04",
+                          "type":  "Damage",
+                          "x":  285.65576885975759,
+                          "surfaceY":  1.6000000000000003,
+                          "width":  7.9679486355016707,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.3,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P21",
+                          "segment":  3,
+                          "name":  "S3-P05",
+                          "type":  "Moving",
+                          "x":  295.22371749525928,
+                          "surfaceY":  0.80000000000000027,
+                          "width":  7.96794863550169,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  0.55000000000000027,
+                                           "x":  295.22371749525928
+                                       },
+                                       {
+                                           "y":  0.55000000000000027,
+                                           "x":  296.02371749525929
+                                       }
+                                   ],
+                          "travel":  0.80000000000001137,
+                          "settings":  {
+                                           "startDelay":  0.35,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P22",
+                          "segment":  3,
+                          "name":  "S3-P06",
+                          "type":  "Normal",
+                          "x":  305.591666130761,
+                          "surfaceY":  2.2204460492503131E-16,
+                          "width":  7.9679486355016707,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P23",
+                          "segment":  3,
+                          "name":  "S3-P07",
+                          "type":  "Damage",
+                          "x":  315.55961476626271,
+                          "surfaceY":  0.80000000000000027,
+                          "width":  7.9679486355017275,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.6,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P24",
+                          "segment":  3,
+                          "name":  "S3-P08",
+                          "type":  "Moving",
+                          "x":  325.12756340176435,
+                          "surfaceY":  1.6000000000000003,
+                          "width":  7.96794863550169,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  1.3500000000000003,
+                                           "x":  325.12756340176435
+                                       },
+                                       {
+                                           "y":  1.3500000000000003,
+                                           "x":  325.92756340176436
+                                       }
+                                   ],
+                          "travel":  0.80000000000001137,
+                          "settings":  {
+                                           "startDelay":  0.7,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P25",
+                          "segment":  3,
+                          "name":  "S3-P09",
+                          "type":  "Normal",
+                          "x":  335.49551203726605,
+                          "surfaceY":  2.4000000000000004,
+                          "width":  7.9679486355016707,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P26",
+                          "segment":  3,
+                          "name":  "S3-P10",
+                          "type":  "Damage",
+                          "x":  345.46346067276772,
+                          "surfaceY":  1.6000000000000003,
+                          "width":  7.9679486355017275,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0.89999999999999991,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P27",
+                          "segment":  3,
+                          "name":  "S3-P11",
+                          "type":  "Moving",
+                          "x":  355.03140930826942,
+                          "surfaceY":  0.80000000000000027,
+                          "width":  7.96794863550169,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  0.55000000000000027,
+                                           "x":  355.03140930826942
+                                       },
+                                       {
+                                           "y":  0.55000000000000027,
+                                           "x":  355.83140930826943
+                                       }
+                                   ],
+                          "travel":  0.80000000000001137,
+                          "settings":  {
+                                           "startDelay":  1.0499999999999998,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P28",
+                          "segment":  3,
+                          "name":  "S3-P12",
+                          "type":  "Normal",
+                          "x":  365.39935794377112,
+                          "surfaceY":  2.2204460492503131E-16,
+                          "width":  7.9679486355016707,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P29",
+                          "segment":  4,
+                          "name":  "R-M1",
+                          "type":  "Moving",
+                          "x":  372.88333226152196,
+                          "surfaceY":  0,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -0.25,
+                                           "x":  372.88333226152196
+                                       },
+                                       {
+                                           "y":  -13.46940865109892,
+                                           "x":  377.54551218196383
+                                       }
+                                   ],
+                          "travel":  14.017442230853685,
+                          "settings":  {
+                                           "startDelay":  0,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  6,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P30",
+                          "segment":  4,
+                          "name":  "R-V6",
+                          "type":  "Normal",
+                          "x":  372.04551218196383,
+                          "surfaceY":  -13.21940865109892,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P31",
+                          "segment":  4,
+                          "name":  "R-M2",
+                          "type":  "Moving",
+                          "x":  366.54551218196383,
+                          "surfaceY":  -13.21940865109892,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -13.46940865109892,
+                                           "x":  366.54551218196383
+                                       },
+                                       {
+                                           "y":  -26.68881730219784,
+                                           "x":  372.88333226152196
+                                       }
+                                   ],
+                          "travel":  14.660174911835096,
+                          "settings":  {
+                                           "startDelay":  0.7,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  6.5,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P32",
+                          "segment":  4,
+                          "name":  "R-V8",
+                          "type":  "Normal",
+                          "x":  378.57412654729239,
+                          "surfaceY":  -26.43881730219784,
+                          "width":  4.3815885715408172,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P33",
+                          "segment":  4,
+                          "name":  "R-Stone",
+                          "type":  "Normal",
+                          "x":  383.26492083306277,
+                          "surfaceY":  -26.43881730219784,
+                          "width":  1,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P34",
+                          "segment":  4,
+                          "name":  "R-H1",
+                          "type":  "Damage",
+                          "x":  386.76492083306277,
+                          "surfaceY":  -26.43881730219784,
+                          "width":  2,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P35",
+                          "segment":  4,
+                          "name":  "R-V1",
+                          "type":  "Normal",
+                          "x":  391.95571511883315,
+                          "surfaceY":  -26.43881730219784,
+                          "width":  4.3815885715408172,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P36",
+                          "segment":  4,
+                          "name":  "R-M3",
+                          "type":  "Moving",
+                          "x":  397.64650940460359,
+                          "surfaceY":  -26.43881730219784,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -26.68881730219784,
+                                           "x":  397.64650940460359
+                                       },
+                                       {
+                                           "y":  -13.46940865109892,
+                                           "x":  392.98432948416172
+                                       }
+                                   ],
+                          "travel":  14.017442230853685,
+                          "settings":  {
+                                           "startDelay":  1.4,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  7.5,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P37",
+                          "segment":  4,
+                          "name":  "R-V3",
+                          "type":  "Normal",
+                          "x":  398.48432948416172,
+                          "surfaceY":  -13.21940865109892,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P38",
+                          "segment":  4,
+                          "name":  "R-M4",
+                          "type":  "Moving",
+                          "x":  403.98432948416172,
+                          "surfaceY":  -13.21940865109892,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -13.46940865109892,
+                                           "x":  403.98432948416172
+                                       },
+                                       {
+                                           "y":  -0.25,
+                                           "x":  397.64650940460359
+                                       }
+                                   ],
+                          "travel":  14.660174911835096,
+                          "settings":  {
+                                           "startDelay":  2.1,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P39",
+                          "segment":  4,
+                          "name":  "R-V4",
+                          "type":  "Normal",
+                          "x":  391.70571511883315,
+                          "surfaceY":  0,
+                          "width":  4.8815885715408172,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P40",
+                          "segment":  4,
+                          "name":  "R-Goal",
+                          "type":  "Normal",
+                          "x":  385.26492083306277,
+                          "surfaceY":  0,
+                          "width":  4,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P41",
+                          "segment":  5,
+                          "name":  "F-L0",
+                          "type":  "Moving",
+                          "x":  379.76492083306277,
+                          "surfaceY":  0,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  -0.25,
+                                           "x":  379.76492083306277
+                                       },
+                                       {
+                                           "y":  5.75,
+                                           "x":  379.76492083306277
+                                       }
+                                   ],
+                          "travel":  6,
+                          "settings":  {
+                                           "startDelay":  0,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  6.5,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P42",
+                          "segment":  5,
+                          "name":  "F-A0",
+                          "type":  "Normal",
+                          "x":  386.26492083306277,
+                          "surfaceY":  6,
+                          "width":  6,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P43",
+                          "segment":  5,
+                          "name":  "F-Ground",
+                          "type":  "Normal",
+                          "x":  401.691352235043,
+                          "surfaceY":  6,
+                          "width":  19.85286280396042,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P44",
+                          "segment":  5,
+                          "name":  "F-Block",
+                          "type":  "Normal",
+                          "x":  408.61778363702319,
+                          "surfaceY":  6.8,
+                          "width":  4,
+                          "thickness":  0.8,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P45",
+                          "segment":  5,
+                          "name":  "F-ST1",
+                          "type":  "Normal",
+                          "x":  394.46492083306276,
+                          "surfaceY":  6.8,
+                          "width":  2.3999999999999773,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P46",
+                          "segment":  5,
+                          "name":  "F-ST2",
+                          "type":  "Normal",
+                          "x":  397.8649208330628,
+                          "surfaceY":  7.6,
+                          "width":  2.4000000000000341,
+                          "thickness":  0.5,
+                          "mainRoute":  false
+                      },
+                      {
+                          "id":  "P47",
+                          "segment":  5,
+                          "name":  "F-Blink",
+                          "type":  "Blinking",
+                          "x":  416.61778363702319,
+                          "surfaceY":  6,
+                          "width":  6,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "externallyControlled":  true,
+                                           "warningSeconds":  0.8,
+                                           "clockGroup":  "2-1"
+                                       }
+                      },
+                      {
+                          "id":  "P48",
+                          "segment":  5,
+                          "name":  "F-Damage",
+                          "type":  "Damage",
+                          "x":  426.61778363702319,
+                          "surfaceY":  6,
+                          "width":  10,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "externallyControlled":  true,
+                                           "damageInterval":  0.5,
+                                           "damageAmount":  8,
+                                           "clockGroup":  "2-1"
+                                       }
+                      },
+                      {
+                          "id":  "P49",
+                          "segment":  5,
+                          "name":  "F-Rest",
+                          "type":  "Normal",
+                          "x":  435.86778363702319,
+                          "surfaceY":  6,
+                          "width":  4.5,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P50",
+                          "segment":  5,
+                          "name":  "F-W1",
+                          "type":  "Damage",
+                          "x":  442.36778363702319,
+                          "surfaceY":  6.8,
+                          "width":  4.5,
+                          "thickness":  0.5,
+                          "mainRoute":  true,
+                          "settings":  {
+                                           "damageDelay":  0.5,
+                                           "cycleOffset":  0,
+                                           "damageAmount":  8,
+                                           "activeDuration":  1.5,
+                                           "damageInterval":  0.5,
+                                           "safeDuration":  2.5
+                                       }
+                      },
+                      {
+                          "id":  "P51",
+                          "segment":  5,
+                          "name":  "F-W2",
+                          "type":  "Moving",
+                          "x":  448.46778363702322,
+                          "surfaceY":  7.6,
+                          "width":  4.5,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  7.35,
+                                           "x":  448.46778363702322
+                                       },
+                                       {
+                                           "y":  7.35,
+                                           "x":  449.26778363702323
+                                       }
+                                   ],
+                          "travel":  0.80000000000001137,
+                          "settings":  {
+                                           "startDelay":  0.35,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  0.8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P52",
+                          "segment":  5,
+                          "name":  "F-W3",
+                          "type":  "Normal",
+                          "x":  455.36778363702319,
+                          "surfaceY":  8.4,
+                          "width":  4.5,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P53",
+                          "segment":  5,
+                          "name":  "F-Md",
+                          "type":  "Moving",
+                          "x":  461.11778363702319,
+                          "surfaceY":  8.4,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  8.15,
+                                           "x":  461.11778363702319
+                                       },
+                                       {
+                                           "y":  2.15,
+                                           "x":  461.11778363702319
+                                       }
+                                   ],
+                          "travel":  6,
+                          "settings":  {
+                                           "startDelay":  1.4,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  7,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P54",
+                          "segment":  5,
+                          "name":  "F-Bottom",
+                          "type":  "Normal",
+                          "x":  467.61778363702319,
+                          "surfaceY":  2.4,
+                          "width":  6,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P55",
+                          "segment":  5,
+                          "name":  "F-Mu",
+                          "type":  "Moving",
+                          "x":  474.11778363702319,
+                          "surfaceY":  2.4,
+                          "width":  3,
+                          "thickness":  0.5,
+                          "path":  [
+                                       {
+                                           "y":  2.15,
+                                           "x":  474.11778363702319
+                                       },
+                                       {
+                                           "y":  8.15,
+                                           "x":  474.11778363702319
+                                       }
+                                   ],
+                          "travel":  6,
+                          "settings":  {
+                                           "startDelay":  2.1,
+                                           "waitAtPoint":  0.4,
+                                           "speed":  8,
+                                           "loopMode":  "PingPong"
+                                       },
+                          "mainRoute":  true
+                      },
+                      {
+                          "id":  "P56",
+                          "segment":  5,
+                          "name":  "F-Goal",
+                          "type":  "Normal",
+                          "x":  481.61778363702319,
+                          "surfaceY":  8.4,
+                          "width":  8,
+                          "thickness":  0.5,
+                          "mainRoute":  true
+                      }
+                  ]
+}

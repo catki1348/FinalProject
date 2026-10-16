@@ -1,0 +1,3 @@
+PASS actual 400-second motion and clearance
+PASS 62 actual landing links
+PASS actual exit

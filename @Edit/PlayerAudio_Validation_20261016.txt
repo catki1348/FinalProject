@@ -1,0 +1,12 @@
+PASS: Normal/perfect use distinct assigned clips
+PASS: Guard input without a hit is silent
+PASS: Normal block through TakeDamage plays audio and prevents damage
+PASS: Perfect block never falls back to normal sound
+PASS: Perfect block through TakeDamage plays its own sound and prevents damage
+PASS: Normal block never plays perfect sound
+PASS: Zero damage is silent
+PASS: Disabled feedback unsubscribes
+PASS: Re-enabled feedback resubscribes
+PASS: Instantiated player uses 0.35-second jump clip
+PASS: Short jump PCM readable
+PASS: Jump begins and ends with fade to zero

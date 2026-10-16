@@ -1,0 +1,29 @@
+N1->N2 actual engine landing, vx=6.4 phase=0
+N2->N3 actual engine landing, vx=6.4 phase=0
+N3->MP1 actual engine landing, vx=6.4 phase=0
+MP1->N4 actual engine landing, vx=6.4 phase=1.6
+N4->MP2 actual engine landing, vx=3.2 phase=2.3
+MP2->N5 actual engine landing, vx=4.8 phase=1
+N5->MP3 actual engine landing, vx=5.6 phase=0
+MP3->N6 actual engine landing, vx=6.4 phase=1.2
+N6->MP4 actual engine landing, vx=6.4 phase=0
+MP4->N7 actual engine landing, vx=3.2 phase=2.6
+N7->MP5 actual engine landing, vx=5.6 phase=0
+MP5->N8 actual engine landing, vx=6.4 phase=1.8
+N8->D1 actual engine landing, vx=6.4 phase=0
+D1->D2 actual engine landing, vx=6.4 phase=0
+D2->D3 actual engine landing, vx=6.4 phase=0
+D3->N9 actual engine landing, vx=6.4 phase=0
+N9->N10 actual engine landing, vx=5.6 phase=0
+MP1 actual motion reaches every waypoint in 15 seconds
+MP2 actual motion reaches every waypoint in 15 seconds
+MP2 transports player through 3.2-unit lift height; measured=3.199997
+MP3 actual motion reaches every waypoint in 15 seconds
+MP4 actual motion reaches every waypoint in 15 seconds
+MP5 actual motion reaches every waypoint in 15 seconds
+N8->D2 blocked with maximum buff / sampled air dash
+N8->D3 blocked with maximum buff / sampled air dash
+N8->N9 blocked with maximum buff / sampled air dash
+D1->D3 blocked with maximum buff / sampled air dash
+D1->N9 blocked with maximum buff / sampled air dash
+D2->N9 blocked with maximum buff / sampled air dash

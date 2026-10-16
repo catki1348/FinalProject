@@ -1,0 +1,1211 @@
+{
+  "status": "implemented_verified",
+  "date": "2026-10-15",
+  "sourceSnapshot": "Stage22_Audit_20261015.json",
+  "start": {
+    "x": 70.45,
+    "y": 0.555
+  },
+  "goal": {
+    "x": 163.22,
+    "y": 4.15
+  },
+  "unitsPerScale": 8,
+  "camera": {
+    "x0": 50,
+    "x1": 172,
+    "y0": -8,
+    "y1": 8
+  },
+  "downstreamShiftX": 12,
+  "bossCenter": {
+    "x": 236.025,
+    "y": -60
+  },
+  "platforms": [
+    {
+      "id": "N1",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 71.5,
+      "top": 0.525,
+      "width": 3.3,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 71.5,
+        "y": 0.0
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        3.3,
+        1.05
+      ],
+      "colliderSize": [
+        3.3,
+        1.05
+      ]
+    },
+    {
+      "id": "N2",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 76.25,
+      "top": 0.525,
+      "width": 1.65,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 76.25,
+        "y": 0.0
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        1.65,
+        1.05
+      ],
+      "colliderSize": [
+        1.65,
+        1.05
+      ]
+    },
+    {
+      "id": "N3",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 80.75,
+      "top": 0.525,
+      "width": 2.75,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 80.75,
+        "y": 0.0
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.75,
+        1.05
+      ],
+      "colliderSize": [
+        2.75,
+        1.05
+      ]
+    },
+    {
+      "id": "MP1",
+      "kind": "moving",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Moving.prefab",
+      "drawMode": "Tiled",
+      "x": 84.0,
+      "top": 0.525,
+      "width": 1.1,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 2.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 1,
+      "behaviorAddedInScene": false,
+      "pathConnected": true,
+      "pathOutsidePlatform": true,
+      "points": [
+        {
+          "x": 84.0,
+          "y": 0.525
+        },
+        {
+          "x": 90.0,
+          "y": 0.525
+        }
+      ],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 84.0,
+        "y": 0.0
+      },
+      "waypointCenters": [
+        {
+          "x": 84.0,
+          "y": 0.0
+        },
+        {
+          "x": 90.0,
+          "y": 0.0
+        }
+      ],
+      "rendererSize": [
+        1.1,
+        1.05
+      ],
+      "colliderSize": [
+        1.1,
+        1.05
+      ]
+    },
+    {
+      "id": "N4",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 93.0,
+      "top": 0.525,
+      "width": 2.2,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 93.0,
+        "y": 0.0
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.2,
+        1.05
+      ],
+      "colliderSize": [
+        2.2,
+        1.05
+      ]
+    },
+    {
+      "id": "MP2",
+      "kind": "moving",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Moving.prefab",
+      "drawMode": "Tiled",
+      "x": 96.0,
+      "top": 0.525,
+      "width": 1.1,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 2.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 1,
+      "behaviorAddedInScene": false,
+      "pathConnected": true,
+      "pathOutsidePlatform": true,
+      "points": [
+        {
+          "x": 96.0,
+          "y": 0.525
+        },
+        {
+          "x": 96.0,
+          "y": 3.725
+        }
+      ],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 96.0,
+        "y": 0.0
+      },
+      "waypointCenters": [
+        {
+          "x": 96.0,
+          "y": 0.0
+        },
+        {
+          "x": 96.0,
+          "y": 3.2
+        }
+      ],
+      "rendererSize": [
+        1.1,
+        1.05
+      ],
+      "colliderSize": [
+        1.1,
+        1.05
+      ]
+    },
+    {
+      "id": "N5",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 99.0,
+      "top": 3.725,
+      "width": 2.2,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 99.0,
+        "y": 3.2
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.2,
+        1.05
+      ],
+      "colliderSize": [
+        2.2,
+        1.05
+      ]
+    },
+    {
+      "id": "MP3",
+      "kind": "moving",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Moving.prefab",
+      "drawMode": "Tiled",
+      "x": 102.0,
+      "top": 3.725,
+      "width": 1.1,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 2.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 1,
+      "behaviorAddedInScene": false,
+      "pathConnected": true,
+      "pathOutsidePlatform": true,
+      "points": [
+        {
+          "x": 102.0,
+          "y": 3.725
+        },
+        {
+          "x": 108.0,
+          "y": 1.225
+        }
+      ],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 102.0,
+        "y": 3.2
+      },
+      "waypointCenters": [
+        {
+          "x": 102.0,
+          "y": 3.2
+        },
+        {
+          "x": 108.0,
+          "y": 0.7
+        }
+      ],
+      "rendererSize": [
+        1.1,
+        1.05
+      ],
+      "colliderSize": [
+        1.1,
+        1.05
+      ]
+    },
+    {
+      "id": "N6",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 111.0,
+      "top": 1.225,
+      "width": 2.2,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 111.0,
+        "y": 0.7
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.2,
+        1.05
+      ],
+      "colliderSize": [
+        2.2,
+        1.05
+      ]
+    },
+    {
+      "id": "MP4",
+      "kind": "moving",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Moving.prefab",
+      "drawMode": "Tiled",
+      "x": 114.0,
+      "top": 1.225,
+      "width": 1.1,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 2.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": true,
+      "pathOutsidePlatform": true,
+      "points": [
+        {
+          "x": 114.0,
+          "y": 1.225
+        },
+        {
+          "x": 118.0,
+          "y": 1.225
+        },
+        {
+          "x": 118.0,
+          "y": 3.725
+        }
+      ],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 114.0,
+        "y": 0.7
+      },
+      "waypointCenters": [
+        {
+          "x": 114.0,
+          "y": 0.7
+        },
+        {
+          "x": 118.0,
+          "y": 0.7
+        },
+        {
+          "x": 118.0,
+          "y": 3.2
+        }
+      ],
+      "rendererSize": [
+        1.1,
+        1.05
+      ],
+      "colliderSize": [
+        1.1,
+        1.05
+      ]
+    },
+    {
+      "id": "N7",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 121.0,
+      "top": 3.725,
+      "width": 2.2,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 121.0,
+        "y": 3.2
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.2,
+        1.05
+      ],
+      "colliderSize": [
+        2.2,
+        1.05
+      ]
+    },
+    {
+      "id": "MP5",
+      "kind": "moving",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Moving.prefab",
+      "drawMode": "Tiled",
+      "x": 124.0,
+      "top": 3.725,
+      "width": 1.1,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 2.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 1,
+      "behaviorAddedInScene": false,
+      "pathConnected": true,
+      "pathOutsidePlatform": true,
+      "points": [
+        {
+          "x": 124.0,
+          "y": 3.725
+        },
+        {
+          "x": 131.0,
+          "y": 2.025
+        }
+      ],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 124.0,
+        "y": 3.2
+      },
+      "waypointCenters": [
+        {
+          "x": 124.0,
+          "y": 3.2
+        },
+        {
+          "x": 131.0,
+          "y": 1.5
+        }
+      ],
+      "rendererSize": [
+        1.1,
+        1.05
+      ],
+      "colliderSize": [
+        1.1,
+        1.05
+      ]
+    },
+    {
+      "id": "N8",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 134.25,
+      "top": 2.025,
+      "width": 2.75,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 134.25,
+        "y": 1.5
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.75,
+        1.05
+      ],
+      "colliderSize": [
+        2.75,
+        1.05
+      ]
+    },
+    {
+      "id": "D1",
+      "kind": "disappearing",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Disappearing.prefab",
+      "drawMode": "Tiled",
+      "x": 140.225,
+      "top": 2.425,
+      "width": 1.6,
+      "height": 1.0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.4000000059604645,
+      "respawn": 2.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 140.225,
+        "y": 1.925
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        1.6,
+        1.0
+      ],
+      "colliderSize": [
+        1.6,
+        1.0
+      ]
+    },
+    {
+      "id": "D2",
+      "kind": "disappearing",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Disappearing.prefab",
+      "drawMode": "Tiled",
+      "x": 145.625,
+      "top": 2.825,
+      "width": 1.6,
+      "height": 1.0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.4000000059604645,
+      "respawn": 2.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 145.625,
+        "y": 2.325
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        1.6,
+        1.0
+      ],
+      "colliderSize": [
+        1.6,
+        1.0
+      ]
+    },
+    {
+      "id": "D3",
+      "kind": "disappearing",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Disappearing.prefab",
+      "drawMode": "Tiled",
+      "x": 151.025,
+      "top": 3.225,
+      "width": 1.6,
+      "height": 1.0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.4000000059604645,
+      "respawn": 2.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 151.025,
+        "y": 2.725
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        1.6,
+        1.0
+      ],
+      "colliderSize": [
+        1.6,
+        1.0
+      ]
+    },
+    {
+      "id": "N9",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 157.0,
+      "top": 3.625,
+      "width": 2.75,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 157.0,
+        "y": 3.1
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        2.75,
+        1.05
+      ],
+      "colliderSize": [
+        2.75,
+        1.05
+      ]
+    },
+    {
+      "id": "N10",
+      "kind": "normal",
+      "prefab": "Assets/@ExternalAssets/@Prefab/Stage2_2/P_Stage22_Normal.prefab",
+      "drawMode": "Tiled",
+      "x": 162.25,
+      "top": 3.625,
+      "width": 3.3,
+      "height": 1.05,
+      "scaleX": 1,
+      "scaleY": 1,
+      "speed": 0.0,
+      "delay": 0.0,
+      "wait": 0.0,
+      "vanish": 0.0,
+      "respawn": 0.0,
+      "loop": 0,
+      "behaviorAddedInScene": false,
+      "pathConnected": false,
+      "pathOutsidePlatform": false,
+      "points": [],
+      "tileMode": "Continuous",
+      "autoTiling": false,
+      "center": {
+        "x": 162.25,
+        "y": 3.1
+      },
+      "waypointCenters": [],
+      "rendererSize": [
+        3.3,
+        1.05
+      ],
+      "colliderSize": [
+        3.3,
+        1.05
+      ]
+    }
+  ],
+  "canonicalRoute": [
+    {
+      "x": 70.45,
+      "y": 0.525,
+      "kind": "start",
+      "platform": "N1"
+    },
+    {
+      "x": 73.15,
+      "y": 0.525,
+      "kind": "walk",
+      "platform": "N1"
+    },
+    {
+      "x": 75.425,
+      "y": 0.525,
+      "kind": "jumpChord",
+      "platform": "N2"
+    },
+    {
+      "x": 77.075,
+      "y": 0.525,
+      "kind": "walk",
+      "platform": "N2"
+    },
+    {
+      "x": 79.375,
+      "y": 0.525,
+      "kind": "jumpChord",
+      "platform": "N3"
+    },
+    {
+      "x": 82.125,
+      "y": 0.525,
+      "kind": "walk",
+      "platform": "N3"
+    },
+    {
+      "x": 84.0,
+      "y": 0.525,
+      "kind": "jumpChord",
+      "platform": "MP1"
+    },
+    {
+      "x": 90.0,
+      "y": 0.525,
+      "kind": "ride",
+      "platform": "MP1"
+    },
+    {
+      "x": 91.9,
+      "y": 0.525,
+      "kind": "jumpChord",
+      "platform": "N4"
+    },
+    {
+      "x": 94.1,
+      "y": 0.525,
+      "kind": "walk",
+      "platform": "N4"
+    },
+    {
+      "x": 96.0,
+      "y": 0.525,
+      "kind": "jumpChord",
+      "platform": "MP2"
+    },
+    {
+      "x": 96.0,
+      "y": 3.725,
+      "kind": "ride",
+      "platform": "MP2"
+    },
+    {
+      "x": 97.9,
+      "y": 3.725,
+      "kind": "jumpChord",
+      "platform": "N5"
+    },
+    {
+      "x": 100.1,
+      "y": 3.725,
+      "kind": "walk",
+      "platform": "N5"
+    },
+    {
+      "x": 102.0,
+      "y": 3.725,
+      "kind": "jumpChord",
+      "platform": "MP3"
+    },
+    {
+      "x": 108.0,
+      "y": 1.225,
+      "kind": "ride",
+      "platform": "MP3"
+    },
+    {
+      "x": 109.9,
+      "y": 1.225,
+      "kind": "jumpChord",
+      "platform": "N6"
+    },
+    {
+      "x": 112.1,
+      "y": 1.225,
+      "kind": "walk",
+      "platform": "N6"
+    },
+    {
+      "x": 114.0,
+      "y": 1.225,
+      "kind": "jumpChord",
+      "platform": "MP4"
+    },
+    {
+      "x": 118.0,
+      "y": 1.225,
+      "kind": "ride",
+      "platform": "MP4"
+    },
+    {
+      "x": 118.0,
+      "y": 3.725,
+      "kind": "ride",
+      "platform": "MP4"
+    },
+    {
+      "x": 119.9,
+      "y": 3.725,
+      "kind": "jumpChord",
+      "platform": "N7"
+    },
+    {
+      "x": 122.1,
+      "y": 3.725,
+      "kind": "walk",
+      "platform": "N7"
+    },
+    {
+      "x": 124.0,
+      "y": 3.725,
+      "kind": "jumpChord",
+      "platform": "MP5"
+    },
+    {
+      "x": 131.0,
+      "y": 2.025,
+      "kind": "ride",
+      "platform": "MP5"
+    },
+    {
+      "x": 132.875,
+      "y": 2.025,
+      "kind": "jumpChord",
+      "platform": "N8"
+    },
+    {
+      "x": 135.625,
+      "y": 2.025,
+      "kind": "walk",
+      "platform": "N8"
+    },
+    {
+      "x": 139.42499999999998,
+      "y": 2.425,
+      "kind": "jumpChord",
+      "platform": "D1"
+    },
+    {
+      "x": 141.025,
+      "y": 2.425,
+      "kind": "walk",
+      "platform": "D1"
+    },
+    {
+      "x": 144.825,
+      "y": 2.825,
+      "kind": "jumpChord",
+      "platform": "D2"
+    },
+    {
+      "x": 146.425,
+      "y": 2.825,
+      "kind": "walk",
+      "platform": "D2"
+    },
+    {
+      "x": 150.225,
+      "y": 3.225,
+      "kind": "jumpChord",
+      "platform": "D3"
+    },
+    {
+      "x": 151.82500000000002,
+      "y": 3.225,
+      "kind": "walk",
+      "platform": "D3"
+    },
+    {
+      "x": 155.625,
+      "y": 3.625,
+      "kind": "jumpChord",
+      "platform": "N9"
+    },
+    {
+      "x": 158.375,
+      "y": 3.625,
+      "kind": "walk",
+      "platform": "N9"
+    },
+    {
+      "x": 160.6,
+      "y": 3.625,
+      "kind": "jumpChord",
+      "platform": "N10"
+    },
+    {
+      "x": 163.22,
+      "y": 3.625,
+      "kind": "walk",
+      "platform": "N10"
+    }
+  ],
+  "distance": {
+    "walk": 28.82,
+    "jumpChord": 41.033979,
+    "ride": 29.403471,
+    "totalUnits": 99.25745,
+    "scale": 12.407181
+  },
+  "validation": {
+    "adjacentPairs": [
+      {
+        "pair": "N1->N2",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      },
+      {
+        "pair": "N2->N3",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      },
+      {
+        "pair": "N3->MP1",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 310,
+        "maximumWaitSeconds": 2.9
+      },
+      {
+        "pair": "MP1->N4",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 310,
+        "maximumWaitSeconds": 2.9
+      },
+      {
+        "pair": "N4->MP2",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 277,
+        "maximumWaitSeconds": 1.7
+      },
+      {
+        "pair": "MP2->N5",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 247,
+        "maximumWaitSeconds": 1.9
+      },
+      {
+        "pair": "N5->MP3",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 411,
+        "maximumWaitSeconds": 2.1
+      },
+      {
+        "pair": "MP3->N6",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 400,
+        "maximumWaitSeconds": 2.1
+      },
+      {
+        "pair": "N6->MP4",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 254,
+        "maximumWaitSeconds": 3.2
+      },
+      {
+        "pair": "MP4->N7",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 191,
+        "maximumWaitSeconds": 3.9
+      },
+      {
+        "pair": "N7->MP5",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 308,
+        "maximumWaitSeconds": 3.5
+      },
+      {
+        "pair": "MP5->N8",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 302,
+        "maximumWaitSeconds": 3.5
+      },
+      {
+        "pair": "N8->D1",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      },
+      {
+        "pair": "D1->D2",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      },
+      {
+        "pair": "D2->D3",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      },
+      {
+        "pair": "D3->N9",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      },
+      {
+        "pair": "N9->N10",
+        "reachable80": true,
+        "sampledStartTimes": 600,
+        "availableSamples": 600,
+        "maximumWaitSeconds": 0.0
+      }
+    ],
+    "skipPairs": [
+      {
+        "pair": "N8->D2",
+        "gap": 9.2,
+        "rise": 0.8,
+        "maxBuffJumpDashEdgeReach": 7.96452,
+        "conservativeReach": 8.81452,
+        "clearance": 0.38548,
+        "blocked": true
+      },
+      {
+        "pair": "N8->D3",
+        "gap": 14.6,
+        "rise": 1.2,
+        "maxBuffJumpDashEdgeReach": 6.713466,
+        "conservativeReach": 7.563466,
+        "clearance": 7.036534,
+        "blocked": true
+      },
+      {
+        "pair": "N8->N9",
+        "gap": 20.0,
+        "rise": 1.6,
+        "maxBuffJumpDashEdgeReach": 0.0,
+        "conservativeReach": 0,
+        "clearance": 20.0,
+        "blocked": true
+      },
+      {
+        "pair": "D1->D3",
+        "gap": 9.2,
+        "rise": 0.8,
+        "maxBuffJumpDashEdgeReach": 7.96452,
+        "conservativeReach": 8.81452,
+        "clearance": 0.38548,
+        "blocked": true
+      },
+      {
+        "pair": "D1->N9",
+        "gap": 14.6,
+        "rise": 1.2,
+        "maxBuffJumpDashEdgeReach": 6.713466,
+        "conservativeReach": 7.563466,
+        "clearance": 7.036534,
+        "blocked": true
+      },
+      {
+        "pair": "D2->N9",
+        "gap": 9.2,
+        "rise": 0.8,
+        "maxBuffJumpDashEdgeReach": 7.96452,
+        "conservativeReach": 8.81452,
+        "clearance": 0.38548,
+        "blocked": true
+      }
+    ],
+    "noSecondDashBeforeLanding": true,
+    "minimumSkipClearance": 0.38548,
+    "counts": {
+      "normal": 10,
+      "moving": 5,
+      "disappearing": 3
+    },
+    "modelOnly": true,
+    "unityPlaytested": true,
+    "unityReport": "Stage22_Revision_Implementation_20261015.md"
+  }
+}

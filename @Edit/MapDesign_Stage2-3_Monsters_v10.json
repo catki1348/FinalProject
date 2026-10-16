@@ -1,0 +1,1064 @@
+{
+  "status": "main_scene_applied",
+  "placementReady": true,
+  "clearanceProposal": 0.5,
+  "collisionPolicy": "no overlap between complete moving-platform swept collider volume and complete monster swept collider volume, regardless of timing",
+  "narrowPhase": "segmentSweptShape; include collider offsets, scale, size, loop closure and orbit bounds",
+  "broadPhase": "AABB rejection only; overlapping AABBs require narrow phase",
+  "deathPolicy": "separately validate corpse gravity trajectory or configure corpse-only platform noncollision; retain live monster-player combat",
+  "monsters": [
+    {
+      "id": "Monster_2-3_1",
+      "type": "Ground",
+      "host": "N1",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 33.290305358432356,
+            "y": 0.34
+          },
+          {
+            "x": 33.99030535843236,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N1"
+    },
+    {
+      "id": "Monster_2-3_2",
+      "type": "Ground",
+      "host": "N2",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 38.690305358432354,
+            "y": 0.34
+          },
+          {
+            "x": 39.39030535843236,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N2"
+    },
+    {
+      "id": "Monster_2-3_3",
+      "type": "Ground",
+      "host": "N3",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 44.09030535843235,
+            "y": 0.34
+          },
+          {
+            "x": 44.790305358432356,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N3"
+    },
+    {
+      "id": "Monster_2-3_4",
+      "type": "Ground",
+      "host": "N4",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 77.23061071686473,
+            "y": 0.34
+          },
+          {
+            "x": 77.93061071686472,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N4"
+    },
+    {
+      "id": "Monster_2-3_5",
+      "type": "Ground",
+      "host": "N5",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 82.63061071686474,
+            "y": 0.34
+          },
+          {
+            "x": 83.33061071686473,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N5"
+    },
+    {
+      "id": "Monster_2-3_6",
+      "type": "Ground",
+      "host": "Rest1",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 88.53061071686474,
+            "y": 0.34
+          },
+          {
+            "x": 89.23061071686473,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "Rest1"
+    },
+    {
+      "id": "Monster_2-3_7",
+      "type": "Ground",
+      "host": "N6",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 122.17091607529711,
+            "y": 0.34
+          },
+          {
+            "x": 122.8709160752971,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N6"
+    },
+    {
+      "id": "Monster_2-3_8",
+      "type": "Ground",
+      "host": "N7",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 127.57091607529712,
+            "y": 0.34
+          },
+          {
+            "x": 128.27091607529712,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N7"
+    },
+    {
+      "id": "Monster_2-3_9",
+      "type": "Ground",
+      "host": "N8",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 160.71122143372946,
+            "y": 0.34
+          },
+          {
+            "x": 161.41122143372945,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N8"
+    },
+    {
+      "id": "Monster_2-3_10",
+      "type": "Ground",
+      "host": "N9",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 166.11122143372947,
+            "y": 0.34
+          },
+          {
+            "x": 166.81122143372946,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N9"
+    },
+    {
+      "id": "Monster_2-3_11",
+      "type": "Ground",
+      "host": "Rest2",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 172.01122143372947,
+            "y": 0.34
+          },
+          {
+            "x": 172.71122143372946,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "Rest2"
+    },
+    {
+      "id": "Monster_2-3_12",
+      "type": "Ground",
+      "host": "N10",
+      "pattern": "PathPatrolPattern",
+      "gravity": "groundPrefab",
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "hostSurface",
+        "pointsMin": 2,
+        "edgeInsetPolicy": "colliderHalfWidth + 0.5",
+        "coordinates": [
+          {
+            "x": 205.65152679216186,
+            "y": 0.34
+          },
+          {
+            "x": 206.35152679216185,
+            "y": 0.34
+          }
+        ]
+      },
+      "movingPlatformClearance": 0.5,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    },
+    {
+      "id": "Monster_2-3_13",
+      "type": "Flying",
+      "encounter": "M1",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 33.540305358432356,
+            "y": 1.8
+          },
+          {
+            "x": 33.74030535843236,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N1"
+    },
+    {
+      "id": "Monster_2-3_14",
+      "type": "Flying",
+      "encounter": "M1",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 38.940305358432354,
+            "y": 1.8
+          },
+          {
+            "x": 39.14030535843236,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N2"
+    },
+    {
+      "id": "Monster_2-3_15",
+      "type": "Flying",
+      "encounter": "M1",
+      "slot": 3,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 44.34030535843235,
+            "y": 1.8
+          },
+          {
+            "x": 44.540305358432356,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N3"
+    },
+    {
+      "id": "Monster_2-3_16",
+      "type": "Flying",
+      "encounter": "M2",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 77.48061071686473,
+            "y": 1.8
+          },
+          {
+            "x": 77.68061071686472,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N4"
+    },
+    {
+      "id": "Monster_2-3_17",
+      "type": "Flying",
+      "encounter": "M2",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 82.88061071686474,
+            "y": 1.8
+          },
+          {
+            "x": 83.08061071686473,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N5"
+    },
+    {
+      "id": "Monster_2-3_18",
+      "type": "Flying",
+      "encounter": "M2",
+      "slot": 3,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 88.78061071686474,
+            "y": 1.8
+          },
+          {
+            "x": 88.98061071686473,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "Rest1"
+    },
+    {
+      "id": "Monster_2-3_19",
+      "type": "Flying",
+      "encounter": "M3",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 122.42091607529711,
+            "y": 1.8
+          },
+          {
+            "x": 122.6209160752971,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N6"
+    },
+    {
+      "id": "Monster_2-3_20",
+      "type": "Flying",
+      "encounter": "M3",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 127.82091607529712,
+            "y": 1.8
+          },
+          {
+            "x": 128.02091607529712,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N7"
+    },
+    {
+      "id": "Monster_2-3_21",
+      "type": "Flying",
+      "encounter": "M4",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 160.96122143372946,
+            "y": 1.8
+          },
+          {
+            "x": 161.16122143372945,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N8"
+    },
+    {
+      "id": "Monster_2-3_22",
+      "type": "Flying",
+      "encounter": "M4",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 166.36122143372947,
+            "y": 1.8
+          },
+          {
+            "x": 166.56122143372946,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N9"
+    },
+    {
+      "id": "Monster_2-3_23",
+      "type": "Flying",
+      "encounter": "M5",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 171.71122143372946,
+            "y": 1.8
+          },
+          {
+            "x": 171.91122143372945,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "Rest2"
+    },
+    {
+      "id": "Monster_2-3_24",
+      "type": "Flying",
+      "encounter": "M5",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 172.8112214337295,
+            "y": 1.8
+          },
+          {
+            "x": 173.01122143372947,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "Rest2"
+    },
+    {
+      "id": "Monster_2-3_25",
+      "type": "Flying",
+      "encounter": "M6",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 205.10152679216185,
+            "y": 1.8
+          },
+          {
+            "x": 205.30152679216184,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    },
+    {
+      "id": "Monster_2-3_26",
+      "type": "Flying",
+      "encounter": "M6",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 205.90152679216186,
+            "y": 1.8
+          },
+          {
+            "x": 206.10152679216185,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    },
+    {
+      "id": "Monster_2-3_27",
+      "type": "Flying",
+      "encounter": "M6",
+      "slot": 3,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 206.70152679216187,
+            "y": 1.8
+          },
+          {
+            "x": 206.90152679216186,
+            "y": 1.8
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    },
+    {
+      "id": "Monster_2-3_28",
+      "type": "Flying",
+      "encounter": "M7",
+      "slot": 1,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 205.10152679216185,
+            "y": 2.9
+          },
+          {
+            "x": 205.30152679216184,
+            "y": 2.9
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    },
+    {
+      "id": "Monster_2-3_29",
+      "type": "Flying",
+      "encounter": "M7",
+      "slot": 2,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 205.90152679216186,
+            "y": 2.9
+          },
+          {
+            "x": 206.10152679216185,
+            "y": 2.9
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    },
+    {
+      "id": "Monster_2-3_30",
+      "type": "Flying",
+      "encounter": "M7",
+      "slot": 3,
+      "pattern": "FlyingPathPatrolPattern",
+      "gravity": 0,
+      "scaleRelativeToPlayer": 0.5,
+      "path": {
+        "space": "worldIndependent",
+        "pointsMin": 2,
+        "coordinates": [
+          {
+            "x": 206.70152679216187,
+            "y": 2.9
+          },
+          {
+            "x": 206.90152679216186,
+            "y": 2.9
+          }
+        ],
+        "placementPolicy": "offsetAboveOrBesidePlatformSweep; do not copy platform waypoints",
+        "includes": "allSegmentsAndLoopClosure"
+      },
+      "movingPlatformClearance": 0.5,
+      "excludeAreas": [
+        "boarding",
+        "landing",
+        "M6_M7_transfer"
+      ],
+      "unboundedChaseAllowed": false,
+      "health": "preserveExistingPrefab",
+      "attack": 10,
+      "defense": 10,
+      "dropProfile": "ordinaryDefault",
+      "placementReady": true,
+      "appliedHost": "N10"
+    }
+  ],
+  "validation": {
+    "total": 30,
+    "ground": 12,
+    "flying": 18,
+    "uniqueIds": 30,
+    "geometryCollisionTested": true,
+    "unityTested": true
+  },
+  "deployedData": "Stage23_Unity.json"
+}

@@ -1,0 +1,1778 @@
+{
+  "status": "unity_placement_data",
+  "sourceRevision": "stage52_deterministic_fix_20261016",
+  "sourceDesignSha256": "9f374da7828e675257288e7320069ee8c82dde32392900d23adde6a402edbdbb",
+  "origin": {
+    "x": 532,
+    "y": 0
+  },
+  "boundary12": 501,
+  "boundary23": 916,
+  "reserve51Right": 495.4,
+  "minY": -152,
+  "maxY": 10,
+  "platforms": [
+    {
+      "id": "S1_Start",
+      "kind": "start",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_A1",
+      "kind": "normal",
+      "x": 6.592,
+      "y": 0.3,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_A2",
+      "kind": "normal",
+      "x": 13.183,
+      "y": -0.2,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_A3",
+      "kind": "normal",
+      "x": 19.775,
+      "y": 0.3,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_A4",
+      "kind": "normal",
+      "x": 26.366,
+      "y": -0.2,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_A5",
+      "kind": "normal",
+      "x": 32.358,
+      "y": 0.3,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_B1",
+      "kind": "moving",
+      "x": 28.892,
+      "y": -8.558,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 28.892,
+          "y": -14.558
+        },
+        {
+          "x": 28.892,
+          "y": -2.558
+        }
+      ],
+      "speed": 6.0,
+      "delay": 0.0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S1_B2",
+      "kind": "moving",
+      "x": 23.9905,
+      "y": -16.983,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 19.041,
+          "y": -21.933
+        },
+        {
+          "x": 28.94,
+          "y": -12.033
+        }
+      ],
+      "speed": 7.000003589284795,
+      "delay": 0.16,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S1_B3",
+      "kind": "moving",
+      "x": 19.452,
+      "y": -26.393,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 19.452,
+          "y": -31.393
+        },
+        {
+          "x": 19.452,
+          "y": -21.393
+        }
+      ],
+      "speed": 5.0,
+      "delay": 0.32,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S1_B4",
+      "kind": "moving",
+      "x": 16.074,
+      "y": -36.1235,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 11.124,
+          "y": -41.073
+        },
+        {
+          "x": 21.024,
+          "y": -31.174
+        }
+      ],
+      "speed": 7.000003589284795,
+      "delay": 0.48,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S1_B5",
+      "kind": "moving",
+      "x": 9.81,
+      "y": -44.131,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 9.81,
+          "y": -50.131
+        },
+        {
+          "x": 9.81,
+          "y": -38.131
+        }
+      ],
+      "speed": 6.0,
+      "delay": 0.64,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S1_C1",
+      "kind": "normal",
+      "x": 21.329,
+      "y": -55.391118,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_C2",
+      "kind": "normal",
+      "x": 27.921,
+      "y": -56.436,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_C3",
+      "kind": "normal",
+      "x": 34.512,
+      "y": -55.936,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S1_K",
+      "kind": "connector",
+      "x": 42.504,
+      "y": -55.936,
+      "width": 6.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N1",
+      "kind": "normal",
+      "x": 49.804,
+      "y": -55.936,
+      "width": 1.6,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N2",
+      "kind": "normal",
+      "x": 55.304,
+      "y": -55.936,
+      "width": 2.4,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_M1",
+      "kind": "moving",
+      "x": 62.904,
+      "y": -55.936,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 65.904,
+          "y": -55.936
+        },
+        {
+          "x": 59.904,
+          "y": -55.936
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N3",
+      "kind": "normal",
+      "x": 70.304,
+      "y": -55.936,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_M2",
+      "kind": "moving",
+      "x": 74.704,
+      "y": -54.336,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 74.704,
+          "y": -52.736
+        },
+        {
+          "x": 74.704,
+          "y": -55.936
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N4",
+      "kind": "normal",
+      "x": 79.104,
+      "y": -52.736,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_M3",
+      "kind": "moving",
+      "x": 86.504,
+      "y": -53.986,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 89.504,
+          "y": -55.236
+        },
+        {
+          "x": 83.504,
+          "y": -52.736
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N5",
+      "kind": "normal",
+      "x": 93.904,
+      "y": -55.236,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_M4",
+      "kind": "moving",
+      "x": 100.971,
+      "y": -54.403,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 98.304,
+          "y": -55.236
+        },
+        {
+          "x": 102.304,
+          "y": -55.236
+        },
+        {
+          "x": 102.304,
+          "y": -52.736
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": true,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N6",
+      "kind": "normal",
+      "x": 106.704,
+      "y": -52.736,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_M5",
+      "kind": "moving",
+      "x": 114.604,
+      "y": -53.586,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 118.104,
+          "y": -54.436
+        },
+        {
+          "x": 111.104,
+          "y": -52.736
+        }
+      ],
+      "speed": 5.5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N7",
+      "kind": "normal",
+      "x": 122.704,
+      "y": -54.436,
+      "width": 2.4,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_D1",
+      "kind": "disappearing",
+      "x": 126.004,
+      "y": -54.436,
+      "width": 1.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_D2",
+      "kind": "disappearing",
+      "x": 128.604,
+      "y": -54.436,
+      "width": 1.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_D3",
+      "kind": "disappearing",
+      "x": 131.204,
+      "y": -54.436,
+      "width": 1.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_D4",
+      "kind": "disappearing",
+      "x": 133.804,
+      "y": -54.436,
+      "width": 1.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N8",
+      "kind": "normal",
+      "x": 137.104,
+      "y": -54.436,
+      "width": 2.4,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_M6",
+      "kind": "moving",
+      "x": 143.454,
+      "y": -53.186,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 141.704,
+          "y": -54.436
+        },
+        {
+          "x": 145.204,
+          "y": -54.436
+        },
+        {
+          "x": 145.204,
+          "y": -51.936
+        },
+        {
+          "x": 141.704,
+          "y": -51.936
+        }
+      ],
+      "speed": 6,
+      "delay": 0,
+      "wait": 0,
+      "loop": true,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N9",
+      "kind": "normal",
+      "x": 149.604,
+      "y": -54.436,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_N10",
+      "kind": "normal",
+      "x": 155.304,
+      "y": -54.436,
+      "width": 2.4,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S2_K",
+      "kind": "connector",
+      "x": 161.106,
+      "y": -54.436,
+      "width": 6.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_X1",
+      "kind": "damage",
+      "x": 169.306,
+      "y": -55.936,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_B1",
+      "kind": "blink",
+      "x": 175.306,
+      "y": -57.436,
+      "width": 1.6,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_E1",
+      "kind": "moving",
+      "x": 181.806,
+      "y": -69.408,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 181.806,
+          "y": -79.879
+        },
+        {
+          "x": 181.806,
+          "y": -58.936
+        }
+      ],
+      "speed": 8,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_X2",
+      "kind": "damage",
+      "x": 175.106,
+      "y": -81.879,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_B2",
+      "kind": "blink",
+      "x": 169.106,
+      "y": -83.379,
+      "width": 1.6,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_V1",
+      "kind": "moving",
+      "x": 160.906,
+      "y": -87.879,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 156.906,
+          "y": -90.879
+        },
+        {
+          "x": 164.906,
+          "y": -84.879
+        }
+      ],
+      "speed": 5.5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_B3",
+      "kind": "blink",
+      "x": 152.706,
+      "y": -92.379,
+      "width": 1.6,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_E2",
+      "kind": "moving",
+      "x": 146.206,
+      "y": -104.351,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 146.206,
+          "y": -93.879
+        },
+        {
+          "x": 146.206,
+          "y": -114.822
+        }
+      ],
+      "speed": 8,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_X3",
+      "kind": "damage",
+      "x": 152.906,
+      "y": -116.822,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_B4",
+      "kind": "blink",
+      "x": 158.906,
+      "y": -118.322,
+      "width": 1.6,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_H1",
+      "kind": "moving",
+      "x": 167.106,
+      "y": -119.822,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 163.106,
+          "y": -119.822
+        },
+        {
+          "x": 171.106,
+          "y": -119.822
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S3_K",
+      "kind": "connector",
+      "x": 177.506,
+      "y": -121.322,
+      "width": 6.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S4_Runway",
+      "kind": "damage_floor",
+      "x": 237.506,
+      "y": -121.322,
+      "width": 114.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S4_K",
+      "kind": "connector",
+      "x": 297.506,
+      "y": -121.322,
+      "width": 6.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F1_A1",
+      "kind": "normal",
+      "x": 304.606,
+      "y": -121.022,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F1_B1",
+      "kind": "moving",
+      "x": 299.231,
+      "y": -126.299,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 299.231,
+          "y": -128.899
+        },
+        {
+          "x": 299.231,
+          "y": -123.69900000000001
+        }
+      ],
+      "speed": 2.6,
+      "delay": 1.8,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S5F1_B2",
+      "kind": "moving",
+      "x": 295.818,
+      "y": -132.085,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 292.283,
+          "y": -135.621
+        },
+        {
+          "x": 299.354,
+          "y": -128.549
+        }
+      ],
+      "speed": 5.000305615659897,
+      "delay": 2.6,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 4.0
+    },
+    {
+      "id": "S5F1_C1",
+      "kind": "normal",
+      "x": 301.085,
+      "y": -132.884,
+      "width": 3.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F1_K",
+      "kind": "connector",
+      "x": 307.785,
+      "y": -132.884,
+      "width": 4.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F2_M1",
+      "kind": "moving",
+      "x": 315.185,
+      "y": -132.884,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 317.185,
+          "y": -132.884
+        },
+        {
+          "x": 313.185,
+          "y": -132.884
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F2_X1",
+      "kind": "damage",
+      "x": 321.585,
+      "y": -132.884,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F2_M2",
+      "kind": "moving",
+      "x": 325.985,
+      "y": -131.284,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 325.985,
+          "y": -129.684
+        },
+        {
+          "x": 325.985,
+          "y": -132.884
+        }
+      ],
+      "speed": 5,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F2_D1",
+      "kind": "disappearing",
+      "x": 329.985,
+      "y": -129.684,
+      "width": 1.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F2_D2",
+      "kind": "disappearing",
+      "x": 332.785,
+      "y": -129.684,
+      "width": 1.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F2_K",
+      "kind": "connector",
+      "x": 338.885,
+      "y": -129.684,
+      "width": 4.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F3_X1",
+      "kind": "damage",
+      "x": 346.085,
+      "y": -131.184,
+      "width": 2.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F3_E1",
+      "kind": "moving",
+      "x": 352.785,
+      "y": -135.684,
+      "width": 2.4,
+      "points": [
+        {
+          "x": 352.785,
+          "y": -138.684
+        },
+        {
+          "x": 352.785,
+          "y": -132.684
+        }
+      ],
+      "speed": 4,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F3_D1",
+      "kind": "disappearing",
+      "x": 346.485,
+      "y": -140.684,
+      "width": 1.2,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F3_K",
+      "kind": "connector",
+      "x": 339.685,
+      "y": -142.184,
+      "width": 4.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5F4_Runway",
+      "kind": "damage_floor",
+      "x": 327.938,
+      "y": -142.184,
+      "width": 19.495,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    },
+    {
+      "id": "S5_K",
+      "kind": "goal",
+      "x": 315.19,
+      "y": -142.184,
+      "width": 6.0,
+      "points": [],
+      "speed": 0,
+      "delay": 0,
+      "wait": 0,
+      "loop": false,
+      "syncPeriod": 0
+    }
+  ],
+  "monsters": [
+    {
+      "id": "Monster_5-2_S3_F1",
+      "pattern": "FlyingPatrolPattern",
+      "x": 175.25,
+      "y": -50.52,
+      "group": "P3",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S3_F2",
+      "pattern": "FlyingRandomWanderPattern",
+      "x": 175.08,
+      "y": -76.95,
+      "group": "P3",
+      "guaranteed": false,
+      "area": {
+        "x": 4.5,
+        "y": 3.5
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S3_F3",
+      "pattern": "FlyingPathPatrolPattern",
+      "x": 158.07,
+      "y": -82.41,
+      "group": "P3",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2,
+      "pathLength": 3.0
+    },
+    {
+      "id": "Monster_5-2_S3_F4",
+      "pattern": "FlyingChasePattern",
+      "x": 150.44,
+      "y": -101.66,
+      "group": "P3",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2.0,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S3_F5",
+      "pattern": "FlyingChasePattern",
+      "x": 167.76,
+      "y": -115.19,
+      "group": "P3",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2.0,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_01",
+      "pattern": "FlyingChasePattern",
+      "x": 185.51,
+      "y": -119.12,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_02",
+      "pattern": "FlyingChasePattern",
+      "x": 192.51,
+      "y": -118.32,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_03",
+      "pattern": "FlyingChasePattern",
+      "x": 199.51,
+      "y": -119.12,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_04",
+      "pattern": "FlyingChasePattern",
+      "x": 206.51,
+      "y": -118.32,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_05",
+      "pattern": "FlyingChasePattern",
+      "x": 213.51,
+      "y": -119.12,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_06",
+      "pattern": "FlyingChasePattern",
+      "x": 220.51,
+      "y": -118.32,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_07",
+      "pattern": "FlyingChasePattern",
+      "x": 227.51,
+      "y": -119.12,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_08",
+      "pattern": "FlyingChasePattern",
+      "x": 234.51,
+      "y": -118.32,
+      "group": "P4_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_09",
+      "pattern": "FlyingChasePattern",
+      "x": 241.51,
+      "y": -119.12,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_10",
+      "pattern": "FlyingChasePattern",
+      "x": 248.51,
+      "y": -118.32,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_11",
+      "pattern": "FlyingChasePattern",
+      "x": 255.51,
+      "y": -119.12,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_12",
+      "pattern": "FlyingChasePattern",
+      "x": 262.51,
+      "y": -118.32,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_13",
+      "pattern": "FlyingChasePattern",
+      "x": 269.51,
+      "y": -119.12,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_14",
+      "pattern": "FlyingChasePattern",
+      "x": 276.51,
+      "y": -118.32,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S4_15",
+      "pattern": "FlyingChasePattern",
+      "x": 283.51,
+      "y": -119.12,
+      "group": "P4_2",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F1_1",
+      "pattern": "FlyingChasePattern",
+      "x": 300.23,
+      "y": -119.21,
+      "group": "P5_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F1_2",
+      "pattern": "FlyingChasePattern",
+      "x": 295.15,
+      "y": -125.45,
+      "group": "P5_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F1_3",
+      "pattern": "FlyingChasePattern",
+      "x": 303.47,
+      "y": -128.41,
+      "group": "P5_1",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F3_1",
+      "pattern": "FlyingPatrolPattern",
+      "x": 344.75,
+      "y": -125.02,
+      "group": "P5_2",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F3_2",
+      "pattern": "FlyingRandomWanderPattern",
+      "x": 349.22,
+      "y": -127.79,
+      "group": "P5_2",
+      "guaranteed": false,
+      "area": {
+        "x": 4.5,
+        "y": 3.5
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F3_3",
+      "pattern": "FlyingPathPatrolPattern",
+      "x": 346.66,
+      "y": -137.33,
+      "group": "P5_2",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2,
+      "pathLength": 3.0
+    },
+    {
+      "id": "Monster_5-2_S5F3_4",
+      "pattern": "FlyingChasePattern",
+      "x": 340.71,
+      "y": -134.97,
+      "group": "P5_2",
+      "guaranteed": false,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 8,
+        "y": 4
+      },
+      "orbit": 2.0,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F4_1",
+      "pattern": "FlyingChasePattern",
+      "x": 335.25,
+      "y": -139.98,
+      "group": "P5_3",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F4_2",
+      "pattern": "FlyingChasePattern",
+      "x": 330.37,
+      "y": -139.18,
+      "group": "P5_3",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F4_3",
+      "pattern": "FlyingChasePattern",
+      "x": 325.5,
+      "y": -139.98,
+      "group": "P5_3",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    },
+    {
+      "id": "Monster_5-2_S5F4_4",
+      "pattern": "FlyingChasePattern",
+      "x": 320.63,
+      "y": -139.18,
+      "group": "P5_3",
+      "guaranteed": true,
+      "area": {
+        "x": 4.2,
+        "y": 1.6
+      },
+      "detection": {
+        "x": 24,
+        "y": 10
+      },
+      "orbit": 0.35,
+      "pathLength": 0
+    }
+  ],
+  "groups": [
+    {
+      "key": "P3",
+      "x": 161.106,
+      "y": -53.436,
+      "width": 8,
+      "height": 10
+    },
+    {
+      "key": "P4_1",
+      "x": 177.506,
+      "y": -120.322,
+      "width": 8,
+      "height": 10
+    },
+    {
+      "key": "P4_2",
+      "x": 237.506,
+      "y": -120.322,
+      "width": 8,
+      "height": 10
+    },
+    {
+      "key": "P5_1",
+      "x": 297.506,
+      "y": -120.322,
+      "width": 8,
+      "height": 10
+    },
+    {
+      "key": "P5_2",
+      "x": 338.885,
+      "y": -128.684,
+      "width": 8,
+      "height": 10
+    },
+    {
+      "key": "P5_3",
+      "x": 339.685,
+      "y": -141.184,
+      "width": 8,
+      "height": 10
+    }
+  ],
+  "fallTriggers": [
+    {
+      "id": "P1_A_under",
+      "x0": -19.6,
+      "x1": 26.9,
+      "y": -4.2,
+      "note": "A 구간 아래로 떨어져 이동형 발판 중간으로 끼어드는 우회 방지"
+    },
+    {
+      "id": "P1_step_B1",
+      "x0": 30.4,
+      "x1": 46.5,
+      "y": -15.4,
+      "note": "B1 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+    },
+    {
+      "id": "P1_step_B2",
+      "x0": 30.4,
+      "x1": 46.5,
+      "y": -24.4,
+      "note": "B2 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+    },
+    {
+      "id": "P1_step_B3",
+      "x0": 21.0,
+      "x1": 46.5,
+      "y": -33.9,
+      "note": "B3 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+    },
+    {
+      "id": "P1_step_B4",
+      "x0": 21.0,
+      "x1": 46.5,
+      "y": -43.6,
+      "note": "B4 아래 오른쪽으로 떨어져 아래 구간으로 건너뛰는 우회 방지"
+    },
+    {
+      "id": "P1_floor",
+      "x0": -26.0,
+      "x1": 46.5,
+      "y": -61.9,
+      "note": "1-2 방식 구간 바닥"
+    },
+    {
+      "id": "P2_floor",
+      "x0": -26.0,
+      "x1": 150.0,
+      "y": -61.9,
+      "note": "2-2 방식 구간 바닥(3-2 방식 구간 앞까지)"
+    },
+    {
+      "id": "P3_D",
+      "x0": 149.0,
+      "x1": 179.4,
+      "y": -70.4,
+      "note": "1층→2층 사이. E1 승강기가 아래로 내려간 뒤에만 내릴 수 있게 함"
+    },
+    {
+      "id": "P3_E",
+      "x0": 149.0,
+      "x1": 200.0,
+      "y": -96.9,
+      "note": "2층→3층 사이. E1 아래 3층·질주 구간으로의 낙하 우회도 함께 차단"
+    },
+    {
+      "id": "P4_floor",
+      "x0": 129.0,
+      "x1": 296.5,
+      "y": -126.0,
+      "note": "3-2 방식 3층 / 4-2 방식 질주 구간 바닥"
+    },
+    {
+      "id": "P5_G",
+      "x0": 309.8,
+      "x1": 345.1,
+      "y": -137.5,
+      "note": "융합 F2(정글)에서 F4 질주로 곧장 떨어지는 우회 방지"
+    },
+    {
+      "id": "P5_F1_under",
+      "x0": 301.5,
+      "x1": 319.6,
+      "y": -125.5,
+      "note": "융합 F1의 오른쪽 점프 발판 아래 낙하 우회 방지"
+    },
+    {
+      "id": "P5_floor",
+      "x0": 271.1,
+      "x1": 374.0,
+      "y": -150.7,
+      "note": "융합 구간 바닥"
+    }
+  ],
+  "sourceSession": "7a52062c-ef67-4a96-b8c3-e3fb1d05daa2",
+  "sourceInstruction": "2026-10-16: repair reviewed mover periods, B4 separation, F1 headroom and long-horizon traversal; keep one area"
+}

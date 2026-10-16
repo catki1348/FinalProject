@@ -1,0 +1,9 @@
+PASS boosted speed10 no-jump blocked: Platform_1-4_P20_Normal -> Platform_1-4_P21_Damage
+PASS boosted speed10 no-jump blocked: Platform_1-4_P21_Damage -> Platform_1-4_P22_Normal
+PASS boosted speed10 no-jump blocked: Platform_1-4_P22_Normal -> Platform_1-4_P23_Damage
+PASS boosted speed10 no-jump blocked: Platform_1-4_P23_Damage -> Platform_1-4_P24_Normal
+PASS boosted speed10 no-jump blocked: Platform_1-4_P24_Normal -> Platform_1-4_P25_Damage
+PASS boosted speed10 no-jump blocked: Platform_1-4_P25_Damage -> Platform_1-4_P26_Normal
+PASS boosted speed10 no-jump blocked: Platform_1-4_P26_Normal -> Platform_1-4_P27_Damage
+PASS boosted speed10 no-jump blocked: Platform_1-4_P27_Damage -> Platform_1-4_P28_Normal
+PASS boosted speed10 no-jump blocked: Platform_1-4_P28_Normal -> Platform_1-4_P29_Normal

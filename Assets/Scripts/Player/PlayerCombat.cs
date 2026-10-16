@@ -12,16 +12,20 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float attackVisualDuration = 0.3f;   // 검 스윙 연출(스프라이트 애니메이션)을 보여줄 시간(초)
     [SerializeField] private float specialActionCooldown = 1f;    // 특수 액션 재사용 대기시간(초)
     [SerializeField] private AudioClip attackSfx;                 // 검 공격 시 재생할 효과음(비워두면 재생하지 않음)
+    [SerializeField, Min(0f)] private float attackKnockbackSpeed = 2f;
+    [SerializeField, Min(0f)] private float attackKnockbackDuration = 0.12f;
 
-    private readonly Collider2D[] hitBuffer = new Collider2D[8]; // 공격 판정 결과를 담을 버퍼(매 공격마다 새로 할당하지 않기 위해 캐싱)
+    private readonly Collider2D[] hitBuffer = new Collider2D[256]; // Dense fury crowds: preallocate for 105 monsters with multiple colliders.
     private PlayerMovement movement;             // 바라보는 방향(FacingRight)을 참조하기 위한 캐시
     private PlayerStats stats;                   // 공격력(FinalAttack, 장비 반영)을 참조하기 위한 캐시
     private Collider2D attackerBody;
-    private readonly Rigidbody2D[] hitBodies = new Rigidbody2D[8];
+    private readonly Rigidbody2D[] hitBodies = new Rigidbody2D[256];
     private Vector3 attackPointBaseLocalPos;      // attackPoint의 원래(오른쪽 기준) 로컬 위치 - 좌우 반전 시 x부호만 뒤집어 재사용
     private float lastAttackTime = -999f;        // 마지막으로 검 공격을 사용한 시각(쿨다운 계산용)
     private float lastSpecialActionTime = -999f; // 마지막으로 특수 액션을 사용한 시각(쿨다운 계산용)
     private float attackVisualTimer;             // 검 스윙 연출 남은 시간(0 이하면 종료) - PlayerSpriteAnimator가 IsAttacking/AttackProgress01로 참조
+    private int swingHitCount;
+    private float previousSwingProgress;
 
     public bool IsAttacking => attackVisualTimer > 0f; // 현재 검 스윙 연출 중인지(외부 조회용, 예: 스프라이트 상태 전환)
 
@@ -43,7 +47,11 @@ public class PlayerCombat : MonoBehaviour
     {
         UpdateAttackPointFacing();
 
-        if (attackVisualTimer > 0f) attackVisualTimer -= Time.deltaTime;
+        if (attackVisualTimer > 0f)
+        {
+            attackVisualTimer = Mathf.Max(0f, attackVisualTimer - Time.deltaTime);
+            PerformSwordAttack();
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -75,30 +83,59 @@ public class PlayerCombat : MonoBehaviour
         if (Time.time - lastAttackTime < attackCooldown) return;
         lastAttackTime = Time.time;
         attackVisualTimer = attackVisualDuration;
+        swingHitCount = 0;
+        previousSwingProgress = 0f;
         SoundManager.Instance.PlaySfx(attackSfx);
 
         PerformSwordAttack();
     }
 
-    // attackPoint를 중심으로 한 원형 범위 안의 대상에게 피해를 입힘
+    // OpenAI Codex (GPT-6), 2026-10-16: 기존 전방 판정과 스윙 호를 함께 검사한다.
+    // 프레임 사이의 호도 촘촘히 검사해 낮은 프레임에서도 경로 중간의 적을 놓치지 않는다.
     private void PerformSwordAttack()
     {
         if (attackPoint == null) return;
 
-        int hitCount = Physics2D.OverlapCircleNonAlloc(attackPoint.position, attackRange, hitBuffer, enemyLayer);
-        int uniqueCount = 0;
+        CheckSwordHits(attackPoint.position, attackRange);
+        float progress = AttackProgress01;
+        Vector2 pivot = new Vector2(transform.position.x, attackPoint.position.y);
+        float reach = Mathf.Abs(attackPoint.position.x - transform.position.x);
+        float radius = Mathf.Max(0.05f, attackRange * 0.5f);
+        int steps = Mathf.Max(1, Mathf.CeilToInt((progress - previousSwingProgress) * Mathf.PI * reach / radius));
+        for (int step = 0; step <= steps; step++)
+        {
+            float t = Mathf.Lerp(previousSwingProgress, progress, (float)step / steps);
+            float angle = Mathf.Lerp(90f, -90f, t) * Mathf.Deg2Rad;
+            float sign = movement.FacingRight ? 1f : -1f;
+            Vector2 tip = pivot + new Vector2(Mathf.Cos(angle) * sign, Mathf.Sin(angle)) * reach;
+            // 검 끝뿐 아니라 칼날 안쪽도 포함한다.
+            int bladeSteps = Mathf.Max(1, Mathf.CeilToInt(reach / radius));
+            for (int blade = 1; blade <= bladeSteps; blade++)
+                CheckSwordHits(Vector2.Lerp(pivot, tip, (float)blade / bladeSteps), radius);
+        }
+        previousSwingProgress = progress;
+    }
+
+    // 중복 기록은 프레임마다 지우지 않고 스윙 시작 시에만 초기화한다.
+    private void CheckSwordHits(Vector2 center, float radius)
+    {
+        int hitCount = Physics2D.OverlapCircleNonAlloc(center, radius, hitBuffer, enemyLayer);
         for (int i = 0; i < hitCount; i++)
         {
             // OpenAI Codex (GPT-6), 2026-10-14: 검 한 번당 동일 몸에 단일 피해.
             Rigidbody2D targetBody = hitBuffer[i].attachedRigidbody;
-            if (targetBody == null) continue;
+            if (targetBody == null || targetBody.gameObject == gameObject) continue;
             bool duplicate = false;
-            for (int j = 0; j < uniqueCount; j++) if (hitBodies[j] == targetBody) { duplicate = true; break; }
+            for (int j = 0; j < swingHitCount; j++) if (hitBodies[j] == targetBody) { duplicate = true; break; }
             if (duplicate) continue;
             if (targetBody.TryGetComponent<IDamageable>(out var damageable))
             {
-                hitBodies[uniqueCount++] = targetBody;
+                if (swingHitCount >= hitBodies.Length) continue;
+                hitBodies[swingHitCount++] = targetBody;
                 DamageDelivery.Deliver(damageable, stats.FinalAttack, attackerBody);
+                if (stats.FinalAttack > 0 && targetBody.TryGetComponent<MonsterController>(out var monster))
+                    monster.ApplyKnockback(movement.FacingRight ? 1f : -1f,
+                        attackKnockbackSpeed, attackKnockbackDuration);
             }
         }
     }

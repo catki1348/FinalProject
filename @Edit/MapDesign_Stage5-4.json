@@ -1,0 +1,1326 @@
+{
+  "status": "concept_only",
+  "distance": 75,
+  "unit": 8,
+  "routeLength": 600,
+  "goal": [
+    579.1686068046299,
+    11.399999999999999
+  ],
+  "segments": [
+    {
+      "part": 1,
+      "source": "1-4 revised mixed-platform corridor",
+      "startRoute": 0.0,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "endRoute": 120.0,
+      "end": [
+        113.92879120978304,
+        7.2
+      ]
+    },
+    {
+      "part": 2,
+      "source": "2-4 moving-platform course, four representative rides with fixed docks",
+      "startRoute": 120.0,
+      "start": [
+        113.92879120978304,
+        7.2
+      ],
+      "endRoute": 240.0,
+      "end": [
+        228.8960319569469,
+        6.199999999999999
+      ]
+    },
+    {
+      "part": 3,
+      "source": "3-4 elevation, projectile switches and falling recovery",
+      "startRoute": 240.0,
+      "start": [
+        228.8960319569469,
+        6.199999999999999
+      ],
+      "endRoute": 360.0,
+      "end": [
+        339.4486721971029,
+        8.799999999999999
+      ]
+    },
+    {
+      "part": 4,
+      "source": "4-4 super run, shortened independent falling course",
+      "startRoute": 360.0,
+      "start": [
+        339.4486721971029,
+        8.799999999999999
+      ],
+      "fallRun": {
+        "count": 15,
+        "firstFall": 3,
+        "timerStartX": 389.36286289987805,
+        "id": "P4_Run",
+        "interval": 1,
+        "scope": "this run only",
+        "entry": [
+          339.4486721971029,
+          8.799999999999999
+        ],
+        "length": 120,
+        "speed": 10,
+        "goal": [
+          459.4486721971029,
+          8.799999999999999
+        ]
+      },
+      "endRoute": 480.0,
+      "end": [
+        459.4486721971029,
+        8.799999999999999
+      ]
+    },
+    {
+      "part": 5,
+      "source": "Fusion: mixed footholds, moving ride, trap and falling finish",
+      "startRoute": 480.0,
+      "start": [
+        459.4486721971029,
+        8.799999999999999
+      ],
+      "fallRun": {
+        "count": 6,
+        "firstFall": 3,
+        "timerStartX": 513.848672197103,
+        "id": "P5_Run",
+        "interval": 1,
+        "scope": "this run only",
+        "entry": [
+          510.848672197103,
+          11.399999999999999
+        ],
+        "length": 68.31993460752699,
+        "speed": 10,
+        "goal": [
+          579.1686068046299,
+          11.399999999999999
+        ]
+      },
+      "endRoute": 600.0,
+      "end": [
+        579.1686068046299,
+        11.399999999999999
+      ]
+    }
+  ],
+  "platforms": [
+    {
+      "id": "Start",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4,
+      "points": [
+        {
+          "y": 0,
+          "x": 0
+        }
+      ],
+      "routeExit": 0
+    },
+    {
+      "id": "P1_DisappearA",
+      "part": 1,
+      "kind": "Disappear",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 0.6,
+          "x": 5.3
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 5.333854141237834
+    },
+    {
+      "id": "P1_DisappearB",
+      "part": 1,
+      "kind": "Disappear",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 1.2,
+          "x": 10.1
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 10.171208790216964
+    },
+    {
+      "id": "P1_Combat",
+      "part": 1,
+      "kind": "Normal",
+      "width": 6.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 1.2,
+          "x": 16.4
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 16.471208790216963
+    },
+    {
+      "id": "P1_LiftA",
+      "part": 1,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 1.2,
+          "x": 22.2
+        },
+        {
+          "y": 4.2,
+          "x": 22.2
+        }
+      ],
+      "speed": 3.2,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 25.271208790216964
+    },
+    {
+      "id": "P1_Rest",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 4.2,
+          "x": 27.0
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 30.071208790216964
+    },
+    {
+      "id": "P1_LiftB",
+      "part": 1,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 4.2,
+          "x": 31.8
+        },
+        {
+          "y": 7.2,
+          "x": 31.8
+        }
+      ],
+      "speed": 3.6,
+      "startDelay": 0.35,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 37.87120879021696
+    },
+    {
+      "id": "P1_Safe",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 36.6
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 42.67120879021696
+    },
+    {
+      "id": "P1_Blink",
+      "part": 1,
+      "kind": "Blink",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 41.9
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 47.971208790216956
+    },
+    {
+      "id": "P1_Safe2",
+      "part": 1,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 47.199999999999996
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 53.27120879021695
+    },
+    {
+      "id": "P1_Damage",
+      "part": 1,
+      "kind": "Damage",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 52.49999999999999
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 58.57120879021695
+    },
+    {
+      "id": "P1_K",
+      "part": 1,
+      "kind": "Normal",
+      "width": 116.2575824195661,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 113.92879120978304
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 120.0
+    },
+    {
+      "id": "P2_Horizontal",
+      "part": 2,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 174.85758241956609
+        },
+        {
+          "y": 7.2,
+          "x": 180.85758241956609
+        }
+      ],
+      "speed": 4.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 186.92879120978304
+    },
+    {
+      "id": "P2_Dock1",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 185.6575824195661
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 191.72879120978305
+    },
+    {
+      "id": "P2_Vertical",
+      "part": 2,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 7.2,
+          "x": 190.4575824195661
+        },
+        {
+          "y": 11.2,
+          "x": 190.4575824195661
+        }
+      ],
+      "speed": 4.4,
+      "startDelay": 0.35,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 200.52879120978307
+    },
+    {
+      "id": "P2_Dock2",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.2,
+          "x": 195.25758241956612
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 205.32879120978308
+    },
+    {
+      "id": "P2_Diagonal",
+      "part": 2,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.2,
+          "x": 200.05758241956613
+        },
+        {
+          "y": 8.2,
+          "x": 206.05758241956613
+        }
+      ],
+      "speed": 4.8,
+      "startDelay": 0.7,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 216.83699514228246
+    },
+    {
+      "id": "P2_Dock3",
+      "part": 2,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.2,
+          "x": 210.85758241956614
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 221.63699514228247
+    },
+    {
+      "id": "P2_Once",
+      "part": 2,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.2,
+          "x": 215.65758241956615
+        },
+        {
+          "y": 6.199999999999999,
+          "x": 221.65758241956615
+        }
+      ],
+      "speed": 5.2,
+      "startDelay": 1.05,
+      "mode": "OnceOnBoard",
+      "endpointWait": 1.0,
+      "routeExit": 232.76155046261925
+    },
+    {
+      "id": "P2_K",
+      "part": 2,
+      "kind": "Normal",
+      "width": 8.876899074761491,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 6.199999999999999,
+          "x": 228.8960319569469
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 240.0
+    },
+    {
+      "id": "P3_ArrowA",
+      "part": 3,
+      "kind": "Normal",
+      "width": 5.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 6.199999999999999,
+          "x": 237.63448149432764
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 248.73844953738075
+    },
+    {
+      "id": "P3_Disappear",
+      "part": 3,
+      "kind": "Disappear",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 6.799999999999999,
+          "x": 243.43448149432766
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 254.56940143222604
+    },
+    {
+      "id": "P3_Base",
+      "part": 3,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 6.799999999999999,
+          "x": 248.73448149432767
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 259.869401432226
+    },
+    {
+      "id": "P3_Lift",
+      "part": 3,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 6.799999999999999,
+          "x": 253.53448149432768
+        },
+        {
+          "y": 14.799999999999999,
+          "x": 253.53448149432768
+        }
+      ],
+      "speed": 4.8,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 272.66940143222604
+    },
+    {
+      "id": "P3_ArrowB",
+      "part": 3,
+      "kind": "Normal",
+      "width": 5.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 14.799999999999999,
+          "x": 258.8344814943277
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 277.96940143222605
+    },
+    {
+      "id": "P3_Damage",
+      "part": 3,
+      "kind": "Damage",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 14.799999999999999,
+          "x": 264.6344814943277
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 283.76940143222606
+    },
+    {
+      "id": "P3_HighRest",
+      "part": 3,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 14.799999999999999,
+          "x": 269.9344814943277
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 289.0694014322261
+    },
+    {
+      "id": "P3_Down",
+      "part": 3,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 14.799999999999999,
+          "x": 274.7344814943277
+        },
+        {
+          "y": 8.799999999999999,
+          "x": 286.7344814943277
+        }
+      ],
+      "speed": 5.4,
+      "startDelay": 0.4,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 307.28580929722483
+    },
+    {
+      "id": "P3_K",
+      "part": 3,
+      "kind": "Normal",
+      "width": 99.82838140555035,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 339.4486721971029
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 360.0
+    },
+    {
+      "id": "P4_Run_1",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 392.66572320978554
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 3.0,
+      "routeExit": 413.21705101268265
+    },
+    {
+      "id": "P4_Run_2",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 397.47144382960056
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 4.0,
+      "routeExit": 418.02277163249767
+    },
+    {
+      "id": "P4_Run_3",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 402.2771644494156
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 5.0,
+      "routeExit": 422.8284922523127
+    },
+    {
+      "id": "P4_Run_4",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 407.0828850692306
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 6.0,
+      "routeExit": 427.6342128721277
+    },
+    {
+      "id": "P4_Run_5",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 411.8886056890456
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 7.0,
+      "routeExit": 432.4399334919427
+    },
+    {
+      "id": "P4_Run_6",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 416.69432630886064
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 8.0,
+      "routeExit": 437.24565411175774
+    },
+    {
+      "id": "P4_Run_7",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 421.50004692867566
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 9.0,
+      "routeExit": 442.05137473157276
+    },
+    {
+      "id": "P4_Run_8",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 426.3057675484907
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 10.0,
+      "routeExit": 446.8570953513878
+    },
+    {
+      "id": "P4_Run_9",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 431.1114881683057
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 11.0,
+      "routeExit": 451.6628159712028
+    },
+    {
+      "id": "P4_Run_10",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 435.9172087881207
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 12.0,
+      "routeExit": 456.4685365910178
+    },
+    {
+      "id": "P4_Run_11",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 440.72292940793574
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 13.0,
+      "routeExit": 461.27425721083284
+    },
+    {
+      "id": "P4_Run_12",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 445.52865002775076
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 14.0,
+      "routeExit": 466.07997783064786
+    },
+    {
+      "id": "P4_Run_13",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 450.3343706475658
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 15.0,
+      "routeExit": 470.8856984504629
+    },
+    {
+      "id": "P4_Run_14",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 455.1400912673808
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 16.0,
+      "routeExit": 475.6914190702779
+    },
+    {
+      "id": "P4_Run_15",
+      "part": 4,
+      "kind": "SequentialFalling",
+      "width": 3.0057206198149893,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 8.799999999999999,
+          "x": 459.9458118871958
+        }
+      ],
+      "timer": "P4_Run",
+      "fallAt": 17.0,
+      "routeExit": 480.4971396900929
+    },
+    {
+      "id": "P5_Disappear",
+      "part": 5,
+      "kind": "Disappear",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 9.399999999999999,
+          "x": 464.7486721971029
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 485.33385414123785
+    },
+    {
+      "id": "P5_Dock",
+      "part": 5,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 9.399999999999999,
+          "x": 470.0486721971029
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 490.63385414123786
+    },
+    {
+      "id": "P5_Mover",
+      "part": 5,
+      "kind": "Moving",
+      "width": 2.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 9.399999999999999,
+          "x": 474.8486721971029
+        },
+        {
+          "y": 11.399999999999999,
+          "x": 482.8486721971029
+        }
+      ],
+      "speed": 4.6,
+      "startDelay": 0.2,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 503.6800653924732
+    },
+    {
+      "id": "P5_Arrow",
+      "part": 5,
+      "kind": "Normal",
+      "width": 5.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 488.14867219710294
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 508.9800653924732
+    },
+    {
+      "id": "P5_Damage",
+      "part": 5,
+      "kind": "Damage",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 493.94867219710295
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 514.7800653924731
+    },
+    {
+      "id": "P5_Safe",
+      "part": 5,
+      "kind": "Normal",
+      "width": 4.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 499.24867219710296
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 520.0800653924731
+    },
+    {
+      "id": "P5_Blink",
+      "part": 5,
+      "kind": "Blink",
+      "width": 3.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 504.548672197103
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 525.380065392473
+    },
+    {
+      "id": "P5_RunEntry",
+      "part": 5,
+      "kind": "Normal",
+      "width": 6.0,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 510.848672197103
+        }
+      ],
+      "speed": 0.0,
+      "startDelay": 0.0,
+      "mode": "PingPong",
+      "endpointWait": 1.0,
+      "routeExit": 531.680065392473
+    },
+    {
+      "id": "P5_Run_1",
+      "part": 5,
+      "kind": "SequentialFalling",
+      "width": 9.41998910125448,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 520.3586667477302
+        }
+      ],
+      "timer": "P5_Run",
+      "fallAt": 3.0,
+      "routeExit": 541.1900599431003
+    },
+    {
+      "id": "P5_Run_2",
+      "part": 5,
+      "kind": "SequentialFalling",
+      "width": 9.41998910125448,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 531.5786558489847
+        }
+      ],
+      "timer": "P5_Run",
+      "fallAt": 4.0,
+      "routeExit": 552.4100490443548
+    },
+    {
+      "id": "P5_Run_3",
+      "part": 5,
+      "kind": "SequentialFalling",
+      "width": 9.41998910125448,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 542.7986449502391
+        }
+      ],
+      "timer": "P5_Run",
+      "fallAt": 5.0,
+      "routeExit": 563.6300381456092
+    },
+    {
+      "id": "P5_Run_4",
+      "part": 5,
+      "kind": "SequentialFalling",
+      "width": 9.41998910125448,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 554.0186340514936
+        }
+      ],
+      "timer": "P5_Run",
+      "fallAt": 6.0,
+      "routeExit": 574.8500272468636
+    },
+    {
+      "id": "P5_Run_5",
+      "part": 5,
+      "kind": "SequentialFalling",
+      "width": 9.41998910125448,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 565.238623152748
+        }
+      ],
+      "timer": "P5_Run",
+      "fallAt": 7.0,
+      "routeExit": 586.0700163481181
+    },
+    {
+      "id": "P5_Run_6",
+      "part": 5,
+      "kind": "SequentialFalling",
+      "width": 9.41998910125448,
+      "thickness": 0.5,
+      "points": [
+        {
+          "y": 11.399999999999999,
+          "x": 576.4586122540024
+        }
+      ],
+      "timer": "P5_Run",
+      "fallAt": 8.0,
+      "routeExit": 597.2900054493725
+    }
+  ],
+  "traps": [
+    {
+      "direction": [
+        -1,
+        0
+      ],
+      "kind": "ArrowSwitch",
+      "speed": 14,
+      "lifetime": 2,
+      "cooldown": 3,
+      "host": "P3_ArrowA",
+      "damage": 15,
+      "launcher": [
+        245.63448149432764,
+        7.1
+      ],
+      "warning": 0.5,
+      "switch": [
+        237.63448149432764,
+        6.8999999999999995
+      ]
+    },
+    {
+      "direction": [
+        -1,
+        0
+      ],
+      "kind": "ArrowSwitch",
+      "speed": 14,
+      "lifetime": 2,
+      "cooldown": 3,
+      "host": "P3_ArrowB",
+      "damage": 15,
+      "launcher": [
+        266.8344814943277,
+        15.7
+      ],
+      "warning": 0.5,
+      "switch": [
+        258.8344814943277,
+        15.499999999999998
+      ]
+    },
+    {
+      "destination": [
+        269.9344814943277,
+        14.899999999999999
+      ],
+      "bounds": [
+        267.9344814943277,
+        271.9344814943277,
+        10.799999999999999,
+        12.299999999999999
+      ],
+      "kind": "FallRecoveryTeleport",
+      "damage": 0,
+      "resetsRun": false,
+      "cooldown": 0.5
+    },
+    {
+      "direction": [
+        -1,
+        0
+      ],
+      "kind": "ArrowSwitch",
+      "speed": 14,
+      "lifetime": 2,
+      "cooldown": 3,
+      "host": "P5_Arrow",
+      "damage": 15,
+      "launcher": [
+        496.14867219710294,
+        12.299999999999999
+      ],
+      "warning": 0.5,
+      "switch": [
+        488.14867219710294,
+        12.099999999999998
+      ]
+    }
+  ],
+  "monsters": [
+    {
+      "y": 1.22,
+      "host": "P1_Combat",
+      "part": 1,
+      "id": "P1_Ground",
+      "patrolHalfWidth": 1,
+      "drops": "ordinary",
+      "scaleOfPlayer": 0.5,
+      "pattern": "PatrolPattern",
+      "x": 16.4
+    },
+    {
+      "activation": "P4_Run",
+      "id": "P4_Run_E1",
+      "scaleOfPlayer": 0.5,
+      "drops": "ordinary",
+      "pattern": "FlyingChasePattern",
+      "y": 10.6,
+      "x": 406.88431522418426,
+      "part": 4
+    },
+    {
+      "activation": "P4_Run",
+      "id": "P4_Run_E2",
+      "scaleOfPlayer": 0.5,
+      "drops": "ordinary",
+      "pattern": "FlyingChasePattern",
+      "y": 10.6,
+      "x": 427.9100580133517,
+      "part": 4
+    },
+    {
+      "activation": "P4_Run",
+      "id": "P4_Run_E3",
+      "scaleOfPlayer": 0.5,
+      "drops": "ordinary",
+      "pattern": "FlyingChasePattern",
+      "y": 10.6,
+      "x": 445.4315103376579,
+      "part": 4
+    },
+    {
+      "activation": "P5_Run",
+      "id": "P5_Run_E4",
+      "scaleOfPlayer": 0.5,
+      "drops": "ordinary",
+      "pattern": "FlyingChasePattern",
+      "y": 13.2,
+      "x": 530.1786558489848,
+      "part": 5
+    },
+    {
+      "activation": "P5_Run",
+      "id": "P5_Run_E5",
+      "scaleOfPlayer": 0.5,
+      "drops": "ordinary",
+      "pattern": "FlyingChasePattern",
+      "y": 13.2,
+      "x": 549.7746362312428,
+      "part": 5
+    },
+    {
+      "activation": "P5_Run",
+      "id": "P5_Run_E6",
+      "scaleOfPlayer": 0.5,
+      "drops": "ordinary",
+      "pattern": "FlyingChasePattern",
+      "y": 13.2,
+      "x": 566.1046198831245,
+      "part": 5
+    }
+  ],
+  "validation": {
+    "segments": [
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "sweptOverlaps": 0,
+    "limitations": [
+      "moving landing windows",
+      "trap trajectories",
+      "combat and continuous traversal"
+    ],
+    "endpointJumpChecks": 36,
+    "fallDeadlineChecks": 21,
+    "routeRecalculated": 600.0,
+    "unityTested": false
+  }
+}

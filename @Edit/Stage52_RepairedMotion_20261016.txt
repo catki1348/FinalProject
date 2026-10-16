@@ -1,0 +1,2 @@
+All 20 movers reach every waypoint during 400 simulated seconds
+20,000 actual Physics2D steps: no platform/headspace overlap in 6 possible interfering pairs

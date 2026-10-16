@@ -1,0 +1,167 @@
+{
+  "arena": {
+    "schema": "stage5_5_boss_arena_v1",
+    "status": "design_only",
+    "designSize": 5.0,
+    "floor": {
+      "x0": -20.0,
+      "x1": 20.0,
+      "top": 0.0,
+      "thickness": 1.0,
+      "tiled": true,
+      "scale": 1
+    },
+    "walls": [
+      {
+        "x": -20.25,
+        "height": 14.0,
+        "width": 0.5
+      },
+      {
+        "x": 20.25,
+        "height": 14.0,
+        "width": 0.5
+      }
+    ],
+    "camera": {
+      "center": [
+        0,
+        5.0
+      ],
+      "size": [
+        44.0,
+        18.0
+      ],
+      "orthographicSize": 5.5
+    },
+    "playerStart": [
+      -16.0,
+      0.0
+    ],
+    "bossStart": [
+      14.0,
+      0.0
+    ],
+    "exitMarker": {
+      "x": 16.0,
+      "y": 0.0,
+      "activeAfterBossDeath": true
+    },
+    "fallLineY": -10.0,
+    "platforms": "none (flat floor): mid hits cover 0.6-2.4, so raised ledges would not avoid them"
+  },
+  "retreat": {
+    "P1": {
+      "duration": 0.49,
+      "firstImpact": 0.26,
+      "lastImpact": 0.26,
+      "clearDistance": 5.0,
+      "secondsToClear": 0.625,
+      "maxDamage": 14,
+      "retreatDuringChain": 0.0
+    },
+    "P2": {
+      "duration": 0.52,
+      "firstImpact": 0.35,
+      "lastImpact": 0.35,
+      "clearDistance": 5.6,
+      "secondsToClear": 0.7,
+      "maxDamage": 12,
+      "retreatDuringChain": 0.0
+    },
+    "P3": {
+      "duration": 0.51,
+      "firstImpact": 0.34,
+      "lastImpact": 0.34,
+      "clearDistance": 6.0,
+      "secondsToClear": 0.75,
+      "maxDamage": 16,
+      "retreatDuringChain": 0.0
+    },
+    "P4": {
+      "duration": 1.29,
+      "firstImpact": 0.26,
+      "lastImpact": 1.11,
+      "clearDistance": 5.2,
+      "secondsToClear": 0.65,
+      "maxDamage": 94,
+      "retreatDuringChain": 6.8
+    },
+    "P5": {
+      "duration": 1.32,
+      "firstImpact": 0.35,
+      "lastImpact": 1.14,
+      "clearDistance": 5.6,
+      "secondsToClear": 0.7,
+      "maxDamage": 92,
+      "retreatDuringChain": 6.32
+    },
+    "P6": {
+      "duration": 1.31,
+      "firstImpact": 0.34,
+      "lastImpact": 1.13,
+      "clearDistance": 6.0,
+      "secondsToClear": 0.75,
+      "maxDamage": 96,
+      "retreatDuringChain": 6.32
+    }
+  },
+  "checks": [
+    {
+      "name": "start gap exceeds detection",
+      "ok": true,
+      "detail": "gap 30.0 > detection 16.0; the player must walk 14.0 (1.75s) before the boss reacts"
+    },
+    {
+      "name": "boss start clear of the right wall",
+      "ok": true,
+      "detail": "6.2 from wall"
+    },
+    {
+      "name": "player start clear of the left wall",
+      "ok": true,
+      "detail": "4.2 from wall"
+    },
+    {
+      "name": "floor spans the camera width at 16:9",
+      "ok": true,
+      "detail": "zone 44 vs floor 40; screen width 19.6 at ortho 5.5"
+    },
+    {
+      "name": "boss and player fit on one screen during melee",
+      "ok": true,
+      "detail": "screen 19.6, melee span <= 12.0"
+    },
+    {
+      "name": "zone bottom shows the fall line",
+      "ok": true,
+      "detail": "zone bottom -4.0 above fall line -10.0"
+    },
+    {
+      "name": "zone top clears the jump + boss",
+      "ok": true,
+      "detail": "zone top 14.0"
+    },
+    {
+      "name": "walls taller than jump + boss",
+      "ok": true,
+      "detail": "14.0 > 5.0"
+    },
+    {
+      "name": "retreat room beyond the longest reach",
+      "ok": true,
+      "detail": "needed 6.0 + body 2.6; half floor 20 minus 3 wall margin"
+    },
+    {
+      "name": "a full jump clears the low band",
+      "ok": true,
+      "detail": "jump 1.39 / 80% 1.10 vs low band 0.6; airtime ~0.61s"
+    },
+    {
+      "name": "chase time across the floor is bounded",
+      "ok": true,
+      "detail": "boss crosses the floor in 15.4s (5.0s for the player)"
+    }
+  ],
+  "allPassed": true
+}
