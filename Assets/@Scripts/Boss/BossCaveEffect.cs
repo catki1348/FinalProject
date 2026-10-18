@@ -1,20 +1,29 @@
 using UnityEngine;
 
-// One owned cave effect prefab handles a fixed warning/rock or forward sonic rings.
+// One owned cave effect prefab handles a fixed warning/rock or forward sonic waves.
+// All visuals are generated pixel-art sprites (VARCO); no flat-coloured boxes are drawn for the hit areas.
 public class BossCaveEffect : MonoBehaviour
 {
     [SerializeField] SpriteRenderer warning;
     [SerializeField] SpriteRenderer rock;
     [SerializeField] SpriteRenderer[] waves;
+    [SerializeField] Sprite chargeWarningSprite; // ground scrape streak shown while the charge winds up
     readonly Collider2D[] hits = new Collider2D[32];
     readonly Rigidbody2D[] unique = new Rigidbody2D[32];
-    Boss owner; BossSound sound; bool sonic, charge, struck; float age, direction, shelterTop;
+    Boss owner; BossSound sound; bool sonic, charge, struck; float age, direction, shelterTop, rockScale;
+    const float WaveWidth = 4.5f, WaveTravel = .4f; // wave sprite width (height ~2.2 = roar box) and seconds per pass
     public void Initialize(Boss source, BossSound audio, bool isSonic, bool isCharge, float facing)
     {
         owner = source; sound = audio; sonic = isSonic; charge = isCharge; direction = facing;
         if (!sonic && !charge) shelterTop = FindShelterTop();
-        warning.enabled = !sonic; warning.transform.localScale = new Vector3((charge ? 8 : 1.8f)/warning.sprite.bounds.size.x, .12f/warning.sprite.bounds.size.y, 1);
-        warning.color = charge ? Color.red : new Color(1,.6f,.1f,.8f); rock.enabled = false; rock.transform.localScale = Vector3.one*(1.8f/rock.sprite.bounds.size.x);
+        warning.enabled = !sonic;
+        if (charge && chargeWarningSprite) warning.sprite = chargeWarningSprite;
+        // Ground decal: keep the artwork's proportions and rest its bottom edge on the floor (the effect sits on the floor).
+        float warningScale = (charge ? 8f : 2.6f) / warning.sprite.bounds.size.x;
+        warning.transform.localScale = new Vector3(charge ? direction * warningScale : warningScale, warningScale, 1);
+        warning.transform.localPosition = new Vector3(0, warning.sprite.bounds.size.y * warningScale * .5f, 0);
+        warning.color = Color.white; rock.enabled = false;
+        rockScale = 1.8f / rock.sprite.bounds.size.x; rock.transform.localScale = Vector3.one * rockScale;
         foreach (var wave in waves) wave.enabled = false;
     }
     // Fixed target position, one impact only; the controller owns cancellation on stagger/death.
@@ -22,25 +31,30 @@ public class BossCaveEffect : MonoBehaviour
     {
         if (!owner || owner.IsDead) { Destroy(gameObject); return; }
         age += Time.deltaTime;
+        // Warning artwork pulses so the danger spot reads clearly without a flat colour.
+        if (warning.enabled) warning.color = new Color(1, 1, 1, Mathf.Lerp(.65f, 1f, Mathf.PingPong(age * 4f, 1f)));
         if (charge) return;
         if (sonic)
         {
+            // One wave per damage tick (0.5s and 1.5s); the wave front covers the 6.5-long hit box.
             for (int i = 0; i < waves.Length; i++)
             {
-                var wave = waves[i]; wave.enabled = age >= .5f && age < 1.7f;
-                float t = Mathf.Repeat((age - .5f) * 1.4f + i / (float)waves.Length, 1);
-                wave.transform.localPosition = new Vector3(direction * t * 6.5f, 0, 0);
-                wave.transform.localScale = new Vector3((.3f + t)/wave.sprite.bounds.size.x, (.5f + t * 1.7f)/wave.sprite.bounds.size.y, 1);
-                wave.color = new Color(.75f,.6f,1,1-t);
+                var wave = waves[i]; float start = .5f + i;
+                bool active = i < 2 && age >= start && age < start + WaveTravel; wave.enabled = active;
+                if (!active) continue;
+                float t = (age - start) / WaveTravel, scale = WaveWidth / wave.sprite.bounds.size.x;
+                wave.transform.localPosition = new Vector3(direction * Mathf.Lerp(1f, 4.4f, t), 0, 0);
+                wave.transform.localScale = new Vector3(direction * scale, scale, 1);
+                wave.color = new Color(1, 1, 1, Mathf.Clamp01(1.4f - t));
             }
         }
         else
         {
             // Under a RockShelter roof the rock stops on top of it (shelterTop is height above the floor).
-            float endY = Mathf.Max(1.2f, shelterTop + .9f), startY = Mathf.Max(3, endY + 1.8f);
+            float endY = shelterTop > 0 ? shelterTop + 1.04f : 1.2f, startY = Mathf.Max(3, endY + 1.8f);
             rock.enabled = age >= .6f; rock.transform.localPosition = Vector3.up * (Mathf.Lerp(startY, endY, Mathf.Clamp01((age-.6f)/.2f)));
             if (!struck && age >= .8f) { struck = true; warning.enabled = false; Impact(); }
-            if (struck) { rock.color = new Color(1,1,1,Mathf.Clamp01((1.4f-age)/.6f)); rock.transform.localScale = Vector3.one * (1.8f + (age-.8f)); }
+            if (struck) { rock.color = new Color(1,1,1,Mathf.Clamp01((1.4f-age)/.6f)); rock.transform.localScale = Vector3.one * rockScale * (1f + (age - .8f) * .5f); }
         }
         if (age >= (sonic ? 1.9f : 1.4f)) Destroy(gameObject);
     }

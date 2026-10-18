@@ -976,7 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688dab30464420e428bba03bffb83fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WarpManager
-  testStartZone: 1-3
+  testStartZone: 1-5
   testPlatformName: 
 --- !u!4 &113684457
 Transform:
@@ -9633,15 +9633,15 @@ PrefabInstance:
       objectReference: {fileID: 1119657732}
     - target: {fileID: 1479400673380745904, guid: d45858766f53804408573e22feb379b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 22.05403
+      value: 31.811447
       objectReference: {fileID: 0}
     - target: {fileID: 1479400673380745904, guid: d45858766f53804408573e22feb379b7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 22.05403
+      value: 31.811447
       objectReference: {fileID: 0}
     - target: {fileID: 1479400673380745904, guid: d45858766f53804408573e22feb379b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 170.705
+      value: 248.705
       objectReference: {fileID: 0}
     - target: {fileID: 1479400673380745904, guid: d45858766f53804408573e22feb379b7, type: 3}
       propertyPath: m_LocalPosition.y

@@ -8,7 +8,8 @@ using UnityEngine.UI;
 /// 메뉴: Tools/Apply Opening Background To MainMenu
 /// - 기존 단색 Background 이미지에 Opening_Background(타이틀 글자·PRESS START가 없는 풍경 이미지)를 넣는다.
 /// - 그 위에 Opening_Player(절벽 위 기사)와 글씨가 잘 보이도록 약한 어두운 막(BackgroundDim)을 쌓는다.
-/// - 게임 시작 시 메인 메뉴가 첫 화면이 되도록 빌드 설정 맨 앞에 MainMenu를 두고 Opening 씬은 제외한다.
+/// - 오프닝과 메인 메뉴는 이 한 씬(MainMenu)에서 연속으로 보여준다: 시작 시 오프닝 연출, 엔터를 누르면 같은 화면에서 메뉴로 전환(OpeningScreenController).
+/// - 빌드 순서는 MainMenu(0) → Stage1~5. 별도 Opening 씬은 빌드에서 뺀다.
 /// - 제목 'Dungeon' 텍스트는 FINAL DUNGEON 로고 이미지(Opening_Title)로 교체한다(텍스트는 끄고, 레이아웃 칸은 유지해 버튼 위치는 그대로).
 /// - 버튼 글자(START/OPTIONS/CREDITS)도 타이틀과 같은 금색 3D 글자 이미지(Menu_*.png)로 교체한다(글자는 끄고 자식 이미지로 표시).
 /// - 버튼 배경도 타이틀 톤(짙은 남색 판 + 금색 테두리)으로 교체한다: 평소 Button_Normal, 선택/호버 Button_Highlight, 눌림 Button_Pressed (SpriteSwap).
@@ -53,12 +54,13 @@ public static class ApplyOpeningBackgroundToMainMenu
 
         ReplaceTitleWithLogo(canvas.transform);
         foreach (var bn in new[] { "StartButton", "OptionsButton", "CreditsButton" }) { ApplyButtonPlate(canvas.transform, bn); ApplySelectionAura(canvas.transform, bn); }
-        SetFirstSelected(canvas.transform, "StartButton");
+        ClearFirstSelected();
         ReplaceLabelWithImage(canvas.transform, "StartLabel", "Menu_Start");
         ReplaceLabelWithImage(canvas.transform, "OptionsLabel", "Menu_Options");
         ReplaceLabelWithImage(canvas.transform, "CreditsLabel", "Menu_Credits");
 
         ApplyMenuScale(canvas.transform);
+        BuildTitleSequence(canvas.transform);
 
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
@@ -67,7 +69,10 @@ public static class ApplyOpeningBackgroundToMainMenu
         Debug.Log("[ApplyOpeningBackground] MainMenu 배경 적용 및 빌드 설정 완료");
     }
 
-    /// <summary>MenuLayout 안의 TitleText 를 끄고, 같은 칸 안에 로고 이미지(TitleLogo)를 자식으로 둔다. 이미 있으면 갱신한다.</summary>
+    /// <summary>
+    /// 'Dungeon' 제목 글자는 끄고(칸은 유지), 로고는 메뉴 안이 아니라 캔버스 바로 아래 독립 오브젝트(TitleLogo)로 둔다.
+    /// 오프닝 → 메뉴 전환에서 로고가 크기·위치를 바꾸며 이동해야 하므로 메뉴 배율의 영향을 받지 않게 분리한다.
+    /// </summary>
     private static void ReplaceTitleWithLogo(Transform canvas)
     {
         Transform titleText = null;
@@ -76,24 +81,27 @@ public static class ApplyOpeningBackgroundToMainMenu
         if (titleText == null) { Debug.LogError("[ApplyOpeningBackground] TitleText 를 찾지 못했습니다."); return; }
 
         var tmp = titleText.GetComponent<TMPro.TMP_Text>();
-        if (tmp != null) tmp.enabled = false;                  // 칸(레이아웃 슬롯)은 그대로 두고 글자만 끈다
+        if (tmp != null) tmp.enabled = false;
         var uiText = titleText.GetComponent<Text>();
         if (uiText != null) uiText.enabled = false;
 
-        Transform logoTr = titleText.Find("TitleLogo");
+        Transform old = titleText.Find("TitleLogo");               // 이전 방식(메뉴 안 로고)이 남아 있으면 제거
+        if (old != null) Object.DestroyImmediate(old.gameObject);
+
+        Transform logoTr = canvas.Find("TitleLogo");
         GameObject go = logoTr != null ? logoTr.gameObject : new GameObject("TitleLogo", typeof(RectTransform));
-        if (logoTr == null) go.transform.SetParent(titleText, false);
+        if (logoTr == null) go.transform.SetParent(canvas, false);
         var img = go.GetComponent<Image>();
         if (img == null) img = go.AddComponent<Image>();
         img.sprite = LoadSprite("Opening_Title");
         img.preserveAspect = true;
         img.raycastTarget = false;
-        var r = img.rectTransform;                              // 부모 칸 중앙 기준, 로고 비율(1500:403) 유지, 버튼과 겹치지 않도록 약간 위로
-        r.anchorMin = r.anchorMax = new Vector2(0.5f, 0.5f);
+        var r = img.rectTransform;                                  // 앵커 좌상단, 중심 피벗 — 위치/크기는 컨트롤러가 오프닝↔메뉴 자세로 보간
+        r.anchorMin = r.anchorMax = new Vector2(0f, 1f);
         r.pivot = new Vector2(0.5f, 0.5f);
-        r.sizeDelta = new Vector2(520f, 140f);
-        r.anchoredPosition = new Vector2(0f, 12f);
         r.localScale = Vector3.one;
+        r.sizeDelta = new Vector2(1500f, 403f);
+        r.anchoredPosition = new Vector2(960f, -433.5f);
     }
 
     /// <summary>버튼 라벨(텍스트)을 끄고 같은 칸에 3D 글자 이미지를 자식(Art)으로 둔다. 이미 있으면 갱신한다.</summary>
@@ -180,15 +188,12 @@ public static class ApplyOpeningBackgroundToMainMenu
         so.ApplyModifiedPropertiesWithoutUndo();
     }
 
-    /// <summary>EventSystem 의 시작 선택 버튼을 지정한다(시작하자마자 START 에 오라가 켜짐).</summary>
-    private static void SetFirstSelected(Transform canvas, string buttonName)
+    /// <summary>EventSystem 의 시작 선택을 비운다. 오프닝 동안은 선택 커서(오라)가 없고, 메뉴 전환이 끝나면 컨트롤러가 START 를 선택한다.</summary>
+    private static void ClearFirstSelected()
     {
-        Button target = null;
-        foreach (var b in canvas.GetComponentsInChildren<Button>(true))
-            if (b.name == buttonName) { target = b; break; }
         var es = Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>();
-        if (es == null || target == null) return;
-        es.firstSelectedGameObject = target.gameObject;
+        if (es == null) return;
+        es.firstSelectedGameObject = null;
         EditorUtility.SetDirty(es);
     }
 
@@ -251,12 +256,118 @@ public static class ApplyOpeningBackgroundToMainMenu
         go.transform.SetSiblingIndex(siblingIndex);
     }
 
-    /// <summary>MainMenu 를 빌드 설정 맨 앞으로 옮기고 Opening 씬은 목록에서 제거한다.</summary>
+    /// <summary>빌드 순서를 MainMenu(0, 오프닝 연출 포함) → 스테이지 순서로 맞춘다. 별도 Opening 씬은 목록에서 뺀다.</summary>
     private static void SetBuildSettings()
     {
         var list = new System.Collections.Generic.List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
         list.RemoveAll(s => s.path == OpeningPath || s.path == MainMenuPath);
         list.Insert(0, new EditorBuildSettingsScene(MainMenuPath, true));
         EditorBuildSettings.scenes = list.ToArray();
+    }
+
+    /// <summary>
+    /// 오프닝 연출 요소를 MainMenu 캔버스에 만든다(이미 있으면 갱신): OpeningGroup(한글 제목·가로선·부제·PRESS START),
+    /// 메뉴 묶음(MenuLayout)에 CanvasGroup, 그리고 OpeningScreenController 를 연결한다. 저장 상태는 '오프닝 상태'(메뉴 숨김).
+    /// </summary>
+    private static void BuildTitleSequence(Transform canvas)
+    {
+        // 캔버스 배율을 원본 오프닝 씬과 동일하게: 기준 1920x1080, 가로·세로 반반(0.5)으로 맞춘다.
+        // (이전 MainMenu 값은 세로 기준 1 이라 16:9 가 아닌 화면에서 오프닝이 원본과 다르게 보였다)
+        var scaler = canvas.GetComponent<CanvasScaler>();
+        if (scaler != null)
+        {
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            scaler.matchWidthOrHeight = 0.5f;
+        }
+
+        var font = AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>("Assets/Fonts/MalgunGothic SDF.asset");
+
+        Transform groupTr = canvas.Find("OpeningGroup");
+        GameObject group = groupTr != null ? groupTr.gameObject : new GameObject("OpeningGroup", typeof(RectTransform));
+        if (groupTr == null) group.transform.SetParent(canvas, false);
+        var gr = (RectTransform)group.transform;
+        Stretch(gr);
+        var cg = group.GetComponent<CanvasGroup>();
+        if (cg == null) cg = group.AddComponent<CanvasGroup>();
+
+        EnsureOpeningText(group.transform, "TitleKorean", "파이널 던전", 80f, 675f, font);
+        EnsureOpeningRule(group.transform, "TitleRule", 724f);
+        EnsureOpeningText(group.transform, "SubtitleKorean", "마왕성을 향한 마지막 여정", 56f, 775f, font);
+        var press = EnsureOpeningText(group.transform, "PressStart", "PRESS START", 58f, 930f, font);
+
+        // 그리는 순서: 배경 → 플레이어 → 어둠막 → 로고 → 오프닝 글자 → 메뉴
+        Transform logo = canvas.Find("TitleLogo");
+        Transform menu = null;
+        foreach (var t in canvas.GetComponentsInChildren<Transform>(true))
+            if (t.name == "MenuLayout") { menu = t; break; }
+        Transform dim = canvas.Find("BackgroundDim");
+        if (dim == null || logo == null || menu == null) { Debug.LogError("[ApplyOpeningBackground] 오프닝 연결에 필요한 오브젝트를 찾지 못했습니다."); return; }
+        logo.SetSiblingIndex(dim.GetSiblingIndex() + 1);
+        group.transform.SetSiblingIndex(logo.GetSiblingIndex() + 1);
+        menu.SetSiblingIndex(group.transform.GetSiblingIndex() + 1);
+
+        var menuGroup = menu.GetComponent<CanvasGroup>();
+        if (menuGroup == null) menuGroup = menu.gameObject.AddComponent<CanvasGroup>();
+
+        Button start = null;
+        foreach (var b in menu.GetComponentsInChildren<Button>(true))
+            if (b.name == "StartButton") { start = b; break; }
+
+        var ctrl = canvas.GetComponent<OpeningScreenController>();
+        if (ctrl == null) ctrl = canvas.gameObject.AddComponent<OpeningScreenController>();
+        var so = new SerializedObject(ctrl);
+        so.FindProperty("openingGroup").objectReferenceValue = cg;
+        so.FindProperty("pressStartText").objectReferenceValue = press;
+        so.FindProperty("logo").objectReferenceValue = (RectTransform)logo;
+        so.FindProperty("menuGroup").objectReferenceValue = menuGroup;
+        so.FindProperty("backgroundDim").objectReferenceValue = dim.GetComponent<Image>();
+        so.FindProperty("startButton").objectReferenceValue = start;
+        so.ApplyModifiedPropertiesWithoutUndo();
+
+        // 저장 상태 = 오프닝 상태
+        cg.alpha = 1f; cg.interactable = false; cg.blocksRaycasts = false;
+        menuGroup.alpha = 0f; menuGroup.interactable = false; menuGroup.blocksRaycasts = false;
+    }
+
+    private static TMPro.TextMeshProUGUI EnsureOpeningText(Transform parent, string name, string text, float size, float yFromTop, TMPro.TMP_FontAsset font)
+    {
+        Transform t = parent.Find(name);
+        GameObject go = t != null ? t.gameObject : new GameObject(name, typeof(RectTransform));
+        if (t == null) go.transform.SetParent(parent, false);
+        var tx = go.GetComponent<TMPro.TextMeshProUGUI>();
+        if (tx == null) tx = go.AddComponent<TMPro.TextMeshProUGUI>();
+        tx.font = font;
+        tx.text = text;
+        tx.fontSize = size;
+        tx.fontStyle = TMPro.FontStyles.Bold;
+        tx.alignment = TMPro.TextAlignmentOptions.Center;
+        tx.color = Color.white;
+        tx.raycastTarget = false;
+        tx.outlineColor = new Color32(0, 0, 0, 255);
+        tx.outlineWidth = 0.22f;
+        var r = tx.rectTransform;
+        r.anchorMin = r.anchorMax = new Vector2(0.5f, 1f);
+        r.pivot = new Vector2(0.5f, 0.5f);
+        r.anchoredPosition = new Vector2(0f, -yFromTop);
+        r.sizeDelta = new Vector2(1200f, 110f);
+        return tx;
+    }
+
+    private static void EnsureOpeningRule(Transform parent, string name, float yFromTop)
+    {
+        Transform t = parent.Find(name);
+        GameObject go = t != null ? t.gameObject : new GameObject(name, typeof(RectTransform));
+        if (t == null) go.transform.SetParent(parent, false);
+        var img = go.GetComponent<Image>();
+        if (img == null) img = go.AddComponent<Image>();
+        img.color = Color.white;
+        img.raycastTarget = false;
+        var r = img.rectTransform;
+        r.anchorMin = r.anchorMax = new Vector2(0.5f, 1f);
+        r.pivot = new Vector2(0.5f, 0.5f);
+        r.anchoredPosition = new Vector2(0f, -yFromTop);
+        r.sizeDelta = new Vector2(930f, 3f);
     }
 }

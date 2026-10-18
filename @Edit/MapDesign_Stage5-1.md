@@ -82,3 +82,14 @@
 - 본 씬 검증: 설계 대비 위치·크기·이동형 경로·속도 불일치 0.
 - 5-3·5-4 함정 결함도 같은 날 수정했다: 스위치 10개를 지면에 밀착하고 5-3 발사점을 다음 발판 왼쪽 끝 −0.3으로 이동. `DeployStage53/54`도 같은 값으로 고쳤다.
 - 주의: Stage5의 WarpManager가 `5-2` 테스트 시작으로 설정돼 있어 플레이 시작 영역이 5-2다(사용자 테스트 설정이라 변경하지 않음). 5-1부터 확인하려면 비워야 한다.
+
+## 8. 발판 외형 변경 — Stage3·4와 같은 방식 (2026-10-16 저녁)
+
+<!-- AI work record: Claude Sonnet 5.5, 2026-10-16. Stage5 platforms switched from a zoomed brick strip to the whole hellscape block (spikes = appearance, collision = block body like the other stages). Prefab/scene edited as files (Unity MCP unavailable on this PC). -->
+- 이전 Stage5 발판은 원본 블록의 앞면 벽돌 일부(450×50)를 4.5유닛 길이 띠로 확대해 쓰고 있어 Stage3·4와 달랐다(블록 전체가 0.5유닛 크기로 반복).
+- 새 타일 `Tiles/Platform_Stage5_Hellscape_Tiled.png`(+meta): 스파이크를 포함한 블록 전체(640×730px, 930 ppu, 좌우 96px 끝 보존). **충돌은 몸체(윗면~바닥, 두께 0.5)** 이고 스파이크는 윗면 위로 0.285 솟는 외형이다. 스프라이트 피벗(y 0.3185)을 몸체 중심에 맞춰 발판 위치·콜라이더(오프셋 0)는 기존 규칙 그대로다.
+- `P_Stage51_*` 6종, `P_Stage52_*` 6종(`P_Stage54_Falling`은 상속)의 스프라이트를 새 타일로 바꾸고 렌더러 높이를 0.785(타일 전체)로 했다. 콜라이더는 그대로 폭×0.5.
+- 5-1 단차 블록 3개(두께 0.8)는 두께 0.5로 맞췄다(윗면 높이 +0.8 유지). 5-5 아레나 바닥도 두께 1 → 0.5(윗면 y 0 유지).
+- `DeployStage51/53/54/55`, `PrepareStage52`도 같은 값으로 수정했다.
+- 미확인: 이 PC에서는 Unity MCP가 없어 파일로 수정했고 에디터 임포트·렌더링은 확인하지 못했다. 에디터에서 새 이미지 임포트 후 스프라이트 연결, 스파이크 위치, 단차 블록을 확인해야 한다.
+- 원본 보존: 수정 전 프리팹 12종, Stage5.unity, 아레나 프리팹 사본은 세션 임시 폴더에 있다.

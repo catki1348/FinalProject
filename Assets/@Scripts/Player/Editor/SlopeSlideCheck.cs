@@ -24,6 +24,7 @@ public static class SlopeSlideCheck
             body.gravityScale = 3f;
             var movement = go.AddComponent<PlayerMovement>();
             movement.enabled = false;
+            Set(movement, "slopeSlideAllowed", true); // 슬라이드는 기본 비활성화 상태라 계산 확인을 위해 임시 컴포넌트에서만 켠다
             Set(movement, "rb", body);
             var apply = typeof(PlayerMovement).GetMethod("ApplySlopeSlide", BindingFlags.Instance | BindingFlags.NonPublic);
             foreach (float angle in new[] { -30f, 30f, -75f, 75f })
@@ -46,7 +47,7 @@ public static class SlopeSlideCheck
             }
             movement.SetSlopeSlideEnabled(false);
             Require(!movement.IsSliding, "Zone exit must clear slide");
-            // U자 곡선 바닥에서 왼쪽 급경사 연장선이 아닌 발밑의 실제 평면을 반환한다.
+            // 점프 속도 보존 확인에 쓰는 지면/몸체 환경(예전 경사 포즈 확인 제거 후에도 환경은 그대로 유지).
             var ground = new GameObject("CurveGround");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(ground, scene);
             ground.layer = 8;
@@ -58,22 +59,9 @@ public static class SlopeSlideCheck
             Set(movement, "bodyCollider", box);
             Set(movement, "groundLayer", (LayerMask)(1 << 8));
             Physics2D.SyncTransforms();
-            RaycastHit2D surface;
-            Require(movement.TryGetVisualGround(out surface) && Mathf.Abs(surface.point.y) < 0.01f && surface.normal.y > 0.99f,
-                "Curve bottom must use the actual surface under the visual");
-            // 충돌 해석이 수직 속도를 0으로 만들어도 경사 모션 판정은 이동 계산 결과를 유지한다.
             Set(movement, "isGrounded", true);
             Set(movement, "hasWalkableGround", true);
             body.linearVelocity = Vector2.zero;
-            foreach (float angle in new[] { -30f, 30f })
-            {
-                Vector2 normal = Quaternion.Euler(0, 0, angle) * Vector2.up;
-                Set(movement, "groundNormal", normal);
-                Set(movement, "slopeSpeed", -Mathf.Sign(normal.x) * 5f);
-                Require(movement.IsMovingUphill && !movement.IsMovingDownhill, "Climb pose must survive solver velocity changes");
-                Set(movement, "slopeSpeed", Mathf.Sign(normal.x) * 5f);
-                Require(movement.IsMovingDownhill && !movement.IsMovingUphill, "Slide pose must survive solver velocity changes");
-            }
             movement.SetSlopeSlideEnabled(true);
             Set(movement, "isJumping", true);
             Set(movement, "isGrounded", true);

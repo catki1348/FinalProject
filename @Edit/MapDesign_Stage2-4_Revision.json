@@ -1,0 +1,774 @@
+{
+ "offset": -24.6,
+ "platforms": [
+  {
+   "name": "L1",
+   "mode": "PingPong",
+   "points": [
+    [
+     -24.6,
+     0
+    ],
+    [
+     -23.2,
+     0
+    ]
+   ],
+   "speed": 1.08,
+   "endpointWait": 0.5,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 1.4
+  },
+  {
+   "name": "L2",
+   "mode": "PingPong",
+   "points": [
+    [
+     -21.05,
+     0
+    ],
+    [
+     -19.65,
+     0
+    ]
+   ],
+   "speed": 1.27,
+   "endpointWait": 0.7,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 1.4
+  },
+  {
+   "name": "V1",
+   "mode": "PingPong",
+   "points": [
+    [
+     -17.5,
+     0
+    ],
+    [
+     -17.5,
+     2.4
+    ]
+   ],
+   "speed": 1.85,
+   "endpointWait": 0.5,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 2.4
+  },
+  {
+   "name": "V2",
+   "mode": "PingPong",
+   "points": [
+    [
+     -15.35,
+     2.4
+    ],
+    [
+     -15.35,
+     4.8
+    ]
+   ],
+   "speed": 2.18,
+   "endpointWait": 0.7,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 2.4
+  },
+  {
+   "name": "V3",
+   "mode": "PingPong",
+   "points": [
+    [
+     -13.2,
+     4.8
+    ],
+    [
+     -13.2,
+     7.2
+    ]
+   ],
+   "speed": 1.85,
+   "endpointWait": 0.5,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 2.4
+  },
+  {
+   "name": "D1",
+   "mode": "PingPong",
+   "points": [
+    [
+     -11.05,
+     7.2
+    ],
+    [
+     -9.85,
+     5.0
+    ]
+   ],
+   "speed": 2.09,
+   "endpointWait": 0.6,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 2.51
+  },
+  {
+   "name": "D2",
+   "mode": "PingPong",
+   "points": [
+    [
+     -7.7,
+     5.0
+    ],
+    [
+     -6.5,
+     3.0
+    ]
+   ],
+   "speed": 1.67,
+   "endpointWait": 0.4,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 2.33
+  },
+  {
+   "name": "Z1",
+   "mode": "PingPong",
+   "points": [
+    [
+     -4.35,
+     3.0
+    ],
+    [
+     -4.35,
+     4.4
+    ]
+   ],
+   "speed": 1.08,
+   "endpointWait": 0.5,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 1.4
+  },
+  {
+   "name": "Z2",
+   "mode": "PingPong",
+   "points": [
+    [
+     -2.2,
+     4.4
+    ],
+    [
+     -2.2,
+     5.8
+    ]
+   ],
+   "speed": 1.27,
+   "endpointWait": 0.7,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 1.4
+  },
+  {
+   "name": "Z3",
+   "mode": "PingPong",
+   "points": [
+    [
+     -0.05,
+     5.8
+    ],
+    [
+     -0.05,
+     7.2
+    ]
+   ],
+   "speed": 1.08,
+   "endpointWait": 0.5,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 1.4
+  },
+  {
+   "name": "Z4",
+   "mode": "PingPong",
+   "points": [
+    [
+     2.1,
+     7.2
+    ],
+    [
+     2.1,
+     9.0
+    ]
+   ],
+   "speed": 1.64,
+   "endpointWait": 0.7,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 1.8
+  },
+  {
+   "name": "P1",
+   "mode": "PingPong",
+   "points": [
+    [
+     4.25,
+     9.8
+    ],
+    [
+     5.25,
+     9.8
+    ]
+   ],
+   "speed": 0.71,
+   "endpointWait": 0.4,
+   "startDelay": 1.95,
+   "startOnFirstBoard": false,
+   "travel": 1.0
+  },
+  {
+   "name": "P2",
+   "mode": "PingPong",
+   "points": [
+    [
+     4.25,
+     8.6
+    ],
+    [
+     5.25,
+     8.6
+    ]
+   ],
+   "speed": 0.91,
+   "endpointWait": 0.7,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 1.0
+  },
+  {
+   "name": "P3",
+   "mode": "PingPong",
+   "points": [
+    [
+     4.25,
+     7.4
+    ],
+    [
+     5.25,
+     7.4
+    ]
+   ],
+   "speed": 0.77,
+   "endpointWait": 0.5,
+   "startDelay": 1.65,
+   "startOnFirstBoard": false,
+   "travel": 1.0
+  },
+  {
+   "name": "C1",
+   "mode": "Loop",
+   "points": [
+    [
+     7.4,
+     7.4
+    ],
+    [
+     8.0,
+     7.4
+    ],
+    [
+     8.0,
+     9.6
+    ],
+    [
+     7.4,
+     9.6
+    ]
+   ],
+   "speed": 2.2,
+   "endpointWait": 0,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 5.6
+  },
+  {
+   "name": "C2",
+   "mode": "Loop",
+   "points": [
+    [
+     10.15,
+     8.2
+    ],
+    [
+     10.75,
+     8.2
+    ],
+    [
+     10.75,
+     9.4
+    ],
+    [
+     10.15,
+     9.4
+    ]
+   ],
+   "speed": 2.6,
+   "endpointWait": 0,
+   "startDelay": 0.45,
+   "startOnFirstBoard": false,
+   "travel": 3.6
+  },
+  {
+   "name": "C3",
+   "mode": "Loop",
+   "points": [
+    [
+     12.9,
+     8.2
+    ],
+    [
+     13.5,
+     8.2
+    ],
+    [
+     13.5,
+     9.4
+    ],
+    [
+     12.9,
+     9.4
+    ]
+   ],
+   "speed": 2.2,
+   "endpointWait": 0,
+   "startDelay": 0.9,
+   "startOnFirstBoard": false,
+   "travel": 3.6
+  },
+  {
+   "name": "C4",
+   "mode": "Loop",
+   "points": [
+    [
+     15.65,
+     8.2
+    ],
+    [
+     16.25,
+     8.2
+    ],
+    [
+     16.25,
+     9.4
+    ],
+    [
+     15.65,
+     9.4
+    ]
+   ],
+   "speed": 2.6,
+   "endpointWait": 0,
+   "startDelay": 1.35,
+   "startOnFirstBoard": false,
+   "travel": 3.6
+  },
+  {
+   "name": "O1",
+   "mode": "Once",
+   "points": [
+    [
+     18.4,
+     8.8
+    ],
+    [
+     19.4,
+     6.8
+    ]
+   ],
+   "speed": 2.0,
+   "endpointWait": 0.0,
+   "startDelay": 0.0,
+   "startOnFirstBoard": true,
+   "travel": 2.24
+  },
+  {
+   "name": "O2",
+   "mode": "Once",
+   "points": [
+    [
+     21.55,
+     6.8
+    ],
+    [
+     22.55,
+     4.8
+    ]
+   ],
+   "speed": 2.3,
+   "endpointWait": 0.0,
+   "startDelay": 0.0,
+   "startOnFirstBoard": true,
+   "travel": 2.24
+  },
+  {
+   "name": "O3",
+   "mode": "Once",
+   "points": [
+    [
+     24.7,
+     4.8
+    ],
+    [
+     25.7,
+     2.8
+    ]
+   ],
+   "speed": 1.9,
+   "endpointWait": 0.0,
+   "startDelay": 0.0,
+   "startOnFirstBoard": true,
+   "travel": 2.24
+  },
+  {
+   "name": "O4",
+   "mode": "Once",
+   "points": [
+    [
+     27.85,
+     2.8
+    ],
+    [
+     28.85,
+     1.0
+    ]
+   ],
+   "speed": 2.2,
+   "endpointWait": 0.0,
+   "startDelay": 0.0,
+   "startOnFirstBoard": true,
+   "travel": 2.06
+  },
+  {
+   "name": "Fi1",
+   "mode": "PingPong",
+   "points": [
+    [
+     31.0,
+     1.0
+    ],
+    [
+     32.2,
+     0.8
+    ]
+   ],
+   "speed": 0.94,
+   "endpointWait": 0.5,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 1.22
+  },
+  {
+   "name": "Fi2",
+   "mode": "PingPong",
+   "points": [
+    [
+     34.35,
+     0.8
+    ],
+    [
+     35.55,
+     0.5
+    ]
+   ],
+   "speed": 1.12,
+   "endpointWait": 0.7,
+   "startDelay": 1.8,
+   "startOnFirstBoard": false,
+   "travel": 1.24
+  },
+  {
+   "name": "Fi3",
+   "mode": "PingPong",
+   "points": [
+    [
+     37.7,
+     0.5
+    ],
+    [
+     38.9,
+     0.0
+    ]
+   ],
+   "speed": 1.0,
+   "endpointWait": 0.5,
+   "startDelay": 0.0,
+   "startOnFirstBoard": false,
+   "travel": 1.3
+  }
+ ],
+ "pairs": [
+  {
+   "a": "L1",
+   "b": "L2",
+   "ok": true,
+   "n": 22,
+   "minwin": 2.02,
+   "maxwait": 1.56,
+   "frac": 0.56,
+   "walkonly": 0.0
+  },
+  {
+   "a": "L2",
+   "b": "V1",
+   "ok": true,
+   "n": 23,
+   "minwin": 1.32,
+   "maxwait": 2.28,
+   "frac": 0.38,
+   "walkonly": 0.0
+  },
+  {
+   "a": "V1",
+   "b": "V2",
+   "ok": true,
+   "n": 22,
+   "minwin": 1.02,
+   "maxwait": 2.58,
+   "frac": 0.28,
+   "walkonly": 0.0
+  },
+  {
+   "a": "V2",
+   "b": "V3",
+   "ok": true,
+   "n": 23,
+   "minwin": 1.02,
+   "maxwait": 2.58,
+   "frac": 0.3,
+   "walkonly": 0.0
+  },
+  {
+   "a": "V3",
+   "b": "D1",
+   "ok": true,
+   "n": 1,
+   "minwin": 80.0,
+   "maxwait": 0.0,
+   "frac": 1.0,
+   "walkonly": 0.0
+  },
+  {
+   "a": "D1",
+   "b": "D2",
+   "ok": true,
+   "n": 23,
+   "minwin": 0.46,
+   "maxwait": 3.14,
+   "frac": 0.14,
+   "walkonly": 0.86
+  },
+  {
+   "a": "D2",
+   "b": "Z1",
+   "ok": true,
+   "n": 22,
+   "minwin": 0.56,
+   "maxwait": 3.02,
+   "frac": 0.16,
+   "walkonly": 0.84
+  },
+  {
+   "a": "Z1",
+   "b": "Z2",
+   "ok": true,
+   "n": 23,
+   "minwin": 1.34,
+   "maxwait": 2.26,
+   "frac": 0.38,
+   "walkonly": 0.0
+  },
+  {
+   "a": "Z2",
+   "b": "Z3",
+   "ok": true,
+   "n": 22,
+   "minwin": 1.34,
+   "maxwait": 2.26,
+   "frac": 0.37,
+   "walkonly": 0.0
+  },
+  {
+   "a": "Z3",
+   "b": "Z4",
+   "ok": true,
+   "n": 23,
+   "minwin": 1.24,
+   "maxwait": 2.34,
+   "frac": 0.36,
+   "walkonly": 0.0
+  },
+  {
+   "a": "Z4",
+   "b": "P1",
+   "ok": true,
+   "n": 22,
+   "minwin": 0.2,
+   "maxwait": 3.4,
+   "frac": 0.12,
+   "walkonly": 0.0
+  },
+  {
+   "a": "Z4",
+   "b": "P2",
+   "ok": true,
+   "n": 44,
+   "minwin": 0.44,
+   "maxwait": 1.56,
+   "frac": 0.25,
+   "walkonly": 0.31
+  },
+  {
+   "a": "Z4",
+   "b": "P3",
+   "ok": true,
+   "n": 23,
+   "minwin": 1.12,
+   "maxwait": 2.48,
+   "frac": 0.32,
+   "walkonly": 0.68
+  },
+  {
+   "a": "P1",
+   "b": "C1",
+   "ok": true,
+   "n": 21,
+   "minwin": 0.04,
+   "maxwait": 7.12,
+   "frac": 0.08,
+   "walkonly": 0.92
+  },
+  {
+   "a": "P2",
+   "b": "C1",
+   "ok": true,
+   "n": 63,
+   "minwin": 0.26,
+   "maxwait": 1.28,
+   "frac": 0.28,
+   "walkonly": 0.46
+  },
+  {
+   "a": "P3",
+   "b": "C1",
+   "ok": true,
+   "n": 32,
+   "minwin": 0.54,
+   "maxwait": 1.86,
+   "frac": 0.31,
+   "walkonly": 0.0
+  },
+  {
+   "a": "C1",
+   "b": "C2",
+   "ok": true,
+   "n": 72,
+   "minwin": 0.08,
+   "maxwait": 1.52,
+   "frac": 0.29,
+   "walkonly": 0.33
+  },
+  {
+   "a": "C2",
+   "b": "C3",
+   "ok": true,
+   "n": 89,
+   "minwin": 0.16,
+   "maxwait": 0.66,
+   "frac": 0.44,
+   "walkonly": 0.4
+  },
+  {
+   "a": "C3",
+   "b": "C4",
+   "ok": true,
+   "n": 84,
+   "minwin": 0.14,
+   "maxwait": 0.68,
+   "frac": 0.44,
+   "walkonly": 0.39
+  },
+  {
+   "a": "C4",
+   "b": "O1",
+   "ok": true,
+   "n": 59,
+   "minwin": 0.74,
+   "maxwait": 0.64,
+   "frac": 0.54,
+   "walkonly": 0.46
+  },
+  {
+   "a": "O1",
+   "b": "O2",
+   "ok": true,
+   "n": 1,
+   "minwin": 80.0,
+   "maxwait": 0.0,
+   "frac": 1.0,
+   "walkonly": 0.0
+  },
+  {
+   "a": "O2",
+   "b": "O3",
+   "ok": true,
+   "n": 1,
+   "minwin": 80.0,
+   "maxwait": 0.0,
+   "frac": 1.0,
+   "walkonly": 0.0
+  },
+  {
+   "a": "O3",
+   "b": "O4",
+   "ok": true,
+   "n": 1,
+   "minwin": 80.0,
+   "maxwait": 0.0,
+   "frac": 1.0,
+   "walkonly": 0.0
+  },
+  {
+   "a": "O4",
+   "b": "Fi1",
+   "ok": true,
+   "n": 45,
+   "minwin": 1.14,
+   "maxwait": 0.32,
+   "frac": 0.83,
+   "walkonly": 0.17
+  },
+  {
+   "a": "Fi1",
+   "b": "Fi2",
+   "ok": true,
+   "n": 66,
+   "minwin": 0.54,
+   "maxwait": 1.06,
+   "frac": 0.56,
+   "walkonly": 0.14
+  },
+  {
+   "a": "Fi2",
+   "b": "Fi3",
+   "ok": true,
+   "n": 67,
+   "minwin": 0.4,
+   "maxwait": 0.88,
+   "frac": 0.43,
+   "walkonly": 0.33
+  }
+ ]
+}

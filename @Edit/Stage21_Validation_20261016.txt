@@ -1,0 +1,605 @@
+== 20:32:21 play=False t=1.19 scene=Stage2
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.03, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:32:37 play=True t=0.00 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:32:40 play=True t=3.12 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:32:43 play=True t=6.24 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:32:46 play=True t=9.33 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:32:50 play=True t=12.43 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:32:53 play=True t=15.53 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:33:43 play=True t=0.90 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=3 player=(642.50, 0.02, 0.00) timeScale=1
+manager=True running=0
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (642.50, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:06 play=True t=0.00 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:08 play=True t=2.70 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:11 play=True t=5.40 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:14 play=True t=8.09 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:17 play=True t=10.80 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:19 play=True t=13.50 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:22 play=True t=16.21 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:25 play=True t=18.93 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:27 play=True t=21.63 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=True ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=True srEnabled=True ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)
+== 20:34:30 play=True t=24.34 scene=Test090
+missing scripts in scene: 0
+Platform_2-1_P01_N00_Normal        x[6.0,50.0] top=0.00 scale=1 sr=(44.00, 0.50) col=(44.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P02_D01_Damage        x[52.0,82.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P03_N01_Normal        x[84.0,102.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P04_D02_Damage        x[104.0,134.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P05_B01_Blinking      x[136.0,166.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P06_N02_Normal        x[168.0,186.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P07_D03_Damage        x[188.0,218.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P08_B02_Blinking      x[220.0,250.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P09_N03_Normal        x[252.0,270.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P10_D04_Damage        x[272.0,302.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P11_B03_Blinking      x[304.0,334.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P12_N04_Normal        x[336.0,354.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P13_D05_Damage        x[356.0,386.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground dmgOn=False ext=True
+Platform_2-1_P14_B04_Blinking      x[388.0,418.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P15_N05_Normal        x[420.0,438.0] top=0.00 scale=1 sr=(18.00, 0.50) col=(18.00, 0.50) tiled=Tiled/Continuous layer=Ground
+Platform_2-1_P16_B05_Blinking      x[440.0,470.0] top=0.00 scale=1 sr=(30.00, 0.50) col=(30.00, 0.50) tiled=Tiled/Continuous layer=Ground colEnabled=False srEnabled=False ext=True
+Platform_2-1_P17_N06_Normal        x[472.0,494.0] top=0.00 scale=1 sr=(22.00, 0.50) col=(22.00, 0.50) tiled=Tiled/Continuous layer=Ground
+area=1 player=(11.49, 0.02, 0.00) timeScale=1
+manager=True running=1
+Boundary_1_2 (500.00, 0.00, 0.00)
+Boundary_2_3 (622.00, 0.00, 0.00)
+Boundary_3_4 (883.00, 0.00, 0.00)
+Boundary_4_5 (954.00, 0.00, 0.00)
+Section_1 (250.00, 1.00, 0.00)
+Section_2 (555.00, 0.00, 0.00)
+Section_3 (650.00, 0.00, 0.00)
+Section_4 (911.00, 0.00, 0.00)
+Section_5 (461.03, -60.00, 0.00)
+ZoneStartPoint_2-1 (11.49, 0.03, 0.00)
+ZoneEndPoint_2-1 (490.00, 1.50, 0.00)
+Player_Warrior (11.49, 0.02, 0.00)
+OutOfBoundsTrigger (313.00, -7.00, 0.00)

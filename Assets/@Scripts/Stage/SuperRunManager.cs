@@ -33,6 +33,18 @@ public sealed class SuperRunManager : MonoBehaviour
         gameOver = GameOverManager.Instance;
         gameOver.OnGameOver += PlayerDied;
         AreaChanged(stage.CurrentArea);
+        FallRecoveryManager.Instance.OnRespawned += Respawned;
+    }
+    // 낙사 복귀(FallRecoveryManager): 낙하 발판이 이미 떨어져 있으므로 구간을 처음 상태로 되돌려 다시 시작할 수 있게 한다.
+    private void Respawned(Vector2 position)
+    {
+        if (!eligible) return;
+        StopRun();
+        for (int i = 0; i < platforms.Length; i++) platforms[i].ResetSupport();
+        for (int i = 0; i < encounters.Length; i++) encounters[i].activated = false;
+        attempted = false;
+        ElapsedSeconds = 0f;
+        FallenCount = 0;
     }
     private void AreaChanged(int area)
     {
@@ -89,6 +101,7 @@ public sealed class SuperRunManager : MonoBehaviour
     private void OnDestroy()
     {
         if (stage != null) stage.OnAreaChanged -= AreaChanged;
+        if (FallRecoveryManager.Exists) FallRecoveryManager.Instance.OnRespawned -= Respawned;
         if (player != null) player.OnDied -= PlayerDied;
         if (gameOver != null) gameOver.OnGameOver -= PlayerDied;
         StopRun();

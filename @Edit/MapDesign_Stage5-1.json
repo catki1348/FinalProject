@@ -227,7 +227,7 @@
                           "x":  83.759999999999991,
                           "surfaceY":  0.8,
                           "width":  4,
-                          "thickness":  0.8,
+                          "thickness":  0.5,
                           "mainRoute":  false
                       },
                       {
@@ -238,7 +238,7 @@
                           "x":  104.78399999999999,
                           "surfaceY":  0.8,
                           "width":  4,
-                          "thickness":  0.8,
+                          "thickness":  0.5,
                           "mainRoute":  false
                       },
                       {
@@ -917,7 +917,7 @@
                           "x":  408.61778363702319,
                           "surfaceY":  6.8,
                           "width":  4,
-                          "thickness":  0.8,
+                          "thickness":  0.5,
                           "mainRoute":  false
                       },
                       {

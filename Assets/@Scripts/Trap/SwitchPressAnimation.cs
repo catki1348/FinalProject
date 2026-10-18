@@ -3,7 +3,8 @@ using UnityEngine;
 
 // SwitchTrigger 이벤트를 구독해 스위치 스프라이트를 눌렀다 복귀시키는 연출 컴포넌트.
 // 눌림: 발동 순간 pressFrames를 순서대로 재생한다(스프라이트 애니메이션). 프레임이 없으면 아래로 내려가는 연출로 대체한다.
-// 복귀: 쿨다운이 끝나면(OnReady) 프레임을 거꾸로 재생해 원래 상태로 돌아온다. 1회성 스위치는 복귀 이벤트가 없어 눌린 채 유지된다.
+// 복귀: 쿨다운이 끝나면(OnReady) 프레임을 거꾸로 재생해 원래 상태로 돌아온다.
+// 1회성 스위치는 복귀 이벤트가 없어 눌린 채 서서히 어두워지며(사용 완료 표시) 그대로 유지된다.
 public class SwitchPressAnimation : MonoBehaviour
 {
     [SerializeField] private SwitchTrigger switchTrigger;
@@ -14,6 +15,8 @@ public class SwitchPressAnimation : MonoBehaviour
     [SerializeField] private float pressDuration = 0.08f;
     [SerializeField] private float releaseDuration = 0.2f;
     [SerializeField] private Color pressedTint = Color.white;      // 눌림 동안 곱할 색(프레임 그림이 있으면 흰색 유지)
+    [SerializeField] private Color spentTint = new Color(0.45f, 0.45f, 0.5f, 1f); // 1회성 스위치가 사용된 뒤 서서히 어두워지는 색
+    [SerializeField] private float spentDimSeconds = 0.5f;
     [SerializeField] private Transform pulseTarget;                // 선택: 텔레포트 룬 등 발동 순간 부풀릴 대상
     [SerializeField] private float pulseScale = 1.25f;
     [SerializeField] private float pulseDuration = 0.3f;
@@ -87,6 +90,17 @@ public class SwitchPressAnimation : MonoBehaviour
         }
         visual.localPosition = to;
         ShowFrame(1f);
+
+        // 1회성(사용 후 더 이상 작동하지 않음)이면 눌린 채 서서히 어두워져 "사용 완료" 상태로 남는다
+        if (tintTarget != null && switchTrigger != null && switchTrigger.IsOneShot)
+        {
+            for (float t = 0f; t < spentDimSeconds; t += Time.deltaTime)
+            {
+                tintTarget.color = Color.Lerp(pressedTint, spentTint, t / spentDimSeconds);
+                yield return null;
+            }
+            tintTarget.color = spentTint;
+        }
         pressRoutine = null;
     }
 

@@ -57,8 +57,8 @@ function BuildSeg1() {
     $nb = 2; $lg = $segTarget - 1.6 * $nb         # ground lane length: each 0.8 block adds 1.6 to the route
     [void]$pl.Add((NewStat 1 'G1-Ground' 'Normal' 0 $lg 0))
     $b1 = 0.70 * $lg; $b2 = 0.88 * $lg
-    [void]$pl.Add((NewStat 1 'H1-Block1' 'Normal' $b1 ($b1 + 4) 0.8 0.8 $false))
-    [void]$pl.Add((NewStat 1 'H2-Block2' 'Normal' $b2 ($b2 + 4) 0.8 0.8 $false))
+    [void]$pl.Add((NewStat 1 'H1-Block1' 'Normal' $b1 ($b1 + 4) 0.8 0.5 $false))
+    [void]$pl.Add((NewStat 1 'H2-Block2' 'Normal' $b2 ($b2 + 4) 0.8 0.5 $false))
     # upper lane (optional reward lane): entry steps, then a jump chain; every step up is 0.8
     [void]$pl.Add((NewStat 1 'ST1' 'Normal' 18.0 20.4 0.8 0.5 $false))
     [void]$pl.Add((NewStat 1 'ST2' 'Normal' 21.4 23.8 1.6 0.5 $false))
@@ -165,7 +165,7 @@ function BuildSeg5([double]$wg) {
     # phase 1 (1-1): ground lane with a step block at its end, short upper reward chain above it
     $gl = 8.5; $gr = $gl + $wg
     [void]$pl.Add((NewStat 5 'F-Ground' 'Normal' $gl $gr 0.0))
-    [void]$pl.Add((NewStat 5 'F-Block' 'Normal' ($gr - 5.0) ($gr - 1.0) 0.8 0.8 $false))
+    [void]$pl.Add((NewStat 5 'F-Block' 'Normal' ($gr - 5.0) ($gr - 1.0) 0.8 0.5 $false))
     [void]$pl.Add((NewStat 5 'F-ST1' 'Normal' ($gl + 1.5) ($gl + 3.9) 0.8 0.5 $false))
     [void]$pl.Add((NewStat 5 'F-ST2' 'Normal' ($gl + 4.9) ($gl + 7.3) 1.6 0.5 $false))
     # phase 2 (2-1 shared clock): blink platform first (visible until 7.5 s), then the damage platform after its flame goes out, then a safe platform

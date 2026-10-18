@@ -47,11 +47,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IContextDamageable
         OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
 
         DropConditionManager.Register(this); // 몬스터 드랍 조건(저체력/무장해제) 판정용으로 Manager에 등록
+        FallRecoveryManager.Register(this);  // 낙사 시 마지막 안전 발판 기록/복귀용으로 Manager에 등록
     }
 
     private void OnDestroy()
     {
         DropConditionManager.Unregister(this);
+        FallRecoveryManager.Unregister(this);
 
         if (equipment != null)
         {
@@ -104,10 +106,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IContextDamageable
 
     public void TakeDamage(int amount) { TakeDamage(amount, true); }
 
-    private void TakeDamage(int amount, bool tryBlock)
+    // Claude Sonnet 5.5, 2026-10-16: Stage 5 boss chain attacks (specials 4/5) ignore the hit-invincibility window so 40 + 40 can total 80
+    // (BossDesign_Stage5 section 4). Blocking/defense still applies; a successful hit still starts a new invincibility window.
+    public void TakePiercingDamage(DamageContext context)
+    {
+        if (defense != null && context.BaseDamage > 0 &&
+            defense.TryBlock(context.BaseDamage, context.AttackerBody, context.AttackId)) return;
+        TakeDamage(context.BaseDamage, false, true);
+    }
+
+    private void TakeDamage(int amount, bool tryBlock, bool pierceInvincibility = false)
     {
         if (tryBlock && defense != null && amount > 0 && defense.TryBlock(amount)) return;
-        if (Time.time - lastHitTime < invincibleDuration) return;
+        if (!pierceInvincibility && Time.time - lastHitTime < invincibleDuration) return;
         lastHitTime = Time.time;
 
         int actualDamage = Mathf.Max(1, amount - stats.FinalDefense);
@@ -158,6 +169,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IContextDamageable
         }
     }
 
+    // Claude Sonnet 5.5, 2026-10-17: 낙사 복귀 직후 몬스터/함정에 바로 맞지 않도록 seconds 동안 일반 피격(무적 시간 적용 경로)을 막는다.
+    // 보스 연계 특공(TakePiercingDamage)과 환경 피해는 막지 않는다.
+    public void GrantInvulnerability(float seconds)
+    {
+        lastHitTime = Mathf.Max(lastHitTime, Time.time + seconds - invincibleDuration);
+    }
+
     // 체력을 amount만큼 회복한다(현재 상태의 최대 체력을 넘지 않음). 일반 상태면 일반 체력을,
     // 무장해제 상태면 무장해제 체력을 회복한다. 회복 아이템(HealItem)이 호출한다.
     public void Heal(int amount)
@@ -166,6 +184,17 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IContextDamageable
 
         if (isDisarmed) disarmedHealth = Mathf.Min(disarmedMaxHealth, disarmedHealth + amount);
         else currentHealth = Mathf.Min(FinalMaxHealth, currentHealth + amount);
+
+        OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
+    }
+
+    // 현재 상태(일반/무장해제)의 체력을 최대치까지 한 번에 채운다(상태 전환은 하지 않음). 보스 보상 아이템(BossRewardItem)이 호출한다.
+    // Heal(int.MaxValue)는 합산 시 오버플로가 나므로 별도 메서드로 둔다.
+    // 작업 AI: Claude Sonnet 5.5, 2026-10-18 (@Edit/BossRewardItemDesign.md)
+    public void HealToFull()
+    {
+        if (isDisarmed) disarmedHealth = disarmedMaxHealth;
+        else currentHealth = FinalMaxHealth;
 
         OnHealthChanged?.Invoke(CurrentHealth, ActiveMaxHealth);
     }

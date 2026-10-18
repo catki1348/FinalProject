@@ -2,6 +2,8 @@
 
 상태: 2026-10-08 코드 및 Stage1 Unity 씬 적용.
 
+> **2026-10-17 비활성화**: 물리 슬라이드를 껐다. `PlayerMovement.slopeSlideAllowed`(기본 꺼짐)가 꺼져 있으면 `StageManager.enableSection2SlopeSlide`가 켜져 있어도 슬라이드가 시작되지 않고 경사는 일반 걷기로만 이동한다. 코드와 Stage1 씬 설정은 보존했다. 다시 쓰려면 플레이어 프리팹에서 `slopeSlideAllowed`를 켠다. 같은 날 슬라이드 애니메이션 지원 코드도 제거했다(`@Backup/PlayerSlideAnimation_20261017`).
+
 ## 의도
 
 대각선 발판은 경사진 지면을 의미한다. 움직이는 발판에 탑승하는 기능과는 별개다.

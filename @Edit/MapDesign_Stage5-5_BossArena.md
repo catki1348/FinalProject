@@ -2,7 +2,7 @@
 # 맵 설계 5-5 — 쌍검 악마군주 보스존
 
 작성일: 2026-10-16
-상태: **설계 완료 / Unity 미적용.** 생성·검증 스크립트 `Generate_Stage5-5_BossArena.py`가 `MapDesign_Stage5-5_BossArena.json`과 프리뷰 `MapPreview_Stage5-5_BossArena.svg`를 만든다. 수치 검증 12개 통과(실제 전투 검증은 아님).
+상태: **설계 완료 / 2026-10-16 Unity Stage5 적용 완료**(적용기 `Assets/@Scripts/Editor/DeployStage55.cs`, 보스5 포함, `Stage21_55_Implementation_20261016.md`). 직접 전투 검증 전. 생성·검증 스크립트 `Generate_Stage5-5_BossArena.py`가 `MapDesign_Stage5-5_BossArena.json`과 프리뷰 `MapPreview_Stage5-5_BossArena.svg`를 만든다. 수치 검증 12개 통과(실제 전투 검증은 아님).
 대상: `Stage5.unity`의 `Section_5` (현재 20×15 임시 영역, 기본 발판만 존재)
 
 ## 1. 문제
@@ -70,3 +70,8 @@
 - 도달 거리·돌진 보폭 0.6·몸 길이 2.6은 테스트 코드와 원화에서 가져온 추정이다. 실제 컨트롤러가 생기면 재검증한다.
 - 위 수치는 계산이며 직접 조작 전투 검증은 하지 않았다. W 40이 너무 넓거나 좁은지는 수동 플레이로 확정한다.
 - 보스 본체(모션·VFX·음원·컨트롤러)가 없으므로 아레나만 적용해도 전투는 불가능하다.
+
+## 8. 후속 수정 — 바닥을 발판 프리팹으로 (2026-10-16 저녁)
+
+<!-- AI work record: Claude Sonnet 5.5, 2026-10-16. Replaced the hand-built Floor in P_Stage5_DemonArena by a nested instance of P_Stage52_normal. -->
+Stage5 씬의 발판 381개 인스턴스는 전부 프리팹이었지만, 5-5 아레나 프리팹 `P_Stage5_DemonArena`의 `Floor`만 SpriteRenderer·BoxCollider2D·PlatformCore를 직접 붙인 일반 오브젝트였다(규칙 45 위반). `Floor`를 Stage5 발판 프리팹 `P_Stage52_normal`(Platform_Stage5_Hellscape 변형)의 **중첩 프리팹 인스턴스**로 교체했다. 오버라이드는 이름·위치(0, −0.5)·크기(40×1, 스프라이트와 콜라이더)뿐이다. 벽 2개와 낙사 트리거는 대응하는 발판 프리팹이 없어 그대로 둔다. 씬의 `Arena_5-5` 인스턴스는 루트 이름·위치만 오버라이드해 영향이 없다. `DeployStage55.cs`도 같은 방식으로 수정했다.

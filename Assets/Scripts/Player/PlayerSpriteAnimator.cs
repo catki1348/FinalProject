@@ -272,8 +272,8 @@ public class PlayerSpriteAnimator : MonoBehaviour
             return;
         }
 
-        // 경사에서도 별도 등반/슬라이드 그림 대신 기존 이동 모션을 사용한다.
-        if (Mathf.Abs(movement.MoveInput) > 0.01f || movement.IsSliding)
+        // 슬라이드 전용 표시는 없다(2026-10-17 제거). 이동 입력이 있을 때만 이동 모션을 쓴다.
+        if (Mathf.Abs(movement.MoveInput) > 0.01f)
         {
             bool isRunning = Input.GetKey(runKey);
             if (isRunning)

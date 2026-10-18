@@ -8,6 +8,7 @@ using UnityEngine;
 public class RearmItem : MonoBehaviour
 {
     [SerializeField] private AudioClip pickupSfx; // 획득 효과음(비워두면 재생하지 않음)
+    [SerializeField, Range(0f, 1f)] private float pickupVolume = 0.4f; // 획득음 음량 배율(원본 클립이 커서 줄임. 옵션의 효과음 볼륨과 별개로 곱해짐)
 
     private bool consumed; // 중복 획득 방지
 
@@ -19,7 +20,7 @@ public class RearmItem : MonoBehaviour
         if (!health.Rearm()) return;
 
         consumed = true;
-        SoundManager.Instance.PlaySfx(pickupSfx);
+        SoundManager.Instance.PlaySfx(pickupSfx, pickupVolume);
         Destroy(gameObject);
     }
 }

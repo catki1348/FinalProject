@@ -392,7 +392,7 @@ public class MonsterSpawnTrigger : ZoneEventTrigger
 5. **투사체 외형**: 3D 메시 대신 2D 스프라이트(`SpriteRenderer`), 진행 방향이 +X가 되도록 제작. `blockLayers`는 `Ground`만 선택.
 6. 예고 시간(0.5초)과 투사체 비행 시간은 맵 설계서의 "노리는 구간 도달 시각"에 영향을 주므로, 3-4의 저격형 설계는 **스위치 접촉 → 예고 0.5초 → 발사** 지연을 반영해 재확인한다.
 
-7. **텔레포트 함정은 별도 스위치 판 없이 마법진 자체가 발판으로 작동한다**(자체 작동형 `텔레포트 발판`, 상세는 `TrapDesign_SwitchTeleport.md` 13항). 플레이어가 마법진 위를 밟으면 그 자리에서 작동하며, 스위치 판을 따로 만들거나 따로 배치하지 않는다. 내부적으로는 `SwitchTrigger`(감지) + `SwitchTeleportTrap`(이동)을 쓰되 눈에 보이는 스위치 외형은 없다. 구간 진입형 `TeleportTrap`은 낙하 포착처럼 눈에 보이는 장치가 없는 경우에만 쓴다.
+7. **텔레포트 함정은 별도 스위치 판 없이 마법진 자체가 발판으로 작동한다**(자체 작동형 `텔레포트 발판`, 상세는 `TrapDesign_SwitchTeleport.md` 13항). 플레이어가 마법진 위를 밟으면 그 자리에서 작동하며, 스위치 판을 따로 만들거나 따로 배치하지 않는다. 내부적으로는 `SwitchTrigger`(감지) + `SwitchTeleportTrap`(이동)을 쓰되 눈에 보이는 스위치 외형은 없다. 구간 진입형 `TeleportTrap`은 낙하 포착처럼 눈에 보이는 장치가 없는 경우에만 쓴다. **워프 함정은 1회 발동 후 더 이상 작동하지 않는다**(`SwitchTrigger.oneShot = true`, 사용 후 눌린 채 어두워진 상태로 고정, `TrapDesign_SwitchTeleport.md` 14항). 낙하 포착형을 포함해 배치된 모든 워프 함정에 적용한다.
 8. **텔레포트 효과는 별도 지정이 없으면 플레이어를 해당 영역의 시작점(`ZoneStartPoint`)으로 보낸다.** 다른 지점으로 보낼 때만 `customDestination`을 지정한다.
 9. **텔레포트는 예고 없이 즉시 발동**한다. 벌칙 피해는 기본 0이며, 필요할 때만 `penaltyDamage`(`SerializeField`)로 함정마다 조절한다.
 10. **함정 설치 수량은 맵 설계 시 사용자가 지정**한다. 설계자가 임의로 정하지 않는다.

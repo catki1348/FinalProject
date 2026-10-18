@@ -86,7 +86,7 @@ Physics2D.simulationMode = prevMode;
 - [ ] 이동 로직 경로(입력→속도 적용)가 예외 없이 동작
 - [ ] 사격→피해→적 사망(체력 0 도달) 정상
 - [ ] 목표(Goal) 트리거 정상 (`STAGE CLEAR` 로그 등)
-- [ ] 맵 밖 추락 시 안전장치(GameOverManager 등) 정상 동작
+- [ ] 맵 밖 추락 시 낙사 복귀 정상 동작(체력 35 손실 + 마지막 안전 발판 복귀, 체력 35 이하면 GameOverManager 게임오버) — [SystemDesign_FallRecovery.md](SystemDesign_FallRecovery.md)
 - [ ] 3장에서 새로 반영한 항목이 있다면 그것도 별도 확인
 
 ## 7. MCP 툴 파라미터 주의사항 (환경 이슈, 2026-09-16 관찰)

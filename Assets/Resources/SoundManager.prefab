@@ -47,3 +47,4 @@ MonoBehaviour:
   bgmVolume: 0.5
   sfxVolume: 1
   ambienceVolume: 0.4
+  fallRecoverySfx: {fileID: 8300000, guid: f14c223df3636024882eadebd7e719e3, type: 3}

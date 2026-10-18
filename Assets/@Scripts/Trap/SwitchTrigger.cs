@@ -12,6 +12,9 @@ public class SwitchTrigger : MonoBehaviour
     private bool consumed;
     private float cooldownTimer;
 
+    // 1회만 발동하는 스위치인지(연출 쪽에서 "사용 완료" 표현을 결정할 때 사용)
+    public bool IsOneShot => oneShot;
+
     // 스위치가 눌렸을 때 발생(ProjectileLauncher 등이 구독)
     public event Action OnActivated;
 
@@ -43,12 +46,13 @@ public class SwitchTrigger : MonoBehaviour
         Rigidbody2D body = other.attachedRigidbody;
         if (body == null || !body.TryGetComponent<PlayerMovement>(out _)) return;
 
+        // 이벤트 구독자가 플레이어를 옮기는 등 재진입이 일어나도 한 번만 발동하도록 먼저 소진/쿨다운 처리
+        if (oneShot) consumed = true;
+        else cooldownTimer = cooldown;
+
         SoundManager.Instance.PlaySfx(activateSfx);
         OnActivated?.Invoke();
         OnActivatedByPlayer?.Invoke(body);
-
-        if (oneShot) consumed = true;
-        else cooldownTimer = cooldown;
     }
 
     // 씬 뷰에서 스위치 영역을 노란 박스로 표시

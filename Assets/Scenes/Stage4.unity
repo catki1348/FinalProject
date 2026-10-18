@@ -1758,7 +1758,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1769998667}
+    m_TransformParent: {fileID: 1842397516}
     m_Modifications:
     - target: {fileID: 3077604084738426477, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: path
@@ -1778,11 +1778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6778626886705111861, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -73.900604
       objectReference: {fileID: 0}
     - target: {fileID: 6778626886705111861, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 78.92627
       objectReference: {fileID: 0}
     - target: {fileID: 6778626886705111861, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10425,10 +10425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5047918783090900701, guid: acea117badd46444eab0dae8f8a22f74, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1974290814}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6213700131119680197, guid: acea117badd46444eab0dae8f8a22f74, type: 3}
       insertIndex: -1
@@ -10473,7 +10470,7 @@ MonoBehaviour:
   synchronizedCycleDuration: 0
   startOnFirstBoard: 0
   riderDetectMargin: 0.15
-  offscreenSpeedMultiplier: 1
+  offscreenSpeedMultiplier: 5
   offscreenMargin: 2
   speedBlendRate: 20
 --- !u!114 &470729206
@@ -13540,7 +13537,7 @@ MonoBehaviour:
   synchronizedCycleDuration: 0
   startOnFirstBoard: 0
   riderDetectMargin: 0.15
-  offscreenSpeedMultiplier: 1
+  offscreenSpeedMultiplier: 5
   offscreenMargin: 2
   speedBlendRate: 20
 --- !u!114 &633070060
@@ -13823,7 +13820,7 @@ MonoBehaviour:
   synchronizedCycleDuration: 0
   startOnFirstBoard: 0
   riderDetectMargin: 0.15
-  offscreenSpeedMultiplier: 1
+  offscreenSpeedMultiplier: 5
   offscreenMargin: 2
   speedBlendRate: 20
 --- !u!114 &645008617
@@ -16514,7 +16511,7 @@ MonoBehaviour:
   synchronizedCycleDuration: 0
   startOnFirstBoard: 0
   riderDetectMargin: 0.15
-  offscreenSpeedMultiplier: 1
+  offscreenSpeedMultiplier: 5
   offscreenMargin: 2
   speedBlendRate: 20
 --- !u!114 &794510855
@@ -22375,6 +22372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3134082912862769928, guid: 58d46cc5ca6069847aabef2306b29237, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3277666606294764196, guid: 58d46cc5ca6069847aabef2306b29237, type: 3}
       propertyPath: m_Size.x
       value: 5
@@ -23556,7 +23557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688dab30464420e428bba03bffb83fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WarpManager
-  testStartZone: 
+  testStartZone: 4-2
   testPlatformName: 
 --- !u!4 &1125846081
 Transform:
@@ -29488,8 +29489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageManager
   nextStageSceneName: Stage5
-  stageBgm: {fileID: 0}
-  stageAmbience: {fileID: 0}
+  stageBgm: {fileID: 8300000, guid: c3d4d3031905abe439b42a8501056f13, type: 3}
+  stageAmbience: {fileID: 8300000, guid: 8687c2b29c8cfed44bfa8b42dc0a4f0f, type: 3}
   player: {fileID: 784274434}
   stageIndex: 4
   enableSection2SlopeSlide: 0
@@ -34754,6 +34755,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3134082912862769928, guid: 58d46cc5ca6069847aabef2306b29237, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3277666606294764196, guid: 58d46cc5ca6069847aabef2306b29237, type: 3}
       propertyPath: m_Size.x
       value: 15.1
@@ -34968,10 +34973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5047918783090900701, guid: acea117badd46444eab0dae8f8a22f74, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 43719249}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6213700131119680197, guid: acea117badd46444eab0dae8f8a22f74, type: 3}
       insertIndex: -1
@@ -35016,7 +35018,7 @@ MonoBehaviour:
   synchronizedCycleDuration: 0
   startOnFirstBoard: 0
   riderDetectMargin: 0.15
-  offscreenSpeedMultiplier: 1
+  offscreenSpeedMultiplier: 5
   offscreenMargin: 2
   speedBlendRate: 20
 --- !u!114 &1769998669
@@ -36544,6 +36546,8 @@ Transform:
   - {fileID: 190165450}
   - {fileID: 1462778425}
   - {fileID: 1352007619}
+  - {fileID: 1974290814}
+  - {fileID: 43719249}
   m_Father: {fileID: 1453473392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1853610124
@@ -38663,7 +38667,7 @@ MonoBehaviour:
   synchronizedCycleDuration: 0
   startOnFirstBoard: 0
   riderDetectMargin: 0.15
-  offscreenSpeedMultiplier: 1
+  offscreenSpeedMultiplier: 5
   offscreenMargin: 2
   speedBlendRate: 20
 --- !u!114 &1962295374
@@ -38793,7 +38797,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 470729204}
+    m_TransformParent: {fileID: 1842397516}
     m_Modifications:
     - target: {fileID: 3077604084738426477, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: path
@@ -38813,11 +38817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6778626886705111861, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -45.915054
       objectReference: {fileID: 0}
     - target: {fileID: 6778626886705111861, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 124.16389
       objectReference: {fileID: 0}
     - target: {fileID: 6778626886705111861, guid: 61346bd989cb29d4c9086021241841c3, type: 3}
       propertyPath: m_LocalPosition.z

@@ -12,6 +12,7 @@ public class SpeedBoostItem : MonoBehaviour
     [SerializeField, Min(1)] private int maxStacks = 5;         // 최대 중첩 수
     [SerializeField, Min(0.1f)] private float duration = 5f;    // 버프 지속시간(초, 습득마다 갱신)
     [SerializeField] private AudioClip pickupSfx;               // 획득 효과음(비워두면 재생하지 않음)
+    [SerializeField, Range(0f, 1f)] private float pickupVolume = 0.3f; // 획득음 음량 배율(원본 클립이 가장 커서 크게 줄임. 옵션의 효과음 볼륨과 별개로 곱해짐)
 
     private bool consumed; // 같은 프레임에 중복 획득되는 것 방지
 
@@ -23,7 +24,7 @@ public class SpeedBoostItem : MonoBehaviour
 
         consumed = true;
         PlayerSpeedBuff.GetOrAdd(player).AddStack(stackBonus, maxStacks, duration);
-        SoundManager.Instance.PlaySfx(pickupSfx);
+        SoundManager.Instance.PlaySfx(pickupSfx, pickupVolume);
         Destroy(gameObject);
     }
 }

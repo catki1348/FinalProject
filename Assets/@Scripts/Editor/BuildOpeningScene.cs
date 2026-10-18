@@ -81,7 +81,7 @@ public static class BuildOpeningScene
         so.ApplyModifiedPropertiesWithoutUndo();
 
         EditorSceneManager.SaveScene(scene, ScenePath);
-        AddToBuildSettingsFirst();
+        // (오프닝은 이제 MainMenu 씬에 통합됨: 이 별도 씬은 빌드 설정에 추가하지 않는다)
         Debug.Log("[BuildOpeningScene] 저장 완료: " + ScenePath + " (폰트: " + (font != null ? font.name : "NULL") + ")");
     }
 

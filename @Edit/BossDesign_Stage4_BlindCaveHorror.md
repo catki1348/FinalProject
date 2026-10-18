@@ -178,3 +178,6 @@ Trigger `Jump`, `Charge` 추가. AnyState→Jump/Charge→Idle(ExitTime 1), Dura
 
 ### 사운드 필드
 모든 동작(기존 8종 + 점프·돌진)에 비어 있는 사운드 필드를 둔다. 빈 필드는 무음이며 나중에 음원만 채우면 된다. 정의는 `@Edit/Stage4_Attacks/BossSoundFields.json`에 있다. 새 `BossSfx` 값은 기존 번호를 유지하고 끝에 추가한다.
+
+### 사망 모션 제작 (2026-10-18)
+사망 4프레임(15~18번, `Death_01~04.png`)을 제작하고 `Boss_Death` 클립에 적용했다(0 / 0.25 / 0.5 / 0.8초 전환, 1.1초, 마지막 자세 유지). 대기·이동·그로기 3종은 아직 하단 휩쓸기 원화를 임시로 쓴다. 상세는 `@Edit/Stage4_Attacks/GenerationNotes.md`.

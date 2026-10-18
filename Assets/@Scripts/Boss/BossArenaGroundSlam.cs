@@ -2,6 +2,7 @@ using UnityEngine;
 
 // 최하단 지면 전체 공격: 상부 발판과 상호작용하지 않고 플레이어 발 높이로 회피를 판정한다.
 // OpenAI Codex (GPT-6), 2026-10-14.
+// AI 작업 기록: Claude (Sonnet 5.5), 2026-10-16 - 단색 판정 띠 대신 이펙트 이미지(BossFieldSlamEffect)로 경고/분출을 표시.
 [DisallowMultipleComponent]
 public class BossArenaGroundSlam : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class BossArenaGroundSlam : MonoBehaviour
     [SerializeField] private float activeDuration = 0.75f;
     [SerializeField] private float hazardHeight = 0.25f;
     [SerializeField] private int damage = 25;
+    [SerializeField] private Sprite warnSprite;        // 경고 이펙트 이미지(없으면 예전 단색 띠 사용)
+    [SerializeField] private Sprite[] burstFrames;     // 분출 이펙트 이미지 단계
+    private BossFieldSlamEffect effect;
     private Boss boss;
     private Collider2D playerBody;
     private PlayerHealth playerHealth;
@@ -25,7 +29,18 @@ public class BossArenaGroundSlam : MonoBehaviour
     // 씬의 최하단 바닥과 전체 폭 표시기만 연결한다.
     public void Configure(BoxCollider2D floor, SpriteRenderer indicator)
     { arenaFloor = floor; groundIndicator = indicator; Cancel(); }
-    private void Awake() { boss = GetComponent<Boss>(); }
+    // 이펙트 이미지가 연결되어 있으면 자식에 이펙트 표시기를 한 번 만든다.
+    private void Awake()
+    {
+        boss = GetComponent<Boss>();
+        if (warnSprite != null && burstFrames != null && burstFrames.Length > 0)
+        {
+            var go = new GameObject("FieldSlamEffect");
+            go.transform.SetParent(transform, false);
+            effect = go.AddComponent<BossFieldSlamEffect>();
+            effect.Configure(warnSprite, burstFrames, transform);
+        }
+    }
     private void OnEnable() { if (boss != null) boss.OnDied += Cancel; }
     private void OnDisable() { if (boss != null) boss.OnDied -= Cancel; Cancel(); }
 
@@ -36,7 +51,8 @@ public class BossArenaGroundSlam : MonoBehaviour
         if (arenaFloor == null) return;
         IsWarning = true;
         warningStarted = Time.time;
-        ShowIndicator(new Color(1f, 0.75f, 0.12f, 0.65f));
+        if (effect != null) { Bounds f = arenaFloor.bounds; effect.ShowWarning(f.min.x, f.max.x, f.max.y); }
+        else ShowIndicator(new Color(1f, 0.75f, 0.12f, 0.65f));
     }
 
     // 실제 바닥 착지 확인은 Controller가 담당하고 최소 경고 시간을 보장한다.
@@ -47,7 +63,8 @@ public class BossArenaGroundSlam : MonoBehaviour
         IsActive = true;
         hitPlayer = false;
         activeUntil = Time.time + activeDuration;
-        ShowIndicator(new Color(1f, 0.16f, 0.06f, 0.85f));
+        if (effect != null) { Bounds f = arenaFloor.bounds; effect.PlayBurst(f.min.x, f.max.x, f.max.y, transform.position.x, activeDuration); }
+        else ShowIndicator(new Color(1f, 0.16f, 0.06f, 0.85f));
         return true;
     }
 
@@ -89,5 +106,5 @@ public class BossArenaGroundSlam : MonoBehaviour
     }
     // 취소/종료/사망/영역 비활성화 시 피해와 표시를 정리한다.
     public void Cancel()
-    { IsWarning = false; IsActive = false; hitPlayer = false; if (groundIndicator != null) groundIndicator.enabled = false; }
+    { IsWarning = false; IsActive = false; hitPlayer = false; if (groundIndicator != null) groundIndicator.enabled = false; if (effect != null) effect.Hide(); }
 }

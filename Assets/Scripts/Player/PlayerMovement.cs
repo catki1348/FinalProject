@@ -21,10 +21,12 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;     // 좌우 입력값(-1 ~ 1)
     private bool isGrounded;     // 현재 바닥에 닿아있는지 여부
     private Vector2 groundNormal = Vector2.up; // 현재 서 있는 지면의 법선(평지는 (0,1), 경사면이면 기울어진 값)
-    private Vector2 groundPoint; // 같은 접지 검사에서 얻은 표면 위치(경사 애니메이션 발 정렬용)
     private float slopeSpeed; // 충돌 해석 전 이동 계산이 정한 접선 속도. 이음매의 순간적인 y속도 변화와 구분한다.
     private bool isJumping;      // 점프 버튼으로 상승 중인지(경사면에 부딪혀 생기는 순간적인 튕김과 구분하기 위한 명시적 플래그)
     [Header("경사 슬라이드")]
+    // 물리 슬라이드 허용 스위치. 기본 꺼짐(2026-10-17 비활성화): 꺼져 있으면 StageManager가 켜도 슬라이드가 시작되지 않고
+    // 경사는 일반 걷기로만 이동한다. 다시 쓰려면 플레이어 프리팹의 이 값을 켠다.
+    [SerializeField] private bool slopeSlideAllowed;
     [SerializeField] private float slideStartAngle = 12f;
     [SerializeField] private float slideEndAngle = 6f;
     [SerializeField] private float slideMinSpeed = 3f;
@@ -38,28 +40,10 @@ public class PlayerMovement : MonoBehaviour
     private readonly RaycastHit2D[] slideGroundHits = new RaycastHit2D[8];
     public bool IsSliding { get; private set; }
 
-    // 실제 접지 법선과 진행 속도를 표시 쪽에 전달한다. 점프/평지의 수직 속도는 등반으로 보지 않는다.
-    public Vector2 GroundNormal => groundNormal;
-    public Vector2 GroundPoint => groundPoint;
-    public float SlopeSpeed => slopeSpeed;
-
-    // 물리 접촉 모서리의 접선을 연장하지 않고, 그림 바로 아래의 실제 곡선 표면을 찾는다.
-    public bool TryGetVisualGround(out RaycastHit2D hit)
-    {
-        Bounds bounds = bodyCollider.bounds;
-        Vector2 origin = new Vector2(transform.position.x, bounds.max.y + 0.1f);
-        hit = Physics2D.Raycast(origin, Vector2.down, bounds.size.y + 0.35f, groundLayer);
-        return hit.collider != null && hit.normal.y > 0.01f;
-    }
-    public bool IsMovingUphill => isGrounded && hasWalkableGround && !isJumping &&
-        Vector2.Angle(groundNormal, Vector2.up) >= 8f && -groundNormal.x * slopeSpeed > 0.1f;
-    public bool IsMovingDownhill => isGrounded && hasWalkableGround && !isJumping &&
-        Vector2.Angle(groundNormal, Vector2.up) >= 8f && -groundNormal.x * slopeSpeed < -0.1f;
-
     // 영역 전환 시 StageManager가 호출한다. 다른 영역에는 관성 상태를 넘기지 않는다.
     public void SetSlopeSlideEnabled(bool enabled)
     {
-        slideEnabled = enabled;
+        slideEnabled = enabled && slopeSlideAllowed;
         IsSliding = false;
         slideAirborne = false;
         slopeSpeed = 0f;
@@ -229,7 +213,6 @@ public class PlayerMovement : MonoBehaviour
                 if (Vector2.Angle(contact.normal, Vector2.up) > 80f || contact.distance >= nearest) continue;
                 nearest = contact.distance;
                 groundNormal = contact.normal;
-                groundPoint = contact.point;
                 hasWalkableGround = true;
             }
             isGrounded = hasWalkableGround;
@@ -249,7 +232,6 @@ public class PlayerMovement : MonoBehaviour
         float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
         if (slopeAngle > maxWalkableSlopeAngle) return;
         hasWalkableGround = true;
-        groundPoint = hit.point;
         if (slopeAngle < 0.5f) return;
 
         groundNormal = hit.normal;

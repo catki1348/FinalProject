@@ -47,6 +47,16 @@ public class StageManager : MonoBehaviour
         if (WarpManager.Instance == null ||
             !WarpManager.Instance.TryGetTestPlatformPosition(player, out Vector2 position)) return false;
 
+        WarpPlayerTo(position, true);
+        return true;
+    }
+
+    // Claude Sonnet 5.5, 2026-10-17: 플레이어를 position으로 옮기고, 그 위치가 속한 카메라 구간으로 진행 영역(CurrentArea)과 카메라를 맞춘다.
+    // WarpManager 테스트 이동과 낙사 복귀(FallRecoveryManager)가 함께 쓴다. notifyAlways=false면 영역이 실제로 바뀔 때만 OnAreaChanged를 발행한다.
+    public void WarpPlayerTo(Vector2 position, bool notifyAlways)
+    {
+        if (player == null) return;
+        int previousArea = CurrentArea;
         CameraBoundsZone destinationZone = null;
         if (zoneCameraBounds != null)
         for (int i = 0; i < zoneCameraBounds.Length; i++)
@@ -60,6 +70,7 @@ public class StageManager : MonoBehaviour
             destinationZone = zone;
             break;
         }
+        if (destinationZone == null && cameraFollow != null) destinationZone = cameraFollow.ActiveZone; // 어느 구간에도 없으면 현재 구간 유지
 
         if (player.TryGetComponent(out PlayerMovement movement))
             movement.SetSlopeSlideEnabled(enableSection2SlopeSlide && CurrentArea == 2);
@@ -72,7 +83,16 @@ public class StageManager : MonoBehaviour
         else player.position = new Vector3(position.x, position.y, player.position.z);
 
         if (cameraFollow != null) cameraFollow.SnapTo(position, destinationZone);
-        OnAreaChanged?.Invoke(CurrentArea);
+        if (notifyAlways || CurrentArea != previousArea) OnAreaChanged?.Invoke(CurrentArea);
+    }
+
+    // 현재 영역의 시작 지점(★) 위치 - 낙사 복귀 기록이 없을 때의 복귀 지점
+    public bool TryGetCurrentAreaStart(out Vector2 position)
+    {
+        int index = CurrentArea - 1;
+        position = default;
+        if (zoneStartPoints == null || index < 0 || index >= zoneStartPoints.Length || zoneStartPoints[index] == null) return false;
+        position = zoneStartPoints[index].transform.position;
         return true;
     }
 

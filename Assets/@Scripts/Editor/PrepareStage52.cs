@@ -33,17 +33,12 @@ public static class PrepareStage52
         finally {if(exists)PrefabUtility.UnloadPrefabContents(go);else UnityEngine.Object.DestroyImmediate(go);}
     }
 
-    // Full rectangle sprite data is local to preparation; no shared importer is changed.
+    // Same whole-block tile as every Stage5 platform (see DeployStage51.Tile): collision = body, spikes = appearance.
     static Sprite Tile()
     {
-        string path=Folder+"T_Stage52_RunwayStrip.asset";
-        var sprite=AssetDatabase.LoadAssetAtPath<Sprite>(path);if(sprite)return sprite;
-        var original=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/@ExternalAssets/Tiles/Platform_Stage5_Hellscape.png");
-        var texture=original.texture;
-        // The original is a perspective block with background padding, not a repeating flat tile.
-        // Crop only its opaque front masonry; 100 PPU gives a native 0.5-unit-thick strip.
-        sprite=Sprite.Create(texture,new Rect(230,374,450,50),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect);
-        AssetDatabase.CreateAsset(sprite,path);return sprite;
+        var sprite=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/@ExternalAssets/Tiles/Platform_Stage5_Hellscape_Tiled.png");
+        if(!sprite)throw new InvalidOperationException("Missing Stage5 block tile");
+        return sprite;
     }
 
     static GameObject PlatformPrefab(string kind,Sprite tile)
@@ -59,9 +54,9 @@ public static class PrepareStage52
             else if(kind=="disappearing")go.AddComponent<DisappearingFoothold>();
             else if(kind=="damage_floor"&&!go.GetComponent<RunwayDamage>())go.AddComponent<RunwayDamage>();
             go.layer=LayerMask.NameToLayer("Ground");
-            var sr=go.GetComponent<SpriteRenderer>();sr.sprite=tile;sr.drawMode=SpriteDrawMode.Tiled;sr.tileMode=SpriteTileMode.Continuous;sr.size=new Vector2(3,.5f);
+            var sr=go.GetComponent<SpriteRenderer>();sr.sprite=tile;sr.drawMode=SpriteDrawMode.Tiled;sr.tileMode=SpriteTileMode.Continuous;sr.size=new Vector2(3,.785f);
             sr.color=kind=="damage"||kind=="damage_floor"?new Color(1,.4f,.35f):kind=="blink"?new Color(.7f,.7f,1):Color.white;
-            var box=go.GetComponent<BoxCollider2D>();box.autoTiling=false;box.size=sr.size;box.offset=Vector2.zero;
+            var box=go.GetComponent<BoxCollider2D>();box.autoTiling=false;box.size=new Vector2(3,.5f);box.offset=Vector2.zero;
             go.transform.localScale=Vector3.one;
         });
     }
@@ -157,7 +152,7 @@ public static class PrepareStage52
             if(!prefabs.ContainsKey(kind))prefabs[kind]=PlatformPrefab(kind,tile);
             var go=(GameObject)PrefabUtility.InstantiatePrefab(prefabs[kind],root52);go.name=p.id;
             go.transform.localPosition=new Vector3(p.x,p.y-.25f,0);
-            Set(go.GetComponent<SpriteRenderer>(),so=>so.FindProperty("m_Size").vector2Value=new Vector2(p.width,.5f));
+            Set(go.GetComponent<SpriteRenderer>(),so=>so.FindProperty("m_Size").vector2Value=new Vector2(p.width,.785f));
             Set(go.GetComponent<BoxCollider2D>(),so=>so.FindProperty("m_Size").vector2Value=new Vector2(p.width,.5f));
             go.transform.localScale=Vector3.one;PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform);
             if(p.points.Length>0) {

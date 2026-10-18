@@ -7,6 +7,7 @@
 
 - [BossDesign_Stage5_TwinBladeDemonOverlord.md](BossDesign_Stage5_TwinBladeDemonOverlord.md) — 설계 v3: 공격 동작 5가지(일공1~3 단독 / 일공n+특공4+5 연계, 특공 각 40), 애니메이션 `Stage5_Attacks_v2/`(GIF 6패턴), Unity 임시 테스트 씬 Test000(컨셉 테스트, 본 게임 미적용)
 - [CameraDesign_FollowCamera.md](CameraDesign_FollowCamera.md) — 원래 위치: 프로젝트 루트
+- [BossRewardItemDesign.md](BossRewardItemDesign.md) — 신규 작성 (보스 처치 보상 아이템: 보스존 중앙 드랍, 체력 전체 회복 + 종료점 역할, 스크립트 작성 완료 / Unity 미적용)
 - [ItemDropDesign.md](ItemDropDesign.md) — 신규 작성 (몬스터 드랍 아이템 설계, 등급별 드랍 테이블·수명·파밍 방지, 설계만 / 승인 대기)
 - [LHS_Custumer.md](LHS_Custumer.md) — 원래 위치: 프로젝트 루트
 - [MapDesign_Stage1-2.md](MapDesign_Stage1-2.md) — 원래 위치: 프로젝트 루트
@@ -16,6 +17,7 @@
 - [2-2 최신 수정 설계](MapDesign_Stage22_Revision2_20261016.md) — 2026-10-16 설계 완료 / Unity 미적용. 이동·점프 초기 속도 동시 80%, 소멸 구간 폭·간격·상승·시간 재설계. [이전 이력](MapDesign_Stage2-2.md)
 - [MapDesign_Stage2-3.md](MapDesign_Stage2-3.md) — 신규 작성
 - [MapDesign_Stage2-4.md](MapDesign_Stage2-4.md) — 신규 작성
+- [2-4 수정 설계](MapDesign_Stage2-4_Revision.md) — 2026-10-16 설계 완료 / Unity 미적용. 점프 불가 구간(V1→V2·V2→V3·Z2→Z3)·경로 미연결·긴 대기 수정, 시뮬레이터 `Stage24_Revision_Tools/`
 - [MapDesign_Stage4-3.md](MapDesign_Stage4-3.md) — 신규 작성 (일반·데미지 37발판, 동선 60, 추격 몬스터 스폰 함정 6, Generate_Stage4-3.ps1로 재생성)
 - [MapDesign_Stage3-3.md](MapDesign_Stage3-3.md) — Unity 적용 완료(2026-10-14, 77발판·화살 20·텔레포트 30, 3-4 이후 +547 이동, DeployStage3-3.cs)
 - [MapDesign_Stage3-4.md](MapDesign_Stage3-4.md) — 신규 작성 (Unity 적용 완료, 12항)

@@ -108,7 +108,7 @@ public static class DeployStage54
             if (!prefabs[kind]) throw new InvalidOperationException("Missing prefab for " + kind);
             var go = (GameObject)PrefabUtility.InstantiatePrefab(prefabs[kind], root); go.name = "Platform_5-4_" + p.id;
             go.transform.localPosition = new Vector3(p.points[0].x, p.points[0].y - thick / 2, 0);
-            Set(go.GetComponent<SpriteRenderer>(), so => so.FindProperty("m_Size").vector2Value = new Vector2(p.width, thick));
+            Set(go.GetComponent<SpriteRenderer>(), so => so.FindProperty("m_Size").vector2Value = new Vector2(p.width, 0.785f)); // renderer = whole block tile (spikes are appearance); collider below stays 0.5
             Set(go.GetComponent<BoxCollider2D>(), so => { so.FindProperty("m_Size").vector2Value = new Vector2(p.width, thick); so.FindProperty("m_Offset").vector2Value = Vector2.zero; });
             go.transform.localScale = Vector3.one;
             if (kind == "moving")

@@ -231,3 +231,22 @@
 - 환경 변경 후 `.glb`와 최종 합성 이미지(v1~v7)가 git 미추적이라 사라져 있어, VARCO의 동일 모델(`...SwordRaised_4K.glb`)을 다시 받고 `repose_arm.py`(20°, 22°)와 `compose_opening_v4.py`로 v7을 재현함(정점 수·각도 동일 확인).
 - (이전) 초기 미리보기: `@Edit/OpeningPreview/OpeningScreen_Preview.png` (생성 스크립트 `compose_opening.py`, Unity 미사용)
 - Unity 적용: 사용자 승인 대기 (수칙 9·11)
+- **빌드 진행 순서: 오프닝 → 메인 메뉴 → 스테이지 1~5 (사용자 지시)**:
+  - 빌드 설정(`EditorBuildSettings`) 순서: 0 Opening, 1 MainMenu, 2~6 Stage1~Stage5. 개발용 `SampleScene`은 빌드에서 제외(씬 파일은 보존).
+  - 씬 전환: Opening → (엔터) `MainMenu` (`OpeningScreenController.nextSceneName`: `Stage1` → `MainMenu`로 변경, 기본값·씬 저장값 모두) / MainMenu → (START) `Stage1` / Stage1→2→3→4→5는 각 `StageManager.nextStageSceneName`(Stage2~Stage5)으로 이미 연결 / Stage5 종료점은 엔딩.
+  - 재실행 안전: `ApplyOpeningBackgroundToMainMenu.cs`의 빌드 설정 함수가 Opening을 빼고 MainMenu만 앞에 두던 것을 **Opening(0) → MainMenu(1) 유지**로 수정.
+  - 검증: 빌드 설정 목록과 저장된 씬 값을 확인(`Opening.unity`에 `nextSceneName: MainMenu`). 플레이 실행 전환 테스트는 편집기의 게임 루프가 멈춰 있어(프레임 정지) 수행하지 못함 — 이 과정에서 편집 모드로 호출해 바뀐 페이드 알파(0.01)는 0으로 되돌려 저장함.
+- **오프닝과 메인 메뉴를 한 씬으로 통합, 화면 자연스러운 전환 (사용자 지시)**: 별도 `Opening` 씬 흐름(Opening → MainMenu)을 폐기하고 **`MainMenu` 한 씬**에서 오프닝 연출 → 메뉴 전환까지 처리.
+  - 구조(MainMenuCanvas 자식 순서): Background → Player → BackgroundDim → **TitleLogo**(캔버스 직속, 메뉴 배율 영향 없음) → **OpeningGroup**(한글 제목·가로선·부제·PRESS START) → MenuLayout(버튼 3개, CanvasGroup 추가). 기사·배경은 오프닝과 메뉴가 동일해 전환 중 끊김이 없음.
+  - 스크립트 `@Scripts/Opening/OpeningScreenController.cs`(전면 재작성, 캔버스에 부착): 상태 Opening → Transition → Menu.
+    - Opening: 로고 1500x403(화면 중앙 아래), 오프닝 글자 보임, PRESS START 깜빡임, 메뉴 숨김+클릭 잠금(알파 0·상호작용 끔), 선택 커서 없음, 어둠막 0.
+    - 엔터(Return/Keypad Enter, 시작 0.4초 후) → 1.1초 전환(smoothstep): 로고가 (960,-433.5)·1500x403 → (960,-152.5)·1030x277 로 올라가며 축소 / 오프닝 글자 앞 45% 구간에서 사라짐 / 메뉴 40% 이후 서서히 나타남 / 어둠막 20% 이후 0→30%.
+    - Menu: 메뉴 활성화, 다음 프레임에 START 선택(금색 오라 켜짐).
+    - 같은 실행에서 이 씬에 다시 돌아오면(`hasShownOpening`) 오프닝을 건너뛰고 바로 메뉴 상태.
+  - 적용 도구 `ApplyOpeningBackgroundToMainMenu.cs`: `ReplaceTitleWithLogo`(로고를 메뉴 밖 독립 오브젝트로, 이전 메뉴 안 로고는 제거) + `BuildTitleSequence`(오프닝 그룹·CanvasGroup·컨트롤러 연결, 저장 상태는 오프닝 상태) + 시작 선택 비움(`ClearFirstSelected`) + 빌드 설정 정리. 재실행해도 중복 없음. `BuildOpeningScene.cs`는 더 이상 빌드 설정에 Opening을 추가하지 않음.
+  - **빌드 순서**: 0 MainMenu(오프닝 포함) → 1~5 Stage1~Stage5. `Opening.unity` 파일은 삭제하지 않고 보존하되 빌드에서 제외, `SampleScene`도 제외.
+  - 검증(플레이 캡처, 삭제): 오프닝 상태(메뉴 숨김, PRESS START) → 전환 중간(로고 상승·축소, 오프닝 글자 소멸, 메뉴 반투명 등장) → 전환 후(메뉴 상태, START 선택, 오라는 START만 0.86·나머지 0.00). 엔터는 실제 키 입력이 아니라 같은 전환 코루틴을 호출해 확인.
+  - 참고: 편집기 게임 뷰가 가로로 아주 넓은 비율(약 2.8:1)이라 캡처에서 그림이 가로로 늘어나 보임 — 캔버스 배경은 화면에 맞춰 늘어나는 기존 방식(비율 유지 아님). 1920x1080에서는 이전 확인 결과와 동일.
+- **MainMenu 오프닝 상태를 원본 Opening 씬과 정확히 일치시킴 (사용자 지시)**: 두 씬의 모든 오브젝트(위치·앵커·피벗·크기·배율·스프라이트·색·글자 내용/크기/외곽선/굵기/폰트)를 덤프해 비교한 결과 **캔버스 배율 방식만 달랐음** — 원본 Opening `matchWidthOrHeight = 0.5`, MainMenu는 `1`(세로 기준). 16:9에서는 같지만 다른 화면 비율(예: 이 PC의 게임 뷰 약 2.8:1)에서 오프닝의 크기·위치가 원본과 달라 보였음.
+  - 수정: `ApplyOpeningBackgroundToMainMenu.cs`의 `BuildTitleSequence`가 캔버스를 기준 1920x1080·`matchWidthOrHeight 0.5`로 설정(원본과 동일). 메뉴 버튼은 16:9 에서는 변화 없음(다른 비율에서는 배율이 이전과 달라질 수 있음).
+  - 검증: 같은 게임 뷰(1102x398)에서 MainMenu 오프닝 상태와 원본 Opening 씬을 각각 캡처(PRESS START 깜빡임은 알파 1로 고정)해 픽셀 비교 → 전체 438,596픽셀 중 차이 1,102개(맨 윗 한 줄, 캡처 가장자리)뿐이고 나머지는 완전 일치(미세 차이 0). 캡처 삭제.

@@ -95,7 +95,7 @@ public static class DeployStage1BossRedesign
         go.transform.localScale = Vector3.one;
         var sr = go.GetComponent<SpriteRenderer>(); if (sr == null) sr = go.AddComponent<SpriteRenderer>();
         sr.sprite = sprite; sr.drawMode = SpriteDrawMode.Tiled; sr.tileMode = SpriteTileMode.Continuous;
-        sr.size = size; sr.sortingOrder = 2;
+        sr.size = size; sr.sortingOrder = -1; // 플레이어(0)·보스(5)보다 뒤: 발판이 플레이어를 가리지 않게 한다
         var collider = go.GetComponent<BoxCollider2D>(); if (collider == null) collider = go.AddComponent<BoxCollider2D>();
         collider.autoTiling = false; collider.size = size; collider.offset = Vector2.zero;
     }

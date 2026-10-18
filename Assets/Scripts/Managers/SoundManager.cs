@@ -28,9 +28,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private float bgmVolume = 0.5f; // 배경음 기본 볼륨
-    [SerializeField] private float sfxVolume = 1f;    // 효과음 기본 볼륨
-    [SerializeField] private float ambienceVolume = 0.4f; // 환경음 기본 볼륨
+    // 옵션 메뉴에서 조절한 볼륨을 다음 실행에도 유지하기 위한 PlayerPrefs 키
+    private const string BgmVolumeKey = "Sound.BgmVolume";
+    private const string SfxVolumeKey = "Sound.SfxVolume";
+
+    [SerializeField] private float bgmVolume = 0.5f; // 배경음 기본 볼륨(저장된 설정이 있으면 그 값이 우선)
+    [SerializeField] private float sfxVolume = 1f;    // 효과음 기본 볼륨(저장된 설정이 있으면 그 값이 우선)
+    [SerializeField] private float ambienceVolume = 0.4f; // 환경음 기본 볼륨(BGM 볼륨 슬라이더를 인스펙터 기본값에 둔 상태일 때의 크기)
+    [SerializeField] private AudioClip fallRecoverySfx;   // 낙사 후 안전 발판으로 복귀할 때 재생(비워두면 재생하지 않음)
 
     private AudioSource bgmSource; // 배경음 전용(루프 재생, 한 번에 하나만)
     private AudioSource sfxSource; // 효과음 전용(PlayOneShot으로 여러 개가 겹쳐도 서로 끊기지 않음)
@@ -38,6 +43,11 @@ public class SoundManager : MonoBehaviour
     private AudioClip currentBgmClip; // 중복 재생 방지 - 이미 재생 중인 곡을 다시 요청하면 무시
     private AudioClip currentAmbienceClip; // 중복 재생 방지
     private AudioClip stageBgmClip; // 보스전 중에 기억해두는 원래 스테이지 BGM(보스 처치 후 복귀용)
+    private float bgmReferenceVolume; // 인스펙터에 설정된 BGM 기본 볼륨 - 환경음이 BGM 슬라이더를 따를 때 "기본 크기"의 기준
+
+    // 옵션 UI가 슬라이더 초기값을 맞출 때 읽는 현재 볼륨(0~1)
+    public float BgmVolume => bgmVolume;
+    public float SfxVolume => sfxVolume;
 
     private void Awake()
     {
@@ -49,6 +59,11 @@ public class SoundManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        bgmReferenceVolume = Mathf.Max(bgmVolume, 0.01f); // 저장값으로 덮어쓰기 전에 기본값을 기억
+        // 이전에 옵션에서 저장한 볼륨이 있으면 인스펙터 기본값 대신 사용
+        bgmVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(BgmVolumeKey, bgmVolume));
+        sfxVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(SfxVolumeKey, sfxVolume));
 
         bgmSource = gameObject.AddComponent<AudioSource>();
         bgmSource.loop = true;
@@ -63,7 +78,7 @@ public class SoundManager : MonoBehaviour
         ambienceSource = gameObject.AddComponent<AudioSource>();
         ambienceSource.loop = true;
         ambienceSource.playOnAwake = false;
-        ambienceSource.volume = ambienceVolume;
+        ApplyAmbienceVolume();
     }
 
     // 스테이지 진입 등에서 호출 - clip이 비어있거나 이미 재생 중인 곡과 같으면 아무 것도 하지 않는다
@@ -126,29 +141,53 @@ public class SoundManager : MonoBehaviour
         ambienceSource.Stop();
     }
 
+    // 낙사 후 복귀 효과음(Claude Sonnet 5.5, 2026-10-18). FallRecoveryManager는 런타임에 생성되어 인스펙터 슬롯이 없으므로,
+    // 클립은 Resources/SoundManager 프리팹의 이 슬롯에 연결해 두고 복귀 직후 FallRecoveryManager가 호출한다. 비어 있으면 무시.
+    public void PlayFallRecovery()
+    {
+        PlaySfx(fallRecoverySfx);
+    }
+
     // 설정 UI 등에서 런타임에 볼륨을 바꿀 때 사용(0~1). 재생 중인 루프 채널에도 즉시 반영된다
     public void SetBgmVolume(float volume)
     {
         bgmVolume = Mathf.Clamp01(volume);
         bgmSource.volume = bgmVolume;
+        ApplyAmbienceVolume(); // 환경음도 BGM 슬라이더를 따라간다
+        PlayerPrefs.SetFloat(BgmVolumeKey, bgmVolume);
     }
 
     public void SetAmbienceVolume(float volume)
     {
         ambienceVolume = Mathf.Clamp01(volume);
-        ambienceSource.volume = ambienceVolume;
+        ApplyAmbienceVolume();
+    }
+
+    // 환경음은 BGM 슬라이더에 묶여 있다: 실제 볼륨 = 환경음 기본 볼륨 × (현재 BGM 볼륨 ÷ BGM 기본 볼륨).
+    // BGM을 기본값(인스펙터 설정)에 두면 예전과 같은 크기이고, 0으로 내리면 환경음도 꺼지며, 올리면 함께 커진다(최대 1)
+    private void ApplyAmbienceVolume()
+    {
+        ambienceSource.volume = Mathf.Clamp01(ambienceVolume * (bgmVolume / bgmReferenceVolume));
     }
 
     public void SetSfxVolume(float volume)
     {
         sfxVolume = Mathf.Clamp01(volume);
         sfxSource.volume = sfxVolume;
+        PlayerPrefs.SetFloat(SfxVolumeKey, sfxVolume);
     }
 
-    // 점프/공격 등 한 번 재생되고 끝나는 짧은 효과음 재생
-    public void PlaySfx(AudioClip clip)
+    // 슬라이더를 움직이는 동안은 값만 메모리에 두고, 조작이 끝나거나 옵션을 닫을 때 디스크에 기록한다
+    public void SaveVolumeSettings()
+    {
+        PlayerPrefs.Save();
+    }
+
+    // 점프/공격 등 한 번 재생되고 끝나는 짧은 효과음 재생.
+    // volumeScale: 클립 하나만 따로 줄이고 싶을 때(예: 아이템 획득음) 0~1 배율. 옵션의 효과음 볼륨은 sfxSource.volume으로 항상 함께 적용된다
+    public void PlaySfx(AudioClip clip, float volumeScale = 1f)
     {
         if (clip == null) return;
-        sfxSource.PlayOneShot(clip, sfxVolume);
+        sfxSource.PlayOneShot(clip, Mathf.Clamp01(volumeScale));
     }
 }

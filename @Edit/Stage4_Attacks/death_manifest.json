@@ -1,0 +1,52 @@
+{
+  "canvas": [
+    2200,
+    1198
+  ],
+  "frames": [
+    {
+      "file": "Death_01.png",
+      "sourceBounds": [
+        83,
+        74,
+        926,
+        940
+      ],
+      "uniformScale": 1.3510392609699768,
+      "footCenter": 568.5
+    },
+    {
+      "file": "Death_02.png",
+      "sourceBounds": [
+        116,
+        178,
+        919,
+        889
+      ],
+      "uniformScale": 1.32,
+      "footCenter": 486.5
+    },
+    {
+      "file": "Death_03.png",
+      "sourceBounds": [
+        25,
+        375,
+        1497,
+        959
+      ],
+      "uniformScale": 1.07,
+      "footCenter": 745.5
+    },
+    {
+      "file": "Death_04.png",
+      "sourceBounds": [
+        44,
+        498,
+        1485,
+        906
+      ],
+      "uniformScale": 1.12,
+      "footCenter": 744.5
+    }
+  ]
+}

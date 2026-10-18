@@ -23,7 +23,7 @@
 | [StageManager.cs](Assets/Scripts/Managers/StageManager.cs) | 구간 진입 시 카메라를 `sectionCameraAnchors[i]`로 코루틴 Lerp 이동(구간 내에서는 카메라 고정) | 구간 내 연속 추적이 없음 → 팔로우 요구사항과 정면 충돌 |
 | [SectionEdgeTrigger.cs](Assets/Scripts/Managers/SectionEdgeTrigger.cs) | 경계 통과 시 `StageManager.MoveToSection(index)` 호출 | 구간 인덱스 개념 자체는 재사용 가능, 호출 대상만 교체 필요 |
 | [BackgroundFitter.cs](Assets/Scripts/Stage/BackgroundFitter.cs) | 배경 스프라이트를 **카메라 화면 크기와 정확히 동일하게(여백 0, 여유 0)** 스케일 | 카메라가 고정일 때만 성립하는 방식. 카메라가 조금이라도 움직이면 배경 밖 여백이 즉시 노출됨 → **이 스크립트의 전제 자체가 팔로우 카메라와 양립 불가** |
-| [OutOfBoundsTrigger.cs](Assets/Scripts/Stage/OutOfBoundsTrigger.cs) | 플레이어가 맵 밖으로 떨어지면 게임오버 | 그대로 유지 가능(카메라와 무관, 플레이어 낙사 판정용) |
+| [OutOfBoundsTrigger.cs](Assets/Scripts/Stage/OutOfBoundsTrigger.cs) | 플레이어가 맵 밖으로 떨어지면 낙사 처리(2026-10-17 설계 변경: 게임오버 대신 체력 35 손실 + 마지막 발판 복귀, [SystemDesign_FallRecovery.md](SystemDesign_FallRecovery.md)) | 판정 구조는 유지, 복귀 시 카메라는 `SnapTo`로 즉시 맞춤 |
 
 ➡ 결론: "여백 없이 배경 딱 맞춤"을 카메라가 아니라 **배경 크기 자체(고정)** 로 보장하던 방식에서, **배경보다 작은 뷰(카메라)가 배경 내부를 돌아다니다가 배경 경계에서 멈추는 방식(클램프)** 으로 패러다임을 바꿔야 합니다. 즉 각 구간의 배경 아트가 지금보다 **더 커야** 합니다(카메라가 움직일 여유 공간 확보).
 

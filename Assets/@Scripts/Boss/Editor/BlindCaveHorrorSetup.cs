@@ -45,24 +45,36 @@ public static class BlindCaveHorrorSetup
         var machine=controller.layers[0].stateMachine;
         for(int i=0;i<Names.Length;i++)
         {
-            string source=i<3||i==7?"LowSweep":Names[i];
+            string source=i<3||i==7?"LowSweep":Names[i]; // Death overrides this with its own four poses below
             var first=Import(Root+"/Frames/"+source+"_01.png",new Vector2(.5f,8f/1198));
             var second=i<3||i==7?first:Import(Root+"/Frames/"+source+"_02.png",new Vector2(.5f,8f/1198));
             string path=folder+"/Boss_"+Names[i]+".anim";var clip=AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
             if(!clip){clip=new AnimationClip();AssetDatabase.CreateAsset(clip,path);}clip.frameRate=60;
             float switchTime=i==3?.35f:i==4?.4f:i==5?.5f:i==6?.8f:i==8?.3f:i==9?.6f:Durations[i]*.5f;
             AnimationUtility.SetObjectReferenceCurve(clip,EditorCurveBinding.PPtrCurve("",typeof(SpriteRenderer),"m_Sprite"),new[]{new ObjectReferenceKeyframe{time=0,value=first},new ObjectReferenceKeyframe{time=switchTime,value=second},new ObjectReferenceKeyframe{time=Durations[i],value=second}});
-            if(i<3||i==7)
+            if(i<3)
             {
-                float end=i==7?-.85f:0,mid=i==2?-.18f:i==1?.06f:.025f;
-                clip.SetCurve("",typeof(Transform),"m_LocalPosition.y",AnimationCurve.Linear(0,0,Durations[i],end));
-                if(i!=7)clip.SetCurve("",typeof(Transform),"m_LocalPosition.y",new AnimationCurve(new Keyframe(0,0),new Keyframe(Durations[i]*.5f,mid),new Keyframe(Durations[i],0)));
+                float mid=i==2?-.18f:i==1?.06f:.025f;
+                clip.SetCurve("",typeof(Transform),"m_LocalPosition.y",new AnimationCurve(new Keyframe(0,0),new Keyframe(Durations[i]*.5f,mid),new Keyframe(Durations[i],0)));
             }
             else clip.SetCurve("",typeof(Transform),"m_LocalPosition.y",AnimationCurve.Constant(0,Durations[i],0));
+            if(i==7)ApplyDeathPoses(clip);
             var settings=AnimationUtility.GetAnimationClipSettings(clip);settings.loopTime=i<3;settings.stopTime=Durations[i];AnimationUtility.SetAnimationClipSettings(clip,settings);
             var state=machine.states.Select(x=>x.state).FirstOrDefault(x=>x.name=="Boss_"+Names[i]);if(!state)state=machine.AddState("Boss_"+Names[i]);state.motion=clip;state.writeDefaultValues=false;if(i==0)machine.defaultState=state;EditorUtility.SetDirty(clip);
         }
         return controller;
+    }
+    // Death uses its own four generated poses (stiffen, arms go limp, body sinks, final rest); the poses carry the
+    // lowering themselves, so the clip only switches sprites at the times in the design (0, 0.25, 0.5, 0.8s).
+    static void ApplyDeathPoses(AnimationClip clip)
+    {
+        var poses=new Sprite[4];
+        for(int i=0;i<4;i++)poses[i]=Import(Root+"/Frames/Death_0"+(i+1)+".png",new Vector2(.5f,8f/1198));
+        float[] times={0,.25f,.5f,.8f};
+        var keys=new ObjectReferenceKeyframe[5];
+        for(int i=0;i<4;i++)keys[i]=new ObjectReferenceKeyframe{time=times[i],value=poses[i]};
+        keys[4]=new ObjectReferenceKeyframe{time=Durations[7],value=poses[3]};
+        AnimationUtility.SetObjectReferenceCurve(clip,EditorCurveBinding.PPtrCurve("",typeof(SpriteRenderer),"m_Sprite"),keys);
     }
     // Build all repeated effects in their prefab original.
     static BossCaveEffect Effect()

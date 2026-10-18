@@ -33,3 +33,16 @@ Existing Test000 was preserved. Test001 was copied from Stage4, tested, then del
 Dedicated Idle/Walk/Groggy/Death artwork has not been generated. These four functional states reuse LowSweep preparation artwork with small position curves; Death is a temporary lowering pose. Do not describe all22 body frames as completed. Original12 poses retain their existing anatomy/texture variation. Sound slots are intentionally empty; no new sound recordings were generated. Effects are geometric placeholders. Stage5 transition is wired through existing stage routing but was not traversed in a complete playthrough. Balance and collision feel need a manual full fight.
 
 No git commit/push. Concurrent changes in other scripts/documents were retained. No matching GPT_Work_Room project downloads were present in Downloads during the integration check.
+
+## Boss effects replaced with generated artwork — 2026-10-18
+
+The tinted rectangles (rock warning, charge warning, sonic rings) were the flat placeholder textures `T_CaveWarning/T_CaveRock/T_SonicRing`. They were replaced with pixel-art effects generated in the VARCO flow `CLAUDE_Work_Room2` (gpt-image-1.5-medium, 4K requested, actual 1024×1024 / 1536×1024; reference: the boss side artwork). Four independent nodes were run (no Run All); all passed on the first try. Sources and the keying script are in `@Edit/Stage4_Effects/` (`build_effects.py`).
+
+| Sprite (`Bosses/Stage4_BlindCaveHorror/Effects/`) | Used for |
+|---|---|
+| `vfx_sonic_wave.png` | roar: one wave per damage tick (0.5s, 1.5s), 4.5 wide ≈ the 2.2-high hit box, travels to the 6.5 reach |
+| `vfx_falling_rock.png` | falling boulder (1.8 wide, stops on a RockShelter roof) |
+| `vfx_rock_warning.png` | ground warning under the rock target (2.6 wide, pulses) |
+| `vfx_charge_warning.png` | charge scrape streak (8 long, mirrors with facing) |
+
+`BossCaveEffect` keeps the same hit boxes; only the visuals changed (sprites keep their proportions, warning decals sit on the floor at sorting order 2, no colour tint). Hit areas are not drawn as boxes. The old `T_*` textures are no longer referenced but were left in place. Verified in a temporary scene by freezing each effect at a chosen age and checking the game view; no combat playthrough. The claw slash and low sweep still have no effect artwork. Other bosses (`BossArenaGroundSlam`, `BossRootSweepVfx`, `BossScorpionHazard`) also tint flat indicators; they were not changed.

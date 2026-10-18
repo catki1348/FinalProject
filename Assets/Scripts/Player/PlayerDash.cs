@@ -36,6 +36,14 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
+    // 낙사 복귀 등으로 위치가 강제로 바뀔 때 진행 중인 대시를 즉시 끝낸다(속도 잠금도 해제).
+    public void CancelDash()
+    {
+        StopAllCoroutines();
+        if (IsDashing) movement.MovementLocked = false;
+        IsDashing = false;
+    }
+
     private IEnumerator DashRoutine()
     {
         IsDashing = true;

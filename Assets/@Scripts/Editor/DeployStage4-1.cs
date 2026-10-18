@@ -206,6 +206,8 @@ public class DeployStage4_1
             so.FindProperty("endpointWait").floatValue = p.settings.waitAtPoint;
             so.FindProperty("startDelay").floatValue = p.settings.startDelay;
             so.FindProperty("loopMode").enumValueIndex = 1; // PingPong
+            // 시야 밖 가속: 인접 발판이 모두 비이동형일 때만 사용(규칙). 4-1의 이동형은 앞뒤가 모두 일반 발판이므로 3-2와 같은 5배
+            so.FindProperty("offscreenSpeedMultiplier").floatValue = 5f;
             so.ApplyModifiedProperties();
         }
         go.transform.localScale = Vector3.one;

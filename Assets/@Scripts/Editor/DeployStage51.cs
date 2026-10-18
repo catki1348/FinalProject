@@ -48,17 +48,15 @@ public static class DeployStage51
         if (PrefabUtility.IsPartOfPrefabInstance(target)) PrefabUtility.RecordPrefabInstancePropertyModifications(target);
     }
 
-    // Reuse the opaque masonry strip rather than tiling the perspective source's transparent padding.
+    // Stage5 platforms use the whole hellscape block (spikes included) like the lava/dungeon stages use theirs:
+    // body = collision (0.5 thick at the transform centre), spikes rise above it as appearance only.
     static Sprite Tile()
     {
-        string path = Folder + "T_Stage51_PlatformStrip.asset";
-        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-        if (sprite) return sprite;
-        var original = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/@ExternalAssets/Tiles/Platform_Stage5_Hellscape.png");
-        sprite = Sprite.Create(original.texture, new Rect(230, 374, 450, 50), new Vector2(.5f, .5f), 100, 0, SpriteMeshType.FullRect);
-        AssetDatabase.CreateAsset(sprite, path);
+        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/@ExternalAssets/Tiles/Platform_Stage5_Hellscape_Tiled.png");
+        if (!sprite) throw new InvalidOperationException("Missing Stage5 block tile: Assets/@ExternalAssets/Tiles/Platform_Stage5_Hellscape_Tiled.png");
         return sprite;
     }
+    const float TileHeight = 0.785f;   // full sprite height at 930 ppu (body 0.5 + spikes 0.285)
 
     // Each behavior is owned by a variant; placement-specific sizes and paths are instance overrides.
     static GameObject PlatformPrefab(string kind, Sprite tile)
@@ -77,8 +75,8 @@ public static class DeployStage51
             go.layer = LayerMask.NameToLayer("Ground");
             var sr = go.GetComponent<SpriteRenderer>();
             sr.sprite = tile; sr.drawMode = SpriteDrawMode.Tiled; sr.tileMode = SpriteTileMode.Continuous;
-            sr.size = new Vector2(3, .5f);
-            var box = go.GetComponent<BoxCollider2D>(); box.autoTiling = false; box.size = sr.size; box.offset = Vector2.zero;
+            sr.size = new Vector2(3, TileHeight);
+            var box = go.GetComponent<BoxCollider2D>(); box.autoTiling = false; box.size = new Vector2(3, .5f); box.offset = Vector2.zero;
             go.transform.localScale = Vector3.one;
             if (go.TryGetComponent<Rigidbody2D>(out var body)) { body.bodyType = RigidbodyType2D.Kinematic; body.gravityScale = 0; body.constraints = RigidbodyConstraints2D.FreezeRotation; }
             // the shared 2-1 clock owns the timing of these two variants
@@ -150,7 +148,7 @@ public static class DeployStage51
             go.transform.localPosition = new Vector3(p.x, p.surfaceY - p.thickness * .5f, 0);
             go.transform.localScale = Vector3.one;
             PrefabUtility.RecordPrefabInstancePropertyModifications(go.transform);
-            Set(go.GetComponent<SpriteRenderer>(), so => so.FindProperty("m_Size").vector2Value = new Vector2(p.width, p.thickness));
+            Set(go.GetComponent<SpriteRenderer>(), so => so.FindProperty("m_Size").vector2Value = new Vector2(p.width, TileHeight));
             Set(go.GetComponent<BoxCollider2D>(), so => { so.FindProperty("m_Size").vector2Value = new Vector2(p.width, p.thickness); so.FindProperty("m_Offset").vector2Value = Vector2.zero; });
             if (p.type == "Moving")
             {

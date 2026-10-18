@@ -43,6 +43,22 @@ public sealed class TimedRunManager : MonoBehaviour
         gameOver = GameOverManager.Instance;
         if (gameOver != null) gameOver.OnGameOver += PlayerDied;
         AreaChanged(stage.CurrentArea);
+        FallRecoveryManager.Instance.OnRespawned += Respawned;
+    }
+
+    // 낙사 복귀(FallRecoveryManager): 떨어진 발판을 복원하고 각 구간을 다시 시작할 수 있게 한다(시작선을 다시 지나면 시계가 처음부터).
+    private void Respawned(Vector2 position)
+    {
+        if (!eligible) return;
+        SetBuff(false);
+        for (int i = 0; i < runs.Length; i++)
+        {
+            Run run = runs[i];
+            run.attempted = false;
+            run.running = false;
+            for (int k = 0; k < run.platforms.Length; k++) run.platforms[k].ResetSupport();
+            if (run.encounter != null) run.encounter.SetActive(false);
+        }
     }
 
     private void AreaChanged(int area)
@@ -110,6 +126,7 @@ public sealed class TimedRunManager : MonoBehaviour
     private void OnDestroy()
     {
         if (stage != null) stage.OnAreaChanged -= AreaChanged;
+        if (FallRecoveryManager.Exists) FallRecoveryManager.Instance.OnRespawned -= Respawned;
         if (player != null) player.OnDied -= PlayerDied;
         if (gameOver != null) gameOver.OnGameOver -= PlayerDied;
         StopAll();
