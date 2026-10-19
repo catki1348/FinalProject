@@ -28,6 +28,9 @@ public class StageClearManager : MonoBehaviour
 
     private GameObject overlayRoot;
 
+    // 이 화면이 떠 있는 동안에는 일시정지(PauseManager)를 열지 않는다. 인스턴스를 새로 만들지 않고 확인한다.
+    public static bool IsShowing => instance != null && instance.overlayRoot != null && instance.overlayRoot.activeSelf;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -76,19 +79,9 @@ public class StageClearManager : MonoBehaviour
         backgroundRect.offsetMin = Vector2.zero;
         backgroundRect.offsetMax = Vector2.zero;
 
-        var textObject = new GameObject("StageClearText");
-        textObject.transform.SetParent(canvasObject.transform, false);
-        var text = textObject.AddComponent<Text>();
-        text.text = "STAGE CLEAR";
-        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        text.fontSize = 64;
-        text.alignment = TextAnchor.MiddleCenter;
-        text.color = Color.white;
-        RectTransform textRect = text.rectTransform;
-        textRect.anchorMin = Vector2.zero;
-        textRect.anchorMax = Vector2.one;
-        textRect.offsetMin = Vector2.zero;
-        textRect.offsetMax = Vector2.zero;
+        // 글자는 오프닝/게임클리어와 같은 금색 3D 블록 글자 이미지(@Edit/Ending/build_overlay_titles.py 로 생성)
+        EndingUi.CreatePicture(canvasObject.transform, "StageClearTitle", EndingUi.LoadTexture("StageClear_Title"),
+            1100f, new Vector2(0.5f, 0.5f), Vector2.zero);
 
         overlayRoot = canvasObject;
         overlayRoot.SetActive(false);

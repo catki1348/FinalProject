@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float ambienceVolume = 0.4f; // 환경음 기본 볼륨(BGM 볼륨 슬라이더를 인스펙터 기본값에 둔 상태일 때의 크기)
     [SerializeField] private AudioClip fallRecoverySfx;   // 낙사 후 안전 발판으로 복귀할 때 재생(비워두면 재생하지 않음)
 
+    private float bgmFade = 1f;    // 연출용 배경음 감쇠 배율(0~1). 사용자 볼륨 설정과 별개로 곱해진다
     private AudioSource bgmSource; // 배경음 전용(루프 재생, 한 번에 하나만)
     private AudioSource sfxSource; // 효과음 전용(PlayOneShot으로 여러 개가 겹쳐도 서로 끊기지 않음)
     private AudioSource ambienceSource; // 환경음 전용(루프 재생, BGM과 동시에 깔림)
@@ -91,6 +92,19 @@ public class SoundManager : MonoBehaviour
         currentBgmClip = clip;
         bgmSource.clip = clip;
         bgmSource.Play();
+    }
+
+    // 배경음 재생 배속(피치). 크레딧 빨리 감기처럼 BGM 속도를 임시로 바꿀 때 쓴다(1 = 기본)
+    public void SetBgmPitch(float pitch)
+    {
+        bgmSource.pitch = pitch;
+    }
+
+    // 크레딧 끝 페이드아웃처럼 BGM을 연출로 줄일 때 쓴다(1 = 설정 볼륨 그대로). 사용자 볼륨 설정은 바뀌지 않는다
+    public void SetBgmFade(float fade)
+    {
+        bgmFade = Mathf.Clamp01(fade);
+        bgmSource.volume = bgmVolume * bgmFade;
     }
 
     public void StopBgm()
@@ -152,7 +166,7 @@ public class SoundManager : MonoBehaviour
     public void SetBgmVolume(float volume)
     {
         bgmVolume = Mathf.Clamp01(volume);
-        bgmSource.volume = bgmVolume;
+        bgmSource.volume = bgmVolume * bgmFade;
         ApplyAmbienceVolume(); // 환경음도 BGM 슬라이더를 따라간다
         PlayerPrefs.SetFloat(BgmVolumeKey, bgmVolume);
     }

@@ -47,3 +47,29 @@
 - 자막 문구(인트로 2줄, 스테이지 카드 5개, "완벽 방어", "2D 액션 플랫포머")는 제작자 초안이며 수정 가능하다.
 - 컨셉 영감인 Sparkster 계열의 분위기만 참고했고 해당 게임의 이미지, 음악, 이름은 쓰지 않았다.
 - Unity에 새로 만든 파일은 `Assets/@Scripts/Teaser/`의 스크립트 3개와 메타뿐이다. 필요 없으면 폴더째 삭제해도 게임에는 영향이 없다. 에디터 활성 씬 `Stage5`의 저장 안 된 변경은 건드리지 않았고 Play 모드는 종료했다.
+
+
+---
+
+<!-- AI work record: Claude Sonnet 5.5; 2026-10-19. Teaser re-shoot (v1_Reshoot): fixed auto-play bot (facing, walk animation), re-recorded gameplay in Unity Play Mode, reassembled video. -->
+## 재촬영 (2026-10-19) — `FinalDungeon_Teaser_v1_Reshoot.mp4`
+
+사용자 지적: v1의 플레이 영상에서 플레이어가 거꾸로 걷고, 진행 방향과 반대로 공격하고, 걷기 모션 없이 앞으로 이동한다.
+
+### 원인
+- `TeaserBot`이 실행 순서 1000에서 `moveInput`을 덮어썼다. `PlayerMovement.Update`(순서 0)가 매 프레임 실제 키 입력(0)으로 `moveInput`과 바라보는 방향(`Flip`)을 정하고, `PlayerSpriteAnimator`(순서 10)는 그 값을 먼저 읽으므로 애니메이터는 "이동 없음"으로 판단했다(걷기 모션 없음). 방향 전환(`Flip`)도 호출되지 않아 `FacingRight`가 초기값에 고정되었다(공격 방향이 진행 방향과 어긋남).
+
+### 수정 (`Assets/@Scripts/Teaser/`)
+- `TeaserBot`: 실행 순서 5(Movement 뒤, 애니메이터 앞)로 변경, 진행/대상 방향이 다르면 `Flip`을 직접 호출. 공격은 앞에 적이 있을 때만(없으면 5초 정도마다 한 번), 보스전 모드(`Target`)에서는 보스에게 다가가 간격을 유지하고 가끔 점프로 피하며 공격하지 않는다(맞은 보스가 그로기로 누워 있게 되므로).
+- `TeaserCapture`: `BoundsProvider` 추가(카메라 구간이 바뀌어도 화면을 구간 안으로 제한).
+- `TeaserDirector`(신규): 씬 로드 후 지정한 영역의 시작 지점에서 봇/촬영 도구를 붙이고 연속 프레임을 저장. 촬영 중 플레이어 무적/체력 보충, 보스전은 보스 체력을 최대로 유지. 게임 스크립트는 수정하지 않았다.
+
+### 촬영 구성
+스테이지 1, 2, 3, 5는 1영역, 스테이지 4는 3영역(1영역이 수직 낙하 구간이라 단조로워 교체)에서 각 18초(영상에는 16초 사용), 보스 3(화산 전갈), 4(눈먼 동굴 괴수), 5(쌍검 악마군주)는 5영역에서 14초(영상에는 12초 사용), 줌 0.55(보스 0.8), 1920×1080 30fps. 촬영 중에만 `StageManager.WarpPlayerTo`로 시작 영역을 지정했고 씬 파일의 `testStartZone`은 건드리지 않았다.
+
+### 조립
+`@Edit/teaser/build_teaser_reshoot.py`: 프레임 -> 클립, 스테이지/보스 자막, 스테이지 사이는 오른쪽으로 밀리는 슬라이드 전환(`xfade slideleft`), 보스/엔딩 앞은 페이드, 인트로(30초)와 엔딩(38초)은 v1에서 잘라 재사용, 음악은 `Epic_baroque_journey_2.mp3`. 총 2분 58.6초, 208MB. 작업 폴더(프레임)는 완료 후 삭제했다.
+
+### 알아 둘 점
+- 이전 PC에서 복사한 `@ExternalAssets`의 `.meta`가 어긋나 배경/보스가 안 나오던 문제는 사용자께서 원본 `.meta` 포함 폴더를 다시 옮겨 해결되었다(촬영은 그 이후에 진행).
+- 에디터가 플레이 중 자동 컴파일되면 일시정지(Pause) 상태가 되어 촬영이 멈출 수 있다. 스크립트를 고친 뒤에는 Play를 껐다 켜고, 멈추면 `EditorApplication.isPaused = false`로 풀면 된다.

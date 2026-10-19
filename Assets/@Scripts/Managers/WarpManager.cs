@@ -5,6 +5,8 @@ using UnityEngine;
 // 실제 스폰 처리는 StageManager가 담당하고, 이 매니저는 "어디서 시작할지"만 파싱해서 알려준다
 // (단일 책임 - 진행 상태/스폰 로직은 여전히 StageManager 소관).
 // 비워두면(기본값) 평소처럼 1영역 시작 지점에서 시작한다.
+// 빌드에서는 동작하지 않는다: Instance가 설정되지 않고 Try* 메서드가 항상 false를 반환하므로,
+// 씬에 지정된 테스트 시작 지점/발판이 남아 있어도 항상 정상적으로 1영역에서 시작한다(에디터 전용 기능).
 public class WarpManager : MonoBehaviour
 {
     public static WarpManager Instance { get; private set; }
@@ -26,6 +28,7 @@ public class WarpManager : MonoBehaviour
     public bool TryGetTestPlatformPosition(Transform player, out Vector2 position)
     {
         position = default;
+        if (!Application.isEditor) return false;
         if (string.IsNullOrWhiteSpace(testPlatformName) || player == null) return false;
 
         string targetName = testPlatformName.Trim();
@@ -68,7 +71,12 @@ public class WarpManager : MonoBehaviour
 
     private void Awake()
     {
+#if UNITY_EDITOR
         Instance = this;
+#else
+        // 빌드: 워프 기능 비활성화(Instance를 비워 StageManager가 워프 경로를 건너뛰게 한다)
+        Destroy(this);
+#endif
     }
 
     // testStartZone을 "스테이지-영역"으로 파싱한다. 비어있거나 형식이 잘못되면 false를 반환한다.
@@ -76,6 +84,7 @@ public class WarpManager : MonoBehaviour
     {
         stage = 0;
         zone = 0;
+        if (!Application.isEditor) return false;
 
         if (string.IsNullOrWhiteSpace(testStartZone)) return false;
 

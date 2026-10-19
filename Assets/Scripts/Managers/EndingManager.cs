@@ -1,11 +1,16 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-// 엔딩 연출을 담당하는 매니저(규칙 35). GameOverManager와 동일하게 오버레이 UI를 코드로
-// 직접 구성한다. MapEdit.md 규칙 10: 5-5(최종 스테이지의 최종 영역)에서 종료점에 도달하면
-// 다음 스테이지로 넘어가는 대신 이 엔딩 화면을 띄우고 게임을 정지한다.
+// 엔딩 연출로 넘어가는 전환을 담당하는 매니저(규칙 35). MapEdit.md 규칙 10: 5-5(최종 스테이지의 최종 영역)에서
+// 종료점에 도달하면 다음 스테이지로 넘어가는 대신 게임 클리어 화면(GameClearManager) → 엔딩 씬(Ending) 순서로 진행한다.
+// 이 매니저는 게임 클리어 화면 이후의 "검게 페이드 아웃 → 엔딩 씬 로드" 만 맡는다.
+// (예전에는 이 클래스가 "THE END" 글자만 띄우고 게임을 멈췄다. 이제 글자·연출은 엔딩 씬이 담당한다.)
 public class EndingManager : MonoBehaviour
 {
+    public const string EndingSceneName = "Ending";    // 빌드 설정에 등록된 엔딩 씬 이름
+    private const float FadeOutSeconds = 1.0f;
+
     private static EndingManager instance;
 
     public static EndingManager Instance
@@ -24,6 +29,8 @@ public class EndingManager : MonoBehaviour
     }
 
     private GameObject overlayRoot;
+    private Image fade;
+    private bool transitioning;
 
     private void Awake()
     {
@@ -38,48 +45,41 @@ public class EndingManager : MonoBehaviour
         BuildOverlay();
     }
 
+    // 엔딩 씬으로 넘어간다(여러 번 불려도 한 번만 실행). 게임 클리어 화면이 timeScale 을 0 으로 멈춰 두므로
+    // 모든 연출은 unscaled 시간으로 진행하고, 씬을 불러오기 직전에 1 로 되돌린다.
     public void TriggerEnding()
     {
+        if (transitioning) return;
+        transitioning = true;
+        StartCoroutine(FadeAndLoad());
+    }
+
+    private IEnumerator FadeAndLoad()
+    {
         overlayRoot.SetActive(true);
-        Time.timeScale = 0f;
+        float t = 0f;
+        while (t < FadeOutSeconds)
+        {
+            t += Time.unscaledDeltaTime;
+            EndingUi.SetAlpha(fade, Mathf.Clamp01(t / FadeOutSeconds));
+            yield return null;
+        }
+
+        Time.timeScale = 1f;
+        GameManager.Instance.LoadScene(EndingSceneName);
+
+        // 엔딩 씬은 스스로 검은 화면에서 시작해 밝아지므로, 씬이 올라온 뒤 이 검은 막은 치운다.
+        yield return null;
+        yield return null;
+        overlayRoot.SetActive(false);
+        transitioning = false;
     }
 
     private void BuildOverlay()
     {
-        var canvasObject = new GameObject("EndingCanvas");
-        canvasObject.transform.SetParent(transform, false);
-
-        var canvas = canvasObject.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 1000;
-        canvasObject.AddComponent<CanvasScaler>();
-        canvasObject.AddComponent<GraphicRaycaster>();
-
-        var backgroundObject = new GameObject("Background");
-        backgroundObject.transform.SetParent(canvasObject.transform, false);
-        var backgroundImage = backgroundObject.AddComponent<Image>();
-        backgroundImage.color = new Color(0f, 0f, 0f, 0.9f);
-        RectTransform backgroundRect = backgroundImage.rectTransform;
-        backgroundRect.anchorMin = Vector2.zero;
-        backgroundRect.anchorMax = Vector2.one;
-        backgroundRect.offsetMin = Vector2.zero;
-        backgroundRect.offsetMax = Vector2.zero;
-
-        var textObject = new GameObject("EndingText");
-        textObject.transform.SetParent(canvasObject.transform, false);
-        var text = textObject.AddComponent<Text>();
-        text.text = "THE END";
-        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        text.fontSize = 64;
-        text.alignment = TextAnchor.MiddleCenter;
-        text.color = Color.white;
-        RectTransform textRect = text.rectTransform;
-        textRect.anchorMin = Vector2.zero;
-        textRect.anchorMax = Vector2.one;
-        textRect.offsetMin = Vector2.zero;
-        textRect.offsetMax = Vector2.zero;
-
-        overlayRoot = canvasObject;
+        Canvas canvas = EndingUi.CreateCanvas(transform, "EndingFadeCanvas", 1200);
+        fade = EndingUi.CreateFill(canvas.transform, "Fade", new Color(0f, 0f, 0f, 0f));
+        overlayRoot = canvas.gameObject;
         overlayRoot.SetActive(false);
     }
 }

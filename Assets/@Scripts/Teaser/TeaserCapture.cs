@@ -1,4 +1,4 @@
-// AI work record: Claude Sonnet 5.5; 2026-10-18. Teaser trailer capture tool (Play Mode only, no game logic).
+// AI work record: Claude Sonnet 5.5; 2026-10-18 (created), 2026-10-19 (added BoundsProvider for continuous multi-area shooting). Teaser trailer capture tool (Play Mode only, no game logic).
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -23,6 +23,9 @@ public class TeaserCapture : MonoBehaviour
     // 켜면 추적 카메라가 이 영역(월드 좌표) 밖의 빈 배경을 비추지 않도록 화면 가장자리를 영역 안으로 제한한다.
     public bool ClampToBounds { get; set; }
     public Bounds ClampBounds { get; set; }
+
+    // 지정하면 렌더 직전에 호출해 ClampBounds를 갱신한다(카메라 구간이 바뀌는 연속 촬영용, 2026-10-19 추가).
+    public System.Func<Bounds> BoundsProvider { get; set; }
 
     public bool Finished { get; private set; }   // 연속 촬영이 끝났는지 여부(외부 조회용)
     public int FramesWritten => frameIndex;      // 저장한 프레임 수(외부 조회용)
@@ -59,6 +62,7 @@ public class TeaserCapture : MonoBehaviour
         Camera cam = Camera.main;
         if (cam == null) return false;
         EnsureBuffers(width, height);
+        if (BoundsProvider != null) ClampBounds = BoundsProvider();
 
         RenderTexture previousTarget = cam.targetTexture;
         float previousSize = cam.orthographicSize;

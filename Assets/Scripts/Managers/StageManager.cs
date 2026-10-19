@@ -16,6 +16,12 @@ public class StageManager : MonoBehaviour
     [SerializeField] private PlayerCameraFollow cameraFollow;                          // 카메라 활성 구간 전환용
     [SerializeField] private CameraBoundsZone[] zoneCameraBounds = new CameraBoundsZone[5]; // 1~5영역 각각의 카메라 구간, zoneStartPoints와 1:1 대응
 
+    // 일시정지 메뉴의 "영역 다시 하기"용: 씬을 다시 불러온 뒤 이 (스테이지, 영역)에서 시작하도록 예약한다. 한 번 쓰면 비워진다(static이라 씬 재로드 후에도 유지).
+    private static int pendingStage;
+    private static int pendingArea;
+
+    public int StageIndex => stageIndex;
+
     // 현재 진행 중인 영역(1~5). 골인 지점(ZoneEndPoint)에 도달할 때마다 갱신된다(MapEdit.md 규칙 4).
     public int CurrentArea { get; private set; } = 1;
 
@@ -100,6 +106,10 @@ public class StageManager : MonoBehaviour
     // 지점이 유효하게 지정되어 있으면 그 영역에서, 아니면 평소처럼 1영역에서 시작한다.
     private int ResolveStartArea()
     {
+        int reservedStage = pendingStage, reservedArea = pendingArea;
+        pendingStage = pendingArea = 0;
+        if (reservedStage == stageIndex && reservedArea >= 1 && reservedArea <= zoneStartPoints.Length) return reservedArea;
+
         if (WarpManager.Instance != null &&
             WarpManager.Instance.TryGetTestZone(out int stage, out int zone) &&
             stage == stageIndex && zone >= 1 && zone <= zoneStartPoints.Length)
@@ -108,6 +118,15 @@ public class StageManager : MonoBehaviour
         }
 
         return 1;
+    }
+
+    // 현재 영역을 처음부터 다시 한다: 씬을 다시 불러오고(몬스터/아이템/보스 초기화, 플레이어 상태는 새로 시작) 같은 영역의 시작 지점(★)에서 시작한다.
+    public void RestartCurrentArea()
+    {
+        pendingStage = stageIndex;
+        pendingArea = CurrentArea;
+        Time.timeScale = 1f;
+        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
     // 영역의 골인 지점(○)에 도달했을 때 ZoneEndPoint가 호출 - 다음 영역으로 진행 상태를 갱신하고
@@ -148,14 +167,15 @@ public class StageManager : MonoBehaviour
     }
 
     // 5영역 종료점(BossZoneEndPoint, 보스 처치 후에만 활성화됨)에 플레이어가 도달했을 때 호출된다.
-    // MapEdit.md 규칙 9, 10: 클리어 화면(또는 5-5의 경우 엔딩 화면)을 먼저 보여준 뒤 다음 단계로 진행한다.
+    // MapEdit.md 규칙 9, 10: 클리어 화면(5-5의 경우 게임 클리어 화면 후 엔딩 씬)을 먼저 보여준 뒤 다음 단계로 진행한다.
     public void OnZone5EndPointReached()
     {
         bool isFinalStage = stageIndex >= 5;
 
         if (isFinalStage)
         {
-            EndingManager.Instance.TriggerEnding();
+            // 5-5: 게임 클리어 화면(GAME CLEAR) → 엔터 → 엔딩 씬(Ending). 엔딩 전환은 GameClearManager 가 EndingManager 를 호출해 진행한다.
+            GameClearManager.Instance.TriggerGameClear();
             return;
         }
 

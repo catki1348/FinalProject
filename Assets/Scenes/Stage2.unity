@@ -8869,6 +8869,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 200606949168558121, guid: 904975dfa34ac4c458980a27857f3801, type: 3}
   m_PrefabInstance: {fileID: 925226042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &929352637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929352638}
+  - component: {fileID: 929352639}
+  m_Layer: 0
+  m_Name: BossRewardDropper_2-5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &929352638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929352637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.024993896, y: 0.9000015, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1620931581}
+  m_Father: {fileID: 1099892591}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929352639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929352637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3073021db230e784993b3499dacb6cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossRewardDropper
+  rewardPrefab: {fileID: 8976762395399524348, guid: 4d1cb174c24a7674f90438b340a99e8e, type: 3}
+  dropPoint: {fileID: 1620931581}
 --- !u!1001 &935912855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10957,6 +11004,7 @@ Transform:
   - {fileID: 1637525584}
   - {fileID: 970285274}
   - {fileID: 935912856}
+  - {fileID: 929352638}
   m_Father: {fileID: 1884630130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1099892592
@@ -12052,6 +12100,10 @@ PrefabInstance:
     - target: {fileID: 9186236115439361024, guid: e65bb5722fdc8154b8947777cca9e455, type: 3}
       propertyPath: m_Name
       value: BossZoneEndPoint_2-5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186236115439361024, guid: e65bb5722fdc8154b8947777cca9e455, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14958,6 +15010,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6821931941742386976, guid: c66f9f6f5c4a7fc46a41ba224982f23b, type: 3}
   m_PrefabInstance: {fileID: 1617642208}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1620931580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620931581}
+  m_Layer: 0
+  m_Name: DropPoint_2-5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620931581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620931580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 929352638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1622104563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2709369895995715926, guid: 7fc425f644951414eb362eac3f89ee4a, type: 3}

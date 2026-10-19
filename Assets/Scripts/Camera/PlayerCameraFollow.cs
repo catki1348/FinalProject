@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 // 플레이어를 연속으로 추적하되, 현재 활성 구간(CameraBoundsZone) 범위를 벗어나지 않도록 클램프하는 카메라 컨트롤러.
@@ -12,6 +13,31 @@ public class PlayerCameraFollow : MonoBehaviour
     [SerializeField] private CameraBoundsZone activeZone;
 
     private Camera cam;
+
+    // 플레이어가 들어가 있는 확대 구역(CameraZoomVolume). 구간 기본 크기보다 큰 값이 있으면 그 중 최댓값으로 확대한다.
+    private readonly List<CameraZoomVolume> zoomVolumes = new List<CameraZoomVolume>();
+
+    public void AddZoomVolume(CameraZoomVolume volume)
+    {
+        if (volume != null && !zoomVolumes.Contains(volume)) zoomVolumes.Add(volume);
+    }
+
+    public void RemoveZoomVolume(CameraZoomVolume volume)
+    {
+        zoomVolumes.Remove(volume);
+    }
+
+    // 현재 목표 크기: 구간 기본 크기와 플레이어가 들어간 확대 구역 중 가장 큰 값
+    private float TargetOrthographicSize()
+    {
+        float size = activeZone.OrthographicSize;
+        for (int i = zoomVolumes.Count - 1; i >= 0; i--)
+        {
+            if (zoomVolumes[i] == null) { zoomVolumes.RemoveAt(i); continue; }
+            size = Mathf.Max(size, zoomVolumes[i].OrthographicSize);
+        }
+        return size;
+    }
 
     // Background managers read the camera's actual selected zone, including teleports and backtracking.
     public CameraBoundsZone ActiveZone => activeZone;
@@ -78,7 +104,7 @@ public class PlayerCameraFollow : MonoBehaviour
         if (activeZone != null)
         {
             float zoomT = 1f - Mathf.Exp(-zoomLerpSpeed * elapsed);
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, activeZone.OrthographicSize, zoomT);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, TargetOrthographicSize(), zoomT);
         }
 
         float followT = 1f - Mathf.Exp(-followLerpSpeed * elapsed);

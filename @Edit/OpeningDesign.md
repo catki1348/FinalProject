@@ -250,3 +250,9 @@
 - **MainMenu 오프닝 상태를 원본 Opening 씬과 정확히 일치시킴 (사용자 지시)**: 두 씬의 모든 오브젝트(위치·앵커·피벗·크기·배율·스프라이트·색·글자 내용/크기/외곽선/굵기/폰트)를 덤프해 비교한 결과 **캔버스 배율 방식만 달랐음** — 원본 Opening `matchWidthOrHeight = 0.5`, MainMenu는 `1`(세로 기준). 16:9에서는 같지만 다른 화면 비율(예: 이 PC의 게임 뷰 약 2.8:1)에서 오프닝의 크기·위치가 원본과 달라 보였음.
   - 수정: `ApplyOpeningBackgroundToMainMenu.cs`의 `BuildTitleSequence`가 캔버스를 기준 1920x1080·`matchWidthOrHeight 0.5`로 설정(원본과 동일). 메뉴 버튼은 16:9 에서는 변화 없음(다른 비율에서는 배율이 이전과 달라질 수 있음).
   - 검증: 같은 게임 뷰(1102x398)에서 MainMenu 오프닝 상태와 원본 Opening 씬을 각각 캡처(PRESS START 깜빡임은 알파 1로 고정)해 픽셀 비교 → 전체 438,596픽셀 중 차이 1,102개(맨 윗 한 줄, 캡처 가장자리)뿐이고 나머지는 완전 일치(미세 차이 0). 캡처 삭제.
+- **메인 메뉴 EXIT(게임 종료) 버튼 추가 (사용자 지시, 2026-10-19)**: CREDITS 아래에 EXIT 버튼.
+  - 글자: `@Edit/Ending/build_menu_word_exit.py`(Blender, 기존 Menu_Start/Options/Credits와 같은 금색 3D 스타일·설정) → `Assets/Sprites/Opening/Menu_Exit.png`(438x139).
+  - 구현: `@Scripts/Editor/AddExitButtonToMainMenu.cs`(메뉴 Tools/Add Exit Button To MainMenu) — `CreditsButton`을 복제해(판·선택 오라·라벨 구조 포함) `ExitButton`으로 이름 변경, 글자 이미지를 Menu_Exit로 교체, `MainMenuManager.exitButton`에 연결. 이미 있으면 새로 만들지 않고 연결만 확인(여러 번 실행해도 안전).
+  - 동작: `MainMenuManager.OnClickExit()` — 빌드에서는 `Application.Quit()`, 에디터에서는 플레이 모드 종료(`EditorApplication.isPlaying = false`). `exitButton` 이 비어 있어도 오류 없음.
+  - 배치: 버튼이 4개로 늘어 `MenuLayout`(세로 가운데 정렬)이 위로 밀리므로 위치(y) -36.9 → -35.9로 보정. 처음엔 -55.9(+19 보정)로 두었으나 EXIT가 화면 아래 끝에 너무 붙어 20만큼 올림.
+  - 검증(에디터): 플레이 캡처로 START/OPTIONS/CREDITS/EXIT 4개 버튼 표시 확인, EXIT 클릭 호출 → 플레이 모드 종료 확인. 선택 오라(START)와 3D 글자·타이틀 톤 판 그대로. 키보드 위/아래 이동으로 EXIT 선택과 오라 표시, 실제 빌드에서의 종료는 직접 확인하지 못함.

@@ -365,6 +365,7 @@ public class MovingPlatform : PlatformBehaviour
     // 판정해 그 순간의 진짜 탑승자를 다시 계산한다. next를 직접 쓰는 이유는 rb.MovePosition() 호출
     // 직후에는 물리 스텝을 거치기 전이라 col.bounds가 아직 새 위치를 반영하지 못하기 때문이다.
     private static readonly Collider2D[] overlapBuffer = new Collider2D[8];
+    private static readonly ContactFilter2D overlapFilter = new ContactFilter2D { useTriggers = true, useLayerMask = false };
     private readonly HashSet<Rigidbody2D> stillOnTopBuffer = new HashSet<Rigidbody2D>();
     private readonly List<Rigidbody2D> leavingBuffer = new List<Rigidbody2D>();
 
@@ -379,7 +380,7 @@ public class MovingPlatform : PlatformBehaviour
         Vector2 boxCenter = platformPosition + new Vector2(col.offset.x, (bandBottom + bandTop) * 0.5f);
         Vector2 boxSize = new Vector2(col.size.x, bandTop - bandBottom);
 
-        int count = Physics2D.OverlapBoxNonAlloc(boxCenter, boxSize, 0f, overlapBuffer);
+        int count = Physics2D.OverlapBox(boxCenter, boxSize, 0f, overlapFilter, overlapBuffer);
 
         stillOnTopBuffer.Clear();
         for (int i = 0; i < count; i++)

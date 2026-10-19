@@ -7,7 +7,7 @@
 
 - [BossDesign_Stage5_TwinBladeDemonOverlord.md](BossDesign_Stage5_TwinBladeDemonOverlord.md) — 설계 v3: 공격 동작 5가지(일공1~3 단독 / 일공n+특공4+5 연계, 특공 각 40), 애니메이션 `Stage5_Attacks_v2/`(GIF 6패턴), Unity 임시 테스트 씬 Test000(컨셉 테스트, 본 게임 미적용)
 - [CameraDesign_FollowCamera.md](CameraDesign_FollowCamera.md) — 원래 위치: 프로젝트 루트
-- [BossRewardItemDesign.md](BossRewardItemDesign.md) — 신규 작성 (보스 처치 보상 아이템: 보스존 중앙 드랍, 체력 전체 회복 + 종료점 역할, 스크립트 작성 완료 / Unity 미적용)
+- [BossRewardItemDesign.md](BossRewardItemDesign.md) — 신규 작성 (보스 처치 보상 아이템: 보스존 중앙 드랍, 체력 전체 회복 + 종료점 역할, Unity 적용 완료 2026-10-19: 프리팹·Stage1~5 배치, 실제 스테이지 플레이 검증은 미실시)
 - [ItemDropDesign.md](ItemDropDesign.md) — 신규 작성 (몬스터 드랍 아이템 설계, 등급별 드랍 테이블·수명·파밍 방지, 설계만 / 승인 대기)
 - [LHS_Custumer.md](LHS_Custumer.md) — 원래 위치: 프로젝트 루트
 - [MapDesign_Stage1-2.md](MapDesign_Stage1-2.md) — 원래 위치: 프로젝트 루트
@@ -31,6 +31,8 @@
 - [TEST_PROTOCOL.md](TEST_PROTOCOL.md) — 원래 위치: `Assets/@Test/TEST_PROTOCOL.md` (Unity 에셋에서 제외, `.meta` 삭제됨)
 - [TrapDesign_SwitchZoneMonster.md](TrapDesign_SwitchZoneMonster.md) — 신규 작성 (스위치/텔레포트 구현, 13항)
 - [TrapDesign_MonsterSpawn.md](TrapDesign_MonsterSpawn.md) — 신규 작성 (반복 스폰 함정 MonsterSpawnTrigger, 스크립트 구현 완료 / 프리팹·씬 배치 미진행)
+- [EndingDesign.md](EndingDesign.md) — 신규 작성 (5-5 클리어 → 게임 클리어 화면 → 엔딩 씬 → 메인 메뉴, 스크립트·씬·이미지 구현 완료 / Unity 에디터 실행 검증 미완료)
+- [TutorialDesign.md](TutorialDesign.md) — 신규 작성 (메인 메뉴 TUTORIAL 버튼 + 튜토리얼 씬: 이동/점프/대시/공격/방어, 구현·에디터 검증 완료, 실제 키 입력만 미확인)
 - [TrapDesign_SwitchIntegration.md](TrapDesign_SwitchIntegration.md) — 신규 작성 (스위치 발판 매립 융화 + 작동 애니메이션, 설계만 / 승인 대기)
 - [TrapDesign_SwitchTeleport.md](TrapDesign_SwitchTeleport.md) — 신규 작성 (스위치 연동 텔레포트, 설계만 / 승인 대기)
 - [UIDesign_HUD_Health.md](UIDesign_HUD_Health.md) — 원래 위치: 프로젝트 루트

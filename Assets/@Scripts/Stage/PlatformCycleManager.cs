@@ -89,10 +89,19 @@ public sealed class PlatformCycleManager : MonoBehaviour
     // Order matters inside one frame: switch damage OFF before a blink platform disappears, switch damage ON only after blinks are solid.
     private static void Apply(Clock c, bool damageActive, bool damageWarning, bool blinkVisible, bool blinkWarning)
     {
-        if (!damageActive) for (int i = 0; i < c.damages.Length; i++) c.damages[i].SetExternalState(false, damageWarning);
-        for (int i = 0; i < c.blinks.Length; i++) c.blinks[i].SetExternalState(blinkVisible, blinkWarning);
-        if (damageActive) for (int i = 0; i < c.damages.Length; i++) c.damages[i].SetExternalState(true, false);
+        // A destroyed or unresolved platform reference is skipped (and reported once) instead of breaking the whole clock.
+        if (!damageActive) for (int i = 0; i < c.damages.Length; i++) { if (c.damages[i] != null) c.damages[i].SetExternalState(false, damageWarning); else WarnMissing("damages", i); }
+        for (int i = 0; i < c.blinks.Length; i++) { if (c.blinks[i] != null) c.blinks[i].SetExternalState(blinkVisible, blinkWarning); else WarnMissing("blinks", i); }
+        if (damageActive) for (int i = 0; i < c.damages.Length; i++) { if (c.damages[i] != null) c.damages[i].SetExternalState(true, false); else WarnMissing("damages", i); }
         c.damageOn = damageActive;
+    }
+
+    private static bool missingReported;
+    private static void WarnMissing(string list, int index)
+    {
+        if (missingReported) return;
+        missingReported = true;
+        Debug.LogWarning("PlatformCycleManager: clock list '" + list + "' has an empty entry at index " + index + " (platform destroyed or reference lost). Re-run Tools/Deploy/Stage 5-1 Five Segments if this persists.");
     }
 
     private static void Reset(Clock c)
